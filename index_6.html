@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Reposition Playbook — Banana Slug Getaways</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --teal:#34A295; --green:#2A463F; --cream:#FBF6EC; --orange:#F0701A; --gold:#F9B233; --line:#dfe5e1; }
+  *{box-sizing:border-box;}
+  body{ font-family:'Nunito Sans',sans-serif; color:var(--green); background:var(--cream); margin:0; }
+  .wrap{ max-width:1040px; margin:0 auto; padding:0 0 26px; }
+  .hero{ background:var(--green); color:#fff; padding:26px 30px 22px; border-radius:0 0 14px 14px; }
+  .hero .eyebrow{ font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:0 0 8px; }
+  .hero h1{ font-family:'Fraunces',serif; font-size:36px; font-weight:900; line-height:1.05; margin:0; }
+  .hero .tag{ font-size:14px; color:#cdd8d3; margin:8px 0 14px; }
+  .pills{ display:flex; flex-wrap:wrap; gap:8px; }
+  .pill{ font-size:11.5px; font-weight:700; color:#eafaf6; border:1.5px solid var(--teal); background:rgba(52,162,149,.16); border-radius:99px; padding:6px 13px; }
+  .pill.gold{ border-color:var(--gold); background:rgba(249,178,51,.16); color:#fdf0d2; }
+  .body{ padding:18px 30px 0; }
+  .tabbar{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:16px; }
+  @media(max-width:640px){ .tabbar{ grid-template-columns:repeat(2,1fr);} .hero h1{font-size:27px;} }
+  .tab{ text-align:left; background:#fff; border:1px solid var(--line); border-left:5px solid var(--line); border-radius:8px; padding:11px 13px; font-family:'Nunito Sans',sans-serif; font-size:15.5px; font-weight:800; letter-spacing:.2px; color:var(--green); cursor:pointer; transition:.12s; }
+  .tab:hover{ border-left-color:var(--teal); }
+  .tab.active{ background:var(--green); color:var(--cream); border-left-color:var(--gold); }
+  .tab.soon{ opacity:.74; }
+  .tab .n{ display:inline-flex; align-items:center; justify-content:center; width:19px; height:19px; border-radius:50%; background:var(--teal); margin-right:8px; vertical-align:middle; }
+  .tab.active .n{ background:var(--gold); color:var(--green); }
+  main{ background:#fff; border:1px solid var(--line); border-top:4px solid var(--teal); border-radius:10px; padding:14px; min-height:380px; }
+  .panel{ display:none; } .panel.show{ display:block; }
+  .rpt{ width:100%; border:none; display:block; min-height:640px; border-radius:8px; background:#fff; }
+  .qwrap{ padding:16px 18px 30px; }
+  .qlabel{ font-size:12px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--orange); }
+  .q{ font-family:'Fraunces',serif; font-size:23px; color:var(--green); margin:6px 0 16px; line-height:1.25; }
+  .answerbox{ background:repeating-linear-gradient(180deg,#fff,#fff 31px,#f2f6f5 31px,#f2f6f5 32px); border:2px dashed var(--teal); border-radius:12px; min-height:230px; padding:16px 18px; color:#9aa8a3; font-style:italic; }
+  .pager{ display:flex; justify-content:space-between; gap:10px; margin-top:14px; }
+  .pager button{ background:#fff; border:1px solid var(--line); border-radius:8px; padding:9px 15px; font-family:'Nunito Sans'; font-weight:800; font-size:12.5px; color:var(--green); cursor:pointer; }
+  .pager button:hover:not([disabled]){ border-color:var(--teal); color:var(--teal); }
+  .pager button[disabled]{ opacity:.35; cursor:default; }
+  .foot{ font-size:12px; color:#5a6b65; text-align:center; padding:14px 30px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <p class="eyebrow">Banana Slug Getaways · For Elle</p>
+    <h1>The Reposition Playbook</h1>
+    <p class="tag">My buy-box answers, one tab at a time — sell 204 outright, 1031 exchange on 206.</p>
+    <div class="pills">
+      <span class="pill">204 closes Aug 7</span>
+      <span class="pill">206 closes Aug 14</span>
+      <span class="pill gold">In progress · Aug 2026</span>
+    </div>
+  </div>
+  <div class="body">
+    <div class="tabbar" id="tabbar">
+      <button class="tab active" data-i="0"><span class="n"></span>Financial Picture</button>
+      <button class="tab" data-i="1"><span class="n"></span>Identity</button>
+      <button class="tab" data-i="2"><span class="n"></span>Investment Goals</button>
+      <button class="tab" data-i="3"><span class="n"></span>Market Selection</button>
+      <button class="tab" data-i="4"><span class="n"></span>The Buy Box</button>
+      <button class="tab" data-i="5"><span class="n"></span>1031 Tracker</button>
+      <button class="tab" data-i="6"><span class="n"></span>Local Getaway Poll</button>
+      <button class="tab" data-i="7"><span class="n"></span>1031 Exchange Playbook</button>
+      <button class="tab" data-i="8"><span class="n"></span>What I've Learned</button>
+    </div>
+    <main id="main">
+      <div class="panel show" id="p0"><iframe class="rpt" title="The 1031 Money Map" srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+<meta charset=&quot;UTF-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+<title>The 1031 Money Map — Banana Slug Getaways</title>
+<link href=&quot;https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&amp;family=Nunito+Sans:wght@400;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
+<style>
+  :root{ --teal:#34A295; --green:#2A463F; --cream:#FBF6EC; --orange:#F0701A; --gold:#F9B233; --yellow:#FCD24E; --line:#dfe5e1; --gray:#C7CBCD; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Nunito Sans',sans-serif; color:var(--green); background:var(--gray); font-size:15px; line-height:1.55; }
+  .page{ max-width:900px; margin:24px auto; background:var(--cream); box-shadow:0 4px 24px rgba(42,70,63,.18); }
+  .hero{ background:var(--green); color:#fff; padding:28px 40px 24px; }
+  .hero .eyebrow{ font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:0 0 8px; }
+  .hero h1{ font-family:'Fraunces',serif; font-size:36px; font-weight:900; line-height:1.05; margin:0; color:#fff; }
+  .hero .tag{ font-size:14px; color:#cdd8d3; margin:8px 0 0; }
+  .inner{ padding:22px 40px 34px; }
+
+  /* Closing info at top */
+  .closing{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:0 0 22px; }
+  .cbox{ border-radius:12px; padding:15px 18px; color:#fff; }
+  .cbox.a{ background:var(--orange); }
+  .cbox.b{ background:var(--teal); }
+  .cbox .k{ font-size:11px; text-transform:uppercase; letter-spacing:1.4px; font-weight:800; opacity:.92; }
+  .cbox .d{ font-family:'Fraunces',serif; font-size:23px; font-weight:900; margin:3px 0 2px; }
+  .cbox .s{ font-size:12.5px; opacity:.95; }
+
+  h2{ font-family:'Fraunces',serif; font-size:21px; color:var(--cream); background:var(--teal); border-radius:10px; padding:11px 17px; margin:22px 0 14px; }
+  .lead{ background:rgba(52,162,149,.10); border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:12px 16px; margin:0 0 16px; font-size:15px; }
+
+  table{ width:100%; border-collapse:collapse; margin:6px 0 14px; font-size:14px; }
+  th{ background:var(--green); color:var(--cream); text-align:left; padding:9px 12px; font-size:11.5px; text-transform:uppercase; letter-spacing:.4px; }
+  td{ padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tr:nth-child(even) td{ background:#f7faf9; }
+  td.dim{ font-weight:800; color:var(--teal); }
+  .keep{ color:#1f7d70; font-weight:900; }
+  .big td{ font-weight:900; font-size:15px; }
+
+  .tiles{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:6px 0 14px; }
+  .tile{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:13px 12px; text-align:center; }
+  .tile .l{ font-size:10px; text-transform:uppercase; letter-spacing:.5px; color:var(--teal); font-weight:800; }
+  .tile .v{ font-family:'Fraunces',serif; font-size:22px; font-weight:900; color:var(--orange); line-height:1; margin:5px 0 3px; }
+  .tile .n{ font-size:11px; color:#5a6b65; }
+  .tile.book{ background:#fdf3d6; border-color:var(--gold); }
+  .tile.book .v{ color:#8a5a0f; font-size:15px; }
+
+  .callout{ border-left:5px solid var(--orange); background:rgba(252,210,78,.20); padding:13px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:14px; }
+  .callout strong{ color:var(--orange); }
+  .foot{ margin-top:20px; padding-top:12px; border-top:1px solid var(--line); font-size:11.5px; color:#6b7d77; }
+  details.drop{ margin:22px 0 0; }
+  summary.dsum{ font-family:'Fraunces',serif; font-size:21px; color:var(--cream); background:var(--teal); border-radius:10px; padding:11px 17px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; box-shadow:0 1px 3px rgba(42,70,63,.10); }
+  summary.dsum::-webkit-details-marker{ display:none; }
+  summary.dsum .chev{ transition:transform .2s; font-size:15px; opacity:.9; }
+  details.drop[open] summary.dsum .chev{ transform:rotate(180deg); }
+  summary.dsum .hint{ font-size:11px; font-weight:400; opacity:.85; margin-left:auto; margin-right:10px; text-transform:none; letter-spacing:0; }
+</style>
+</head>
+<body>
+<div class=&quot;page&quot;>
+
+  <div class=&quot;hero&quot;>
+    <p class=&quot;eyebrow&quot;>Banana Slug Getaways · Financial Picture</p>
+    <h1>The 1031 Money Map</h1>
+    <p class=&quot;tag&quot;>From the two closings to the next property — the cash, the cushion, and the buy box.</p>
+  </div>
+
+  <div class=&quot;inner&quot;>
+
+    <!-- CLOSING INFO AT TOP -->
+    <div class=&quot;closing&quot;>
+      <div class=&quot;cbox a&quot;>
+        <div class=&quot;k&quot;>204 · Seabean</div>
+        <div class=&quot;d&quot;>Closes Aug 7, 2026</div>
+        <div class=&quot;s&quot;>Sold outright (taxable) — not in the exchange</div>
+      </div>
+      <div class=&quot;cbox b&quot;>
+        <div class=&quot;k&quot;>206 · Beach Cruiser</div>
+        <div class=&quot;d&quot;>Closes Aug 14, 2026</div>
+        <div class=&quot;s&quot;>The 1031 exchange property — clock starts here</div>
+      </div>
+    </div>
+
+    <h2>The Bottom Line, Per Condo</h2>
+    <table>
+      <tr><th>Line</th><th>204 — Seabean</th><th>206 — Beach Cruiser</th></tr>
+      <tr><td class=&quot;dim&quot;>Sale price</td><td>$229,000</td><td>$231,000</td></tr>
+      <tr><td class=&quot;dim&quot;>Less payoff + closing costs</td><td>−$134,584</td><td>−$134,186</td></tr>
+      <tr class=&quot;big&quot;><td>Net cash at closing</td><td>$94,415.68</td><td>$96,814.22 <span style=&quot;color:#5a6b65;font-weight:600;&quot;>(+$1,177 refund)</span></td></tr>
+      <tr><td class=&quot;dim&quot;>Less tax reserve → securities</td><td>$20,500</td><td>$0 (deferred)</td></tr>
+      <tr class=&quot;big&quot;><td>What we keep</td><td class=&quot;keep&quot;>~$73,916 to deploy</td><td class=&quot;keep&quot;>$96,814 buying power</td></tr>
+    </table>
+
+    <div class=&quot;callout&quot;><strong>How the money works:</strong> 206's full equity rolls into the 1031 replacement — tax-deferred, reinvested in full. 204's cash (after tax) is put to work as below.</div>
+    <table style=&quot;max-width:480px;&quot;>
+      <tr><th>204 cash — where it goes</th><th>Amount</th></tr>
+      <tr><td class=&quot;dim&quot;>204 net deposit (received Aug 7)</td><td>$94,415.68</td></tr>
+      <tr><td class=&quot;dim&quot;>Tax reserve → securities (Payton confirmed)</td><td>−$20,500</td></tr>
+      <tr><td class=&quot;dim&quot;>Credit-card payoff — <b>PAID Aug 10</b> ✓</td><td>−$21,621.30</td></tr>
+      <tr><td class=&quot;dim&quot;>Missouri set-aside — winter carry $6,247 + design refresh $3,753</td><td>−$10,000</td></tr>
+      <tr><td class=&quot;dim&quot;>New-property renovations — <b>firm $40K floor</b></td><td>−$40,000</td></tr>
+      <tr class=&quot;big&quot;><td>ICYFU bucket — catches all unused funds → JN Securities checking</td><td class=&quot;keep&quot;>~$2,294 to start</td></tr>
+    </table>
+
+    <details class=&quot;drop&quot;>
+      <summary class=&quot;dsum&quot;>Missouri Set-Aside — $10,000 <span class=&quot;hint&quot;>tap to see the breakdown</span><span class=&quot;chev&quot;>▾</span></summary>
+    <table style=&quot;max-width:540px;margin-top:12px;&quot;>
+      <tr><th>Winter carry (Nov–Mar, ~5 months — worst case, no bookings)</th><th>Amount</th></tr>
+      <tr><td class=&quot;dim&quot;>Monthly MO overhead — FCS $633.37 + insurance $146.87 + electric $29.40</td><td>$809.64/mo</td></tr>
+      <tr><td class=&quot;dim&quot;>Overhead × 5 winter months (Nov–Mar)</td><td>$4,048</td></tr>
+      <tr><td class=&quot;dim&quot;>MO property taxes — Cabin + Dome (due Dec 31)</td><td>$2,199</td></tr>
+      <tr><td class=&quot;dim&quot;><b>Winter carry subtotal — overhead fully covered</b></td><td><b>$6,247</b></td></tr>
+      <tr><td class=&quot;dim&quot;>Design refresh — both units (cabin + dome)</td><td>$3,753</td></tr>
+      <tr class=&quot;big&quot;><td>Missouri set-aside total</td><td class=&quot;keep&quot;>$10,000</td></tr>
+    </table>
+    <p style=&quot;font-size:12px;color:#5a6b65;&quot;><b>Overhead itemized (× 5 months):</b> FCS land loan $3,166.85 + insurance $734.35 + electric $147.00 = $4,048.</p>
+    <p style=&quot;font-size:12px;color:#5a6b65;&quot;>Worst case: assumes the units sit empty all winter — so no heat cost (heat only runs for guests). The Dome usually books through the season, so the real need is likely lower.</p>
+    </details>
+
+    <h2>The 204 Tax — Confirmed by Payton (Aug 11, 2026)</h2>
+    <p style=&quot;font-size:12.5px;color:#5a6b65;margin:-8px 0 12px;&quot;><b>Payton Gillis, CPA</b> (Tax Game Plan Firm) reviewed our four questions and the numbers. His verdict: <i>&quot;Overall, numbers and projections you have here look solid.&quot;</i> Here's where they landed.</p>
+    <table>
+      <tr><th>How the gain is taxed</th><th>Amount</th><th>Rate</th><th>Est. tax</th></tr>
+      <tr><td class=&quot;dim&quot;>Depreciation recapture</td><td>$49,166</td><td>24% (lesser of my ordinary rate or 25%)</td><td>~$11,760</td></tr>
+      <tr><td class=&quot;dim&quot;>Long-term capital gain</td><td>~$46,800</td><td>15%</td><td>~$6,940</td></tr>
+      <tr><td class=&quot;dim&quot;>Arizona LTCG tax</td><td>on the gain</td><td>1.875%</td><td>$1,800</td></tr>
+      <tr><td class=&quot;dim&quot;>NIIT (3.8%)</td><td>exempt via REPS</td><td>—</td><td class=&quot;keep&quot;>$0</td></tr>
+      <tr class=&quot;big&quot;><td>Confirmed estimated total</td><td></td><td></td><td>~$20,500</td></tr>
+    </table>
+    <div class=&quot;callout&quot;><strong>The good news from Payton:</strong> <b>NIIT is $0</b> — REPS takes this sale out of the 3.8% net investment income tax entirely. That was our one open question, and it landed in our favor. Two upside notes: the depreciation-recapture tax could drop to <b>~$10,780</b> if the new property's cost segregation pulls my 2026 taxable income into the 22% bracket (a ~$1,000 saving), and the Arizona piece is a lean <b>1.875%</b> — AZ taxes worldwide income but gives a long-term-gain break, and since Florida has no state income tax there's simply nothing to offset, so it's a small, clean number.
+      <div style=&quot;margin-top:9px;font-size:12px;color:#5a6b65;line-height:1.5;&quot;>
+        <b>NIIT — Net Investment Income Tax:</b> a 3.8% federal tax on investment income for higher-income taxpayers. <b>REPS — Real Estate Professional Status:</b> qualifying makes my rental activity non-passive, which is what lifts this sale out of NIIT.
+      </div>
+    </div>
+    <div style=&quot;background:rgba(52,162,149,.10);border-left:4px solid var(--teal);border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0 0;font-size:13px;&quot;>
+      <b>How I'm parking it:</b> Payton's confirmed tax is <b>~$20,500</b>, so that exact amount goes to securities as the tax reserve — no padding. Renovations is locked at a firm <b>$40,000</b>. The <b>ICYFU bucket</b> in JN Securities checking is my catch-all cushion: it starts at the <b>~$2,294</b> left over today, and it grows any time a bucket comes in under. If a mild winter means Missouri doesn't need the full $10,000, that unused money sweeps back into ICYFU rather than drifting off — every dollar stays accounted for against the $94,415.68 that came in.
+    </div>
+
+    <div class=&quot;foot&quot;>Net-cash figures are exact from the signed SETCO ALTA settlement statements (Files PCB-26-7269 &amp;amp; PCB-26-7281). Tax figures confirmed by Payton Gillis, CPA (email Aug 11, 2026), pending final closing-cost verification against the ALTA. Business planning summary — not tax or legal advice. Banana Slug Getaways.</div>
+
+  </div>
+</div>
+</body>
+</html>
+"></iframe></div>
+      <div class="panel" id="p1"><iframe class="rpt" title="Identity" srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+<meta charset=&quot;UTF-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+<title>Identity — Banana Slug Getaways</title>
+<link href=&quot;https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&amp;family=Nunito+Sans:wght@400;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
+<style>
+  :root{ --teal:#34A295; --green:#2A463F; --cream:#FBF6EC; --orange:#F0701A; --gold:#F9B233; --yellow:#FCD24E; --line:#dfe5e1; --gray:#C7CBCD; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Nunito Sans',sans-serif; color:var(--green); background:var(--gray); font-size:15px; line-height:1.55; }
+  .page{ max-width:900px; margin:24px auto; background:var(--cream); box-shadow:0 4px 24px rgba(42,70,63,.18); }
+  .hero{ background:var(--green); color:#fff; padding:26px 40px 22px; }
+  .hero .eyebrow{ font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:0 0 8px; }
+  .hero .q{ font-family:'Fraunces',serif; font-size:20px; font-weight:600; line-height:1.25; margin:0; color:#eef2f0; font-style:italic; }
+  .inner{ padding:0 40px 34px; }
+
+  /* The word */
+  .word{ text-align:center; padding:34px 20px 26px; }
+  .word .kick{ font-size:12px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--teal); margin:0 0 10px; }
+  .word .big{ font-family:'Fraunces',serif; font-weight:900; font-size:clamp(58px,12vw,104px); line-height:.92; letter-spacing:1px;
+              background:linear-gradient(120deg,var(--orange),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; margin:0; }
+  .word .sub{ font-family:'Fraunces',serif; font-size:22px; font-weight:600; color:var(--green); margin:12px 0 0; }
+  .word .rule{ width:70px; height:4px; background:var(--gold); border-radius:3px; margin:18px auto 0; }
+
+  h2{ font-family:'Fraunces',serif; font-size:19px; color:var(--cream); background:var(--teal); border-radius:10px; padding:10px 16px; margin:22px 0 16px; }
+
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .cell{ background:#fff; border:1px solid var(--line); border-left:4px solid var(--teal); border-radius:0 12px 12px 0; padding:13px 14px; display:flex; align-items:flex-start; gap:10px; }
+  .cell .mk{ flex:none; width:22px; height:22px; border-radius:50%; background:rgba(52,162,149,.15); color:var(--teal); font-weight:900; font-size:13px; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+  .cell .t{ font-weight:800; font-size:14px; color:var(--green); }
+  .cell .t span{ display:block; font-weight:600; font-size:12px; color:#6b7d77; margin-top:2px; }
+  .cell.pop{ border-left-color:var(--orange); }
+  .cell.pop .mk{ background:rgba(240,112,26,.15); color:var(--orange); }
+  .cell.wide{ grid-column:1 / -1; align-items:center; }
+  .cell.wide .t span{ display:inline; margin-left:8px; }
+
+  /* dream team feature */
+  .team{ grid-column:1 / -1; background:var(--green); border:none; border-radius:12px; padding:16px 18px; color:#eef2f0; display:block; }
+  .team .lead{ display:flex; align-items:center; gap:10px; margin:0 0 10px; }
+  .team .lead .mk{ background:var(--gold); color:var(--green); }
+  .team .lead .t{ font-family:'Fraunces',serif; font-size:17px; font-weight:900; color:#fff; }
+  .team .lead .t span{ display:block; font-family:'Nunito Sans'; font-weight:600; font-size:12px; color:#9fb3ac; margin-top:2px; }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chips .chip{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:20px; padding:6px 13px; font-size:12.5px; font-weight:700; color:#eef2f0; }
+  .chips .chip b{ color:var(--yellow); font-weight:800; }
+
+  .close{ text-align:center; font-family:'Fraunces',serif; font-style:italic; font-size:16px; color:var(--teal); margin:22px 0 4px; }
+  .foot{ margin-top:16px; padding-top:12px; border-top:1px solid var(--line); font-size:11.5px; color:#6b7d77; text-align:center; }
+</style>
+</head>
+<body>
+<div class=&quot;page&quot;>
+
+  <div class=&quot;hero&quot;>
+    <p class=&quot;eyebrow&quot;>Banana Slug Getaways · Elle asks — Identity</p>
+    <p class=&quot;q&quot;>&quot;Who do you want to become through this investment — not just financially, but personally?&quot;</p>
+  </div>
+
+  <div class=&quot;inner&quot;>
+
+    <div class=&quot;word&quot;>
+      <p class=&quot;kick&quot;>My answer — one word</p>
+      <p class=&quot;big&quot;>CONFIDENT</p>
+      <p class=&quot;sub&quot;>In all aspects of my business.</p>
+      <div class=&quot;rule&quot;></div>
+    </div>
+
+    <h2>Confidence in —</h2>
+    <div class=&quot;grid&quot;>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Working knowledge<span>abilities and limitations</span></div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Financial control<span>command and understanding of the numbers</span></div></div>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Cash flow<span>high return on investment</span></div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Pricing</div></div>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Direct marketing</div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Analyzing investments</div></div>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Decisions<span>quick deciding from knowledge and facts, not fog or frustration</span></div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Operations<span>clockworking &amp;middot; delegation &amp;middot; min effort resulting in max productivity</span></div></div>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Education<span>seeding money into the right people and training</span></div></div>
+      <div class=&quot;cell wide&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Deserved time off<span>guilt-free enjoyment</span></div></div>
+
+      <div class=&quot;team&quot;>
+        <div class=&quot;lead&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>The dream team I'm constructing<span>confidence in the people around the business</span></div></div>
+        <div class=&quot;chips&quot;>
+          <span class=&quot;chip&quot;>Mentors</span>
+          <span class=&quot;chip&quot;>Asset attorney</span>
+          <span class=&quot;chip&quot;>Maintenance &amp;amp; cleaners</span>
+          <span class=&quot;chip&quot;>CPA</span>
+          <span class=&quot;chip&quot;>Bookkeeper</span>
+        </div>
+      </div>
+    </div>
+
+    <p class=&quot;close&quot;>One word. Every part of it.</p>
+
+    <div class=&quot;foot&quot;>Banana Slug Getaways · Nicole Ritch, Owner-Operator · Jeremy Ritch, Owner-Investor</div>
+
+  </div>
+</div>
+</body>
+</html>
+"></iframe></div>
+      <div class="panel" id="p2"><iframe class="rpt" title="Investment Goals" srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+<meta charset=&quot;UTF-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+<title>Investment Goals — Banana Slug Getaways</title>
+<link href=&quot;https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&amp;family=Nunito+Sans:wght@400;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
+<style>
+  :root{ --teal:#34A295; --green:#2A463F; --cream:#FBF6EC; --orange:#F0701A; --gold:#F9B233; --yellow:#FCD24E; --line:#dfe5e1; --gray:#C7CBCD; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Nunito Sans',sans-serif; color:var(--green); background:var(--gray); font-size:15px; line-height:1.55; }
+  .page{ max-width:900px; margin:24px auto; background:var(--cream); box-shadow:0 4px 24px rgba(42,70,63,.18); }
+  .hero{ background:var(--green); color:#fff; padding:26px 40px 22px; }
+  .hero .eyebrow{ font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:0 0 8px; }
+  .hero .q{ font-family:'Fraunces',serif; font-size:19px; font-weight:600; line-height:1.28; margin:0; color:#eef2f0; font-style:italic; }
+  .inner{ padding:0 40px 34px; }
+
+  .word{ text-align:center; padding:32px 20px 22px; }
+  .word .kick{ font-size:12px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--teal); margin:0 0 10px; }
+  .word .big{ font-family:'Fraunces',serif; font-weight:900; font-size:clamp(58px,12vw,104px); line-height:.92; letter-spacing:1px;
+              background:linear-gradient(120deg,var(--orange),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; margin:0; }
+  .word .sub{ font-family:'Fraunces',serif; font-size:22px; font-weight:600; color:var(--green); margin:12px 0 0; }
+  .word .rule{ width:70px; height:4px; background:var(--gold); border-radius:3px; margin:18px auto 0; }
+
+  h2{ font-family:'Fraunces',serif; font-size:19px; color:var(--cream); background:var(--teal); border-radius:10px; padding:10px 16px; margin:24px 0 14px; }
+
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .cell{ background:#fff; border:1px solid var(--line); border-left:4px solid var(--teal); border-radius:0 12px 12px 0; padding:14px 16px; display:flex; align-items:center; gap:11px; }
+  .cell .mk{ flex:none; width:24px; height:24px; border-radius:50%; background:rgba(52,162,149,.15); color:var(--teal); font-weight:900; font-size:14px; display:flex; align-items:center; justify-content:center; }
+  .cell .t{ font-weight:800; font-size:15px; color:var(--green); }
+  .cell.pop{ border-left-color:var(--orange); }
+  .cell.pop .mk{ background:rgba(240,112,26,.15); color:var(--orange); }
+
+  .steps{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+  .step{ background:#fff; border:1px solid var(--line); border-top:4px solid var(--gold); border-radius:0 0 12px 12px; padding:13px 15px; }
+  .step .w{ font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.6px; color:var(--orange); margin:0 0 5px; }
+  .step p{ font-size:13px; color:#3f504b; margin:0; }
+
+  .vision{ background:rgba(52,162,149,.10); border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:14px 17px; margin:0 0 14px; font-size:15px; }
+  .team{ background:var(--green); border-radius:12px; padding:16px 18px; color:#eef2f0; margin:0 0 14px; }
+  .team .lead{ font-family:'Fraunces',serif; font-size:17px; font-weight:900; color:#fff; margin:0 0 4px; }
+  .team .sub{ font-size:12px; color:#9fb3ac; margin:0 0 11px; }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chips .chip{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:20px; padding:7px 14px; font-size:12.5px; font-weight:700; color:#eef2f0; }
+
+  .outcome{ display:flex; flex-wrap:wrap; gap:10px; margin:2px 0 0; }
+  .outcome .o{ flex:1 1 30%; background:#fff; border:1px solid var(--line); border-radius:10px; padding:11px 14px; text-align:center; font-weight:800; font-size:13.5px; color:var(--green); }
+  .outcome .o span{ display:block; font-weight:600; font-size:11.5px; color:#6b7d77; margin-top:3px; }
+
+  .target{ background:linear-gradient(120deg,var(--orange),var(--gold)); border-radius:14px; padding:20px 24px; margin:22px 0 6px; text-align:center; color:#fff; }
+  .target .l{ font-size:12px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; opacity:.95; }
+  .target .v{ font-family:'Fraunces',serif; font-weight:900; font-size:clamp(34px,7vw,52px); line-height:1; margin:6px 0 4px; }
+  .target .n{ font-size:13px; font-weight:700; opacity:.97; }
+
+  .pledge{ margin:22px 0 4px; background:rgba(252,210,78,.18); border-left:5px solid var(--gold); border-radius:0 12px 12px 0; padding:20px 24px; text-align:center; }
+  .pledge p{ font-family:'Fraunces',serif; font-style:italic; font-weight:600; font-size:clamp(17px,2.6vw,21px); line-height:1.4; color:var(--green); margin:0; }
+  .pledge b{ font-style:normal; font-weight:900; color:var(--orange); }
+  .foot{ margin-top:18px; padding-top:12px; border-top:1px solid var(--line); font-size:11.5px; color:#6b7d77; text-align:center; }
+</style>
+</head>
+<body>
+<div class=&quot;page&quot;>
+
+  <div class=&quot;hero&quot;>
+    <p class=&quot;eyebrow&quot;>Banana Slug Getaways · Elle asks — Investment Goals</p>
+    <p class=&quot;q&quot;>&quot;What is your primary objective — cash flow, appreciation, tax benefits, or a mix? And five years from now, what do you want this investment to have accomplished?&quot;</p>
+  </div>
+
+  <div class=&quot;inner&quot;>
+
+    <div class=&quot;word&quot;>
+      <p class=&quot;kick&quot;>My primary objective — one word</p>
+      <p class=&quot;big&quot;>PROOF</p>
+      <p class=&quot;sub&quot;>Proof I can see and measure.</p>
+      <div class=&quot;rule&quot;></div>
+    </div>
+
+    <div class=&quot;pledge&quot;>
+      <p>&quot;I will be paid what I'm worth. I want the metrics of my dedication and work to show up <b>monetarily — in great numbers.</b> I have waited a long time for this.&quot;</p>
+    </div>
+
+
+    <h2>The proof shows up in —</h2>
+    <div class=&quot;grid2&quot;>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Significant monthly cash flow</div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>A quick rise in equity</div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Optimization procedures</div></div>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Guest experience</div></div>
+    </div>
+
+    <h2>The near-term play</h2>
+    <div class=&quot;steps&quot;>
+      <div class=&quot;step&quot;><div class=&quot;w&quot;>By end of 2026</div><p>Hit all four proof points on the replacement property.</p></div>
+      <div class=&quot;step&quot;><div class=&quot;w&quot;>Then — sell</div><p>Prove it out, then sell it having shown the numbers.</p></div>
+      <div class=&quot;step&quot;><div class=&quot;w&quot;>Within 2 yrs of purchase</div><p>Roll into a stronger property — trade up on what I've proven.</p></div>
+    </div>
+
+    <h2>Five years from now</h2>
+    <div class=&quot;vision&quot;>A <b>strong</b> portfolio — it doesn't have to be large — that's so <b>incredibly clockworked</b> I can keep running the business while I'm mostly <b>playing</b>. Delegated and dialed-in enough that the work happens without me chained to it.</div>
+
+    <div class=&quot;team&quot;>
+      <div class=&quot;lead&quot;>What &quot;playing&quot; looks like</div>
+      <div class=&quot;sub&quot;>the freedom this buys me</div>
+      <div class=&quot;chips&quot;>
+        <span class=&quot;chip&quot;>Book in hand, home — work stops by 2 PM</span>
+        <span class=&quot;chip&quot;>Traveling with friends, business still running</span>
+        <span class=&quot;chip&quot;>Vacationing with Jeremy — fully disconnected</span>
+      </div>
+    </div>
+
+    <div class=&quot;outcome&quot;>
+      <div class=&quot;o&quot;>Replaces Jeremy's W-2<span>in 5 years</span></div>
+      <div class=&quot;o&quot;>Funds our vacations<span>travel income</span></div>
+      <div class=&quot;o&quot;>Freedom + confidence<span>the whole point</span></div>
+    </div>
+
+    <div class=&quot;target&quot;>
+      <div class=&quot;l&quot;>The number · by May 31, 2028</div>
+      <div class=&quot;v&quot;>$350,000 net / year</div>
+      <div class=&quot;n&quot;>Methods wide open — I haven't boxed in how I get there.</div>
+    </div>
+
+    <div class=&quot;foot&quot;>Banana Slug Getaways · Nicole Ritch, Owner-Operator · Jeremy Ritch, Owner-Investor</div>
+
+  </div>
+</div>
+</body>
+</html>
+"></iframe></div>
+      <div class="panel" id="p3"><iframe class="rpt" title="Market Selection" srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+<meta charset=&quot;UTF-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+<title>Market Selection — Banana Slug Getaways</title>
+<link href=&quot;https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&amp;family=Nunito+Sans:wght@400;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
+<style>
+  :root{ --teal:#34A295; --green:#2A463F; --cream:#FBF6EC; --orange:#F0701A; --gold:#F9B233; --yellow:#FCD24E; --line:#dfe5e1; --gray:#C7CBCD; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Nunito Sans',sans-serif; color:var(--green); background:var(--gray); font-size:15px; line-height:1.55; }
+  .page{ max-width:900px; margin:24px auto; background:var(--cream); box-shadow:0 4px 24px rgba(42,70,63,.18); }
+  .hero{ background:var(--green); color:#fff; padding:26px 40px 22px; }
+  .hero .eyebrow{ font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:0 0 8px; }
+  .hero .q{ font-family:'Fraunces',serif; font-size:19px; font-weight:600; line-height:1.28; margin:0; color:#eef2f0; font-style:italic; }
+  .inner{ padding:0 40px 34px; }
+
+  .word{ text-align:center; padding:32px 20px 20px; }
+  .word .kick{ font-size:12px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--teal); margin:0 0 10px; }
+  .word .big{ font-family:'Fraunces',serif; font-weight:900; font-size:clamp(56px,12vw,100px); line-height:.92; letter-spacing:1px;
+              background:linear-gradient(120deg,var(--orange),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; margin:0; }
+  .word .sub{ font-family:'Fraunces',serif; font-size:22px; font-weight:600; color:var(--green); margin:12px 0 0; }
+  .word .rule{ width:70px; height:4px; background:var(--gold); border-radius:3px; margin:18px auto 0; }
+
+  h2{ font-family:'Fraunces',serif; font-size:19px; color:var(--cream); background:var(--teal); border-radius:10px; padding:10px 16px; margin:24px 0 14px; }
+
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .cell{ background:#fff; border:1px solid var(--line); border-left:4px solid var(--teal); border-radius:0 12px 12px 0; padding:14px 16px; display:flex; align-items:center; gap:11px; }
+  .cell .mk{ flex:none; width:24px; height:24px; border-radius:50%; background:rgba(52,162,149,.15); color:var(--teal); font-weight:900; font-size:14px; display:flex; align-items:center; justify-content:center; }
+  .cell .t{ font-weight:700; font-size:14.5px; color:var(--green); }
+  .cell.pop{ border-left-color:var(--orange); }
+  .cell.pop .mk{ background:rgba(240,112,26,.15); color:var(--orange); }
+
+  .pledge{ margin:0 0 4px; background:rgba(252,210,78,.18); border-left:5px solid var(--gold); border-radius:0 12px 12px 0; padding:18px 22px; text-align:center; }
+  .pledge p{ font-family:'Fraunces',serif; font-style:italic; font-weight:600; font-size:clamp(16px,2.4vw,20px); line-height:1.4; color:var(--green); margin:0; }
+  .pledge b{ font-style:normal; font-weight:900; color:var(--orange); }
+
+  .vision{ background:rgba(52,162,149,.10); border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:14px 17px; margin:0 0 6px; font-size:15px; }
+  .vision b{ color:var(--green); }
+
+  .team{ background:var(--green); border-radius:12px; padding:16px 18px; color:#eef2f0; margin:4px 0 6px; }
+  .team .lead{ font-family:'Fraunces',serif; font-size:17px; font-weight:900; color:#fff; margin:0 0 4px; }
+  .team .sub{ font-size:12.5px; color:#b7c7c1; margin:0 0 11px; }
+  .team .sub b{ color:var(--gold); }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chips .chip{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:20px; padding:7px 14px; font-size:12.5px; font-weight:700; color:#eef2f0; }
+
+  .setchips{ display:flex; flex-wrap:wrap; gap:9px; margin:12px 0 4px; }
+  .setchips .s{ background:#fff; border:1px solid var(--line); border-left:4px solid var(--teal); border-radius:0 20px 20px 0; padding:8px 15px; font-size:13.5px; font-weight:800; color:var(--green); }
+
+  .polltowns{ margin:14px 0 2px; }
+  .polltowns .plabel{ font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.8px; color:var(--orange); margin:0 0 11px; }
+  .towngrid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+  .tcard{ background:#fff; border:1px solid var(--line); border-top:4px solid var(--orange); border-radius:0 0 12px 12px; padding:12px 14px; position:relative; }
+  .tcard .rk{ position:absolute; top:10px; right:12px; width:22px; height:22px; border-radius:50%; background:rgba(240,112,26,.12); color:var(--orange); font-weight:900; font-size:11px; display:flex; align-items:center; justify-content:center; }
+  .tcard .nm{ font-family:'Fraunces',serif; font-weight:900; font-size:19px; color:var(--green); margin:0 0 5px; }
+  .tcard .cl{ font-size:12px; color:#6b7d77; margin:0 0 8px; line-height:1.35; }
+  .tcard .v{ font-weight:800; font-size:11.5px; color:var(--orange); background:rgba(240,112,26,.12); border-radius:20px; padding:2px 10px; }
+  .tcard .v span{ font-weight:600; color:#8a9a94; }
+  .pollnote{ font-size:11.5px; color:#6b7d77; margin:9px 2px 0; }
+  .picknote{ font-size:13.5px; color:#3f504b; margin:0 0 12px; }
+  .pickgrid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .pickcard{ background:#fff; border:1px solid var(--line); border-left:4px solid var(--gold); border-radius:0 12px 12px 0; padding:14px 16px; }
+  .pickcard .pnm{ font-family:'Fraunces',serif; font-weight:900; font-size:19px; color:var(--green); margin:0 0 5px; }
+  .pickcard .pcl{ font-size:12.5px; color:#6b7d77; margin:0; line-height:1.4; }
+  .pickadd{ border:2px dashed var(--gray); border-radius:12px; padding:14px 16px; display:flex; align-items:center; justify-content:center; color:#8a9a94; font-style:italic; font-family:'Fraunces',serif; font-size:14px; }
+  @media(max-width:640px){ .pickgrid{ grid-template-columns:1fr; } }
+  @media(max-width:640px){ .towngrid{ grid-template-columns:1fr 1fr; } }
+
+  .theme{ margin:2px 0 4px; background:linear-gradient(120deg,rgba(240,112,26,.12),rgba(249,178,51,.14)); border:1px solid rgba(240,112,26,.3); border-radius:14px; padding:18px 22px; }
+  .theme .nm{ font-family:'Fraunces',serif; font-weight:900; font-size:clamp(24px,4vw,32px); color:var(--orange); margin:0 0 6px; }
+  .theme p{ font-size:14.5px; color:#3f504b; margin:0; }
+  .theme .flag{ display:inline-block; margin-top:11px; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.8px; color:#fff; background:var(--orange); border-radius:20px; padding:3px 12px; }
+  .themelist{ list-style:none; margin:0 0 4px; padding:0; }
+  .themelist li{ position:relative; padding:9px 0 9px 26px; border-bottom:1px dashed rgba(240,112,26,.25); }
+  .themelist li:last-child{ border-bottom:none; }
+  .themelist li::before{ content:&quot;✦&quot;; position:absolute; left:0; top:11px; color:var(--orange); font-weight:900; font-size:13px; }
+  .themelist .tnm{ display:block; font-family:'Fraunces',serif; font-weight:900; font-size:21px; color:var(--orange); line-height:1.1; }
+  .themelist .tsub{ display:block; font-size:13.5px; color:#3f504b; margin-top:3px; }
+  .themelist .tmain{ display:block; font-size:15px; font-weight:700; color:var(--green); }
+
+  .foot{ margin-top:20px; padding-top:12px; border-top:1px solid var(--line); font-size:11.5px; color:#6b7d77; text-align:center; }
+</style>
+</head>
+<body>
+<div class=&quot;page&quot;>
+
+  <div class=&quot;hero&quot;>
+    <p class=&quot;eyebrow&quot;>Banana Slug Getaways · Elle asks — Market Selection</p>
+    <p class=&quot;q&quot;>&quot;What markets are you willing to invest in — and are there any you absolutely do not want?&quot;</p>
+  </div>
+
+  <div class=&quot;inner&quot;>
+
+    <div class=&quot;word&quot;>
+      <p class=&quot;kick&quot;>The market I want this time</p>
+      <p class=&quot;big&quot;>NEARBY</p>
+      <p class=&quot;sub&quot;>A market that's just a morning drive away for me.</p>
+      <div class=&quot;rule&quot;></div>
+    </div>
+
+    <div class=&quot;pledge&quot;>
+      <p>&quot;I'm surprised at myself, honestly — a market I can <b>drive to</b> gives me butterflies. I've felt the pull more than once.&quot;</p>
+    </div>
+
+    <h2>Markets of interest</h2>
+    <div class=&quot;grid2&quot;>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Drivable destination market</div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Within a 3-hour drive of Phoenix</div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Romantic or fun downtown vibe</div></div>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Open to any market with huge potential</div></div>
+    </div>
+
+    <div class=&quot;setchips&quot;>
+      <span class=&quot;s&quot;>🌊 By a river</span>
+      <span class=&quot;s&quot;>🥾 Near trails</span>
+      <span class=&quot;s&quot;>🏘️ Walkable to a cute downtown</span>
+      <span class=&quot;s&quot;>🌅 Incredible sunsets</span>
+    </div>
+
+    <div class=&quot;polltowns&quot;>
+      <p class=&quot;plabel&quot;>Top 6 towns — named by my Ahwatukee neighbor poll</p>
+      <div class=&quot;towngrid&quot;>
+        <div class=&quot;tcard&quot;><span class=&quot;rk&quot;>1</span><p class=&quot;nm&quot;>Sedona</p><p class=&quot;cl&quot;>Red-rock icon · flagged crowded + pricey → Oak Creek Canyon nearby as the value-play option</p><span class=&quot;v&quot;>111 <span>votes</span></span></div>
+        <div class=&quot;tcard&quot;><span class=&quot;rk&quot;>2</span><p class=&quot;nm&quot;>Cottonwood</p><p class=&quot;cl&quot;>Verde Valley wine country · walkable, romantic</p><span class=&quot;v&quot;>41 <span>votes</span></span></div>
+        <div class=&quot;tcard&quot;><span class=&quot;rk&quot;>3</span><p class=&quot;nm&quot;>Bisbee</p><p class=&quot;cl&quot;>Artsy, walkable hill town · high-love wildcard</p><span class=&quot;v&quot;>32 <span>votes</span></span></div>
+        <div class=&quot;tcard&quot;><span class=&quot;rk&quot;>4</span><p class=&quot;nm&quot;>Flagstaff</p><p class=&quot;cl&quot;>Pines + cool air · escape the heat</p><span class=&quot;v&quot;>28 <span>votes</span></span></div>
+        <div class=&quot;tcard&quot;><span class=&quot;rk&quot;>5</span><p class=&quot;nm&quot;>Pinetop-Lakeside</p><p class=&quot;cl&quot;>White Mountains cabins · Rainbow Lake</p><span class=&quot;v&quot;>25 <span>votes</span></span></div>
+        <div class=&quot;tcard&quot;><span class=&quot;rk&quot;>6</span><p class=&quot;nm&quot;>Greer</p><p class=&quot;cl&quot;>Isolated White Mountains cabins · quiet</p><span class=&quot;v&quot;>25 <span>votes</span></span></div>
+      </div>
+      <p class=&quot;pollnote&quot;>92 neighbors · 101 suggestions · 30 destinations. Full results in the Local Getaway Poll (Tab 7).</p>
+    </div>
+
+    <div class=&quot;team&quot;>
+      <div class=&quot;lead&quot;>The bonus angle</div>
+      <div class=&quot;sub&quot;>A drivable market helps qualify my vehicle as a business vehicle.</div>
+      <div class=&quot;chips&quot;>
+        <span class=&quot;chip&quot;>A new, tax-deductible vehicle for property drives</span>
+        <span class=&quot;chip&quot;>Already ran it by my CPA — it's on the table</span>
+      </div>
+    </div>
+
+    <h2>My own picks — beyond the neighborhood</h2>
+    <p class=&quot;picknote&quot;>Bentonville will be one — and I'll keep adding to this. I prefer markets that are a <b>3-hour drive or one plane ride</b>. <b>✈️ Bonus:</b> within about an hour of a major airport.</p>
+    <div class=&quot;pickgrid&quot;>
+      <div class=&quot;pickcard&quot;>
+        <p class=&quot;pnm&quot;>Northwest Arkansas</p>
+        <p class=&quot;pcl&quot;>Bentonville or Bella Vista · Walmart HQ business travel · Crystal Bridges Museum of American Art · world-class mountain biking.</p>
+      </div>
+      <div class=&quot;pickcard&quot;>
+        <p class=&quot;pnm&quot;>Redwoods — non-California side</p>
+        <p class=&quot;pcl&quot;>Southern Oregon's coast redwoods — staying out of CA, per the plan.</p>
+      </div>
+      <div class=&quot;pickcard&quot;>
+        <p class=&quot;pnm&quot;>Lake Tahoe — Nevada side</p>
+        <p class=&quot;pcl&quot;>The non-California shore — Incline Village / Stateline area.</p>
+      </div>
+      <div class=&quot;pickadd&quot;>➕ More to come…</div>
+    </div>
+
+    <h2>Any market I absolutely won't touch?</h2>
+    <div class=&quot;vision&quot;>No hard no's. I could be <b>persuaded by any market with real potential</b> — but drivable is what lights me up, so that's where I'm looking first.</div>
+
+    <h2>The guest I'm building for</h2>
+    <div class=&quot;grid2&quot;>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Couples or double-date getaway</div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>A true escape from busy city reality</div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Outdoor enthusiasts</div></div>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Experience over luxury</div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Guests who enjoy themes</div></div>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Game lovers</div></div>
+    </div>
+
+    <h2>Where I'll put the money</h2>
+    <div class=&quot;grid2&quot;>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Unique amenities</div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>An amazing exterior view</div></div>
+      <div class=&quot;cell pop&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>A bold, adventurous themed interior</div></div>
+      <div class=&quot;cell&quot;><span class=&quot;mk&quot;>✦</span><div class=&quot;t&quot;>Manageable extras other hosts don't have</div></div>
+    </div>
+
+    <h2>The theme I'm exploring</h2>
+    <div class=&quot;theme&quot;>
+      <ul class=&quot;themelist&quot;>
+        <li>
+          <span class=&quot;tnm&quot;>Cold Case Cottage</span>
+          <span class=&quot;tsub&quot;>Guests solve a cold-case murder mystery during their stay.</span>
+        </li>
+        <li>
+          <span class=&quot;tmain&quot;>Ideally, whichever theme is chosen could be tested on the Missouri cottage first.</span>
+        </li>
+      </ul>
+      <span class=&quot;flag&quot;>Early idea — just exploring</span>
+    </div>
+
+    <div class=&quot;foot&quot;>Banana Slug Getaways · Nicole Ritch, Owner-Operator · Jeremy Ritch, Owner-Investor</div>
+
+  </div>
+</div>
+</body>
+</html>
+"></iframe></div>
+      <div class="panel" id="p4"><iframe class="rpt" title="The Buy Box" srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+<meta charset=&quot;UTF-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+<title>The 1031 Buy Box — Banana Slug Getaways</title>
+<link href=&quot;https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&amp;family=Nunito+Sans:wght@400;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
+<style>
+  :root{ --teal:#34A295; --green:#2A463F; --cream:#FBF6EC; --orange:#F0701A; --gold:#F9B233; --yellow:#FCD24E; --line:#dfe5e1; --gray:#C7CBCD; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Nunito Sans',sans-serif; color:var(--green); background:var(--gray); font-size:15px; line-height:1.55; }
+  .page{ max-width:900px; margin:24px auto; background:var(--cream); box-shadow:0 4px 24px rgba(42,70,63,.18); }
+  .hero{ background:var(--green); color:#fff; padding:28px 40px 24px; }
+  .hero .eyebrow{ font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:0 0 8px; }
+  .hero h1{ font-family:'Fraunces',serif; font-size:36px; font-weight:900; line-height:1.05; margin:0; color:#fff; }
+  .hero .tag{ font-size:14px; color:#cdd8d3; margin:8px 0 0; }
+  .inner{ padding:22px 40px 34px; }
+
+  /* Closing info at top */
+  .closing{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:0 0 22px; }
+  .cbox{ border-radius:12px; padding:15px 18px; color:#fff; }
+  .cbox.a{ background:var(--orange); }
+  .cbox.b{ background:var(--teal); }
+  .cbox .k{ font-size:11px; text-transform:uppercase; letter-spacing:1.4px; font-weight:800; opacity:.92; }
+  .cbox .d{ font-family:'Fraunces',serif; font-size:23px; font-weight:900; margin:3px 0 2px; }
+  .cbox .s{ font-size:12.5px; opacity:.95; }
+
+  h2{ font-family:'Fraunces',serif; font-size:21px; color:var(--cream); background:var(--teal); border-radius:10px; padding:11px 17px; margin:22px 0 14px; }
+  .lead{ background:rgba(52,162,149,.10); border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:12px 16px; margin:0 0 16px; font-size:15px; }
+
+  table{ width:100%; border-collapse:collapse; margin:6px 0 14px; font-size:14px; }
+  th{ background:var(--green); color:var(--cream); text-align:left; padding:9px 12px; font-size:11.5px; text-transform:uppercase; letter-spacing:.4px; }
+  td{ padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tr:nth-child(even) td{ background:#f7faf9; }
+  td.dim{ font-weight:800; color:var(--teal); }
+  .keep{ color:#1f7d70; font-weight:900; }
+  .big td{ font-weight:900; font-size:15px; }
+
+  .tiles{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:6px 0 14px; }
+  .tile{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:13px 12px; text-align:center; }
+  .tile .l{ font-size:10px; text-transform:uppercase; letter-spacing:.5px; color:var(--teal); font-weight:800; min-height:26px; display:flex; align-items:center; justify-content:center; text-align:center; }
+  .tile .v{ font-family:'Fraunces',serif; font-size:22px; font-weight:900; color:var(--orange); line-height:1; margin:5px 0 3px; }
+  .tile .n{ font-size:11px; color:#5a6b65; }
+  .tile.book{ background:#fdf3d6; border-color:var(--gold); }
+  .tile.book .v{ color:#8a5a0f; font-size:15px; }
+
+  .callout{ border-left:5px solid var(--orange); background:rgba(252,210,78,.20); padding:13px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:14px; }
+  .callout strong{ color:var(--orange); }
+  .foot{ margin-top:20px; padding-top:12px; border-top:1px solid var(--line); font-size:11.5px; color:#6b7d77; }
+</style>
+</head>
+<body>
+<div class=&quot;page&quot;>
+  <div class=&quot;hero&quot;>
+    <p class=&quot;eyebrow&quot;>Banana Slug Getaways · 1031 Money Map</p>
+    <h1>The Buy Box</h1>
+    <p class=&quot;tag&quot;>What we're shopping for — the equity, the debt floor, the revenue bar, and the price ladder.</p>
+  </div>
+  <div class=&quot;inner&quot;>
+    <h2>The 1031 Buying Power</h2>
+    <div class=&quot;tiles&quot;>
+      <div class=&quot;tile&quot;><div class=&quot;l&quot;>Equity to reinvest</div><div class=&quot;v&quot;>$96,814</div><div class=&quot;n&quot;>from 206 (+$1,177 refund)</div></div>
+      <div class=&quot;tile&quot;><div class=&quot;l&quot;>Debt to replace</div><div class=&quot;v&quot;>~$116,773</div><div class=&quot;n&quot;>≥ this for full deferral</div></div>
+      <div class=&quot;tile&quot;><div class=&quot;l&quot;>Reno / furnishings</div><div class=&quot;v&quot;>~$41,000</div><div class=&quot;n&quot;>from 204, not exchange funds</div></div>
+      <div class=&quot;tile book&quot;><div class=&quot;l&quot;>Revenue Target · Elle's goal</div><div class=&quot;v&quot;>30% of price</div><div class=&quot;n&quot;>gross / yr</div></div>
+    </div>
+    <div class=&quot;callout&quot;><strong>Elle's earning-power target:</strong> I'm aiming for the property to gross around <b>30% of its purchase price per year</b> — about <b>$150,000</b> at a $500K buy, or <b>$165,000</b> at $550K. That's my aggressive goal, not a hard cutoff. A property that lands close to 30% still earns a serious look; anything under <b>20%</b> gets removed from the list.</div>
+    <div class=&quot;lead&quot;>To defer 100% of the gain: buy replacement real estate <b>≥ $231,000</b>, reinvest <b>all $96,814</b> of equity, and carry a new loan of <b>≥ ~$116,773</b> (or add cash). Anything pulled out in cash is taxable &quot;boot.&quot;</div>
+
+    <h2>The Price Ladder — $500K / $525K / $550K</h2>
+    <p style=&quot;font-size:13.5px;margin-bottom:8px;&quot;>Down payment is fixed at <b>$96,814</b> (the 206 equity). DSCR / STR loan at ~7.5% / 30-yr. The <b>~$41,000 budget covers renovation and furnishing</b> — we work within it.</p>
+    <table>
+      <tr><th>Purchase price</th><th>Loan</th><th>P&amp;amp;I / mo</th><th>30% gross / yr</th><th>Reno + furnishing</th><th>% of price</th></tr>
+      <tr><td class=&quot;dim&quot;>$500,000</td><td>$403,186</td><td>~$2,820</td><td>$150,000</td><td>~$41,000</td><td>8.2%</td></tr>
+      <tr><td class=&quot;dim&quot;>$525,000</td><td>$428,186</td><td>~$2,995</td><td>$157,500</td><td>~$41,000</td><td>7.8%</td></tr>
+      <tr><td class=&quot;dim&quot;>$550,000</td><td>$453,186</td><td>~$3,170</td><td>$165,000</td><td>~$41,000</td><td>7.5%</td></tr>
+    </table>
+    <div class=&quot;foot&quot;>Down payment is the 206 exchange equity ($96,814). Loan and P&amp;I are DSCR/STR estimates at ~7.5% / 30-yr. Figures from the signed SETCO ALTA statements. Business planning summary — not tax or lending advice. Banana Slug Getaways.</div>
+  </div>
+</div>
+</body>
+</html>"></iframe></div>
+      <div class="panel" id="p5"><iframe class="rpt" title="1031 Tracker" srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+<meta charset=&quot;UTF-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+<title>1031 Exchange — Timeline &amp;amp; Task Tracker · Banana Slug Getaways</title>
+<style>
+  :root{
+    --ink:#2A463F; --cream:#FBF6EC; --teal:#34A295; --amber:#F9B233;
+    --yellow:#FCD24E; --orange:#F0701A; --ring:#C7CBCD; --sand:#F4EFE6;
+    --mute:#6E7A75;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.45; padding:0 0 48px;
+  }
+  .wrap{max-width:960px; margin:0 auto; padding:0 20px;}
+  header{background:var(--ink); color:var(--cream); padding:26px 0 22px; margin-bottom:0;}
+  header .wrap{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:8px;}
+  header h1{font-size:26px; margin:0; letter-spacing:.2px;}
+  header .brand{color:var(--amber); font-weight:700; font-size:15px;}
+  .subbar{background:var(--amber); color:var(--ink); font-weight:600; font-size:13.5px; padding:9px 0;}
+  .today{font-size:15px; font-weight:700;}
+  .today span{color:var(--ink);}
+
+  /* Countdown cards */
+  .counts{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:22px 0 8px;}
+  @media(max-width:640px){.counts{grid-template-columns:1fr;}}
+  .cd{border-radius:14px; padding:18px 20px; color:#fff; position:relative; overflow:hidden;}
+  .cd.id{background:linear-gradient(135deg,#34A295,#2A463F);}
+  .cd.buy{background:linear-gradient(135deg,#F0701A,#F9B233);}
+  .cd .lbl{font-size:12.5px; text-transform:uppercase; letter-spacing:1px; opacity:.92; font-weight:700;}
+  .cd .num{font-size:46px; font-weight:800; line-height:1.05; margin:6px 0 2px;}
+  .cd .num small{font-size:16px; font-weight:600;}
+  .cd .dt{font-size:13.5px; opacity:.95;}
+  .cd .bar{height:7px; border-radius:6px; background:rgba(255,255,255,.28); margin-top:12px; overflow:hidden;}
+  .cd .bar i{display:block; height:100%; background:rgba(255,255,255,.92); border-radius:6px;}
+
+  h2.sec{font-size:15px; text-transform:uppercase; letter-spacing:1px; color:var(--ink);
+    border-bottom:2px solid var(--ring); padding-bottom:6px; margin:30px 0 4px;}
+
+  /* Timeline table */
+  table{width:100%; border-collapse:collapse; margin-top:14px; font-size:14px;}
+  thead th{background:var(--ink); color:var(--cream); text-align:left; padding:9px 11px; font-size:12.5px; letter-spacing:.4px;}
+  tbody td{padding:11px; border-bottom:1px solid var(--ring); vertical-align:top;}
+  tbody tr:nth-child(even){background:var(--sand);}
+  .dt-cell{white-space:nowrap; font-weight:700; width:118px;}
+  .dt-cell .wk{display:block; font-weight:500; font-size:12px; color:var(--mute);}
+  .away{display:block; font-size:11.5px; font-weight:700; margin-top:3px;}
+  .title{font-weight:700;}
+  .detail{color:var(--mute); font-size:13px; margin-top:2px;}
+  .owner{white-space:nowrap; font-size:12.5px; width:90px;}
+  .badge{display:inline-block; padding:3px 9px; border-radius:999px; font-size:11px; font-weight:800;
+    text-transform:uppercase; letter-spacing:.4px; white-space:nowrap;}
+  .b-done{background:#E6F2EC; color:#1d6b53;}
+  .b-today{background:var(--orange); color:#fff;}
+  .b-week{background:var(--yellow); color:#6a4b00;}
+  .b-soon{background:var(--sand); color:var(--ink); border:1px solid var(--ring);}
+  .b-hard{background:var(--ink); color:var(--amber);}
+  tr.is-done .title{color:var(--mute); text-decoration:line-through;}
+  tr.is-done td{opacity:.82;}
+  tr.hard td{background:#FFF6E2 !important;}
+  tr.hard .dt-cell{color:var(--orange);}
+  .flag{display:inline-block; font-size:10.5px; font-weight:800; color:var(--orange);
+    border:1.5px solid var(--orange); border-radius:5px; padding:1px 6px; margin-left:6px; text-transform:uppercase; letter-spacing:.5px;}
+
+  .note{background:#fff; border:1px solid var(--ring); border-left:5px solid var(--teal);
+    border-radius:10px; padding:14px 16px; margin-top:18px; font-size:13.5px;}
+  .note b{color:var(--ink);}
+  .legend{display:flex; gap:14px; flex-wrap:wrap; font-size:12px; color:var(--mute); margin-top:14px; align-items:center;}
+  .legend .badge{font-size:10px;}
+  footer{font-size:11px; color:var(--mute); margin-top:26px; border-top:1px solid var(--ring); padding-top:12px;}
+  .keynums{display:flex; gap:14px; flex-wrap:wrap; margin-top:14px;}
+  .kn{background:#fff; border:1px solid var(--ring); border-radius:10px; padding:10px 14px; flex:1; min-width:150px;}
+  .kn .k{font-size:11.5px; text-transform:uppercase; letter-spacing:.6px; color:var(--mute); font-weight:700;}
+  .kn .v{font-size:20px; font-weight:800; color:var(--ink); margin-top:2px;}
+  .kn .s{font-size:11.5px; color:var(--mute);}
+</style>
+</head>
+<body>
+<header>
+  <div class=&quot;wrap&quot;>
+    <h1>1031 Exchange — Timeline &amp;amp; Task Tracker</h1>
+    <div class=&quot;brand&quot;>Banana Slug Getaways</div>
+  </div>
+</header>
+<div class=&quot;subbar&quot;><div class=&quot;wrap today&quot;>Today is <span id=&quot;todayDate&quot;>—</span> &amp;nbsp;·&amp;nbsp; Sell 204 outright &amp;nbsp;·&amp;nbsp; 1031 exchange on 206</div></div>
+
+<div class=&quot;wrap&quot;>
+
+  <div class=&quot;counts&quot;>
+    <div class=&quot;cd id&quot;>
+      <div class=&quot;lbl&quot;>45-Day Identification Deadline</div>
+      <div class=&quot;num&quot; id=&quot;idNum&quot;>—</div>
+      <div class=&quot;dt&quot;>Monday, September 28, 2026 · identify the replacement property in writing</div>
+      <div class=&quot;bar&quot;><i id=&quot;idBar&quot;></i></div>
+    </div>
+    <div class=&quot;cd buy&quot;>
+      <div class=&quot;lbl&quot;>180-Day Purchase Deadline</div>
+      <div class=&quot;num&quot; id=&quot;buyNum&quot;>—</div>
+      <div class=&quot;dt&quot;>Wednesday, February 10, 2027 · close on the replacement property</div>
+      <div class=&quot;bar&quot;><i id=&quot;buyBar&quot;></i></div>
+    </div>
+  </div>
+  <p style=&quot;font-size:12.5px;color:var(--mute);margin:6px 2px 0;&quot;>Both clocks start the day 206 closes (Aug 14). These two dates are IRS-firm — no extensions, weekends included.</p>
+
+  <div class=&quot;keynums&quot;>
+    <div class=&quot;kn&quot;><div class=&quot;k&quot;>204 net proceeds</div><div class=&quot;v&quot;>$94,415.68</div><div class=&quot;s&quot;>outright sale · spendable cash</div></div>
+    <div class=&quot;kn&quot;><div class=&quot;k&quot;>206 equity → exchange</div><div class=&quot;v&quot;>$96,784.22</div><div class=&quot;s&quot;>+ $1,177.25 escrow refund</div></div>
+    <div class=&quot;kn&quot;><div class=&quot;k&quot;>Replacement target</div><div class=&quot;v&quot;>~$550,000</div><div class=&quot;s&quot;>+ ~$40K reno · ~$11K seller credit</div></div>
+  </div>
+
+  <h2 class=&quot;sec&quot;>The Timeline — What&amp;rsquo;s Due &amp;amp; When</h2>
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Milestone / Task</th><th>Owner</th><th>Status</th></tr>
+    </thead>
+    <tbody id=&quot;rows&quot;></tbody>
+  </table>
+
+  <div class=&quot;legend&quot;>
+    <span>Status updates each time you open this:</span>
+    <span class=&quot;badge b-done&quot;>Passed</span>
+    <span class=&quot;badge b-today&quot;>Today</span>
+    <span class=&quot;badge b-week&quot;>This week</span>
+    <span class=&quot;badge b-soon&quot;>Upcoming</span>
+    <span class=&quot;badge b-hard&quot;>IRS-firm</span>
+  </div>
+
+  <div class=&quot;note&quot;>
+    <b>Where things stand right now:</b> Payton&amp;rsquo;s confirm-email is <b>sent</b> (awaiting his reply) and the W-9 + exchange docs are <b>signed</b> — the QI is fully set. The 204 closing was rescheduled from Aug 4 and is now dated <b>Aug 7</b> (net proceeds $94,415.68); the 204 receiving bank is <b>confirmed</b> — the $94,415.68 wires into the Front Beach 204 LLC Op Ex Checking account. 206 is now rescheduled to <b>Aug 14</b> — the date that starts your 45- and 180-day clocks.
+  </div>
+
+  <footer>
+    Dates and figures reflect the SETCO ALTA settlement statements (Files PCB-26-7269 &amp;amp; PCB-26-7281) and the Asset Preservation exchange (#213113, intake #1005367, coordinator Anna Marty). The 45- and 180-day dates are calendar-firm IRS deadlines. Business planning tracker — not tax or legal advice. Confirm all tax figures with Payton Gillis, CPA.
+  </footer>
+</div>
+
+<script>
+  var MS = 86400000;
+  function atMidnight(d){ return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+  var today = atMidnight(new Date());
+
+  var dow = [&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;];
+  var mon = [&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;,&quot;Sep&quot;,&quot;Oct&quot;,&quot;Nov&quot;,&quot;Dec&quot;];
+  document.getElementById('todayDate').textContent =
+    dow[today.getDay()] + &quot;, &quot; + mon[today.getMonth()] + &quot; &quot; + today.getDate() + &quot;, &quot; + today.getFullYear();
+
+  function daysBetween(target){ return Math.round((atMidnight(new Date(target)) - today) / MS); }
+
+  // Countdown cards — clocks run from Aug 14 close (window length 45 / 180)
+  var closeDate = new Date(2026,7,14);
+  function fillCountdown(id, targetY,targetM,targetD, windowLen){
+    var target = new Date(targetY,targetM,targetD);
+    var left = daysBetween(target);
+    var numEl = document.getElementById(id+'Num');
+    var barEl = document.getElementById(id+'Bar');
+    if(left > 0){ numEl.innerHTML = left + ' <small>days left</small>'; }
+    else if(left === 0){ numEl.innerHTML = 'TODAY'; }
+    else { numEl.innerHTML = 'Passed'; }
+    var elapsed = windowLen - left;
+    var pct = Math.max(0, Math.min(100, (elapsed/windowLen)*100));
+    barEl.style.width = pct + '%';
+  }
+  fillCountdown('id', 2026,8,28, 45);
+  fillCountdown('buy',2027,1,10, 180);
+
+  // Timeline rows: [ISO date, title, detail, owner, kind]
+  // kind: 'action' | 'event' | 'money' | 'hard'
+  var items = [
+    [&quot;2026-08-04&quot;,&quot;Send Payton the confirm-email&quot;,&quot;Sent Aug 4 — now waiting on Payton&amp;rsquo;s reply to the four tax questions.&quot;,&quot;You&quot;,&quot;action&quot;,&quot;Sent&quot;],
+    [&quot;2026-08-05&quot;,&quot;204 receiving bank — CONFIRMED&quot;,&quot;The $94,415.68 wires to the Front Beach 204 LLC Op Ex Checking account.&quot;,&quot;You&quot;,&quot;action&quot;,&quot;Confirmed&quot;],
+    [&quot;2026-08-07&quot;,&quot;204 (Seabean) closes — sell outright&quot;,&quot;Net proceeds $94,415.68 wired to the Front Beach 204 LLC Op Ex Checking account. Clears the ~$22K card, funds the MO cushion &amp;amp; reno.&quot;,&quot;SETCO&quot;,&quot;event&quot;],
+    [&quot;2026-08-11&quot;,&quot;W-9 + exchange DocuSign signed&quot;,&quot;W-9 signed for Anna; the 206 exchange documents were executed Jul 30. Fully set with the QI.&quot;,&quot;You&quot;,&quot;action&quot;,&quot;Signed&quot;],
+    [&quot;2026-08-14&quot;,&quot;206 (Beach Cruiser) closes — 1031 relinquished&quot;,&quot;$96,784.22 equity goes to the QI (Asset Preservation), not to you. The 45/180 clocks start today.&quot;,&quot;SETCO / QI&quot;,&quot;event&quot;],
+    [&quot;2026-09-03&quot;,&quot;206 escrow refund arrives&quot;,&quot;~$1,177.25 back roughly 20 days after the 206 close.&quot;,&quot;SETCO&quot;,&quot;money&quot;],
+    [&quot;2026-09-28&quot;,&quot;45-DAY IDENTIFICATION DEADLINE&quot;,&quot;Identify the replacement property (or up to 3) in writing to the QI. No extensions.&quot;,&quot;You / QI&quot;,&quot;hard&quot;],
+    [&quot;2027-02-10&quot;,&quot;180-DAY PURCHASE DEADLINE&quot;,&quot;Close on the replacement property. Exchange fails if you miss it.&quot;,&quot;You / QI&quot;,&quot;hard&quot;]
+  ];
+  // Rolling task (no single fixed date) shown as a banner row
+  var rolling = [&quot;Now &amp;rarr; Sep 28&quot;,&quot;Shop &amp;amp; identify the replacement unit&quot;,&quot;Work the buy-box with Elle in the &amp;lsquo;1031 Property Hunt&amp;rsquo; task. Target ~$550K with a seller credit.&quot;,&quot;You + Elle&quot;];
+
+  function badgeFor(days, kind){
+    if(kind==='hard'){
+      if(days<0) return ['b-done','Passed'];
+      if(days===0) return ['b-hard','Due today'];
+      return ['b-hard', days+' days'];
+    }
+    if(days<0) return ['b-done', kind==='action' ? 'Do now' : 'Passed'];
+    if(days===0) return ['b-today','Today'];
+    if(days<=7) return ['b-week','This week'];
+    return ['b-soon','Upcoming'];
+  }
+
+  var tb = document.getElementById('rows');
+
+  // insert rolling banner first
+  var rb = document.createElement('tr');
+  rb.innerHTML = '<td class=&quot;dt-cell&quot;>'+rolling[0]+'</td>'+
+    '<td><div class=&quot;title&quot;>'+rolling[1]+'</div><div class=&quot;detail&quot;>'+rolling[2]+'</div></td>'+
+    '<td class=&quot;owner&quot;>'+rolling[3]+'</td>'+
+    '<td><span class=&quot;badge b-today&quot;>In progress</span></td>';
+  tb.appendChild(rb);
+
+  items.forEach(function(it){
+    var d = new Date(it[0]+'T00:00:00');
+    var days = daysBetween(d);
+    var done = it[5];
+    var b = done ? ['b-done', done+' ✓'] : badgeFor(days, it[4]);
+    var wk = dow[d.getDay()];
+    var awayTxt = done ? 'complete' : (days>0 ? (days+' days away') : (days===0 ? 'today' : (Math.abs(days)+' days ago')));
+    var awayColor = done ? 'var(--teal)' : (days<0 ? 'var(--mute)' : (days<=7 ? 'var(--orange)' : 'var(--mute)'));
+    var flag = it[4]==='hard' ? '<span class=&quot;flag&quot;>IRS deadline</span>' : '';
+    var tr = document.createElement('tr');
+    if(it[4]==='hard') tr.className='hard';
+    if(done) tr.className='is-done';
+    tr.innerHTML =
+      '<td class=&quot;dt-cell&quot;>'+mon[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()+
+        '<span class=&quot;wk&quot;>'+wk+'</span>'+
+        '<span class=&quot;away&quot; style=&quot;color:'+awayColor+'&quot;>'+awayTxt+'</span></td>'+
+      '<td><div class=&quot;title&quot;>'+it[1]+flag+'</div><div class=&quot;detail&quot;>'+it[2]+'</div></td>'+
+      '<td class=&quot;owner&quot;>'+it[3]+'</td>'+
+      '<td><span class=&quot;badge '+b[0]+'&quot;>'+b[1]+'</span></td>';
+    tb.appendChild(tr);
+  });
+</script>
+</body>
+</html>
+"></iframe></div>
+      <div class="panel" id="p6"><iframe class="rpt" title="Local Getaway Poll" srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+<meta charset=&quot;UTF-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+<title>The Ahwatukee Getaway Poll — Banana Slug Getaways</title>
+<link href=&quot;https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&amp;family=Nunito+Sans:wght@400;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
+<style>
+  :root{ --teal:#34A295; --green:#2A463F; --cream:#FBF6EC; --orange:#F0701A; --gold:#F9B233; --yellow:#FCD24E; --line:#dfe5e1; --gray:#C7CBCD; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Nunito Sans',sans-serif; color:var(--green); background:var(--gray); font-size:15px; line-height:1.55; }
+  .page{ max-width:900px; margin:24px auto; background:var(--cream); box-shadow:0 4px 24px rgba(42,70,63,.18); }
+  .hero{ background:var(--green); color:#fff; padding:28px 40px 24px; }
+  .hero .eyebrow{ font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:0 0 8px; }
+  .hero h1{ font-family:'Fraunces',serif; font-size:34px; font-weight:900; line-height:1.05; margin:0; color:#fff; }
+  .hero .tag{ font-size:14px; color:#cdd8d3; margin:10px 0 0; max-width:660px; }
+  .inner{ padding:22px 40px 34px; }
+
+  .tiles{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:4px 0 20px; }
+  .tile{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:13px 12px; text-align:center; }
+  .tile .v{ font-family:'Fraunces',serif; font-size:26px; font-weight:900; color:var(--orange); line-height:1; margin:0 0 4px; }
+  .tile .l{ font-size:11px; text-transform:uppercase; letter-spacing:.5px; color:var(--teal); font-weight:800; }
+
+  h2{ font-family:'Fraunces',serif; font-size:21px; color:var(--cream); background:var(--teal); border-radius:10px; padding:11px 17px; margin:24px 0 14px; }
+  .lead{ background:rgba(52,162,149,.10); border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:12px 16px; margin:0 0 18px; font-size:15px; }
+
+  /* Bar chart */
+  .chart{ margin:6px 0 8px; }
+  .barrow{ display:grid; grid-template-columns:150px 1fr 150px; align-items:center; gap:12px; margin:0 0 8px; }
+  .bbreak{ font-size:11.5px; color:#5a6b65; font-weight:700; }
+  .blabel{ font-weight:800; font-size:13.5px; text-align:right; color:var(--green); }
+  .btrack{ background:#eef2f0; border-radius:8px; height:26px; overflow:hidden; }
+  .bfill{ height:100%; border-radius:8px; display:flex; align-items:center; justify-content:flex-end; min-width:34px; transition:width .4s; }
+  .bval{ color:#fff; font-weight:800; font-size:12.5px; padding-right:9px; }
+  .caption{ font-size:11.5px; color:#6b7d77; margin:4px 0 0; }
+
+  table{ width:100%; border-collapse:collapse; margin:6px 0 8px; font-size:13.5px; }
+  th{ background:var(--green); color:var(--cream); text-align:left; padding:9px 11px; font-size:11px; text-transform:uppercase; letter-spacing:.4px; }
+  td{ padding:8px 11px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tr:nth-child(even) td{ background:#f7faf9; }
+  td.rk{ font-family:'Fraunces',serif; font-weight:900; color:var(--teal); width:34px; }
+  td.pl{ font-weight:800; }
+  td.ct{ text-align:center; width:96px; }
+  td.tot{ text-align:center; width:64px; font-weight:900; color:var(--orange); font-size:15px; }
+  td.ex{ color:#5a6b65; font-size:12.5px; }
+
+  .chips{ display:flex; flex-wrap:wrap; gap:7px; margin:4px 0 6px; }
+  .chip{ background:#fff; border:1px solid var(--line); border-radius:20px; padding:5px 12px; font-size:12.5px; color:var(--green); }
+  .chip b{ color:var(--orange); }
+
+  .cluster{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:6px 0 6px; }
+  .cbox{ background:#fff; border:1px solid var(--line); border-left:5px solid var(--teal); border-radius:0 10px 10px 0; padding:13px 16px; }
+  .cbox h3{ font-family:'Fraunces',serif; font-size:16px; margin:0 0 5px; color:var(--green); }
+  .cbox p{ font-size:13px; color:#4a5a55; margin:0; }
+  .cbox.hot{ border-left-color:var(--orange); }
+
+  .quote{ background:rgba(252,210,78,.16); border-left:5px solid var(--gold); border-radius:0 8px 8px 0; padding:11px 15px; margin:10px 0; font-size:14px; }
+  .quote .who{ display:block; font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--teal); margin-top:5px; }
+
+  .callout{ border-left:5px solid var(--orange); background:rgba(240,112,26,.10); padding:13px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:14px; }
+  .callout strong{ color:var(--orange); }
+
+  .fun{ background:var(--green); color:#eef2f0; border-radius:12px; padding:15px 18px; margin:16px 0 6px; }
+  .fun h3{ font-family:'Fraunces',serif; color:var(--yellow); font-size:16px; margin:0 0 8px; }
+  .fun ul{ margin:0; padding-left:18px; }
+  .fun li{ margin:3px 0; font-size:13.5px; }
+  .fun li span{ color:#9fb3ac; font-size:12px; }
+
+  .foot{ margin-top:20px; padding-top:12px; border-top:1px solid var(--line); font-size:11.5px; color:#6b7d77; }
+</style>
+</head>
+<body>
+<div class=&quot;page&quot;>
+
+  <div class=&quot;hero&quot;>
+    <p class=&quot;eyebrow&quot;>Banana Slug Getaways · Market Signal</p>
+    <h1>The Ahwatukee Getaway Poll</h1>
+    <p class=&quot;tag&quot;>I asked my Ahwatukee neighbors one question: where would you go for a romantic or relaxing getaway within a 3-hour drive of Phoenix? Over 90 neighbors answered — unpaid, unprompted, and generous. This is the market telling me where the demand already lives.</p>
+  </div>
+
+  <div class=&quot;inner&quot;>
+
+    <div class=&quot;tiles&quot;>
+      <div class=&quot;tile&quot;><div class=&quot;v&quot;>92</div><div class=&quot;l&quot;>Neighbors</div></div>
+      <div class=&quot;tile&quot;><div class=&quot;v&quot;>101</div><div class=&quot;l&quot;>Suggestions</div></div>
+      <div class=&quot;tile&quot;><div class=&quot;v&quot;>30</div><div class=&quot;l&quot;>Destinations</div></div>
+      <div class=&quot;tile&quot;><div class=&quot;v&quot;>Sedona</div><div class=&quot;l&quot;>Runaway #1</div></div>
+    </div>
+
+    <p class=&quot;lead&quot;><b>How I scored it — two numbers, added together.</b> First, <b>times mentioned</b>: how many comments named that place. Second, <b>likes + loves</b>: the reactions on those comments — because a neighbor tapping 👍 or ❤️ on &quot;Sedona&quot; is a vote out loud. <b>Total votes = times mentioned + likes/loves.</b> (Example: Sedona was named 37 times and those comments drew 74 likes &amp;amp; loves → 111.)</p>
+
+    <h2>Where Phoenix Wants to Escape To</h2>
+    <div class=&quot;chart&quot;>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Sedona</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:100.0%;background:#F0701A;&quot;><span class=&quot;bval&quot;>111</span></div></div>
+      <div class=&quot;bbreak&quot;>37&amp;#215; named &amp;middot; 74 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Cottonwood</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:36.9%;background:#34A295;&quot;><span class=&quot;bval&quot;>41</span></div></div>
+      <div class=&quot;bbreak&quot;>12&amp;#215; named &amp;middot; 29 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Bisbee</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:28.8%;background:#34A295;&quot;><span class=&quot;bval&quot;>32</span></div></div>
+      <div class=&quot;bbreak&quot;>6&amp;#215; named &amp;middot; 26 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Flagstaff</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:25.2%;background:#2A463F;&quot;><span class=&quot;bval&quot;>28</span></div></div>
+      <div class=&quot;bbreak&quot;>8&amp;#215; named &amp;middot; 20 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Pinetop</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:22.5%;background:#2A463F;&quot;><span class=&quot;bval&quot;>25</span></div></div>
+      <div class=&quot;bbreak&quot;>8&amp;#215; named &amp;middot; 17 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Greer</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:22.5%;background:#2A463F;&quot;><span class=&quot;bval&quot;>25</span></div></div>
+      <div class=&quot;bbreak&quot;>5&amp;#215; named &amp;middot; 20 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Jerome</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:21.6%;background:#2A463F;&quot;><span class=&quot;bval&quot;>24</span></div></div>
+      <div class=&quot;bbreak&quot;>5&amp;#215; named &amp;middot; 19 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Rocky Point</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:19.8%;background:#5c8a80;&quot;><span class=&quot;bval&quot;>22</span></div></div>
+      <div class=&quot;bbreak&quot;>7&amp;#215; named &amp;middot; 15 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Williams</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:18.0%;background:#5c8a80;&quot;><span class=&quot;bval&quot;>20</span></div></div>
+      <div class=&quot;bbreak&quot;>7&amp;#215; named &amp;middot; 13 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Prescott</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:18.0%;background:#5c8a80;&quot;><span class=&quot;bval&quot;>20</span></div></div>
+      <div class=&quot;bbreak&quot;>6&amp;#215; named &amp;middot; 14 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Oak Creek Canyon</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:15.3%;background:#5c8a80;&quot;><span class=&quot;bval&quot;>17</span></div></div>
+      <div class=&quot;bbreak&quot;>6&amp;#215; named &amp;middot; 11 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Tucson</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:15.3%;background:#5c8a80;&quot;><span class=&quot;bval&quot;>17</span></div></div>
+      <div class=&quot;bbreak&quot;>5&amp;#215; named &amp;middot; 12 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Pine</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:11.7%;background:#5c8a80;&quot;><span class=&quot;bval&quot;>13</span></div></div>
+      <div class=&quot;bbreak&quot;>4&amp;#215; named &amp;middot; 9 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Payson</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:9.9%;background:#5c8a80;&quot;><span class=&quot;bval&quot;>11</span></div></div>
+      <div class=&quot;bbreak&quot;>4&amp;#215; named &amp;middot; 7 likes/loves</div>
+    </div>
+    <div class=&quot;barrow&quot;>
+      <div class=&quot;blabel&quot;>Strawberry</div>
+      <div class=&quot;btrack&quot;><div class=&quot;bfill&quot; style=&quot;width:9.9%;background:#5c8a80;&quot;><span class=&quot;bval&quot;>11</span></div></div>
+      <div class=&quot;bbreak&quot;>3&amp;#215; named &amp;middot; 8 likes/loves</div>
+    </div>
+    </div>
+    <p class=&quot;caption&quot;>Top 15 by total votes. Bar length is share of the #1 finisher; the note on the right splits it into times&amp;nbsp;mentioned and likes/loves.</p>
+
+    <h2>The Full Leaderboard</h2>
+    <table>
+      <tr><th>#</th><th>Place</th><th>Times mentioned</th><th>Likes + loves</th><th>Total votes</th><th>What they raved about</th></tr>
+      <tr><td class=&quot;rk&quot;>1</td><td class=&quot;pl&quot;>Sedona</td><td class=&quot;ct&quot;>37</td><td class=&quot;ct&quot;>74</td><td class=&quot;tot&quot;>111</td><td class=&quot;ex&quot;>Enchantment · L'Auberge · Sky Ranch · Ambiente · Garland's</td></tr>
+      <tr><td class=&quot;rk&quot;>2</td><td class=&quot;pl&quot;>Cottonwood</td><td class=&quot;ct&quot;>12</td><td class=&quot;ct&quot;>29</td><td class=&quot;tot&quot;>41</td><td class=&quot;ex&quot;>Tavern Hotel · Bocce Hotel · wineries · Verde railroad</td></tr>
+      <tr><td class=&quot;rk&quot;>3</td><td class=&quot;pl&quot;>Bisbee</td><td class=&quot;ct&quot;>6</td><td class=&quot;ct&quot;>26</td><td class=&quot;tot&quot;>32</td><td class=&quot;ex&quot;>artsy, walkable, ghost tours, mine tour</td></tr>
+      <tr><td class=&quot;rk&quot;>4</td><td class=&quot;pl&quot;>Flagstaff</td><td class=&quot;ct&quot;>8</td><td class=&quot;ct&quot;>20</td><td class=&quot;tot&quot;>28</td><td class=&quot;ex&quot;>cooler, breweries, downtown, snow in winter</td></tr>
+      <tr><td class=&quot;rk&quot;>5</td><td class=&quot;pl&quot;>Pinetop</td><td class=&quot;ct&quot;>8</td><td class=&quot;ct&quot;>17</td><td class=&quot;tot&quot;>25</td><td class=&quot;ex&quot;>cabins, Rainbow Lake, The Kull B&amp;B</td></tr>
+      <tr><td class=&quot;rk&quot;>6</td><td class=&quot;pl&quot;>Greer</td><td class=&quot;ct&quot;>5</td><td class=&quot;ct&quot;>20</td><td class=&quot;tot&quot;>25</td><td class=&quot;ex&quot;>White Mtns, isolated cabins, 'forget you're in AZ'</td></tr>
+      <tr><td class=&quot;rk&quot;>7</td><td class=&quot;pl&quot;>Jerome</td><td class=&quot;ct&quot;>5</td><td class=&quot;ct&quot;>19</td><td class=&quot;tot&quot;>24</td><td class=&quot;ex&quot;>historic hill town, wineries</td></tr>
+      <tr><td class=&quot;rk&quot;>8</td><td class=&quot;pl&quot;>Rocky Point</td><td class=&quot;ct&quot;>7</td><td class=&quot;ct&quot;>15</td><td class=&quot;tot&quot;>22</td><td class=&quot;ex&quot;>Puerto Peñasco, MX (~3.5 hrs)</td></tr>
+      <tr><td class=&quot;rk&quot;>9</td><td class=&quot;pl&quot;>Williams</td><td class=&quot;ct&quot;>7</td><td class=&quot;ct&quot;>13</td><td class=&quot;tot&quot;>20</td><td class=&quot;ex&quot;>Sheridan Inn B&amp;B · Backland glamping</td></tr>
+      <tr><td class=&quot;rk&quot;>10</td><td class=&quot;pl&quot;>Prescott</td><td class=&quot;ct&quot;>6</td><td class=&quot;ct&quot;>14</td><td class=&quot;tot&quot;>20</td><td class=&quot;ex&quot;>boutique hotels, music scene, lakes</td></tr>
+      <tr><td class=&quot;rk&quot;>11</td><td class=&quot;pl&quot;>Oak Creek Canyon</td><td class=&quot;ct&quot;>6</td><td class=&quot;ct&quot;>11</td><td class=&quot;tot&quot;>17</td><td class=&quot;ex&quot;>Briar Patch Inn, quiet Airbnbs</td></tr>
+      <tr><td class=&quot;rk&quot;>12</td><td class=&quot;pl&quot;>Tucson</td><td class=&quot;ct&quot;>5</td><td class=&quot;ct&quot;>12</td><td class=&quot;tot&quot;>17</td><td class=&quot;ex&quot;>Hacienda Del Sol · Westin La Paloma · Mt. Lemmon</td></tr>
+      <tr><td class=&quot;rk&quot;>13</td><td class=&quot;pl&quot;>Pine</td><td class=&quot;ct&quot;>4</td><td class=&quot;ct&quot;>9</td><td class=&quot;tot&quot;>13</td><td class=&quot;ex&quot;>Rim country, The Lodge at 5600</td></tr>
+      <tr><td class=&quot;rk&quot;>14</td><td class=&quot;pl&quot;>Payson</td><td class=&quot;ct&quot;>4</td><td class=&quot;ct&quot;>7</td><td class=&quot;tot&quot;>11</td><td class=&quot;ex&quot;>Kohls Ranch, Woods Canyon Lake</td></tr>
+      <tr><td class=&quot;rk&quot;>15</td><td class=&quot;pl&quot;>Strawberry</td><td class=&quot;ct&quot;>3</td><td class=&quot;ct&quot;>8</td><td class=&quot;tot&quot;>11</td><td class=&quot;ex&quot;>Strawberry Bliss, The Lodge at 5600</td></tr>
+    </table>
+    <p style=&quot;font-size:13px;font-weight:800;color:var(--teal);margin:10px 0 6px;&quot;>Also named <span style=&quot;font-weight:600;color:#6b7d77;&quot;>(total votes = mentions + likes/loves):</span></p>
+    <div class=&quot;chips&quot;><span class=&quot;chip&quot;>Elgin/Willcox <b>9</b></span><span class=&quot;chip&quot;>Winslow (La Posada) <b>6</b></span><span class=&quot;chip&quot;>Show Low <b>5</b></span><span class=&quot;chip&quot;>Scottsdale <b>5</b></span><span class=&quot;chip&quot;>Mt. Lemmon <b>5</b></span><span class=&quot;chip&quot;>Palm Springs <b>4</b></span><span class=&quot;chip&quot;>Rancho Mirage <b>4</b></span><span class=&quot;chip&quot;>Alpine <b>4</b></span><span class=&quot;chip&quot;>Christopher Creek <b>4</b></span><span class=&quot;chip&quot;>The Rim/White Mtns <b>3</b></span><span class=&quot;chip&quot;>Grand Canyon <b>3</b></span><span class=&quot;chip&quot;>Mexico <b>2</b></span><span class=&quot;chip&quot;>Forest Lakes <b>2</b></span><span class=&quot;chip&quot;>Castle Hot Springs <b>2</b></span><span class=&quot;chip&quot;>Kartchner Caverns <b>2</b></span></div>
+
+    <h2>Four Clusters — and How They Map to My Buy Box</h2>
+    <div class=&quot;cluster&quot;>
+      <div class=&quot;cbox hot&quot;><h3>Sedona / Oak Creek — the giant</h3><p>128 combined votes. Overwhelming demand — but neighbors kept saying it's &quot;too crowded and very expensive.&quot; That gap is the opening: a value-priced romantic stay just outside the crush.</p></div>
+      <div class=&quot;cbox&quot;><h3>Verde Valley — Cottonwood + Jerome</h3><p>65 combined votes. Wine country, walkable historic towns, the Verde railroad. Romantic, under-priced vs. Sedona, and a straight shot from Phoenix.</p></div>
+      <div class=&quot;cbox&quot;><h3>Rim Country / White Mtns</h3><p>Pine, Strawberry, Pinetop, Greer, Show Low, Payson, Christopher Creek. The &quot;escape the heat — cabins, elk, Rim views&quot; crowd. Seasonal, cabin-driven, cool-summer demand.</p></div>
+      <div class=&quot;cbox&quot;><h3>Bisbee — the wildcard</h3><p>32 votes from just 6 people — it punches way above its size on love. Artsy, walkable, one-of-a-kind. A niche, high-passion market.</p></div>
+    </div>
+    <div class=&quot;callout&quot;><strong>The buy-box read:</strong> the demand my neighbors are describing clusters exactly where a drive-to STR in the ~$500–550K range makes sense — Sedona-adjacent Verde Valley and Rim Country. And the amenities they asked for by name are my renovation checklist: <b>views, a hot tub, dog-friendly, cabin feel, wine nearby, quiet + romantic, self check-in.</b></div>
+
+    <h2>In Their Own Words</h2>
+    <div class=&quot;quote&quot;>&quot;The Lodge at 5600 between Pine and Strawberry, with to-die-for views of the Rim. There are elk everywhere… it's all automated check-in.&quot;<span class=&quot;who&quot;>Brenda Edwards · 5 loves</span></div>
+    <div class=&quot;quote&quot;>&quot;Cottonwood. Wineries, and I'd take the Verde railroad.&quot;<span class=&quot;who&quot;>Jeremy Sheehan · 6 likes</span></div>
+    <div class=&quot;quote&quot;>The &quot;Sheridan Inn&quot; in Williams &quot;always ranks #1 (NO comparison).&quot;<span class=&quot;who&quot;>Anne-Marie Tayler · 4 likes</span></div>
+    <div class=&quot;quote&quot;>Enchantment, Sedona — &quot;go for happy hour during sunset. Incredible in the canyon walls.&quot;<span class=&quot;who&quot;>Tina Marie</span></div>
+    <div class=&quot;quote&quot;>&quot;The Rim or White Mountains. Get the heck out of this heat.&quot;<span class=&quot;who&quot;>Cindy Mendenhall Rosenberg · 2 likes</span></div>
+
+    <div class=&quot;fun&quot;>
+      <h3>And, because they're my neighbors — a few for the laughs 😄</h3>
+      <ul>
+        <li>&quot;27th and Indian School&quot; <span>— Totino DiGiorno (6 hahas)</span></li>
+        <li>&quot;El kitchen&quot; <span>— Ray Romero</span></li>
+        <li>&quot;The guest bedroom&quot; <span>— Robert Watson</span></li>
+        <li>&quot;Bonus points if it's somewhere less likely a body would be found&quot; <span>— Patrick Larson</span></li>
+      </ul>
+    </div>
+
+    <div class=&quot;foot&quot;>
+      Compiled from the AHWATUKEE411 post (Aug 2, 2026): 156 comments, deduped to 101 distinct suggestions across 30 destinations. Total votes = times mentioned + likes/loves. Banana Slug Getaways.
+    </div>
+
+  </div>
+</div>
+</body>
+</html>"></iframe></div>
+      <div class="panel" id="p7"><iframe class="rpt" title="1031 Exchange Playbook" srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+<meta charset=&quot;UTF-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+<title>The 1031 Exchange Playbook — Banana Slug Getaways</title>
+<link href=&quot;https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&amp;family=Nunito+Sans:wght@400;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
+<style>
+  :root{ --teal:#34A295; --green:#2A463F; --cream:#FBF6EC; --orange:#F0701A; --gold:#F9B233; --yellow:#FCD24E; --line:#dfe5e1; --gray:#C7CBCD; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Nunito Sans',sans-serif; color:var(--green); background:var(--gray); font-size:15px; line-height:1.55; }
+  .page{ max-width:900px; margin:24px auto; background:var(--cream); box-shadow:0 4px 24px rgba(42,70,63,.18); }
+  .hero{ background:var(--green); color:#fff; padding:28px 40px 24px; }
+  .hero .eyebrow{ font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:0 0 8px; }
+  .hero h1{ font-family:'Fraunces',serif; font-size:34px; font-weight:900; line-height:1.05; margin:0; color:#fff; }
+  .hero .tag{ font-size:14px; color:#cdd8d3; margin:10px 0 0; max-width:680px; }
+  .inner{ padding:22px 40px 34px; }
+
+  .tiles{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:4px 0 20px; }
+  .tile{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:13px 12px; text-align:center; }
+  .tile .v{ font-family:'Fraunces',serif; font-size:20px; font-weight:900; color:var(--orange); line-height:1.05; margin:0 0 4px; }
+  .tile .l{ font-size:10.5px; text-transform:uppercase; letter-spacing:.5px; color:var(--teal); font-weight:800; }
+
+  h2{ font-family:'Fraunces',serif; font-size:21px; color:var(--cream); background:var(--teal); border-radius:10px; padding:11px 17px; margin:24px 0 14px; }
+  .lead{ background:rgba(52,162,149,.10); border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:12px 16px; margin:0 0 18px; font-size:15px; }
+
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .card{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 18px; }
+  .card.dead{ border-left:5px solid var(--orange); border-radius:0 12px 12px 0; }
+  .card h3{ font-family:'Fraunces',serif; font-size:17px; margin:0 0 4px; color:var(--green); }
+  .card .when{ font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--orange); margin:0 0 8px; }
+  .card p{ font-size:13.5px; color:#3f504b; margin:0; }
+
+  ol.req{ margin:2px 0 0 2px; padding:0; list-style:none; counter-reset:r; }
+  ol.req li{ position:relative; padding:10px 14px 10px 46px; background:#fff; border:1px solid var(--line); border-radius:10px; margin:0 0 9px; font-size:14px; }
+  ol.req li::before{ counter-increment:r; content:counter(r); position:absolute; left:12px; top:11px; width:24px; height:24px; border-radius:50%; background:var(--teal); color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; justify-content:center; }
+  ol.req b{ color:var(--green); }
+
+  .def{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:4px 18px; }
+  .def dt{ font-family:'Fraunces',serif; font-size:15px; font-weight:900; color:var(--teal); margin:14px 0 3px; }
+  .def dd{ font-size:13.5px; color:#3f504b; margin:0 0 12px; }
+
+  .cols{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .col{ border-radius:12px; padding:14px 16px; }
+  .col.ok{ background:rgba(52,162,149,.12); border:1px solid #bfe0da; }
+  .col.no{ background:rgba(240,112,26,.10); border:1px solid #f4cfb4; }
+  .col h4{ font-family:'Fraunces',serif; font-size:15px; margin:0 0 8px; }
+  .col.ok h4{ color:#1f7d70; } .col.no h4{ color:var(--orange); }
+  .col ul{ margin:0; padding-left:18px; } .col li{ font-size:13px; margin:4px 0; color:#3f504b; }
+
+  .steps{ counter-reset:s; margin:2px 0 0; padding:0; list-style:none; }
+  .steps li{ position:relative; padding:8px 0 8px 34px; font-size:13.5px; border-bottom:1px dashed var(--line); }
+  .steps li:last-child{ border-bottom:none; }
+  .steps li::before{ counter-increment:s; content:counter(s); position:absolute; left:0; top:8px; width:22px; height:22px; border-radius:50%; background:var(--green); color:var(--gold); font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; }
+
+  .callout{ border-left:5px solid var(--orange); background:rgba(252,210,78,.20); padding:13px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:14px; }
+  .callout strong{ color:var(--orange); }
+  .contact{ background:var(--green); color:#eef2f0; border-radius:12px; padding:15px 18px; margin:16px 0 6px; font-size:14px; }
+  .contact b{ color:var(--yellow); }
+  .foot{ margin-top:20px; padding-top:12px; border-top:1px solid var(--line); font-size:11.5px; color:#6b7d77; }
+</style>
+</head>
+<body>
+<div class=&quot;page&quot;>
+
+  <div class=&quot;hero&quot;>
+    <p class=&quot;eyebrow&quot;>Banana Slug Getaways · The Rules</p>
+    <h1>The 1031 Exchange Playbook</h1>
+    <p class=&quot;tag&quot;>Straight from our Qualified Intermediary, Asset Preservation, Inc. — the deadlines, requirements, and definitions we have to honor to keep 206's gain fully tax-deferred. This is the rulebook; the Money Map is our numbers.</p>
+  </div>
+
+  <div class=&quot;inner&quot;>
+
+    <div class=&quot;tiles&quot;>
+      <div class=&quot;tile&quot;><div class=&quot;v&quot;>#213113</div><div class=&quot;l&quot;>Exchange</div></div>
+      <div class=&quot;tile&quot;><div class=&quot;v&quot;>206 · Beach Cruiser</div><div class=&quot;l&quot;>Relinquished</div></div>
+      <div class=&quot;tile&quot;><div class=&quot;v&quot;>~Sep 28, 2026</div><div class=&quot;l&quot;>Identify by (45 days)</div></div>
+      <div class=&quot;tile&quot;><div class=&quot;v&quot;>~Feb 10, 2027</div><div class=&quot;l&quot;>Close by (180 days)</div></div>
+    </div>
+
+    <p class=&quot;lead&quot;><b>The one rule that drives everything:</b> a 1031 defers capital-gains tax only on money that <i>stays</i> in real estate. Any cash pulled out — for the card or anything personal — is <b>&quot;boot,&quot;</b> and it's taxable. We're doing a <b>full</b> deferral on 206, so all of its equity rolls into the next property.</p>
+
+    <h2>The Two Deadlines — from the Aug 14 close of 206</h2>
+    <div class=&quot;two&quot;>
+      <div class=&quot;card dead&quot;>
+        <div class=&quot;when&quot;>45-Day Identification</div>
+        <h3>Identify by ~Sept 28, 2026</h3>
+        <p>Identify — in writing to API — every replacement property we might buy, by midnight of the 45th day after 206 closes. Up to three. Any property we actually close before day 45 counts as identified the day it closes.</p>
+      </div>
+      <div class=&quot;card dead&quot;>
+        <div class=&quot;when&quot;>180-Day Exchange</div>
+        <h3>Close by ~Feb 10, 2027</h3>
+        <p>Acquire the replacement by the earlier of the 180th day after 206's close, or the due date (with extensions) of our tax return for the sale year. Contact API the moment we go under contract so they can prep the paperwork.</p>
+      </div>
+    </div>
+
+    <h2>Requirements for Full Tax Deferral</h2>
+    <ol class=&quot;req&quot;>
+      <li>Purchase replacement real estate for <b>not less than 206's sale price, less commissions and certain closing costs</b> (so roughly <b>≥ $231,000</b>).</li>
+      <li>Use <b>all</b> of the net proceeds from the sale to acquire the replacement — reinvest the full <b>$96,814</b> of equity.</li>
+      <li>Replace the debt: carry <b>≥ ~$116,773</b> of new loan on the replacement (or make up any shortfall with added cash).</li>
+    </ol>
+    <div class=&quot;callout&quot;><strong>Watch this one:</strong> paying off the loan on 206 does <b>not</b> reduce the amount we must spend on the replacement. The spend target is based on the <i>sale price</i>, not the equity we walk away with.</div>
+
+    <h2>Definitions — the words that matter</h2>
+    <dl class=&quot;def&quot;>
+      <dt>Like-Kind / Real Property</dt>
+      <dd>Section 1031 only exchanges real property held for business or investment use, for property of a like kind. Anything that isn't investment/business real property (and is given a value at closing) falls out of the exchange.</dd>
+      <dt>Boot</dt>
+      <dd>Any value we receive that isn't like-kind real property — cash pulled out, or debt relief we don't replace. Boot is the taxable part. Full deferral = zero boot (our Section 7 boot is $0).</dd>
+      <dt>The G6 Restriction (why we can't touch the money)</dt>
+      <dd>IRS reg §1.1031(k)-1(g)(6) blocks us from accessing the funds held in the exchange account during the exchange. API can only release them at the earlier of: (a) after we've acquired <b>all</b> identified replacement property, or (b) the day after day 180 — barring a narrow written, out-of-our-control contingency.</dd>
+    </dl>
+
+    <h2>Closing Costs — what's safe vs. what creates boot</h2>
+    <div class=&quot;cols&quot;>
+      <div class=&quot;col ok&quot;>
+        <h4>✓ Deductible — no taxable event</h4>
+        <ul>
+          <li>Real estate commissions</li>
+          <li>Title insurance premiums</li>
+          <li>Closing / escrow fees</li>
+          <li>Qualified Intermediary fees</li>
+          <li>Recording fees</li>
+        </ul>
+      </div>
+      <div class=&quot;col no&quot;>
+        <h4>✕ Paying these from proceeds can create boot</h4>
+        <ul>
+          <li>Property taxes</li>
+          <li>Loan fees</li>
+          <li>Utility charges</li>
+          <li>Association (HOA) fees</li>
+          <li>Credits for lease / security deposits</li>
+        </ul>
+      </div>
+    </div>
+    <p style=&quot;font-size:12px;color:#6b7d77;margin-top:8px;&quot;>Review any specific cost with Payton (our CPA) before it's paid from exchange proceeds.</p>
+
+    <h2>The Process, Start to Finish</h2>
+    <ol class=&quot;steps&quot;>
+      <li>206 closes (Aug 14) → API receives the proceeds and sends automated notices with our exact 45- and 180-day dates.</li>
+      <li>API sends the Replacement Property Identification Form — we identify in writing by day 45.</li>
+      <li>The moment we're under contract on a replacement, we contact API with the details so they can prepare documents.</li>
+      <li>We sign the Exchange Documents <b>before</b> that closing — required to include the purchase in the exchange and to let API disburse funds.</li>
+      <li>API reviews every disbursement request and verifies wire instructions before any funds are released.</li>
+    </ol>
+
+    <div class=&quot;contact&quot;>
+      <b>Our Exchange Team — Asset Preservation, Inc.</b><br>
+      Anna Marty, Senior Exchange Counselor · teamanna@apiexchange.com · (800) 282-1031 ext. 3933 · Exchange #213113 (Order 213113-REL30581).
+    </div>
+
+    <div class=&quot;foot&quot;>
+      Source: Asset Preservation, Inc. &quot;1031 Exchange Account — What You Need to Know&quot; (Exchange #213113, Jul 24 2026). API is a Qualified Intermediary and cannot give tax or legal advice; confirm all tax questions with Payton Gillis, CPA. Business planning summary — not tax or legal advice. Banana Slug Getaways.
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
+"></iframe></div>
+      <div class="panel" id="p8"><iframe class="rpt" title="What I've Learned" srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+<meta charset=&quot;UTF-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+<title>What I've Learned — Banana Slug Getaways</title>
+<link href=&quot;https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&amp;family=Nunito+Sans:wght@400;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
+<style>
+  :root{ --teal:#34A295; --green:#2A463F; --cream:#FBF6EC; --orange:#F0701A; --gold:#F9B233; --yellow:#FCD24E; --line:#dfe5e1; --gray:#C7CBCD; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Nunito Sans',sans-serif; color:var(--green); background:var(--gray); font-size:15px; line-height:1.55; }
+  .page{ max-width:900px; margin:24px auto; background:var(--cream); box-shadow:0 4px 24px rgba(42,70,63,.18); }
+  .hero{ background:var(--green); color:#fff; padding:28px 40px 24px; }
+  .hero .eyebrow{ font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:0 0 8px; }
+  .hero h1{ font-family:'Fraunces',serif; font-size:34px; font-weight:900; line-height:1.05; margin:0; color:#fff; }
+  .hero .tag{ font-size:14px; color:#cdd8d3; margin:9px 0 0; max-width:640px; }
+  .inner{ padding:22px 40px 34px; }
+
+  .living{ display:flex; align-items:center; gap:10px; background:rgba(252,210,78,.20); border-left:5px solid var(--gold); border-radius:0 10px 10px 0; padding:11px 15px; margin:0 0 20px; font-size:13.5px; }
+  .living b{ color:var(--orange); }
+  .living .dot{ flex:none; width:9px; height:9px; border-radius:50%; background:var(--orange); box-shadow:0 0 0 4px rgba(240,112,26,.18); }
+
+  .sec{ background:#fff; border:1px solid var(--line); border-left:5px solid var(--teal); border-radius:0 12px 12px 0; padding:16px 20px; margin:0 0 14px; }
+  .sec.o{ border-left-color:var(--orange); }
+  .sec h2{ font-family:'Fraunces',serif; font-size:18px; color:var(--green); margin:0 0 4px; }
+  .sec .kv{ font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.8px; color:var(--teal); margin:0 0 11px; }
+  .sec.o .kv{ color:var(--orange); }
+  ul.pts{ list-style:none; margin:0; padding:0; }
+  ul.pts li{ position:relative; padding:7px 0 7px 26px; font-size:14.5px; border-bottom:1px dashed var(--line); }
+  ul.pts li:last-child{ border-bottom:none; }
+  ul.pts li::before{ content:&quot;✦&quot;; position:absolute; left:0; top:7px; color:var(--teal); font-weight:900; font-size:13px; }
+  .sec.o ul.pts li::before{ color:var(--orange); }
+  ul.pts li b{ color:var(--green); }
+  .open{ display:inline-block; margin-left:6px; font-size:11.5px; font-weight:800; color:var(--orange); background:rgba(240,112,26,.12); border-radius:20px; padding:1px 9px; }
+
+  .add{ border:2px dashed var(--gray); border-radius:12px; padding:16px 20px; text-align:center; color:#8a9a94; font-style:italic; font-family:'Fraunces',serif; font-size:15px; margin:6px 0 0; }
+  .foot{ margin-top:18px; padding-top:12px; border-top:1px solid var(--line); font-size:11.5px; color:#6b7d77; text-align:center; }
+</style>
+</head>
+<body>
+<div class=&quot;page&quot;>
+
+  <div class=&quot;hero&quot;>
+    <p class=&quot;eyebrow&quot;>Banana Slug Getaways · Field Notes</p>
+    <h1>What I've Learned</h1>
+    <p class=&quot;tag&quot;>My working notes on buying and running Super Properties — the criteria, guardrails, and hard-won rules I'm collecting as I go.</p>
+  </div>
+
+  <div class=&quot;inner&quot;>
+
+    <div class=&quot;living&quot;><span class=&quot;dot&quot;></span><div><b>A living list.</b> I'm adding to this as I work through the Super Properties (Bill Faeth) notes and everything after.</div></div>
+
+    <div class=&quot;sec&quot;>
+      <h2>Underwrite every deal</h2>
+      <div class=&quot;kv&quot;>before I ever fall in love with a property</div>
+      <ul class=&quot;pts&quot;>
+        <li>Run the <b>Pro Forma</b> — every property, every time.</li>
+        <li>Run the <b>Property Grader</b>.</li>
+        <li>Track <b>missing amenities</b> — it's crucial to an honest pro forma.</li>
+        <li>Estimate <b>$500 per room for the bed setup</b>.</li>
+        <li>Be clear on the criterion: <b>cash flow → cash-on-cash return</b>.</li>
+        <li>Run a <b>quarterly Return-on-Equity (ROE) audit</b> on what I own.</li>
+      </ul>
+    </div>
+
+    <div class=&quot;sec o&quot;>
+      <h2>Protect the downside</h2>
+      <div class=&quot;kv&quot;>reserves &amp;amp; deal terms</div>
+      <ul class=&quot;pts&quot;>
+        <li>Hold a <b>20% &quot;ICFU&quot; reserve</b> — the <i>&quot;in case you f*** up&quot;</i> fund.<span class=&quot;open&quot;>Open: 20% of what?</span></li>
+        <li><b>Always ask for a seller credit.</b><span class=&quot;open&quot;>Open: what amount is acceptable?</span></li>
+      </ul>
+    </div>
+
+    <div class=&quot;sec&quot;>
+      <h2>Know my buy box &amp;amp; market</h2>
+      <div class=&quot;kv&quot;>what makes it a yes</div>
+      <ul class=&quot;pts&quot;>
+        <li><b>Know my buy box</b> — and stick to it.</li>
+        <li>Find the <b>traffic / demand drivers</b> — there must be <b>at least two big ones</b>.</li>
+        <li>Know the <b>area's STR regulations</b>.</li>
+      </ul>
+    </div>
+
+    <div class=&quot;sec o&quot;>
+      <h2>Always have an exit</h2>
+      <div class=&quot;kv&quot;>plan the sale before I buy</div>
+      <ul class=&quot;pts&quot;>
+        <li>Have an <b>exit strategy</b> from day one.</li>
+        <li>My <b>end buyer probably isn't an STR investor</b> — so it has to appeal to a wider buyer too.</li>
+      </ul>
+    </div>
+
+    <div class=&quot;add&quot;>➕ More to come as I read…</div>
+
+    <div class=&quot;foot&quot;>Source: my notes on Super Properties (Bill Faeth) + Build STR Wealth. Banana Slug Getaways · Nicole Ritch.</div>
+
+  </div>
+</div>
+</body>
+</html>
+"></iframe></div>
+    </main>
+    <div class="pager"><button id="prevBtn">&larr; Previous</button><button id="nextBtn">Next &rarr;</button></div>
+  </div>
+  <div class="foot">Banana Slug Getaways &middot; The Reposition Playbook &middot; prepared for Elle</div>
+</div>
+<script>
+  var cur=0, N=9;
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  var prevBtn=document.getElementById('prevBtn'), nextBtn=document.getElementById('nextBtn');
+  function resizeFrame(p){ var f=p.querySelector('iframe'); if(f){ try{ f.style.height=(f.contentWindow.document.documentElement.scrollHeight+24)+'px'; }catch(e){} } }
+  function show(i){ if(i<0||i>=N) return; cur=i;
+    tabs.forEach(function(t,j){ t.classList.toggle('active', j===i); });
+    panels.forEach(function(p,j){ p.classList.toggle('show', j===i); });
+    prevBtn.disabled=(i===0); nextBtn.disabled=(i===N-1);
+    setTimeout(function(){ resizeFrame(panels[i]); }, 80);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(parseInt(t.getAttribute('data-i'),10)); }); });
+  prevBtn.onclick=function(){ show(cur-1); };
+  nextBtn.onclick=function(){ show(cur+1); };
+  prevBtn.disabled=true;
+  document.querySelectorAll('iframe.rpt').forEach(function(f){ f.addEventListener('load', function(){ var p=f.closest('.panel'); if(p.classList.contains('show')) resizeFrame(p); }); });
+</script>
+</body>
+</html>
