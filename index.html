@@ -1790,7 +1790,7 @@
   var tabs=[].slice.call(document.querySelectorAll('.tab'));
   var panels=[].slice.call(document.querySelectorAll('.panel'));
   var prevBtn=document.getElementById('prevBtn'), nextBtn=document.getElementById('nextBtn');
-  function resizeFrame(p){ var f=p.querySelector('iframe'); if(f){ try{ f.style.height=(f.contentWindow.document.documentElement.scrollHeight+24)+'px'; }catch(e){} } }
+  function resizeFrame(p){ if(!p) return; var fs=p.querySelectorAll('iframe'); for(var k=0;k<fs.length;k++){ (function(f){ try{ f.setAttribute('scrolling','no'); f.style.height=(f.contentWindow.document.documentElement.scrollHeight+24)+'px'; }catch(e){} })(fs[k]); } }
   function show(i){ if(i<0||i>=N) return; cur=i;
     tabs.forEach(function(t,j){ t.classList.toggle('active', j===i); });
     var target=tabs[i].getAttribute('data-target');
