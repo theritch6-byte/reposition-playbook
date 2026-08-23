@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STR Market Analysis — Williams, Arizona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ─── DESIGN TOKENS ──────────────────────────────────────────────────────── */
+:root {
+  /* Mountain palette */
+  --bg:        #0f1a13;
+  --bg-card:   #1c2b20;
+  --bg-card-2: #213526;
+  --border:    #2d4533;
+  --border-2:  #3d5c46;
+
+  --amber:     #e8924a;
+  --amber-dim: #c4743a;
+  --amber-bg:  #2a1e12;
+  --amber-pale:#f0b07a;
+
+  --teal:      #2ec4a8;
+  --teal-dim:  #1fa08a;
+  --teal-bg:   #0e2420;
+
+  --red:       #f06060;
+  --red-dim:   #c44545;
+  --red-bg:    #2a1212;
+  --red-border:#4a2020;
+  --red-muted: #7a5050;
+
+  --yellow:    #f0c040;
+  --yellow-dim:#c89c28;
+  --yellow-bg: #241e0a;
+
+  --neutral-icon-bg:     #1a2530;
+  --neutral-icon-border: #2a3f55;
+
+  /* Updated by JS to match the score band (yellow/green/red) */
+  --score-glow: rgba(232,146,74,0.12);
+
+  --text-1:    #f2f5f2;
+  --text-2:    #baced0;
+  --text-3:    #6a8070;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─── RESET & BASE ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { text-wrap: balance; }
+article p { text-wrap: pretty; }
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.anim-fade-up  { animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-scale-in { animation: scaleIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up, .anim-scale-in { animation: none; opacity: 1; transform: none; }
+}
+
+.d0 { animation-delay: 0ms; }
+.d1 { animation-delay: 60ms; }
+.d2 { animation-delay: 120ms; }
+.d3 { animation-delay: 180ms; }
+.d4 { animation-delay: 240ms; }
+.d5 { animation-delay: 300ms; }
+.d6 { animation-delay: 360ms; }
+
+/* ─── LAYOUT ─────────────────────────────────────────────────────────────── */
+.page { max-width: 980px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+.hero {
+  padding: 64px 0 56px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+
+.hero-state {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.hero-summary {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  max-width: 580px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-date {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.score-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card-2);
+  border: 2px solid var(--border-2);
+  border-radius: 20px;
+  padding: 36px 44px;
+  min-width: 172px;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 10%, var(--score-glow) 0%, transparent 65%);
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.score-hero .score-num {
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-denom {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-3);
+  line-height: 1;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero.yellow .score-num   { color: var(--yellow); }
+.score-hero.yellow .score-label { color: var(--yellow-dim); }
+.score-hero.green  .score-num   { color: var(--teal); }
+.score-hero.green  .score-label { color: var(--teal-dim); }
+.score-hero.red    .score-num   { color: var(--red); }
+.score-hero.red    .score-label { color: var(--red-dim); }
+
+.verdict-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.verdict-pill.yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-dim); }
+.verdict-pill.green  { background: var(--teal-bg);   color: var(--teal);   border: 1px solid var(--teal-dim); }
+.verdict-pill.red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-dim); }
+
+/* ─── CAPITAL ALERT BANNER ───────────────────────────────────────────────── */
+.capital-alert {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-top: 3px solid var(--amber);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 32px;
+  font-size: 0.875rem;
+  color: var(--amber-pale);
+  line-height: 1.65;
+}
+.capital-alert strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.capital-alert em { color: var(--text-1); font-weight: 600; font-style: normal; }
+
+/* ─── RED FLAGS ──────────────────────────────────────────────────────────── */
+.red-flags-wrap {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 32px;
+}
+.red-flags-wrap h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.red-flags-wrap ul { list-style: none; }
+.red-flags-wrap li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--red-border);
+  color: var(--red-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.red-flags-wrap li:last-child { border-bottom: none; }
+.red-flags-wrap li strong { display: block; color: var(--red); font-weight: 600; margin-bottom: 3px; }
+
+.red-flags-clean {
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-dim);
+  border-radius: 12px;
+  padding: 14px 22px;
+  margin-bottom: 32px;
+  color: var(--teal);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ─── SECTION SHELL ──────────────────────────────────────────────────────── */
+.section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 20px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.15s;
+}
+.section-header:hover { background: rgba(255,255,255,0.02); }
+.section-header.open { border-bottom-color: var(--border); }
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.section-title-icon.amber { background: var(--amber-bg); border: 1px solid var(--amber-dim); }
+.section-title-icon.teal  { background: var(--teal-bg);  border: 1px solid var(--teal-dim);  }
+.section-title-icon.blue  { background: var(--neutral-icon-bg); border: 1px solid var(--neutral-icon-border); }
+.section-title-icon.red   { background: var(--red-bg);   border: 1px solid var(--red-dim);   }
+
+.section-toggle {
+  color: var(--text-3);
+  font-size: 0.7rem;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+}
+.section-header.open .section-toggle { transform: rotate(180deg); }
+
+.section-body { padding: 26px; }
+.section-body.collapsed { display: none; }
+
+/* ─── SCORECARD ──────────────────────────────────────────────────────────── */
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.score-row:last-child { border-bottom: none; }
+
+.score-row-left { min-width: 0; }
+
+.score-row-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.score-row .cat-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 2px;
+}
+.score-row .cat-meta {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+.score-row .cat-weight {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.score-row .weighted-contrib {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-2);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.pills { display: flex; gap: 4px; flex-wrap: wrap; }
+.pill {
+  width: 40px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border-2);
+  background: var(--bg-card-2);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+}
+.pill:hover { border-color: var(--amber); color: var(--amber); }
+.pill:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.pill.active-1, .pill.active-2 { border-color: var(--red-dim);    background: var(--red-bg);    color: var(--red); }
+.pill.active-3                  { border-color: var(--yellow-dim); background: var(--yellow-bg); color: var(--yellow); }
+.pill.active-4, .pill.active-5  { border-color: var(--teal-dim);  background: var(--teal-bg);   color: var(--teal); }
+
+.rationale-toggle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--amber);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  transition: background 0.1s;
+}
+.rationale-toggle:hover { background: rgba(232,146,74,0.12); }
+
+.rationale-card {
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-1);
+  display: none;
+  line-height: 1.7;
+}
+.rationale-card .confidence {
+  font-size: 0.72rem;
+  color: var(--teal-dim);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.rationale-card.open { display: block; }
+
+.scorecard-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 26px;
+  background: var(--bg-card-2);
+  border-top: 2px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+.scorecard-total .total-val {
+  font-size: 2rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+/* ─── INTELLIGENCE PANELS ────────────────────────────────────────────────── */
+.intel-section { margin-bottom: 28px; }
+.intel-section:last-child { margin-bottom: 0; }
+
+.intel-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.intel-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.intel-content {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.75;
+  font-weight: 400;
+}
+.intel-content .intel-entry {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.intel-content .intel-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.intel-content .intel-key {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-bottom: 5px;
+}
+.intel-content .intel-key.key-red {
+  color: var(--red);
+  background: var(--red-bg);
+  border-color: var(--red-dim);
+}
+.intel-content .intel-key.key-teal {
+  color: var(--teal);
+  background: var(--teal-bg);
+  border-color: var(--teal-dim);
+}
+.intel-content .intel-key.key-neutral {
+  color: var(--text-3);
+  background: var(--bg-card-2);
+  border-color: var(--border-2);
+}
+.intel-content p {
+  margin: 0;
+  line-height: 1.75;
+}
+.intel-content ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.intel-content ul li {
+  padding-left: 14px;
+  position: relative;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.intel-content ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-weight: 700;
+}
+.intel-content strong { color: var(--text-1); font-weight: 600; }
+
+/* ─── LANES ──────────────────────────────────────────────────────────────── */
+.lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.lane-card {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+}
+.lane-card:hover { border-color: var(--border-2); }
+.lane-card.active {
+  border-color: var(--amber);
+  background: var(--amber-bg);
+  box-shadow: 0 0 0 1px var(--amber-dim);
+}
+
+.lane-card-left { min-width: 0; }
+
+.lane-card-right {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.lane-card .lane-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.lane-card .lane-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-1);
+}
+.lane-card.active .lane-title { color: var(--amber-pale); }
+
+.lane-card .lane-subtitle {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-3);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.lane-card.active .lane-subtitle { color: var(--amber-dim); }
+
+.lane-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 24px;
+}
+
+.lane-detail-item {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.lane-detail-item .detail-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: block;
+  margin-bottom: 1px;
+}
+.lane-card.active .lane-detail-item { color: var(--amber-pale); opacity: 0.9; }
+.lane-card.active .detail-label { color: var(--amber-dim); }
+
+.lane-price {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+.lane-card.active .lane-price { color: var(--amber); }
+
+.moat-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 14px; }
+.moat-tag {
+  background: var(--bg);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lane-card.active .moat-tag {
+  background: rgba(232,146,74,0.08);
+  color: var(--amber);
+  border-color: var(--amber-dim);
+}
+
+/* ─── CAPITAL FIT BADGE ──────────────────────────────────────────────────── */
+.capital-fit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+.capital-fit-badge.fits {
+  background: rgba(46,196,168,0.12);
+  color: var(--teal);
+  border: 1px solid var(--teal-dim);
+}
+.capital-fit-badge.short {
+  background: rgba(240,96,96,0.12);
+  color: var(--red);
+  border: 1px solid var(--red-dim);
+}
+
+/* ─── PRO FORMA ──────────────────────────────────────────────────────────── */
+.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.pf-item {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.pf-item .pf-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+.pf-item .pf-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.pf-item .pf-note {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.pass { color: var(--teal) !important; }
+.warn { color: var(--yellow) !important; }
+.fail { color: var(--red)  !important; }
+
+.bear-case {
+  grid-column: 1 / -1;
+  background: var(--bg-card-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.bear-case h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.bear-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.855rem;
+  color: var(--text-2);
+  padding: 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+.bear-result {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-1);
+}
+
+/* ─── CHECKLIST ──────────────────────────────────────────────────────────── */
+.checklist { list-style: none; counter-reset: check-counter; display: flex; flex-direction: column; gap: 10px; }
+.checklist li {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px 18px 64px;
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  counter-increment: check-counter;
+  position: relative;
+}
+.checklist li::before {
+  content: counter(check-counter, decimal-leading-zero);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 30px;
+  height: 30px;
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+.checklist li strong {
+  display: block;
+  color: var(--text-1);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* ─── PRO FORMA LANE TOGGLE ──────────────────────────────────────────────── */
+.pf-lane-switch { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.pf-lane-switch-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.pf-lane-tabs { display: inline-flex; background: var(--bg); border: 1px solid var(--border-2); border-radius: 10px; padding: 3px; gap: 3px; }
+.pf-lane-tab { border: none; background: transparent; color: var(--text-2); font-family: var(--font); font-size: 0.8rem; font-weight: 700; padding: 7px 16px; border-radius: 7px; cursor: pointer; transition: all 0.14s; white-space: nowrap; }
+.pf-lane-tab:hover { color: var(--amber); }
+.pf-lane-tab.active { background: var(--amber); color: #1a1208; }
+.pf-lane-tab:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+/* ─── CONFIRMING LISTINGS (buy box links) ────────────────────────────────── */
+.confirming-listings { margin-top: 14px; }
+.confirming-listings .cl-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.confirming-listings a { display: inline-flex; align-items: center; gap: 5px; background: var(--teal-bg); border: 1px solid var(--teal-dim); color: var(--teal); border-radius: 6px; padding: 4px 10px; margin: 0 5px 5px 0; font-size: 0.72rem; font-weight: 600; text-decoration: none; transition: all 0.12s; }
+.confirming-listings a:hover { background: rgba(46,196,168,0.18); }
+.confirming-listings a::before { content: '↗'; font-size: 0.78rem; opacity: 0.8; }
+.lane-card.active .confirming-listings .cl-label { color: var(--amber-dim); }
+.lane-card.active .confirming-listings a { background: rgba(232,146,74,0.10); border-color: var(--amber-dim); color: var(--amber); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; }
+  .score-hero { flex-direction: row; gap: 16px; align-self: flex-start; padding: 20px 24px; min-width: 0; }
+  .score-hero .score-num { font-size: 3rem; }
+  .lane-card { grid-template-columns: 1fr; }
+  .lane-detail-grid { grid-template-columns: 1fr; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .score-row .weighted-contrib { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO ────────────────────────────────────────────────────────────────── -->
+  <div class="hero">
+    <div class="anim-fade-up d0">
+      <div class="hero-eyebrow">STR Market Analysis · August 21, 2026</div>
+      <h1>Williams</h1>
+      <div class="hero-state">Arizona · Coconino County</div>
+      <div class="hero-summary"><strong>Williams scores 4.98 / 10 — Tier F (Pass).</strong> It is a real market with a permanent, world-class demand anchor and one of the strongest regulatory shields in the United States — and it still does not work, because the price of entry has decoupled from what the properties earn. Assessor values rose 40–50% cumulatively from 2023 to 2026 while STR revenue fell 8–24% over the same window, a roughly 50-point divergence that has compressed the conservative cap rate to about <strong>2.0%</strong> against a 7.75% note. That is <strong>5.5–6.5 points of negative leverage</strong>, and it is the whole story: a median 3BR at $400,000 runs about <strong>−$2,600/yr</strong>, a median 2BR runs <strong>−$8,200/yr</strong>, and at the full $484,000 ceiling the deal loses <strong>$24,922/yr</strong> against a +$22,000 target — a ~$47,000 miss. Seven of the framework's ten red flags trigger.<br><br>At 4.98/10, Williams ranks <strong>at the bottom of the scale</strong> among national-park-gateway drive markets — well below comparable gateway markets like <strong>Luray, VA (~7.0, Tier C)</strong> and <strong>Shenandoah Valley, VA (7.6–8.4, Tier B)</strong>, and below even the framework's designated low anchor for a single-driver market that never sustained (5.4–6.2). Shenandoah runs a 21% average gross ROI on a $450–$750K budget; Williams runs <strong>7.4%</strong> at its median in-town sale.</div>
+      <div style="margin-top:18px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">Budget Fit — TIGHT</div>
+        <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">At $390,000, hitting $22,000 net cash flow requires about $66,300 in gross revenue — roughly 50% above the $44,078 top of the 3BR band in Williams. That figure still excludes the legally mandatory local responder and the cleaning shortfall; loading those in pushes the requirement to about $76,900, against a market whose top-decile performer of any size earns $79,584.</div>
+      </div>
+      <div style="margin-top:12px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-left:3px solid var(--yellow);border-radius:8px;padding:14px 18px;max-width:580px">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:4px">⚠ Revenue Trend — Declining</div>
+        <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">This market has shown declining STR revenue across five independent sources and two consecutive periods (AirDNA −7.0% then −8.0%; RevPAR −11.5% then −11.3%; Chalet active-operator revenue −23.8%). Underwrite to recent actuals, apply conservative growth assumptions, and discount seller-provided revenue from peak years by 20–30%. 2026 is also the Route 66 centennial — haircut a further 5–8% for 2027 forward.</div>
+      </div>
+      <div style="margin-top:12px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">⚠ Jurisdiction Warning</div>
+        <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">City of Williams and unincorporated Coconino County are two different STR regimes. Inside the city, Ch. 117 requires an emergency contact <em>on-site within one hour</em> plus a sex-offender check on every guest of every booking, and Ordinance 1000 blocks new sewer taps and ADUs through 7/1/2027. In the county, STR permits are issued only for permitted habitable dwellings — no yurts, domes, park models, or RVs. Confirm which jurisdiction governs the parcel before making any offer.</div>
+      </div>
+      <div style="margin-top:12px;background:var(--amber-bg);border:1px solid var(--amber-dim);border-left:3px solid var(--amber);border-radius:8px;padding:14px 18px;max-width:580px">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px">Reconciliation — locked figures updated after this run</div>
+        <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">This analysis was run at a <strong>$484,000</strong> ceiling drawn from Buy-Box-Criteria.md. The executed 206 ALTA supersedes it: exchange equity is <strong>$97,386.64</strong> (the $96,814.22 figure was a pre-closing draft and is retired), the clean 20%-down ceiling is <strong>~$486,933</strong>, and the hard max price cap is <strong>$500,000</strong>. <strong>The verdict does not change — it hardens.</strong> At the $500,000 cap the deal loses roughly <strong>$26,300/yr</strong> (NOI $8,053 against $34,387 of debt service), and the market top-decile of $79,584 is only <strong>15.9%</strong> of $500,000 versus a 20% floor. All three lanes sit at $290K–$425K, well below every version of the ceiling, so no pro forma on this page is affected. Reconfirm the total capital pot against API&rsquo;s exchange accounting statement before any offer.</div>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-date">Analysis date: August 21, 2026</span>
+        <span class="verdict-pill yellow" id="threshold-label">Loading…</span>
+      </div>
+    </div>
+    <div class="score-hero yellow anim-scale-in d1" id="score-badge">
+      <div class="score-num" id="overall-score-display">—</div>
+      <div class="score-denom">/ 10</div>
+      <div class="score-label">Market Score</div>
+    </div>
+  </div>
+
+  <!-- CAPITAL ALERT ───────────────────────────────────────────────────────── -->
+  <div id="capital-alert-container" class="anim-fade-up d2"></div>
+  <div id="roi-context-container" class="anim-fade-up d2"></div>
+
+  <!-- RED FLAGS ───────────────────────────────────────────────────────────── -->
+  <div id="red-flags-section" class="anim-fade-up d3"></div>
+
+  <!-- SCORECARD ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d3">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">📊</span>
+        Market Scorecard
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="scorecard-body"></div>
+    <div class="scorecard-total">
+      <span>Weighted Total Score</span>
+      <span class="total-val yellow" id="total-score-display">—</span>
+    </div>
+  </div>
+
+  <!-- MARKET INTELLIGENCE ─────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon teal">🔍</span>
+        Market Intelligence
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body collapsed" id="intel-body">
+      <div class="intel-section">
+        <div class="intel-label">⚖ Regulatory &amp; Legal</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+            <span class="intel-key key-teal">State Preemption</span>
+            <p>A.R.S. §9-500.39 / §11-269.17 are statutory state preemption: an Arizona city <strong>may not prohibit</strong> vacation rentals or short-term rentals, may not impose owner-occupancy, and may not cap or space them. Courts keep reinforcing it (<em>Oak Creek v. Sedona</em>, Ct. App. 2025). This is the single strongest thing about Williams as a market.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-teal">Permit Cost &amp; Speed</span>
+            <p>Williams Ch. 117 / Ord. 995: <strong>$190 year one, $140 per renewal</strong> — the cheapest in the region — with a <strong>7-business-day issue-or-deny guarantee</strong> and no cap. Neighbor <em>notification</em> is required; neighbor <em>consent</em> is not, and there is no lottery. Permits are non-transferable, so a buyer applies fresh after closing rather than inheriting the seller's.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">One-Hour On-Site Rule</span>
+            <p>§117.04 requires the designated emergency contact to be <strong>physically on the premises within one hour</strong> when summoned by police or fire; the City's registration form tightens this to a 30-minute phone response and 60-minute on-site arrival. §117.10 requires a <strong>sex-offender background check on every guest of every booking</strong>, retained 12 months and producible to police. Operating from Florida, pure self-management is not legally available here — a local co-host is a licensing condition, not an optimization.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Political Direction of Travel</span>
+            <p>Mayor Don Dent testified to the legislature seeking a <strong>10%-of-housing-stock cap</strong>, citing ~15% of Williams' ~1,500 units lost to STRs and Section 8 vouchers falling 50 → 17. <strong>HB2429</strong> passed the AZ House in March 2026 and died in the Senate with its sponsor recommitted to reintroduction; <strong>SB1076</strong> would let towns under 70,000 cap permits — Williams at ~3,200 qualifies by 20×. The League of Arizona Cities made STR restriction a 2026 priority explicitly targeting investor-owned STRs. Preemption currently rests on Senate leadership discretion, so permitting early likely earns grandfathering.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Building Moratorium</span>
+            <p>Ordinance 1000 is confirmed live through <strong>July 1, 2027</strong> — verified against Council minutes through 8/13/2026, including a unanimous 7/23/2026 denial of an exception for a 672 sq ft Habitat for Humanity home. Any ADU, casita, or new-sewer-tap strategy inside city limits is dead. It also freezes competing supply, which cuts in a buyer's favor.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Water, Fire &amp; Insurability</span>
+            <p>Williams ran <strong>17 ppb arsenic against a 10 ppb EPA limit</strong> through 2025 and took its last groundwater well offline on 1/23/2026 — the city now runs entirely on surface water. County modeling shows a post-wildfire monsoon putting downtown under up to six feet of floodwater and debris. <strong>Arizona has no FAIR plan</strong>, so insurance must be <em>bound</em>, not estimated, during due diligence, and a standalone flood policy is mandatory.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">CC&amp;R Risk</span>
+            <p>Formal HOA density is low, but <strong>A.R.S. §9-500.39 binds governments, not associations</strong> — a pre-existing recorded CC&amp;R banning STRs is fully enforceable and preemption-proof. <em>Kalway v. Calabria Ranch</em> (Ariz. 2022) protects existing rights against retroactive amendment but does nothing about a restriction already on record. Clear CC&amp;Rs per-parcel at the Coconino County Recorder before the inspection deadline.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">📈 Demand &amp; Market Fundamentals</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+            <span class="intel-key key-red">Independence Test — Failed</span>
+            <p>Only <strong>one</strong> genuinely independent demand driver exists: the Polar Express (Nov 7 – Dec 30, ~8 weeks, wholly controlled by Xanterra), plus one partial in Bearizona. The Grand Canyon Railway, Route 66 traffic, and the town's entire 42-hotel stock are all downstream of the national park. Every other night sold in Williams is a Grand Canyon night.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">The Anchor Itself</span>
+            <p>Grand Canyon South Rim drew <strong>4,430,653 recreation visits in 2025</strong> — a permanent, world-class draw. Guest origin is genuinely diversified: the top five feeder cities account for only 17.8% of bookings. Phoenix is ~3 hours, Las Vegas ~4, Los Angeles ~7 — a clean drive market on I-40.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Visitation Fell, Revenue Followed</span>
+            <p>Park visits dropped ~10% in 2025 (4.9M → 4.43M, Dragon Bravo Fire plus a 3% system-wide dip), moving the Canyon from #3 to #4 nationally. Williams STR revenue moved in step (−4.3% to −8.0%), confirming the transmission is direct and unbuffered.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">No Off-Season Floor</span>
+            <p>Secondary demand is effectively <strong>zero</strong>. The BNSF crew-lodging hypothesis fails verification — the crew-change points are Winslow and Needles, not Williams. Travel-nurse demand belongs to Flagstaff Medical Center 35 miles east. The Railway, Under Canvas, and NPS all house their own seasonal staff. The only real off-season prospect is construction crews from the $33M SR 64 project.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-neutral">December Is the Peak, Not July</span>
+            <p>The Polar Express makes <strong>December the highest-revenue month</strong> ($4,014 gross, $245 ADR) — larger than July. It is a genuine second peak with <strong>zero January tail</strong>: the run ends Dec 30 and spring break is not until March, leaving a clean two-month hole. February is the verified floor at $2,072 gross, 31.1% occupancy, $190 ADR.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Forward Construction Risk</span>
+            <p>The <strong>$33M SR 64 reconstruction runs spring 2026 through fall 2027</strong> — 18 months of delay on the exact road every guest drives to reach the canyon.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🏠 Competitive &amp; Revenue</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+            <span class="intel-key key-neutral">Small Market Flag — Triggered</span>
+            <p>AirDNA prints 836 all-platform listings, but that boundary sweeps the whole gateway corridor (Williams + Parks + Garland Prairie + Valle + Tusayan + Ash Fork). Four sources put Williams-city Airbnb supply at 213–313, and StaySTRA says 92.2% of listings touch Airbnb, so deduped city-proper all-platform supply is <strong>~340–400</strong>. Below the 600 threshold — treat every median as directional, not precise, and Supply confidence is capped at Medium.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Revenue Trend: Declining and Accelerating</span>
+            <p>AirDNA −7.0% (Jun) then <strong>−8.0%</strong> (Jul) YoY revenue, RevPAR −11.5% then −11.3%. AirROI −4.3%. StaySTRA −3.4%. Chalet Q2-2026 active-operator revenue <strong>−23.8%</strong> while occupancy rose 9.1 points — the signature of a <strong>price war</strong>, not a supply glut.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Supply Is Flat — The Decline Is Demand-Side</span>
+            <p>Supply is <strong>−0.6% YoY all-platform</strong> (AirDNA) / +3% (Rabbu). An earlier +43.6% figure was AirROI's Airbnb-only listing-count change — a dataset-coverage artifact, corrected here. This matters: price wars do not resolve by waiting for absorption the way supply gluts do.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Revenue by Bedroom (Chalet + Rabbu, two-source)</span>
+            <ul>
+              <li><strong>1 BR</strong> — $24,251 to $30,820</li>
+              <li><strong>2 BR</strong> — $27,721 to $34,443 (94 / 91 listings)</li>
+              <li><strong>3 BR</strong> — $36,402 to $44,078 (71 / 71 listings)</li>
+              <li><strong>4 BR</strong> — $55,922 to $60,435</li>
+              <li><strong>5 BR</strong> — $63,379 to $78,184 (n=6, low confidence)</li>
+              <li>Market tiers: top 10% <strong>$79,584+</strong> · top 25% $50,604+ · median $30,204 · bottom 25% $15,336</li>
+            </ul>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">2–3BR Is the Most Crowded Shelf</span>
+            <p><strong>1BR + 2BR are 62.7% of all supply</strong> — the intake's target slice is the single most contested segment, while the top decile is populated almost entirely by 4–6BR group homes. The market's #1 listing at $164,375/yr is <em>Sleeps 16 | Jacuzzi | Escape Room | Polar Express</em>.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Sub-Area Comparison</span>
+            <ul>
+              <li><strong>Williams (focus)</strong> — 313 listings · $226 ADR · 42.0% occ · $32,050 avg / $26,685 median · RevPAR $101 · rev −4.3% to −8.0%</li>
+              <li><strong>Parks, AZ</strong> (~12 mi E) — 37 listings · $240 ADR · 41.4% occ · $28,437 avg · RevPAR $94 · −0.9%</li>
+              <li><strong>Flagstaff</strong> (reference, 35 mi E) — $268–$303 ADR · $32,500–$36,988 avg · RevPAR $125–$136 · <strong>+0.8% to +5.5% — the only nearby market growing</strong></li>
+              <li>Tusayan / Valle / Ash Fork — no market page exists at AirDNA, AirROI, Chalet or Rabbu</li>
+            </ul>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-teal">The Gap Is Amenity, Not Design</span>
+            <p>Presentation is mature — 33.7 photos per listing, 56.2% Superhost, 42.8% Guest Favorite, 114.6 average reviews. But hot tub penetration is <strong>11%</strong>, pool table 4.2%, game console 3.8%, only 27.2% professionally managed, and ~48% are Airbnb-only. A hot tub, a game room, dual-platform listing and dynamic pricing is a genuine, cheap edge — it is simply not enough to overcome the basis problem.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-neutral">Booked Nights vs Available Nights</span>
+            <p>The 25%-vs-48% occupancy conflict across sources is real and explainable: ~37 bookings × ~2.5-night stays ≈ <strong>92 booked nights ≈ 25% of the calendar</strong>, versus 42–48% of <em>available</em> nights. Underwrite on booked nights. At ~37 turns against a $75 median cleaning fee, cleaning is a net cost centre.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🔧 Operations &amp; Exit</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+            <span class="intel-key key-teal">Property Tax Is Cheaper Than Expected</span>
+            <p>Arizona's Prop 117 means Limited Property Value does <strong>not reset on sale</strong>, and every levy applies to LPV — verified exactly on parcel R0004829. LPV runs a median 49.4% of Full Cash Value. Real Class-4 investor bills against actual sale prices came in at 0.402% / 0.321% / 0.258%; the pro formas use <strong>0.45%</strong> conservatively to absorb the 5%/yr escalator and Rule-B reset risk.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">The Elevation Tax</span>
+            <p>Misc supplies come in at <strong>$9,500, not the $4,000 baseline</strong> — itemised as $1,900 propane, $900 on-demand snow plowing, $500 freeze protection, and the rest. That $5,500 premium is what 6,770 feet costs, and it lands on every lane regardless of revenue.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">No Williams-Based Manager Exists</span>
+            <p>Every operator identified — Evolve, Gathering Places, Lost Resort PM, R2 Hospitality, PMI Northern Arizona, Dwell, Delight Homes — is <strong>Flagstaff-based, 35 miles / ~40 minutes via I-40</strong>. That is at the edge of the one-hour on-site obligation on a clear day, on a road that closes for snow in exactly the months that generate frozen-pipe and no-heat calls. This is the highest-priority unresolved operational risk and must be solved before an offer, not after.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Cleaning Runs a Structural Loss</span>
+            <p>37 turns × $165 = <strong>$6,105 paid vs $2,775 collected = −$3,330/yr, 45% recovery</strong> — and the market cannot absorb a cost-recovering fee at a $190–$220 ADR. The labour pool is thin: ~340–400 listings in a town of ~3,200 (drifting to ~2,900) where Grand Canyon Railway &amp; Hotel alone employs ~300 FTE plus ~100 seasonal at hotel scale with schedule stability.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Land-to-Building From Real Parcels</span>
+            <p>Pulled from Coconino County Assessor EagleWeb (TY2026) across <strong>14 real Williams parcels</strong>, seven of which sold Feb 2025 – Jun 2026: small in-town lot <strong>0.87</strong>, mid-age standard lot 0.77, Sherwood Forest 0.70, remote acreage 0.90. Pro-forma value <strong>0.80</strong>. The driver is land value per parcel, not age or view — which means cost-seg benefit is <em>inversely</em> correlated with STR-viable location here.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Cost Seg vs the Licence — A Direct Conflict</span>
+            <p>The legally required local responder's hours count against the owner under the material-participation test's <em>more than any other individual</em> standard. Separately, on a 1031 the depreciable basis is the <strong>carryover basis from 204/206</strong>, not the purchase price, so cost seg cleanly reclassifies only the excess basis — materially less than a headline bonus-depreciation figure implies. Both need a CPA-designed plan before closing or the losses are trapped as passive.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">No LTR Floor</span>
+            <p>A Williams 3BR rents unfurnished at a realistic $1,800–$2,200/mo. At $2,000/mo on a $400,000 basis, NOI lands near $9,760 against $27,509 of debt service — <strong>DSCR 0.35</strong>. There is no mid-term or travel-nurse floor either; that demand sits in Flagstaff. If STR revenue keeps sliding there is no floor under this asset other than selling it.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Compression and Exit</span>
+            <p>Assessor FCV rose <strong>+40% to +50% cumulatively 2023→2026</strong> while STR revenue fell 8–24% — a ~50-point divergence in three years. Gross yield at the median in-town sale is 7.4% and the cap rate ~2.0%. On the way out: <strong>13.3 months of supply</strong>, DOM 109 and rising, closings −25% YoY, median sale −13.5% YoY, sale-to-list 94%. The buyer pool is 100% discretionary money — the same cohort watching revenue fall.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUY BOX ─────────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">🎯</span>
+        Buy Box Recommendations
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="buybox-body">
+      <div class="lanes" id="lanes-container"></div>
+    </div>
+  </div>
+
+  <!-- PRO FORMA ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d5">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon blue">💰</span>
+        Pro Forma — <span id="active-lane-name" style="color:var(--amber);margin-left:6px">Target Lane</span>
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="pf-lane-switch" id="pf-lane-switch">
+        <span class="pf-lane-switch-label">View lane:</span>
+        <div class="pf-lane-tabs" id="pf-lane-tabs"></div>
+      </div>
+      <div id="proforma-body"></div>
+    </div>
+  </div>
+
+
+</div><!-- /page -->
+
+<script>
+// ─── DATA INJECTION ───────────────────────────────────────────────────────────
+
+const OVERALL_SCORE = 4.98;
+const SCORE_COLOR_CLASS = "red";
+
+const SHOW_CAPITAL_ALERT = true;
+const CAPITAL_ALERT_BODY = "All three lanes fit your $140,856 of cash — but two other capital conditions trigger. <em>Negative leverage:</em> the conservative cap rate is ~2.0% against an assumed 7.75% DSCR note, so every borrowed dollar reduces return rather than amplifying it, and the $22,000 net cash flow target is unreachable at any purchase price including all-cash (NOI caps at $17,803 as price approaches zero). <em>Concentration:</em> the Target lane's $78,000 down payment is 55% of your total liquid capital, above the 40% comfort threshold. Also note your practical ceiling is ~$420,465, not $484,000 — the $484K figure was derived from the down payment alone and does not carry closing, furnishing, or reserves.";
+
+const ROI_CONTEXT_NOTE = "All three lanes fail the 15% gross-ROI floor (9.3%, 9.6% and 13.2% at their low ends). Sub-15% gross ROI is partly a market-wide condition of 2025–26 appreciation-driven pricing at current financing rates — but in Williams it is not merely that: the market's own top-decile performer of any size reaches only 16.4% of the $484,000 ceiling, so the shortfall is structural to this market rather than an artifact of the rate environment. Two of three lanes also produce a Distress bear case, and all three produce negative full-cost net cash flow — including the Aggressive lane, whose apparent +$8,047 narrow-lane surplus turns to −$10,173 once cleaning, maintenance, the fire-district premium and the mandatory co-host are loaded.";
+
+const RED_FLAGS = [
+  { flag: "Active anti-STR legislation", data: " — HB2429 passed the AZ House in March 2026 and died in the Senate with its sponsor recommitted to reintroduction. SB1076 would let towns under 70,000 cap permit counts; Williams at ~3,200 qualifies by 20×. Mayor Don Dent has testified seeking a 10%-of-housing-stock cap, and the League of Arizona Cities made STR restriction a 2026 priority explicitly targeting investor-owned STRs. Preemption currently rests on Senate leadership referral discretion." },
+  { flag: "Per-unit revenue compressing 2+ periods (supply is flat)", data: " — AirDNA revenue −7.0% then −8.0% YoY, RevPAR −11.5% then −11.3%; AirROI −4.3%; StaySTRA −3.4%; Chalet Q2-2026 active-operator revenue −23.8% while occupancy rose 9.1 points. Supply is flat at −0.6% all-platform, so this is a price war, not a glut — and price wars do not resolve by waiting for absorption." },
+  { flag: "Revenue floor below 70% of debt service", data: " — February is the verified floor across three sources: $2,072 gross, 31.1% occupancy, $190 ADR. A 2BR's February gross of $1,150–$2,100 fails or barely ties the 70% bar ($1,605 at $400K / $1,942 at $484K), before cleaning, utilities, insurance, TPT or platform fees. A 3BR clears 70% at 92.7% coverage but still runs $600–$1,600/month below full debt service. Reserve $15,000–$18,000." },
+  { flag: "No reliable cleaning or management infrastructure", data: " — No Williams-resident PM or emergency responder was identified after exhaustive search; every operator is Flagstaff-based, 35 miles away on a road that closes for snow in the frozen-pipe months. Cleaning runs a structural loss of $3,330/yr at 45% recovery, and the labour pool is ~340–400 listings against a town of ~3,200 where the Railway alone employs ~400." },
+  { flag: "Single fragile demand driver", data: " — The Independence Test yields one genuinely independent driver (the Polar Express, ~8 weeks, wholly controlled by Xanterra, zero January tail) plus one partial (Bearizona). Non-tourism floor is zero: BNSF crew lodging ruled out, travel-nurse demand belongs to Flagstaff, and every major employer houses its own seasonal staff. The anchor itself is permanent; the fragility is the total absence of anything behind it." },
+  { flag: "Prices outpaced revenue, cap rate below 6%", data: " — Assessor FCV across 13 real parcels rose 40–50% cumulatively 2023→2026 while STR revenue fell 8–24%: a ~50-point divergence in three years. Conservative cap rate ~2.0% (1.32% at the $545,000 median sale, 2.50% at a $400,000 basis) against a framework threshold of 6% — roughly one-third of it." },
+  { flag: "No dual-use exit path", data: " — A Williams 3BR rents unfurnished at $1,800–$2,200/mo. At $2,000/mo on a $400,000 basis, NOI of ~$9,760 against $27,509 debt service is DSCR 0.35. No mid-term or travel-nurse floor either. The only real exit is a resale into a 13.3-months-of-supply buyer's market with DOM 109 and closings down 25% YoY." },
+  { flag: "Negative Leverage (additional — not one of the 10 framework items)", data: " — Cap rate ~2.0% sits 5.5–6.5 points below the assumed 7.75% cost of debt. The conclusion is not rate-sensitive: at 6.75% the gap is still 4.5–5.5 points, at 6.00% still 3.5–4.5. Appreciation and cost segregation carry whatever return thesis remains." }
+];
+
+const SCORECARD_DATA = [
+  { name: "Demand Strength & Durability", weight: 0.25, score: 6, confidence: "High", rationale: "Grand Canyon South Rim is a permanent anchor — 4,430,653 recreation visits in 2025 — and guest origin is genuinely diversified, with the top five feeder cities accounting for only 17.8% of bookings across an all-drive market (Phoenix 3 hr, Las Vegas 4 hr). But the Independence Test yields <strong>one</strong> truly independent driver (the Polar Express, ~8 weeks, wholly controlled by Xanterra) plus one partial (Bearizona); every other night sold here is a Grand Canyon night. The non-tourism floor is zero — BNSF crew lodging ruled out, travel-nurse demand belongs to Flagstaff, every major employer houses its own seasonal staff. Park visits fell ~10% in 2025 and Williams revenue moved in step, confirming the transmission is direct and unbuffered." },
+  { name: "Supply & Competition", weight: 0.18, score: 5, confidence: "Medium — capped by small-market flag (~340–400 deduped all-platform listings)", rationale: "Supply is <strong>flat, not growing</strong> — AirDNA −0.6% YoY all-platform, Rabbu +3%; an earlier +43.6% figure was AirROI's Airbnb-only count change and is corrected here. That makes the revenue decline rate-and-demand compression rather than oversupply, which is the harder kind to wait out: Chalet shows occupancy up 9.1 points while revenue per active listing fell 23.8% — a price-war signature. Competition is mature, not amateur (56.2% Superhost, 42.8% Guest Favorite, 114.6 reviews and 33.7 photos per listing, Evolve running ~300 listings). A real amenity gap exists — hot tub 11%, pool table 4.2%, game console 3.8%, only 27.2% professionally managed — but 1BR+2BR are 62.7% of supply, making the 2–3BR target the most crowded shelf in the market." },
+  { name: "Returns Profile", weight: 0.18, score: 3, confidence: "High", rationale: "Scored on the market's objective profile, independent of the user's target. Gross yield at the median in-town sale is <strong>7.4%</strong> ($40,240 ÷ $545,000) — roughly half the framework's 15% minimum — and the conservative cap rate is ~2.0% (1.32% at the median sale, 2.50% at a $400,000 basis). At $400,000 the median 2BR runs −$8,228/yr and the median 3BR −$2,561/yr; only top-quartile execution turns positive (+$3,864). Even a top-decile 5–6BR at $400,000 produces ~19.9% gross ROI, but that inventory does not trade at $400,000 in a market with a $456,183 ZHVI. <em>Post-pro-forma revisit:</em> lane-level gross ROI came in at 9.3–13.2% (low end) rather than 7.4%, a >2-point move — but the entire gain is consumed by the full-cost load, leaving all three lanes with negative full-cost net cash flow. Score held at 3." },
+  { name: "Regulatory Environment", weight: 0.12, score: 8, confidence: "High", rationale: "The one genuine strength. A.R.S. §9-500.39 / §11-269.17 are statutory state preemption — a city may not prohibit STRs, impose owner-occupancy, or cap and space them — and the courts keep reinforcing it (<em>Oak Creek v. Sedona</em>, 2025). Williams Ch. 117 costs $190 year one and $140 per renewal, the cheapest in the region, with a 7-business-day issue-or-deny guarantee and no cap. Held to 8 rather than 9–10 because the political pressure is the most intense in Arizona: HB2429 passed the House in March 2026, SB1076 targets towns under 70,000, and the Mayor is actively seeking a 10%-of-stock cap. The ordinance's operating burden — one-hour on-site response, per-booking guest screening — is scored under Operations, where it actually bites, not double-counted here." },
+  { name: "Appreciation Potential", weight: 0.12, score: 4, confidence: "High", rationale: "Zillow ZHVI is $456,183 at <strong>0.0% YoY</strong> (Jun 2026) — flat — and the live tape is worse: median sale $545,000 at −13.5% YoY, closings 222 TTM vs 295 (−25%), 13.3 months of supply, DOM 109 and rising, Coconino County overall −7.3% with ~32% of listings cutting price. The assessor roll still shows +9.0%/yr median 2023→2027 but lags the market ~18 months and has already decelerated to +3.2% TY2026→TY2027. Population ~3,200 and drifting to ~2,900, with no employment diversification, no university, no hospital, and no confirmed forward catalyst. Forward planning assumption: 2.0%/yr." },
+  { name: "Seasonality & Revenue Floor", weight: 0.08, score: 4, confidence: "High", rationale: "Season length is genuinely decent — roughly 9–10 bookable months with a mild ~2:1 trough-to-peak swing ($2,072 → $4,014), unusually gentle for a 6,770-ft mountain town, which alone would anchor a 7. Two adjustments pull it down. <strong>Revenue-floor cap:</strong> February is the verified floor at $2,072 gross / 31.1% occupancy / $190 ADR; a 2BR's February gross sits at or below the 70%-of-debt bar and $600–$1,600/month below full debt service, and January is nearly as bad — a failed median floor caps the score at 4–5. <strong>Single-extreme-event concentration (−1):</strong> December is the peak month, larger than July, driven entirely by an 8-week Polar Express window controlled by one private operator with zero January tail." },
+  { name: "Ease of Management/Operations", weight: 0.04, score: 3, confidence: "High", rationale: "No Williams-headquartered PM or co-host was identified. Every named operator — Evolve, Gathering Places, Lost Resort PM, R2 Hospitality, PMI Northern Arizona, Dwell, Delight Homes — is Flagstaff-based, 35 miles / ~40 minutes via I-40, at the edge of Ch. 117's one-hour on-site obligation on a clear day, on a road that closes for snow in exactly the months that generate frozen-pipe and no-heat calls. The cleaning bench is structurally thin: a town of ~3,200 and declining, where Grand Canyon Railway &amp; Hotel alone employs ~300 FTE plus ~100 seasonal competing for the same housekeepers. Cleaning is a net cost centre at 45% recovery (−$3,330/yr), and elevation adds ~$5,500 of hard cost, taking supplies from a $4,000 baseline to $9,500." },
+  { name: "Infrastructure & Access", weight: 0.02, score: 6, confidence: "High", rationale: "Directly on I-40 with its own interchanges — Flagstaff 35 minutes, Phoenix ~3 hours, Las Vegas ~4, LA ~7. A clean drive market, table stakes done right. Held to 6 by three real constraints: air access is negligible (FLG moved only 54,930 passengers to PHX and 25,410 to DFW over a year; GCN is scenic-tour traffic that does not overnight in Williams), I-40 closes seasonally for snow, and the $33M SR 64 pavement project (spring 2026 → fall 2027) puts 18 months of construction delay on the exact road every guest drives to the canyon. Utility redundancy is thin — after a 2025 arsenic exceedance the city took its last groundwater well offline on 1/23/2026 and now runs entirely on surface water." },
+  { name: "Exit Options", weight: 0.01, score: 4, confidence: "High", rationale: "Scored on resale liquidity only. 13.3 months of supply (6 is balanced), DOM 109 and rising, closings −25% YoY, median sale −13.5% YoY, sale-to-list 94%. The buyer pool is 100% discretionary money — Phoenix and Scottsdale second-home buyers, STR investors, and out-of-state relocators from CA/WA/TX — with locals absent against a $545,000 median in a tourism-wage economy. The cohort you would sell to is the cohort watching revenue fall 8–24%. The market transacts, so it is not illiquid, but it is a deep buyer's market with a narrow, cyclical, first-to-vanish buyer base. The LTR fallback does not lift this score: DSCR 0.35 does not cover debt at any plausible rent." }
+];
+
+const LANES_DATA = [
+  {
+    id: "conservative",
+    title: "Conservative Lane",
+    subtitle: "Lowest basis, value-add on an already-running STR. Site-built strongly preferred — only 3 exist in this band.",
+    bedrooms: "2–3 BR",
+    priceRange: "$250K – $330K",
+    maxDistance: "Under 10 min to Route 66 / train depot",
+    guestAvatar: "Couples and small families on a 1–2 night Grand Canyon stopover, plus December Polar Express families",
+    mustHaveAmenities: ["Hot tub (only 11% market penetration)", "Fast wifi", "Full winter heat + freeze protection", "2-car parking", "Pet-friendly"],
+    differentiatorAmenities: ["Pizza oven with dough/toppings kit", "Dark-sky stargazing setup", "Fire pit", "Light theming"],
+    valueAdd: "Buy an already-running STR and add a hot tub plus dynamic pricing — 72.8% of this market is not professionally managed and ~48% is Airbnb-only",
+    moatCategories: ["Location", "Amenities"],
+    confirmingListings: [
+      { label: "705 E Fulton Ave, Williams — $284,000 · 3BR/1BA site-built, walk to Route 66", url: "https://www.redfin.com/AZ/Williams/705-E-Fulton-Ave-86046/home/116493382" },
+      { label: "2718 S Stanton Dr, Williams — $310,000 · 3BR/2BA, advertised as vacation-rental investment", url: "https://www.redfin.com/AZ/Williams/2718-S-Stanton-Dr-86046/home/116718942" },
+      { label: "2373 W Roberts Rd, Williams — $268,000 · 3BR/2BA site-built", url: "https://www.redfin.com/AZ/Williams/2373-W-Roberts-Rd-86046/home/116067346" },
+      { label: "2186 E Clear Point Way, Williams — $320,000 · 3BR/2BA, 1,890sf", url: "https://www.redfin.com/AZ/Williams/2186-E-Clear-Point-Way-86046/home/116738342" },
+      { label: "283 S Overland Trl, Williams — $265,000 · 3BR/2BA", url: "https://www.redfin.com/AZ/Williams/283-S-Overland-Trl-86046/home/116278656" }
+    ]
+  },
+  {
+    id: "target",
+    title: "Target Lane",
+    subtitle: "Site-built 3BR in or beside Williams Townsite — only 5 exist in this band across the whole market.",
+    bedrooms: "3 BR",
+    priceRange: "$350K – $430K",
+    maxDistance: "Walkable to Route 66 / train depot",
+    guestAvatar: "Couples and small families; December Polar Express is the highest-ADR window at $245 ADR and $4,014 for the month",
+    mustHaveAmenities: ["Hot tub", "Sleeps 8", "Air conditioning (82.4% penetration)", "Winterized plumbing", "2+ parking", "In-town walkability"],
+    differentiatorAmenities: ["Entertainment room", "Pool table (4.2% penetration)", "Game console (3.8%)", "Pizza oven", "Crib (6.7%)"],
+    valueAdd: "The amenity gap is real and cheap — hot tub, game room, dual-platform listing and dynamic pricing against a field that is 48% Airbnb-only and 72.8% self-managed",
+    moatCategories: ["Location", "Amenities", "Design"],
+    confirmingListings: [
+      { label: "123 S Taber St, Williams — $384,900 · 3BR/2BA per Redfin (listed elsewhere as 2BR + upstairs studio — verify), one block from Route 66", url: "https://www.redfin.com/AZ/Williams/123-S-Taber-St-86046/home/116421394" },
+      { label: "401 S 1st St, Williams — $409,900 · 3BR/2BA site-built in Williams Townsite", url: "https://www.redfin.com/AZ/Williams/401-S-1st-St-86046/home/116868598" },
+      { label: "515 N Locust St, Williams — $405,000 · 3BR/2BA site-built, in-city sewered", url: "https://www.redfin.com/AZ/Williams/515-N-Locust-St-86046/home/116193821" },
+      { label: "3597 N Boone Trl, Williams — $400,000 · 3BR/2BA site-built, 2,002sf", url: "https://www.redfin.com/AZ/Williams/3597-N-Boone-Trl-86046/home/116418498" },
+      { label: "7697 N 8 Mile Blvd, Williams — $424,000 · 3BR/2BA, listed as vacation rental", url: "https://www.redfin.com/AZ/Williams/7697-N-8-Mile-Blvd-86046/home/116788213" }
+    ]
+  },
+  {
+    id: "aggressive",
+    title: "Aggressive Lane",
+    subtitle: "High-capacity group home chasing the top decile. Inventory is thin and 100% manufactured — no site-built 4BR exists in Williams under $490K.",
+    bedrooms: "4–5 BR",
+    priceRange: "$235K – $484K",
+    maxDistance: "Under 15 min to Route 66 / train depot",
+    guestAvatar: "Multi-family groups, reunions and Polar Express group bookings — the configuration that actually populates the market's top decile",
+    mustHaveAmenities: ["Hot tub", "Sleeps 12+", "Dedicated entertainment room", "Large kitchen", "Ample parking"],
+    differentiatorAmenities: ["Pool table", "Game console", "Bunk room", "Escape-room or Route 66 theming"],
+    valueAdd: "Inventory is thin at this tier — fewer than 10 matching site-built properties exist in current MLS. NOTE THE 1031 CONSTRAINT: this exchange must buy a turnkey, already-producing property as-is, so the usual fix (buy smaller and add capacity) is NOT available inside the 180-day window. Either an operating high-capacity STR exists here at this price or the lane does not, and today it does not.",
+    revenueConfidence: "Top-10% ceiling basis · Low-Moderate confidence",
+    moatCategories: ["Quality", "Amenities", "Design"],
+    confirmingListings: [
+      { label: "1541 E Tangerine St, Williams — $359,900 · 4BR/2BA, listing states STRs allowed, no HOA", url: "https://www.redfin.com/AZ/Williams/1541-E-Tangerine-St-86046/home/116641189" },
+      { label: "973 E Alimos Way, Williams — $330,000 · 4BR/3BA, 2,394sf on 1 acre", url: "https://www.redfin.com/AZ/Williams/973-E-Alimos-Way-86046/home/116108568" },
+      { label: "2432 E New Moon Way, Williams — $465,000 · 4BR/2BA, only listing in the original band", url: "https://www.redfin.com/AZ/Williams/2432-E-New-Moon-Way-86046/home/116416310" },
+      { label: "2067 E Spruce St, Williams — $389,900 · 4BR/2BA new construction, septic + cistern", url: "https://www.redfin.com/AZ/Williams/2067-E-Spruce-St-86046/home/116244975" },
+      { label: "2185 E Spruce St, Williams — $335,000 · 4BR/2BA, SOLD Jul 9 2026", url: "https://www.redfin.com/AZ/Williams/2185-E-Spruce-St-86046/home/116112497" }
+    ]
+  }
+];
+
+const PROFORMA_DATA = [
+  {
+    laneId: "conservative",
+    priceMid: 290000,
+    revenueMin: 27721,
+    revenueMax: 34443,
+    debtService: 19945,
+    loanNote: "DSCR 30-yr at 7.75%, 20% down — rate ASSUMED, not quoted (pending lender)",
+    cashRequired: 91172,
+    cashRequiredNote: "20% down + 3% closing + 5% furnishing/setup + 6-mo reserve",
+    userCashAvailable: 140856,
+    capitalBreakevenPrice: 420465,
+    opExpRatio: 0.493,
+    fixedOpEx: 14405,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -14399,
+    buildingPct: 0.80,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$290K · 80% building (Coconino Assessor, 14 parcels) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket. On a 1031 the depreciable basis is the carryover basis from 204/206, not the purchase price — the real benefit is materially smaller",
+    appreciationY1: 5800,
+    costSegBenefit: 21460,
+    netCfAfterCostSegY1: 13899,
+    totalReturnLow: 19699,
+    grossRoiLow: 9.6,
+    grossRoiPass: false,
+    fullCostOpExpMid: 29992
+  },
+  {
+    laneId: "target",
+    priceMid: 390000,
+    revenueMin: 36402,
+    revenueMax: 44078,
+    debtService: 26822,
+    loanNote: "DSCR 30-yr at 7.75%, 20% down — rate ASSUMED, not quoted (pending lender)",
+    cashRequired: 122612,
+    cashRequiredNote: "20% down + 3% closing + 5% furnishing/setup + 6-mo reserve",
+    userCashAvailable: 140856,
+    capitalBreakevenPrice: 420465,
+    opExpRatio: 0.414,
+    fixedOpEx: 15455,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -15935,
+    buildingPct: 0.80,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$390K · 80% building (Coconino Assessor, 14 parcels) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket. 1031 carryover basis applies — see the Operations notes before relying on this figure",
+    appreciationY1: 7800,
+    costSegBenefit: 28860,
+    netCfAfterCostSegY1: 21777,
+    totalReturnLow: 29577,
+    grossRoiLow: 9.3,
+    grossRoiPass: false,
+    fullCostOpExpMid: 32817
+  },
+  {
+    laneId: "aggressive",
+    priceMid: 425000,
+    revenueMin: 55922,
+    revenueMax: 79584,
+    debtService: 29230,
+    loanNote: "DSCR 30-yr at 7.75%, 20% down — rate ASSUMED, not quoted (pending lender)",
+    cashRequired: 133615,
+    cashRequiredNote: "20% down + 3% closing + 5% furnishing/setup + 6-mo reserve",
+    userCashAvailable: 140856,
+    capitalBreakevenPrice: 420465,
+    opExpRatio: 0.275,
+    fixedOpEx: 16613,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -6858,
+    buildingPct: 0.80,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$425K · 80% building (Coconino Assessor, 14 parcels) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket. 1031 carryover basis applies, and a manufactured home carries a different depreciation profile — confirm with the CPA",
+    appreciationY1: 8500,
+    costSegBenefit: 31450,
+    netCfAfterCostSegY1: 39497,
+    totalReturnLow: 47997,
+    grossRoiLow: 13.2,
+    grossRoiPass: false,
+    fullCostOpExpMid: 36865
+  }
+];
+
+
+const DIFFERENTIATION = {
+  tier: "F — Pass",
+  distanceUp: "0.52 from Tier D (Marginal Market)",
+  distanceDown: "F is the bottom tier — 3.98 above the scale floor",
+  strengths: [ "Regulatory Environment (8) — Arizona statutory state preemption (A.R.S. 9-500.39) means Williams legally cannot ban, cap, space, or impose owner-occupancy on short-term rentals, and the permit costs $190 in year one and $140 per renewal with a 7-business-day issue-or-deny guarantee.", "Demand Strength (6) — the Grand Canyon South Rim anchor drew 4,430,653 recreation visits in 2025 and feeds Williams from a genuinely diversified drive market, with the top five origin cities accounting for only 17.8% of bookings." ],
+  drags: [
+    {
+      label: "Returns are the deepest leak — a 2% cap rate against a 7.75% note",
+      swing: "If Returns Profile improves from 3 to 6 (because purchase price falls to roughly $300,000 for a 3BR, where the February floor clears the 70%-of-debt bar and the median stops running a deficit, or because market ADR recovers ~25% and the compression cycle reverses), the total rises by 0.54 to 5.52, moving the market from Tier F to Tier D."
+    },
+    {
+      label: "One independent demand driver, and it is eight weeks long",
+      swing: "If Demand Strength improves from 6 to 8 (because Elk Ridge Ski Area reopens, creating a genuine second independent anchor that fills the January–February hole), the total rises by 0.50 to 5.48 — still Tier F, just 0.02 short of Tier D. No single category repair reaches Tier C: Williams needs both a materially lower basis and a second demand driver, which is another way of saying the problem is structural."
+    }
+  ]
+};
+// ─── END DATA ─────────────────────────────────────────────────────────────────
+
+let activeLaneIndex = 1;
+
+function fmt$(n) {
+  const val = Math.round(n);
+  return (val < 0 ? '−$' : '$') + Math.abs(val).toLocaleString();
+}
+function passIcon(pass) {
+  return pass
+    ? '<span class="pass">✓ PASS</span>'
+    : '<span class="fail">✗ FAIL</span>';
+}
+
+function thresholdLabel(score) {
+  // 1–10 scale, five named tiers
+  if (score >= 8.5) return { text: 'Tier A · Priority Market',  cls: 'green'  };
+  if (score >= 7.5) return { text: 'Tier B · Strong Market',    cls: 'green'  };
+  if (score >= 6.5) return { text: 'Tier C · Selective Market', cls: 'yellow' };
+  if (score >= 5.5) return { text: 'Tier D · Marginal Market',  cls: 'yellow' };
+  return                   { text: 'Tier F · Pass',             cls: 'red'    };
+}
+
+function updateBadgeColor(score) {
+  const badge = document.getElementById('score-badge');
+  const label = document.getElementById('threshold-label');
+  const t = thresholdLabel(score);
+  badge.className = 'score-hero anim-scale-in d1 ' + t.cls;
+  label.className = 'verdict-pill ' + t.cls;
+  label.textContent = t.text;
+  document.getElementById('total-score-display').className = 'total-val ' + t.cls;
+  const glowMap = {
+    yellow: 'rgba(240,192,64,0.12)',
+    green:  'rgba(46,196,168,0.12)',
+    red:    'rgba(240,96,96,0.12)'
+  };
+  document.documentElement.style.setProperty('--score-glow', glowMap[t.cls] || glowMap.yellow);
+}
+
+function renderDifferentiation() {
+  const host = document.getElementById('red-flags-section');
+  if (!DIFFERENTIATION || !DIFFERENTIATION.tier || DIFFERENTIATION.tier.indexOf('{{') === 0) return;
+  let html = '<div class="section" style="margin-bottom:24px"><div class="section-body">' +
+    '<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:10px">Why This Market — Tier ' + DIFFERENTIATION.tier + '</div>';
+  if (DIFFERENTIATION.strengths && DIFFERENTIATION.strengths.length) {
+    html += '<div style="margin-bottom:12px"><strong style="color:var(--teal)">Strengths:</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.strengths.map(s => '<li style="margin-bottom:4px">' + s + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.drags && DIFFERENTIATION.drags.length) {
+    html += '<div><strong style="color:var(--yellow)">Swing factors (what moves the tier):</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.drags.map(d => '<li style="margin-bottom:4px"><strong>' + d.label + '</strong> — ' + d.swing + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.distanceUp || DIFFERENTIATION.distanceDown) {
+    html += '<div style="margin-top:10px;font-size:0.78rem;color:var(--text-3)">' +
+      [DIFFERENTIATION.distanceUp, DIFFERENTIATION.distanceDown].filter(Boolean).join(' · ') + '</div>';
+  }
+  html += '</div></div>';
+  host.insertAdjacentHTML('afterend', html);
+}
+
+function renderRedFlags() {
+  const el = document.getElementById('red-flags-section');
+  if (!RED_FLAGS || RED_FLAGS.length === 0) {
+    el.innerHTML = '<div class="red-flags-clean">✓ No disqualifying red flags detected for this market.</div>';
+    return;
+  }
+  let html = '<div class="red-flags-wrap anim-fade-up d3"><h2>⚠ Red Flags Detected (7 of 10 Framework Items Triggered, plus Negative Leverage)</h2><ul>';
+  RED_FLAGS.forEach(f => {
+    html += '<li><strong>' + f.flag + '</strong>' + (f.data || '') + '</li>';
+  });
+  html += '</ul></div>';
+  el.innerHTML = html;
+}
+
+function bandClass(v) {
+  if (v <= 4) return '1';      // red band
+  if (v <= 6) return '3';      // yellow band
+  return '5';                  // teal band
+}
+
+function renderScorecard() {
+  const body = document.getElementById('scorecard-body');
+  let html = '';
+  SCORECARD_DATA.forEach((cat, i) => {
+    cat.currentScore = cat.score;
+    const contrib = (cat.score * cat.weight).toFixed(2);
+    html += '<div class="score-row" id="row-' + i + '">' +
+      '<div class="score-row-left">' +
+        '<div class="cat-name">' + cat.name + '</div>' +
+        '<div class="cat-meta">Weight: ' + (cat.weight * 100).toFixed(0) + '% · Contrib: <span id="contrib-' + i + '">' + contrib + '</span></div>' +
+        '<span class="rationale-toggle" onclick="toggleRationale(' + i + ')">▸ Why this score</span>' +
+        '<div class="rationale-card" id="rationale-' + i + '">' +
+          cat.rationale +
+          '<div class="confidence">Data confidence: ' + cat.confidence + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="score-row-right">' +
+        '<div class="pills" id="pills-' + i + '">' +
+          [1,2,3,4,5,6,7,8,9,10].map(v => '<button class="pill' + (v === cat.score ? ' active-' + bandClass(v) : '') + '" data-cat="' + i + '" data-val="' + v + '" onclick="setScore(' + i + ',' + v + ')">' + v + '</button>').join('') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  });
+  body.innerHTML = html;
+  updateTotalDisplay();
+}
+
+function setScore(catIndex, val) {
+  SCORECARD_DATA[catIndex].currentScore = val;
+  const pillsEl = document.getElementById('pills-' + catIndex);
+  pillsEl.querySelectorAll('.pill').forEach(p => {
+    p.className = 'pill' + (parseFloat(p.dataset.val) === val ? ' active-' + bandClass(val) : '');
+  });
+  const contribEl = document.getElementById('contrib-' + catIndex);
+  if (contribEl) contribEl.textContent = (val * SCORECARD_DATA[catIndex].weight).toFixed(2);
+  updateTotalDisplay();
+}
+
+function updateTotalDisplay() {
+  let total = 0;
+  SCORECARD_DATA.forEach(cat => { total += cat.currentScore * cat.weight; });
+  const rounded = total.toFixed(2);
+  document.getElementById('overall-score-display').textContent = rounded;
+  document.getElementById('total-score-display').textContent = rounded;
+  updateBadgeColor(total);
+}
+
+function toggleRationale(i) {
+  const el = document.getElementById('rationale-' + i);
+  const toggle = el.previousElementSibling;
+  el.classList.toggle('open');
+  toggle.textContent = el.classList.contains('open') ? '▾ Hide rationale' : '▸ Why this score';
+}
+
+function renderLanes() {
+  const container = document.getElementById('lanes-container');
+  let html = '';
+  LANES_DATA.forEach((lane, i) => {
+    const isActive = i === activeLaneIndex;
+    // Look up matching pro forma for capital fit badge
+    const pf = PROFORMA_DATA.find(p => p.laneId === lane.id);
+    let capitalBadge = '';
+    if (pf && pf.cashRequired && pf.userCashAvailable) {
+      const fits = pf.cashRequired <= pf.userCashAvailable;
+      if (fits) {
+        capitalBadge = '<div class="capital-fit-badge fits">✓ Fits Your Capital</div>';
+      } else {
+        const shortfall = Math.ceil((pf.cashRequired - pf.userCashAvailable) / 1000);
+        capitalBadge = '<div class="capital-fit-badge short">⚠ +$' + shortfall + 'K Needed</div>';
+      }
+    }
+    html += '<div class="lane-card' + (isActive ? ' active' : '') + '" id="lane-' + i + '" onclick="selectLane(' + i + ')">' +
+      '<div class="lane-card-left">' +
+        '<div class="lane-header">' +
+          '<div class="lane-title">' + lane.title + '</div>' +
+        '</div>' +
+        '<div class="lane-subtitle">' + lane.subtitle + '</div>' +
+        (lane.revenueConfidence ? '<div style="display:inline-block;margin-top:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--yellow);background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:5px;padding:3px 8px">⚑ ' + lane.revenueConfidence + '</div>' : '') +
+        '<div class="lane-detail-grid">' +
+          '<div class="lane-detail-item"><span class="detail-label">Bedrooms</span>' + lane.bedrooms + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Price Range</span>' + lane.priceRange + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Max Distance</span>' + lane.maxDistance + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Guest Profile</span>' + lane.guestAvatar + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Must-Have Amenities</span>' + lane.mustHaveAmenities.join(' · ') + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Differentiators</span>' + lane.differentiatorAmenities.join(' · ') + '</div>' +
+          (lane.valueAdd ? '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Value-Add to Seek</span>' + lane.valueAdd + '</div>' : '') +
+        '</div>' +
+        '<div class="moat-tags">' + lane.moatCategories.map(m => '<span class="moat-tag">' + m + '</span>').join('') + '</div>' +
+        ((lane.confirmingListings && lane.confirmingListings.length) ? (
+          '<div class="confirming-listings">' +
+            '<div class="cl-label">Live listings that fit this buy box</div>' +
+            lane.confirmingListings.map(l => '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">' + l.label + '</a>').join('') +
+          '</div>'
+        ) : '') +
+      '</div>' +
+      '<div class="lane-card-right">' +
+        '<div class="lane-price">' + lane.priceRange.replace(' – ', '–') + '</div>' +
+        '<div style="font-size:0.68rem;color:var(--text-3);letter-spacing:0.04em;text-transform:uppercase;font-weight:600">Purchase</div>' +
+        capitalBadge +
+      '</div>' +
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function renderProFormaTabs() {
+  const tabs = document.getElementById('pf-lane-tabs');
+  if (!tabs) return;
+  tabs.innerHTML = LANES_DATA.map((lane, i) =>
+    '<button class="pf-lane-tab' + (i === activeLaneIndex ? ' active' : '') + '" data-lane="' + i + '" onclick="selectLane(' + i + ')">' + lane.title + '</button>'
+  ).join('');
+}
+
+function selectLane(i) {
+  activeLaneIndex = i;
+  document.querySelectorAll('.lane-card').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.querySelectorAll('.pf-lane-tab').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.getElementById('active-lane-name').textContent = LANES_DATA[i].title;
+  renderProForma();
+}
+
+function renderProForma() {
+  const activeLaneId = LANES_DATA[activeLaneIndex].id;
+  const pf = PROFORMA_DATA.find(p => p.laneId === activeLaneId) || PROFORMA_DATA[activeLaneIndex];
+  const body = document.getElementById('proforma-body');
+  if (!pf) {
+    body.innerHTML = '<p style="color:var(--text-3);padding:16px">No pro forma data available.</p>';
+    return;
+  }
+
+  const opExpRatio = pf.opExpRatio || 0.40;
+  const hasOpExpSplit = typeof pf.fixedOpEx === 'number' && typeof pf.variableOpExRate === 'number';
+  const roiLow  = (pf.revenueMin / (pf.priceMid || 1) * 100).toFixed(1);
+  const roiHigh = (pf.revenueMax / (pf.priceMid || 1) * 100).toFixed(1);
+  const grossRoiPass = parseFloat(roiLow) >= 15;
+  const opExpLow  = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMin * pf.variableOpExRate) : Math.round(pf.revenueMin * opExpRatio);
+  const opExpHigh = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMax * pf.variableOpExRate) : Math.round(pf.revenueMax * opExpRatio);
+  const opExpPctLow  = pf.revenueMin > 0 ? Math.round(opExpLow  / pf.revenueMin * 100) : 0;
+  const opExpPctHigh = pf.revenueMax > 0 ? Math.round(opExpHigh / pf.revenueMax * 100) : 0;
+  const netLow  = Math.round(pf.revenueMin - opExpLow - pf.debtService);
+  const netHigh = Math.round(pf.revenueMax - opExpHigh - pf.debtService);
+  const netPctLow = pf.revenueMin > 0 ? (netLow / pf.revenueMin * 100).toFixed(0) : '—';
+  const cocLow  = pf.cashRequired > 0 ? (netLow  / pf.cashRequired * 100).toFixed(1) : '—';
+  const cocHigh = pf.cashRequired > 0 ? (netHigh / pf.cashRequired * 100).toFixed(1) : '—';
+  const bearRev  = Math.round(pf.revenueMin * 0.9);
+  const bearExp  = hasOpExpSplit ? Math.round((pf.fixedOpEx + bearRev * pf.variableOpExRate) * 1.1) : Math.round(opExpLow * 1.1);
+  const bearNet  = bearRev - bearExp - pf.debtService;
+  const capitalFits = pf.cashRequired <= pf.userCashAvailable;
+  const capitalNote = pf.cashRequiredNote || '20% down + 3% closing + 5% furnishing + 6-mo reserve';
+  // Bear case 3-tier classification
+  const appreciationRate = pf.appreciationY1 ? (pf.appreciationY1 / pf.priceMid) : 0;
+  let bearTierBadge;
+  if (bearNet > 0) {
+    bearTierBadge = '<span class="pass">✓ PASS</span>';
+  } else if (bearNet > -(pf.debtService * 0.25) && appreciationRate > 0) {
+    bearTierBadge = '<span class="warn">⚠ SURVIVABLE</span>';
+  } else {
+    bearTierBadge = '<span class="fail">✗ DISTRESS</span>';
+  }
+  const opExpLabel = hasOpExpSplit
+    ? opExpPctLow + '%→' + opExpPctHigh + '% of revenue · fixed ' + fmt$(pf.fixedOpEx) + ' + ' + Math.round(pf.variableOpExRate * 100) + '% variable — ratio runs higher at low revenue'
+    : (opExpRatio * 100).toFixed(0) + '% (market-specific, per-lane)';
+
+  // Cost seg tile values
+  const hasCostSeg = pf.costSegBenefit && pf.buildingPct;
+  const buildingPctDisplay = hasCostSeg ? Math.round(pf.buildingPct * 100) + '%' : '—';
+  const landPctDisplay = hasCostSeg ? Math.round((1 - pf.buildingPct) * 100) + '%' : '—';
+  const netAfterCostSeg = pf.netCfAfterCostSegY1 || (netLow + (pf.costSegBenefit || 0));
+  const costSegAssumptions = pf.costSegAssumptions || '';
+
+  // PM impact tile
+  const hasPM = typeof pf.netCfLow_pm === 'number';
+  const pmSavings = hasPM ? (netLow - pf.netCfLow_pm) : 0;
+
+  // Capital breakeven
+  const showBreakeven = !capitalFits && pf.capitalBreakevenPrice && pf.capitalBreakevenPrice > 0;
+
+  body.innerHTML =
+    '<div class="pf-grid">' +
+      // Row 1: Revenue + Gross ROI
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross Revenue Range</div>' +
+        '<div class="pf-value">' + fmt$(pf.revenueMin) + ' – ' + fmt$(pf.revenueMax) + '</div>' +
+        '<div class="pf-note">Tier-appropriate range · self-manage assumed · assumes dual-platform listing (Airbnb + VRBO); single-platform operators typically achieve 15–20% less gross</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross ROI</div>' +
+        '<div class="pf-value">' + roiLow + '% – ' + roiHigh + '% ' + passIcon(grossRoiPass) + '</div>' +
+        '<div class="pf-note">Min 15% · Target 18–20%</div>' +
+      '</div>' +
+      // Row 2: OpExp + Debt Service
+      '<div class="pf-item">' +
+        '<div class="pf-label">Operating Expenses (' + opExpLabel + ')</div>' +
+        '<div class="pf-value">' + fmt$(opExpLow) + ' – ' + fmt$(opExpHigh) + '</div>' +
+        '<div class="pf-note">Narrow-lane: taxes + insurance + platform fee + supplies only · excl. debt service</div>' +
+        (pf.fullCostOpExpMid ? '<div style="margin-top:5px;font-size:0.78rem;padding:6px 10px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:6px;color:var(--amber-pale);line-height:1.5"><strong style="color:var(--yellow)">Full annual cost</strong> (adds cleaning + maintenance + mandatory local co-host): <strong style="color:var(--text-1)">' + fmt$(pf.fullCostOpExpMid) + '</strong> · Self-manage net CF at midpoint revenue: ' + fmt$(Math.round((pf.revenueMin + pf.revenueMax)/2 - pf.fullCostOpExpMid - pf.debtService)) + '</div>' : '') +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Estimated Debt Service</div>' +
+        '<div class="pf-value">' + fmt$(pf.debtService) + '/yr</div>' +
+        '<div class="pf-note">' + pf.loanNote + '</div>' +
+      '</div>' +
+      // Row 3: Net CF (self-manage) + PM Impact
+      '<div class="pf-item">' +
+        '<div class="pf-label">Net Cash Flow (Self-Manage)</div>' +
+        '<div class="pf-value">' + fmt$(netLow) + ' – ' + fmt$(netHigh) + '</div>' +
+        '<div class="pf-note">~' + netPctLow + '% of gross · narrow-lane only — see full annual cost above</div>' +
+      '</div>' +
+      (hasPM ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label">If PM-Managed (25%)</div>' +
+          '<div class="pf-value fail">' + fmt$(pf.netCfLow_pm) + '/yr</div>' +
+          '<div class="pf-note">Self-manage saves ' + fmt$(pmSavings) + '/yr vs full PM · but Williams Ch. 117 requires an on-site responder within one hour, so a local co-host is a licensing condition, not optional</div>' +
+        '</div>'
+      ) : '') +
+      // Row 4: CoC Return + Total Return
+      '<div class="pf-item">' +
+        '<div class="pf-label">Cash-on-Cash Return</div>' +
+        '<div class="pf-value">' + cocLow + '% – ' + cocHigh + '%</div>' +
+        '<div class="pf-note">Target 10%+ · Excellent 20%+</div>' +
+      '</div>' +
+      (pf.appreciationY1 ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label" style="color:var(--teal)">Total Economic Return (Yr 1 — incl. one-time cost seg)</div>' +
+          '<div class="pf-value" style="color:var(--teal)">' + fmt$(pf.totalReturnLow) + '</div>' +
+          '<div class="pf-note">Net CF ' + fmt$(netLow) + ' + ' + fmt$(pf.appreciationY1) + ' appreciation + ' + fmt$(pf.costSegBenefit || 0) + ' cost seg. The cost-seg benefit is a ONE-TIME Year-1 item — recurring annual return is the Net CF above; it does not repeat in Year 2+.</div>' +
+        '</div>'
+      ) : '') +
+      // Cost Segregation section (full row)
+      (hasCostSeg ? (
+        '<div class="pf-item" style="grid-column:1/-1;border-color:var(--teal-dim)">' +
+          '<div class="pf-label" style="color:var(--teal)">Cost Segregation Benefit (Year 1) — One-Time</div>' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px">' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Tax Savings (37% bracket)</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--teal)">' + fmt$(pf.costSegBenefit) + '</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Depreciable Basis</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-1)">' + buildingPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * pf.buildingPct)) + ')</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Land Excluded</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-2)">' + landPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * (1 - pf.buildingPct))) + ')</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem;color:var(--teal-dim)">' +
+            'Yr 1 effective position (net CF + cost seg): <strong style="color:var(--teal)">' + fmt$(netAfterCostSeg) + '</strong> · ' +
+            (costSegAssumptions ? costSegAssumptions + ' · ' : '') +
+            'Study cost: $5K–$12K · Requires 100+ hrs material participation' +
+          '</div>' +
+        '</div>'
+      ) : '') +
+      // Cash Required + Capital Breakeven
+      '<div class="pf-item">' +
+        '<div class="pf-label">Total Cash Required</div>' +
+        '<div class="pf-value ' + (capitalFits ? 'pass' : 'fail') + '">' + fmt$(pf.cashRequired) + ' ' + (capitalFits ? '✓' : '⚠') + '</div>' +
+        '<div class="pf-note">' + capitalNote + ' · You have: ' + fmt$(pf.userCashAvailable) + '</div>' +
+        '<div style="margin-top:6px;font-size:0.78rem;color:' + (capitalFits ? 'var(--teal-dim)' : 'var(--yellow)') + '">Max price within your ' + fmt$(pf.userCashAvailable) + ' capital: ~' + fmt$(pf.capitalBreakevenPrice) + ' (assumes 7.75% 30-yr DSCR)</div>' +
+      '</div>' +
+      // Bear Case (full row)
+      '<div class="bear-case">' +
+        '<h4>Bear Case Stress Test — Revenue −10% / Expenses +10%</h4>' +
+        '<div class="bear-row"><span>Bear case revenue</span><span>' + fmt$(bearRev) + '</span></div>' +
+        '<div class="bear-row"><span>Bear case op expenses</span><span>' + fmt$(bearExp) + '</span></div>' +
+        '<div class="bear-row"><span>Debt service</span><span>' + fmt$(pf.debtService) + '</span></div>' +
+        '<div class="bear-row bear-result">' +
+          '<span>Bear case net cash flow</span>' +
+          '<span>' + fmt$(bearNet) + ' ' + bearTierBadge + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  header.classList.toggle('open', !isOpen);
+  body.classList.toggle('collapsed', isOpen);
+}
+
+function renderCapitalAlert() {
+  const container = document.getElementById('capital-alert-container');
+  if (!SHOW_CAPITAL_ALERT) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>⚠ Capital Fit Alert</strong> ${CAPITAL_ALERT_BODY}</div>`;
+}
+
+function renderRoiContext() {
+  const container = document.getElementById('roi-context-container');
+  if (!ROI_CONTEXT_NOTE) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>ℹ Market Context</strong> ${ROI_CONTEXT_NOTE}</div>`;
+}
+
+renderCapitalAlert();
+renderRoiContext();
+renderRedFlags();
+renderDifferentiation();
+renderScorecard();
+renderLanes();
+renderProFormaTabs();
+renderProForma();
+</script>
+</body>
+</html>
