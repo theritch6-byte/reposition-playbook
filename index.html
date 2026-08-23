@@ -3603,7 +3603,7 @@ function marketTable(list, id){
 function rowsFor(list){
   return list.map(p =&gt;
     &#x27;&lt;tr&gt;&lt;td style=&quot;min-width:130px;&quot;&gt;&#x27; + scoreCell(p.n) + &#x27;&lt;/td&gt;&#x27; +
-    &#x27;&lt;td class=&quot;nm&quot;&gt;&lt;a href=&quot;#c-&#x27; + encodeURIComponent(p.n) + &#x27;&quot;&gt;&#x27; + p.n + &#x27;&lt;/a&gt;&lt;small&gt;&#x27; + p.bd + &#x27; &amp;middot; &#x27; + p.a.split(&#x27;,&#x27;)[0] + &#x27;&lt;/small&gt;&lt;/td&gt;&#x27; +
+    &#x27;&lt;td class=&quot;nm&quot;&gt;&lt;a href=&quot;&#x27; + p.zu + &#x27;&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; title=&quot;Open on Zillow&quot;&gt;&#x27; + p.n + &#x27; &amp;#8599;&lt;/a&gt;&lt;small&gt;&#x27; + p.bd + &#x27; &amp;middot; &#x27; + p.a.split(&#x27;,&#x27;)[0] + &#x27;&lt;/small&gt;&lt;/td&gt;&#x27; +
     (list === null ? &#x27;&#x27; : &#x27;&#x27;) +
     &#x27;&lt;td class=&quot;num&quot;&gt;&#x27; + usd(p.price) + &#x27;&lt;/td&gt;&#x27; +
     &#x27;&lt;td class=&quot;num&quot;&gt;&#x27; + usdk(p.rev) + &#x27;&lt;/td&gt;&#x27; +
@@ -3643,7 +3643,7 @@ holder.innerHTML = MK_ORDER.map(mk =&gt; {
   h += verdictBlock(mk);
   if (list.length){
     h += &#x27;&lt;h3&gt;The board in this market&lt;/h3&gt;&#x27;;
-    h += &#x27;&lt;p class=&quot;sub&quot;&gt;Ranked against each other, where the comparison is fair. Click a heading to re-sort; click a property name to jump to its card.&lt;/p&gt;&#x27;;
+    h += &#x27;&lt;p class=&quot;sub&quot;&gt;Ranked against each other, where the comparison is fair. Click a heading to re-sort; click a property name to open it on Zillow.&lt;/p&gt;&#x27;;
     h += BARKEY;
     h += marketTable(list, tid);
     h += &#x27;&lt;h3&gt;Every property, in detail&lt;/h3&gt;&#x27;;
