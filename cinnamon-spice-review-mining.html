@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinnamon Spice — Review Mining (Pre-Purchase)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --orange:#F0701A; --amber:#F9B233; --yellow:#FCD24E; --teal:#34A295; --ink:#2A463F; --cream:#FBF6EC; --gray:#C7CBCD; }
+  *{box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  body{margin:0; background:var(--gray); color:var(--ink); font-family:'Nunito Sans',sans-serif; font-size:15px; line-height:1.6;}
+  .page{max-width:900px; margin:24px auto; background:var(--cream); padding:44px 52px; box-shadow:0 4px 24px rgba(42,70,63,.18);}
+  h1,h2,h3,h4{font-family:'Fraunces',serif; color:var(--ink); line-height:1.15;}
+  h1{font-weight:900; font-size:34px; margin:0 0 6px;}
+  h2{font-weight:900; font-size:24px; margin:34px 0 12px; padding-bottom:7px; border-bottom:3px solid var(--teal);}
+  h3{font-weight:600; font-size:18px; margin:20px 0 8px;}
+  p{margin:0 0 12px;}
+  .kicker{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--teal); font-weight:800; margin:0 0 10px;}
+  .cover{background:var(--teal); color:var(--cream); margin:-44px -52px 28px; padding:44px 52px;}
+  .cover h1{color:var(--cream); text-wrap:balance;}
+  .cover .kicker{color:var(--yellow);}
+  .cover .sub{font-size:16px; color:#eafaf6; margin:2px 0 0; text-wrap:pretty;}
+  .meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
+  .chip{background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.55); color:var(--cream); padding:6px 13px; border-radius:999px; font-size:13px; font-weight:700;}
+  table{width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:14px;}
+  th{background:var(--teal); color:var(--cream); text-align:left; padding:9px 11px; font-weight:700;}
+  td{padding:9px 11px; border-bottom:1px solid var(--gray); vertical-align:top;}
+  tr:nth-child(even) td{background:rgba(199,203,205,.16);}
+  .callout{border-left:5px solid var(--orange); background:rgba(252,210,78,.20); padding:14px 16px; border-radius:0 8px 8px 0; margin:16px 0;}
+  .callout strong{color:var(--orange);}
+  .goldtop{border-left:6px solid var(--orange); background:var(--yellow); padding:16px 20px; border-radius:0 10px 10px 0; margin:0 0 20px;}
+  .goldtop .ey{font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; color:#8a4a06; margin:0 0 6px;}
+  .goldtop p{margin:0; font-size:15.5px; line-height:1.5; color:#3d2a06;}
+  .grid{display:flex; gap:12px; margin:8px 0 12px;}
+  .stat{flex:1 1 0; min-width:0; background:#fff; border:1px solid var(--gray); border-radius:12px; padding:14px 12px; text-align:center;}
+  .stat .n{font-family:'Fraunces',serif; font-weight:900; font-size:26px; color:var(--orange); line-height:1;}
+  .stat .l{font-size:12.5px; color:var(--ink); margin-top:5px; font-weight:700;}
+  .bar-row{display:flex; align-items:center; gap:12px; margin:6px 0;}
+  .bar-lab{flex:0 0 150px; font-size:13px; font-weight:700;}
+  .bar-track{flex:1; background:rgba(199,203,205,.4); border-radius:999px; height:15px; overflow:hidden;}
+  .bar-fill{height:100%; background:var(--teal); border-radius:999px;}
+  .bar-fill.warn{background:var(--orange);}
+  .bar-val{flex:0 0 46px; font-weight:800; font-size:13px; color:var(--teal);}
+  .quote{background:#fff; border:1px solid var(--gray); border-left:4px solid var(--amber); border-radius:0 10px 10px 0; padding:12px 15px; margin:10px 0; font-size:14px;}
+  .quote .who{display:block; margin-top:7px; font-weight:800; color:var(--teal);}
+  .pill{display:inline-block; padding:2px 9px; border-radius:999px; font-size:12px; font-weight:800; white-space:nowrap;}
+  .p-red{background:#F0701A; color:#fff;} .p-amb{background:var(--amber); color:var(--ink);}
+  .p-yel{background:var(--yellow); color:var(--ink);} .p-grn{background:var(--teal); color:#fff;}
+  .footer{margin-top:26px; padding-top:14px; border-top:1px solid var(--gray); font-size:12px; color:#6b7d77;}
+  .lead{background:rgba(52,162,149,.09); border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:14px 18px; margin:8px 0 16px; font-size:16px; line-height:1.55;}
+  .hl{color:var(--teal); font-weight:800;}
+  .hl2{color:var(--orange); font-weight:800;}
+  ol.bl-num,ul.bl-chevron,ul.bl-check,ul.bl-diamond,ul.bl-card,ul.bl-task,ul.bl-triangle{list-style:none; padding-left:0; margin:12px 0 16px; line-height:1.5;}
+  ol.bl-num{counter-reset:n;}
+  ol.bl-num li{position:relative; padding:8px 0 8px 42px; border-bottom:1px solid rgba(199,203,205,.5);}
+  ol.bl-num li:last-child{border-bottom:none;}
+  ol.bl-num li:before{counter-increment:n; content:counter(n); position:absolute; left:0; top:7px; width:27px; height:27px; border-radius:50%; background:var(--teal); color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; justify-content:center;}
+  ul.bl-chevron li{position:relative; padding:8px 0 8px 30px;}
+  ul.bl-chevron li:before{content:""; position:absolute; left:4px; top:14px; width:8px; height:8px; border-top:3px solid var(--orange); border-right:3px solid var(--orange); transform:rotate(45deg);}
+  ul.bl-check li{position:relative; padding:8px 0 8px 38px;}
+  ul.bl-check li:before{content:"\2713"; position:absolute; left:0; top:7px; width:24px; height:24px; border-radius:50%; background:rgba(52,162,149,.15); color:var(--teal); font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center;}
+  ul.bl-diamond li{position:relative; padding:8px 0 8px 30px; border-bottom:1px solid rgba(199,203,205,.45);}
+  ul.bl-diamond li:last-child{border-bottom:none;}
+  ul.bl-diamond li:before{content:""; position:absolute; left:4px; top:14px; width:11px; height:11px; border-radius:3px; background:var(--teal); transform:rotate(45deg);}
+  ul.bl-card li{background:#fff; border:1px solid var(--gray); border-left:5px solid var(--teal); border-radius:0 8px 8px 0; padding:9px 14px; margin:0 0 8px;}
+  ul.bl-task li{position:relative; padding:9px 0 9px 36px; border-bottom:1px solid rgba(199,203,205,.5);}
+  ul.bl-task li:before{content:"\2610"; position:absolute; left:0; top:6px; font-size:20px; color:var(--teal); font-weight:800;}
+  ul.bl-triangle li{position:relative; padding:8px 0 8px 26px;}
+  ul.bl-triangle li:before{content:""; position:absolute; left:4px; top:13px; width:0; height:0; border-top:6px solid transparent; border-bottom:6px solid transparent; border-left:9px solid var(--orange);}
+  .avatarcard{ background:var(--ink); color:var(--cream); border-left:5px solid var(--orange); border-radius:0 10px 10px 0; padding:16px 20px; margin:12px 0 18px; }
+  .avatarcard .ey{ color:var(--orange); font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin:0 0 6px; }
+  .avatarcard h3{ font-family:'Fraunces',serif; color:var(--amber); font-size:20px; margin:0 0 7px; }
+  .avatarcard .desc{ margin:0; color:#cfd8d3; font-size:15px; line-height:1.5; }
+  .blankline{display:block; border-bottom:1px solid var(--gray); height:20px; margin:6px 0;}
+  .secthead{background:var(--ink); color:var(--cream); padding:12px 18px; border-radius:8px; margin:28px 0 6px;}
+  .secthead .t{font-family:'Fraunces',serif; font-size:20px; font-weight:900; color:var(--amber); margin:0;}
+  .secthead .s{margin:4px 0 0; font-size:13.5px; color:#cfd8d3;}
+  q{font-style:italic; color:#3f5b53;}
+  @media print{
+    body{background:#fff;}
+    .page{box-shadow:none; margin:0; max-width:none; padding:26px 30px;}
+    h2{page-break-after:avoid;} table{page-break-inside:auto;} tr{page-break-inside:avoid;}
+    .page-break{page-break-before:always;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="cover">
+    <p class="kicker">Banana Slug Getaways &middot; Review Mining &middot; Pre-Purchase Diligence</p>
+    <h1>Cinnamon Spice &mdash; What 260 Guests Actually Say</h1>
+    <p class="sub">94 Bent Pine Trl &middot; Hochatown / Broken&nbsp;Bow,&nbsp;OK &middot; Entire cabin &middot; 1 bedroom &middot; 1 bath &middot; sleeps&nbsp;3</p>
+    <div class="meta">
+      <span class="chip">260 reviews &middot; Mar 2022 &ndash; Aug 2026</span>
+      <span class="chip">&#9733; 4.98 overall</span>
+      <span class="chip">Captured Aug 28,&nbsp;2026</span>
+      <span class="chip">Buyer's read &mdash; not a client package</span>
+    </div>
+  </div>
+
+  <div class="goldtop">
+    <p class="ey">&#9733; Read this first</p>
+    <p><strong>The property is excellent. The revenue is not the property.</strong> Guests still rate this cabin 4.96 in 2026 &mdash; but they are arriving <strong>42% less often than a year ago</strong>, and the single most-praised thing about the stay is the <strong>host</strong>, who leaves at closing. Both facts sit directly underneath the $97,285 that makes this deal pencil at 4.99&times;.</p>
+  </div>
+
+  <div class="grid">
+    <div class="stat"><div class="n">260</div><div class="l">Reviews mined<br>(all of them)</div></div>
+    <div class="stat"><div class="n">4.98</div><div class="l">Overall stars<br>Rockstar tier</div></div>
+    <div class="stat"><div class="n">97.7%</div><div class="l">Five-star<br>254 of 260</div></div>
+    <div class="stat"><div class="n">&minus;42%</div><div class="l">Review pace<br>2026 vs 2025</div></div>
+    <div class="stat"><div class="n">95</div><div class="l">Mentions of<br>the host</div></div>
+  </div>
+
+  <h2>Executive summary</h2>
+  <div class="lead">
+    Across four and a half years and 260 guests, Cinnamon Spice earns something close to a perfect record &mdash; <span class="hl">not one review below four stars, ever</span> &mdash; and the reason is remarkably consistent: couples drive two or three hours from Dallas and Oklahoma City to spend an anniversary inside a spa-cabin with a sauna, a hot tub, a three-head rain shower and what one guest counted as five separate ways to have a fire. That product is real, it is unusual for a one-bedroom, and it conveys with the deed. What does <span class="hl2">not</span> convey is the thing guests praise most of all &mdash; Airbnb's own review tags rank <span class="hl2">&ldquo;Hospitality&rdquo; first at 95 mentions</span>, ahead of location and the hot tub &mdash; and underneath that sits the finding that actually moves the underwriting: <span class="hl2">guests are still delighted, but far fewer of them are coming</span>.
+  </div>
+
+  <div class="avatarcard">
+    <p class="ey">Dominant guest avatar &mdash; write this on the wall</p>
+    <h3>&ldquo;The Anniversary Spa-Cabin Couple&rdquo;</h3>
+    <p class="desc">A Dallas-or-Oklahoma-City couple (late 20s&ndash;50s) driving 2&ndash;3 hours for a 2&ndash;4 night anniversary, honeymoon or birthday escape &mdash; often with the dog &mdash; who deliberately picks a private two-person spa cabin with a sauna, hot tub and half a dozen fires over the big group cabins Hochatown is full of.</p>
+  </div>
+
+  <h2>Guest avatar, itemized</h2>
+  <p>Every trait below is carried by review evidence. The number = how many of the 260 reviews support it.</p>
+  <table>
+    <tr><th style="width:20%">Trait</th><th style="width:42%">What the reviews show</th><th>Evidence</th></tr>
+    <tr><td><strong>Who</strong></td><td>Couples, overwhelmingly. Two adults; a dog often joins.</td><td>39 romance/couple &middot; 9 dog &middot; guest cap 3</td></tr>
+    <tr><td><strong>Trip purpose</strong></td><td>Occasion travel &mdash; anniversary, honeymoon, birthday. A <em>celebration</em> property, not a basecamp.</td><td>26 explicit occasion trips (10%)</td></tr>
+    <tr><td><strong>Origin</strong></td><td>Drive market. DFW dominates, then OKC metro, then Louisiana.</td><td>~52 DFW &middot; ~24 OKC metro &middot; 8 LA</td></tr>
+    <tr><td><strong>Trip length</strong></td><td>Short &mdash; weekends and 2&ndash;4 night escapes.</td><td>Repeated &ldquo;weekend&rdquo; / &ldquo;long weekend&rdquo;</td></tr>
+    <tr><td><strong>Booking trigger</strong></td><td>The <strong>amenity stack</strong>, named specifically before arrival.</td><td>Hot tub 53 &middot; sauna 25 &middot; fireplaces 21 &middot; movie screen 13</td></tr>
+    <tr><td><strong>What they reject</strong></td><td>Crowds and group cabins. Private, quiet, two-person.</td><td>87 quiet/peaceful &middot; 38 privacy/seclusion</td></tr>
+    <tr><td><strong>First impression</strong></td><td>The look of the place &mdash; decor is the most-mentioned property attribute of all.</td><td>101 mentions of decor / charm / beauty (39%)</td></tr>
+    <tr><td><strong>Expectation set</strong></td><td>Walkable to a brewery <em>and</em> feeling secluded &mdash; they want both and say so in one sentence.</td><td>78 location &middot; 29 restaurants/brewery</td></tr>
+    <tr><td><strong>Not the guest</strong></td><td>Families. The 3-guest cap is felt and stated out loud.</td><td>&ldquo;perfect for a couple but might be too tight for a family&rdquo;</td></tr>
+  </table>
+
+  <h2>Where the rating sits &mdash; by Airbnb standards</h2>
+  <p>At <strong>&#9733;4.98</strong> this listing sits at the very top of the &ldquo;great&rdquo; band, one hundredth of a point below unicorn tier.</p>
+  <table>
+    <tr><th>Overall stars</th><th>Meaning</th><th>Label</th><th style="width:20%">This listing</th></tr>
+    <tr><td>4.99 &ndash; 5.00</td><td>Amazingly excellent (best in class)</td><td>&#129412; Unicorn tier</td><td></td></tr>
+    <tr><td><strong>4.94 &ndash; 4.98</strong></td><td><strong>Great &mdash; 4.94 is the target</strong></td><td>&#127881; Rockstar host</td><td><span class="pill p-grn">&#9733;4.98 &mdash; here</span></td></tr>
+    <tr><td>4.90 &ndash; 4.93</td><td>Good &mdash; the bottom &ldquo;doing fine&rdquo; line</td><td>&#128077; Solid &amp; steady</td><td></td></tr>
+    <tr><td>4.89 &amp; below</td><td>Really not good &mdash; real work to do</td><td>&#127793; Room to bloom</td><td></td></tr>
+  </table>
+  <div class="callout">
+    <strong>Worth naming:</strong> in 260 stays there is <strong>not a single review below 4 stars</strong> &mdash; 254 fives and 6 fours. Across the markets we have screened this is the cleanest guest-satisfaction record we have looked at. The quality of the stay is not in question anywhere in this report.
+  </div>
+
+  <h2>&#128201; The finding that matters most: ratings held, arrivals fell</h2>
+  <p>Rating and review volume answer two different questions, and the gap between them is the diagnosis. Here they diverge sharply.</p>
+  <table>
+    <tr><th>Year</th><th>Avg rating</th><th>Reviews</th><th>Monthly pace</th><th>Read</th></tr>
+    <tr><td>2022 <em>(from Mar 29)</em></td><td>5.000</td><td>21</td><td>2.31/mo</td><td>Ramp-up</td></tr>
+    <tr><td>2023</td><td>5.000</td><td>73</td><td>6.08/mo</td><td>Peak</td></tr>
+    <tr><td>2024</td><td>4.971</td><td>69</td><td>5.75/mo</td><td>Holding</td></tr>
+    <tr><td>2025</td><td>4.958</td><td>72</td><td>6.00/mo</td><td>Holding</td></tr>
+    <tr><td><strong>2026 <em>(to Aug 28)</em></strong></td><td><strong>4.960</strong></td><td><strong>25</strong></td><td><strong>3.18/mo</strong></td><td><span class="pill p-red">Pace nearly halved</span></td></tr>
+  </table>
+
+  <h3>Same-window comparison &mdash; January 1 to August 28, every year</h3>
+  <p>This removes seasonality entirely by comparing identical calendar windows. Bar length = reviews landed in that window.</p>
+  <div class="bar-row"><div class="bar-lab">2023</div><div class="bar-track"><div class="bar-fill" style="width:96%"></div></div><div class="bar-val">45</div></div>
+  <div class="bar-row"><div class="bar-lab">2024</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val">47</div></div>
+  <div class="bar-row"><div class="bar-lab">2025</div><div class="bar-track"><div class="bar-fill" style="width:91%"></div></div><div class="bar-val">43</div></div>
+  <div class="bar-row"><div class="bar-lab"><strong>2026</strong></div><div class="bar-track"><div class="bar-fill warn" style="width:53%"></div></div><div class="bar-val">25</div></div>
+
+  <p>And the decline is not gradual &mdash; it concentrates in the most recent five months:</p>
+  <table>
+    <tr><th>Window</th><th>2025</th><th>2026</th><th>Change</th></tr>
+    <tr><td>Jan 1 &ndash; Aug 28</td><td>43</td><td>25</td><td><span class="pill p-amb">&minus;42%</span></td></tr>
+    <tr><td>April &ndash; August</td><td>28</td><td>11</td><td><span class="pill p-red">&minus;61%</span></td></tr>
+    <tr><td>Rolling trailing-12 months</td><td>65</td><td>54</td><td>&minus;17%</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>The diagnosis.</strong> Rating <em>holding</em> while volume <em>falls</em> is a specific signature: the stay is not failing &mdash; demand for it is. Guests who book are as happy as ever; far fewer people are choosing it. Normally that reads as a positioning problem the owner should fix. <strong>For a buyer it reads harder:</strong> the $97,285 disclosed 2025 gross that produces the 4.99&times; multiple describes a year that, on this evidence, is not repeating in 2026.
+  </div>
+
+  <h3>Three honest caveats before pricing this in</h3>
+  <ol class="bl-num">
+    <li><strong>Reviews proxy bookings, they do not count them.</strong> Roughly 60&ndash;70% of guests review, and that share can drift. A 61% five-month drop is far outside normal drift &mdash; but it is not a T-12 statement.</li>
+    <li><strong>August 2026 is understated.</strong> Guests have up to 14 days to review, so mid-August stays onward have not landed. The August figure of 1 will rise somewhat.</li>
+    <li><strong>The benign explanation is actually worse.</strong> If bookings shifted to VRBO or the seller's own direct site, Airbnb reviews would fall while revenue held &mdash; but that means an even larger share of revenue rides on channels that <strong>may not convey</strong>. Both readings damage the thesis; only a T-12 by channel separates them.</li>
+  </ol>
+
+  <h2>&#128176; What the $97,285 actually is &mdash; and whether 2026 can still reach it</h2>
+  <p>The number quoted in the listing marketing is <strong>gross revenue for calendar 2025, across all channels</strong> &mdash; seller-disclosed, not audited, and <em>gross</em>, not what lands in a bank account. It breaks down roughly like this:</p>
+  <table>
+    <tr><th style="width:34%">Component</th><th style="width:18%">Amount</th><th>What it is</th></tr>
+    <tr><td>Airbnb side</td><td>~$73,300</td><td>What AirDNA independently tracks for this listing</td></tr>
+    <tr><td>VRBO + direct booking</td><td>~$24,000</td><td>The gap. Rides on the seller's own multi-property brand</td></tr>
+    <tr><td><strong>Total 2025 disclosed gross</strong></td><td><strong>$97,285</strong></td><td>&divide; $485,000 ask = <strong>4.99&times;</strong> = 20.06% at ask</td></tr>
+  </table>
+  <h3>What &ldquo;4.99&times; = 20.06%&rdquo; means, and why we call it a left-tail exception</h3>
+  <p>Both numbers are the same test stated two ways &mdash; how many years of gross revenue you are paying, and the same figure inverted as a yield:</p>
+  <table>
+    <tr><th style="width:34%">Test</th><th style="width:32%">Calculation</th><th>Result at ask</th></tr>
+    <tr><td><strong>Price-to-revenue multiple</strong></td><td>$485,000 &divide; $97,285</td><td><strong>4.99&times;</strong> &mdash; under our 5&times; ceiling <span class="pill p-grn">Passes</span></td></tr>
+    <tr><td><strong>Revenue yield on price</strong></td><td>$97,285 &divide; $485,000</td><td><strong>20.06%</strong> &mdash; above our 20% floor <span class="pill p-grn">Passes</span></td></tr>
+  </table>
+  <div class="callout">
+    <strong>&#9888;&#65039; It passes by almost nothing.</strong> At a 20% floor the revenue needed is <strong>$97,000</strong> &mdash; so the entire cushion is <strong>$285 of annual gross, about one cancelled weekend</strong>. On the price side, the maximum that still clears is $486,425, a cushion of <strong>$1,425</strong>. Both are roughly <strong>0.3%</strong>. There is no margin of safety in this number at all.
+  </div>
+  <p><strong>Why &ldquo;left-tail exception.&rdquo;</strong> Screening runs at the <em>market</em> level first: take the median price-to-revenue multiple across comparable listings and ask whether a typical purchase there could work. <strong>Hochatown's median is ~8.5&times;</strong> &mdash; a typical listing costs about 8.5 years of gross &mdash; so <strong>the market itself failed the screen</strong>. But a median is the middle of a distribution, not all of it. The <strong>left tail</strong> is the cheap end: the few listings priced far below what their market normally charges for a dollar of revenue. At <strong>4.99&times; against a median of 8.5&times;</strong>, this one sits at roughly <strong>59% of the going rate</strong> &mdash; an exception to its own market's failure. Across six screened markets it is <strong>the only listing to clear the bar at asking price</strong>. That is why it survived after Broken Bow was set aside, and why it earned this depth of diligence.</p>
+  <div class="callout">
+    <strong>And it frames the risk exactly.</strong> With a $285 cushion, the 4.99&times; depends entirely on $97,285 being both accurate <em>and</em> repeatable. If that figure is a peak rather than a run-rate, the multiple does not drift &mdash; it jumps. At an all-channel &minus;42% the property lands at <strong>8.51&times;</strong>, which is the 8.5&times; median that already failed. <strong>The left-tail exception does not degrade gracefully; it collapses back into the market it came from.</strong>
+  </div>
+
+  <p>So the Zillow-style claim of &ldquo;gross revenue in the 90s&rdquo; is <strong>a real 2025 figure, not a 2026 projection</strong>. It is the seller quoting her best trailing year, which is normal and not misleading &mdash; but it is a historical number being used to price a forward asset.</p>
+
+  <h3>&#9989; Does the review data reconcile with $97,285? For 2025, yes.</h3>
+  <p>This test matters more than it looks. <strong>If the review-count proxy fails on a year where revenue is known, it cannot be trusted on a year where it isn't.</strong> So before using review volume to say anything about 2026, it has to survive 2025. It does &mdash; using only the disclosed 80.83% occupancy as the starting point:</p>
+  <table>
+    <tr><th style="width:24%">Step</th><th style="width:26%">Calculation</th><th style="width:18%">Result</th><th>Sanity check</th></tr>
+    <tr><td>Booked nights</td><td>80.83% &times; 365</td><td><strong>295 nights</strong></td><td>Matches the disclosed occupancy</td></tr>
+    <tr><td>Implied nightly rate</td><td>$97,285 &divide; 295 nights</td><td><strong>~$330/night</strong></td><td><span class="pill p-grn">Checks out</span> Right for a premium 1BR spa cabin here</td></tr>
+    <tr><td>Implied bookings</td><td>72 reviews &divide; 60&ndash;70% review rate</td><td><strong>103&ndash;120</strong></td><td>Normal Airbnb review-response rates</td></tr>
+    <tr><td>Nights per booking</td><td>295 nights &divide; ~110 bookings</td><td><strong>2.5&ndash;2.9 nights</strong></td><td><span class="pill p-grn">Checks out</span> Exactly right for a weekend couples cabin</td></tr>
+  </table>
+  <div class="callout">
+    <strong>Four independent figures, and every one lands where it should.</strong> Occupancy, nightly rate, booking count and stay length all reconcile against a revenue number that none of them were derived from &mdash; so this is a genuine cross-check, not circular arithmetic. <strong>That validates review count as a sound proxy for this specific listing</strong>, which is exactly what earns the 2026 decline the right to be taken seriously rather than waved off as noise. The method was tested on the known year before being trusted on the unknown one.
+  </div>
+
+  <h3>Running the same arithmetic on 2026</h3>
+  <p>Airbnb reviews measure the <em>Airbnb</em> side only, so the honest version splits the two channels. Applying the observed &minus;42% same-window decline:</p>
+  <table>
+    <tr><th style="width:40%">Scenario</th><th style="width:20%">2026 gross</th><th style="width:18%">Multiple at $485K</th><th>Verdict against our 20% floor</th></tr>
+    <tr><td><strong>2025 actual</strong> (the marketed number)</td><td>$97,285</td><td><strong>4.99&times;</strong></td><td><span class="pill p-grn">Passes at ask</span></td></tr>
+    <tr><td>Airbnb &minus;42%, off-platform holds flat</td><td>~$66,500</td><td>7.29&times;</td><td><span class="pill p-red">Fails</span></td></tr>
+    <tr><td>All channels &minus;42%</td><td>~$57,000</td><td>8.51&times;</td><td><span class="pill p-red">Fails</span></td></tr>
+    <tr><td>Market median-reversion case (from the Aug 23 screen)</td><td>$53,800</td><td>9.01&times;</td><td><span class="pill p-red">Fails</span></td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>The punchline.</strong> At an all-channel &minus;42%, this property reverts to <strong>8.51&times;</strong> &mdash; which is almost exactly the <strong>8.5&times; Broken Bow market median that already failed the screen</strong>. Two completely independent methods (this review-pace read at ~$57K, and the Aug 23 median-reversion case at $53.8K) land within $3,200 of each other. If 2026 is the true run-rate, Cinnamon Spice is not a left-tail exception any more &mdash; it is an ordinary Broken Bow listing at an exceptional price.
+  </div>
+
+  <h3>So &mdash; is the 90s still possible in 2026?</h3>
+  <p>Possible, but only if one of three specific things is true, and each is testable:</p>
+  <table>
+    <tr><th style="width:32%">What would have to be true</th><th style="width:26%">How plausible</th><th>What it would mean for you</th></tr>
+    <tr>
+      <td><strong>Stays got much longer.</strong> Fewer bookings, same nights.</td>
+      <td>Possible. To fully offset, average stay must rise from ~2.7 to ~4.6 nights &mdash; a large shift, but a minimum-stay policy change could do it.</td>
+      <td><span class="pill p-grn">Benign</span> Revenue intact. Check nights-per-booking in the T-12.</td>
+    </tr>
+    <tr>
+      <td><strong>ADR rose sharply.</strong></td>
+      <td>Unlikely. Would need ~$330 &rarr; ~$568 per night, in a market where supply grew ~76% in three years. Pricing power is moving the other way.</td>
+      <td><span class="pill p-grn">Benign if true</span> But the market makes this hard to believe.</td>
+    </tr>
+    <tr>
+      <td><strong>Bookings shifted off Airbnb</strong> to VRBO and her direct site.</td>
+      <td>Quite plausible &mdash; she runs a multi-property direct brand and cross-sells it in her own review replies.</td>
+      <td><span class="pill p-red">Worst case</span> Revenue holds, but an even larger share sits on channels that may not convey to you.</td>
+    </tr>
+  </table>
+  <p>There is also a fourth possibility that is neither good nor bad: <strong>the calendar was deliberately blocked</strong> &mdash; for showings, personal use, or a wind-down ahead of sale. A guest referenced the property being for sale as far back as June 2024. If that is the cause, 2026 <em>understates</em> the property's earning power and the decline is not a market signal at all. <strong>That is the outcome most favourable to buying, and it is the easiest of the four to verify.</strong></p>
+
+  <div class="callout">
+    <strong>All four resolve with one document.</strong> A T-12 showing <em>gross by month, by channel, with nights booked and nights blocked</em> tells you which of these you are looking at. Until then, the $97,285 should be treated as a 2025 fact and not a 2026 assumption &mdash; and the gap between 4.99&times; and 8.51&times; is roughly the whole distance between &ldquo;the best deal on the board&rdquo; and &ldquo;a listing that already failed the screen.&rdquo;
+  </div>
+
+  <h2>&#128197; Month by month &mdash; 2025 against 2026</h2>
+  <p>The annual figure hides where the change actually happened. <strong>Reviews are a count of completed stays, not of nights</strong>, so nights are derived using the two ratios established in the reconciliation above: a <strong>65% review rate</strong> and <strong>2.7 nights per booking</strong>.</p>
+  <div class="callout">
+    <strong>The method validates on the known year.</strong> Running those ratios across all 72 reviews of 2025 gives <strong>111 bookings and 299 nights</strong>, against the <strong>295 nights</strong> implied by the disclosed 80.83% occupancy &mdash; a <strong>1.4% error</strong>. That is close enough to read the monthly pattern with some confidence.
+  </div>
+  <table>
+    <tr><th style="width:10%">Month</th><th style="width:11%">2025 stays</th><th style="width:11%">2026 stays</th><th style="width:13%">Est. 2025 nights</th><th style="width:13%">Est. 2026 nights</th><th style="width:12%">Night change</th><th>Note</th></tr>
+    <tr><td>Jan</td><td>4</td><td>5</td><td>17</td><td>21</td><td><span class="pill p-grn">+4</span></td><td>Ahead of last year</td></tr>
+    <tr><td>Feb</td><td>5</td><td>2</td><td>21</td><td>8</td><td><span class="pill p-amb">&minus;12</span></td><td>Dip</td></tr>
+    <tr><td>Mar</td><td>6</td><td>7</td><td>25</td><td>29</td><td><span class="pill p-grn">+4</span></td><td>Recovers &mdash; ahead again</td></tr>
+    <tr><td>Apr</td><td>4</td><td>3</td><td>17</td><td>12</td><td><span class="pill p-amb">&minus;4</span></td><td><strong>Went pending Apr 29</strong></td></tr>
+    <tr><td>May</td><td>5</td><td>2</td><td>21</td><td>8</td><td><span class="pill p-red">&minus;12</span></td><td>Under contract all month</td></tr>
+    <tr><td>Jun</td><td>8</td><td>3</td><td>33</td><td>12</td><td><span class="pill p-red">&minus;21</span></td><td><strong>Back on market Jun 1</strong></td></tr>
+    <tr><td>Jul</td><td>7</td><td>2</td><td>29</td><td>8</td><td><span class="pill p-red">&minus;21</span></td><td>Still suppressed</td></tr>
+    <tr><td>Aug</td><td>4</td><td>1</td><td>17</td><td>4</td><td><span class="pill p-red">&minus;12</span></td><td>Partly incomplete &mdash; reviews still landing</td></tr>
+    <tr><td colspan="7" style="background:rgba(52,162,149,.08)"><em>September&ndash;December 2025 ran 7 &middot; 7 &middot; 8 &middot; 7 = 29 stays. No 2026 equivalent yet.</em></td></tr>
+  </table>
+
+  <h3>Where the break actually is</h3>
+  <table>
+    <tr><th style="width:26%">Window</th><th style="width:14%">2025</th><th style="width:14%">2026</th><th style="width:16%">Change</th><th>Read</th></tr>
+    <tr><td><strong>January &ndash; March</strong></td><td>15 stays</td><td>14 stays</td><td><span class="pill p-grn">Flat</span></td><td>No problem visible at all in Q1</td></tr>
+    <tr><td><strong>April &ndash; August</strong></td><td>28 stays<br>~116 nights</td><td>11 stays<br>~46 nights</td><td><span class="pill p-red">&minus;61%</span></td><td><strong>~70 nights not booked</strong></td></tr>
+  </table>
+  <div class="callout">
+    <strong>At roughly $330 a night, those ~70 missing nights are about $23,000 of revenue that did not happen in five months.</strong> And the break is clean: Q1 2026 was <em>fine</em> &mdash; two of the three months ran ahead of 2025. Whatever changed, changed <strong>in April</strong>, the month the property went under contract.
+  </div>
+
+  <h3>The honest complication</h3>
+  <p>If this were purely a calendar closed for a pending sale, bookings should recover once the contract failed and the property returned to market on <strong>June 1</strong>. They did not &mdash; June, July and August are the three worst months in the series. Reviews lag checkout by up to two weeks, so July and August reviews reflect stays well after the relist.</p>
+  <ul class="bl-chevron">
+    <li>Either the calendar <strong>stayed closed</strong> after the failed contract &mdash; plausible if the seller expected another offer quickly, and still benign for a buyer.</li>
+    <li>Or something changed in April <strong>beyond</strong> the pending sale, and the contract failure and the booking collapse are two symptoms of one cause.</li>
+  </ul>
+  <p><strong>The blocked-nights column of the T-12 distinguishes these two immediately</strong> &mdash; which is why it is the one line item worth insisting on.</p>
+
+  <h3>What it implies for full-year 2026</h3>
+  <table>
+    <tr><th style="width:40%">If September&ndash;December&hellip;</th><th style="width:22%">Full-year stays</th><th style="width:18%">Est. nights</th><th>Est. gross at ~$330</th></tr>
+    <tr><td>runs at the same &minus;61% as April&ndash;August</td><td>~36</td><td>~150</td><td><strong>~$49,000</strong></td></tr>
+    <tr><td>recovers fully to 2025 levels</td><td>~54</td><td>~224</td><td><strong>~$74,000</strong></td></tr>
+    <tr><td colspan="4" style="background:rgba(52,162,149,.08)"><em>Either way, well short of $97,285 &mdash; and the earlier working estimate of ~$57,000 sits inside this band.</em></td></tr>
+  </table>
+  <p style="font-size:13.5px"><em>Caveat: monthly counts here are small (1&ndash;8 stays), so any single month is noisy. The Q1 and April&ndash;August aggregates are the readable signal, not individual months. August 2026 is also understated, since stays from mid-August onward have not been reviewed yet.</em></p>
+
+  <div class="secthead">
+    <p class="t">&#128681; ASK THE REALTOR &mdash; the April question</p>
+    <p class="s">This is the strongest question in the file, because the data behind it is public and checkable.</p>
+  </div>
+  <p>Phrase it as an observation with a date attached, not an accusation. It is very hard to deflect because the seller can verify every number independently:</p>
+  <div class="quote">
+    &ldquo;Looking at the public guest-review record on the Airbnb listing, completed stays ran essentially flat year over year through the first quarter &mdash; 14 in January to March 2026 against 15 in the same window of 2025, with January and March actually ahead. From April onward it drops sharply: 11 stays across April to August 2026 against 28 in the same five months of 2025, a 61% decline. <strong>What changed in April?</strong> And can the seller provide nights booked and nights blocked by month, so we can see whether the calendar was closed during the pending sale?&rdquo;
+  </div>
+  <table>
+    <tr><th style="width:34%">Why this question works</th><th>What it does</th></tr>
+    <tr><td><strong>It is not a guess</strong></td><td>Built from the seller's own public review record. She can check every figure herself.</td></tr>
+    <tr><td><strong>It is precisely dated</strong></td><td>&ldquo;Something changed in April&rdquo; is far harder to answer vaguely than &ldquo;bookings seem down.&rdquo; April 29 is when it went pending.</td></tr>
+    <tr><td><strong>It concedes the good news first</strong></td><td>Q1 was fine. That signals fair analysis rather than a negotiating tactic, and makes the April break the only thing to explain.</td></tr>
+    <tr><td><strong>It names the benign answer</strong></td><td>Offering &ldquo;was the calendar closed for the pending sale?&rdquo; gives an easy honest exit &mdash; and if that <em>is</em> the answer, it helps the buyer's case, not hurts it.</td></tr>
+    <tr><td><strong>It asks for one specific document</strong></td><td>Nights booked and nights blocked by month. Concrete, small, and it settles the question outright.</td></tr>
+  </table>
+  <div class="callout">
+    <strong>Listen for whether the answer covers June through August.</strong> A pending sale explains May and June. It does not explain July and August, which are the two worst months in the series and fall well after the property returned to market on June 1. <strong>If the explanation stops at the failed contract, the question has not actually been answered.</strong>
+  </div>
+
+  <h2>&#128270; What could explain April &mdash; testing each theory</h2>
+  <p>The signature to explain is specific: <strong>bookings fell hard, guest satisfaction did not move at all.</strong> That shape rules some theories in and others out before any diligence happens.</p>
+  <div class="callout">
+    <strong>The logic that does most of the work here.</strong> Anything that degrades the <em>stay</em> shows up as <strong>lower ratings</strong>. Anything that degrades <em>discoverability, availability or competitiveness</em> shows up as <strong>fewer bookings</strong>. A prospective guest browsing Airbnb cannot know what is happening next door &mdash; so on-site nuisances cannot cause a booking collapse, and demand-side causes cannot cause a rating collapse. <strong>Ratings held perfectly. So the cause is almost certainly on the demand side, not at the property.</strong>
+  </div>
+
+  <table>
+    <tr><th style="width:26%">Theory</th><th style="width:16%">Fits the signature?</th><th style="width:30%">What the evidence says</th><th>Verdict</th></tr>
+    <tr>
+      <td><strong>Nearby construction noise</strong> &mdash; continuing and disruptive</td>
+      <td><span class="pill p-red">No</span> Would lower ratings, not bookings</td>
+      <td><strong>Zero construction mentions in all 260 reviews.</strong> &ldquo;Quiet/peaceful&rdquo; praise held at <strong>32% of 2026 reviews</strong> (vs 35% in 2025, 39% in 2024). April, June and July 2026 guests wrote <q>so quiet</q>, <q>secluded and surrounded by woods</q>, <q>extremely relaxing and peaceful</q>, <q>very peaceful</q>.</td>
+      <td><span class="pill p-grn">Ruled out</span> with good confidence</td>
+    </tr>
+    <tr>
+      <td><strong>New neighbouring cabins</strong> &mdash; more competing supply on the same street</td>
+      <td><span class="pill p-grn">Yes</span> Fits perfectly</td>
+      <td><strong>Cannot be tested from reviews</strong> &mdash; it operates on demand, not on the stay. Consistent with a market that went from ~400 to 3,200&ndash;4,500 cabins, and with two neighbours listing on 4/27/2026.</td>
+      <td><span class="pill p-amb">Live &mdash; untested</span></td>
+    </tr>
+    <tr>
+      <td><strong>New CC&amp;Rs or a regulatory change</strong> restricting rentals</td>
+      <td><span class="pill p-grn">Yes</span> Fits perfectly</td>
+      <td><strong>Cannot be tested from reviews.</strong> A subdivision rental cap, a covenant amendment, or a licensing change would cut bookings while leaving happy guests untouched. Market-level research in August found Hochatown licensing uncapped, but that does not cover <em>subdivision-level</em> covenants.</td>
+      <td><span class="pill p-amb">Live &mdash; the plat and CC&amp;Rs answer this</span></td>
+    </tr>
+    <tr>
+      <td><strong>Calendar closed for the pending sale</strong></td>
+      <td><span class="pill p-amb">Partly</span></td>
+      <td>Explains May and June. <strong>Does not explain July and August</strong>, the two worst months, both well after the June 1 relist.</td>
+      <td><span class="pill p-amb">Partial only</span></td>
+    </tr>
+    <tr>
+      <td><strong>&#11088; Listing paused, then lost search ranking</strong></td>
+      <td><span class="pill p-grn">Yes</span> Fits the <em>whole</em> pattern</td>
+      <td>If the listing was snoozed or blocked when it went under contract on April 29, Airbnb's algorithm demotes it. Reactivating on June 1 does not restore position &mdash; <strong>ranking recovery is slow and booking-dependent</strong>, which is exactly why July and August would stay flat.</td>
+      <td><span class="pill p-grn">Most complete explanation</span></td>
+    </tr>
+    <tr>
+      <td><strong>Channel shift</strong> to VRBO and direct</td>
+      <td><span class="pill p-grn">Yes</span></td>
+      <td>Her site headlines <q>Book Direct &amp; Save&mdash;up to 15%</q>. Airbnb reviews would fall while total revenue held.</td>
+      <td><span class="pill p-red">Live &mdash; worst case for a buyer</span></td>
+    </tr>
+    <tr>
+      <td><strong>Price raised</strong> out of the market</td>
+      <td><span class="pill p-grn">Yes</span></td>
+      <td>Untested. ADR by month for 2025 and 2026 settles it, and is already on the request list.</td>
+      <td><span class="pill p-amb">Live &mdash; easily tested</span></td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>The listing-pause theory deserves the most weight, and it is the friendliest one.</strong> It is the only single explanation that accounts for the full shape &mdash; flat Q1, sharp April break, and <em>no recovery</em> after the contract died. It is also entirely recoverable: search ranking rebuilds as bookings resume. <strong>If that is what happened, 2026 badly understates what this property earns in normal operation</strong> &mdash; which would move the supportable price back toward the top of the range, not the bottom.
+  </div>
+
+  <h3>What would confirm or kill each one</h3>
+  <ol class="bl-num">
+    <li><strong>Was the Airbnb listing ever snoozed, paused, or set to unavailable in 2026?</strong> If yes, on what dates? &mdash; tests the ranking theory, and it is a simple factual question.</li>
+    <li><strong>Nights blocked by month, with the reason.</strong> Separates a closed calendar from genuine absence of demand.</li>
+    <li><strong>Have any new cabins been built or newly listed within sight or earshot since 2024?</strong> The agent will know the street.</li>
+    <li><strong>Have the subdivision CC&amp;Rs been amended since purchase</strong> &mdash; any rental cap, licence limit or new restriction? &mdash; the recorded plat and covenants answer this without needing the seller.</li>
+    <li><strong>ADR by month, 2025 versus 2026.</strong> Rules the pricing theory in or out immediately.</li>
+    <li><strong>Was there any construction on adjacent lots in 2025&ndash;26?</strong> Reviews say no, but confirm at the site visit &mdash; and look for cleared lots or foundations, which signal what is <em>coming</em>.</li>
+  </ol>
+  <div class="callout">
+    <strong>Worth holding onto:</strong> your instinct that new houses may have appeared while the reviews stayed excellent is exactly right, and it is the version of this that the review data <em>cannot</em> see. Guests rate the cabin they stayed in &mdash; they do not rate how many competitors it now has. <strong>A supply-side squeeze is invisible in reviews and fatal to bookings.</strong> That is precisely why it has to be checked on the ground and in the records rather than in the guest feedback.
+  </div>
+
+  <h3>Where these numbers come from</h3>
+  <p>So this can be defended if challenged, or handed to a third party:</p>
+  <table>
+    <tr><th style="width:24%">Item</th><th style="width:34%">Source</th><th>Detail</th></tr>
+    <tr><td><strong>Stay counts</strong></td><td>Public guest reviews on the Airbnb listing (ID 585025320809472264)</td><td>All <strong>260</strong> reviews retrieved Aug 28, 2026 via Airbnb's own public listing API &mdash; the complete set, <strong>not a sample</strong>. Coverage Mar 29, 2022 &ndash; Aug 10, 2026.</td></tr>
+    <tr><td><strong>Reviews &rarr; bookings</strong></td><td>Standard platform review rate</td><td>Divided by <strong>65%</strong>, the midpoint of the normal 60&ndash;70% Airbnb review-response range.</td></tr>
+    <tr><td><strong>Bookings &rarr; nights</strong></td><td>Derived from this listing, not assumed</td><td><strong>2.7 nights per booking</strong> = 295 disclosed nights &divide; ~110 implied 2025 bookings. Property-specific.</td></tr>
+    <tr><td><strong>Occupancy</strong></td><td>Seller-disclosed</td><td><strong>80.83%</strong> &times; 365 = 295 booked nights in 2025.</td></tr>
+    <tr><td><strong>Validation</strong></td><td>Back-test on the known year</td><td>The method applied to 2025 returns <strong>299 nights against 295 disclosed &mdash; a 1.4% error.</strong> That is what licenses its use on 2026.</td></tr>
+    <tr><td><strong>Nightly rate</strong></td><td>Derived</td><td>$97,285 &divide; 295 nights = <strong>~$330/night</strong> gross.</td></tr>
+    <tr><td><strong>Price &amp; listing history</strong></td><td>Zillow, sourced to MLSOK/OKCMAR via MLS GRID</td><td>MLS <strong>#1223934</strong> (2026) and <strong>#1109077</strong> (2024). Retrieved Aug 28, 2026.</td></tr>
+    <tr><td><strong>Street comps</strong></td><td>Zillow listing pages</td><td>67, 81, 83 Bent Pine Trl, each verified individually Aug 28, 2026.</td></tr>
+  </table>
+  <div class="callout">
+    <strong>What this is and is not.</strong> Review counts are a <em>proxy for completed stays</em>, not a financial record &mdash; no outside party can see actual nights booked. The proxy is unusually well-supported here because it reconciles to within 1.4% on a year where the answer is known. <strong>Present it as an observation that needs explaining, never as a claim about the seller's books.</strong> The T-12 with blocked nights is what converts it from inference to fact.
+  </div>
+
+  <h2>What guests highlight most</h2>
+  <p>Two independent counts, and they agree. These are Airbnb's own review-tag synthesis; my separate keyword pass across all 260 put host mentions at 92 against Airbnb's 95. In both, <strong>the host outranks every physical feature</strong>. The number = how many of the 260 reviews mention it.</p>
+  <div class="bar-row"><div class="bar-lab">Hospitality (host)</div><div class="bar-track"><div class="bar-fill warn" style="width:100%"></div></div><div class="bar-val">95</div></div>
+  <div class="bar-row"><div class="bar-lab">Location</div><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><div class="bar-val">68</div></div>
+  <div class="bar-row"><div class="bar-lab">Hot tub</div><div class="bar-track"><div class="bar-fill" style="width:54%"></div></div><div class="bar-val">51</div></div>
+  <div class="bar-row"><div class="bar-lab">Cleanliness</div><div class="bar-track"><div class="bar-fill" style="width:51%"></div></div><div class="bar-val">48</div></div>
+  <div class="bar-row"><div class="bar-lab">Outdoor spaces</div><div class="bar-track"><div class="bar-fill" style="width:45%"></div></div><div class="bar-val">43</div></div>
+  <div class="bar-row"><div class="bar-lab">Nearby things to do</div><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div><div class="bar-val">42</div></div>
+  <div class="bar-row"><div class="bar-lab">Amenities</div><div class="bar-track"><div class="bar-fill" style="width:33%"></div></div><div class="bar-val">31</div></div>
+  <div class="bar-row"><div class="bar-lab">Comfort</div><div class="bar-track"><div class="bar-fill" style="width:29%"></div></div><div class="bar-val">28</div></div>
+  <div class="bar-row"><div class="bar-lab">Kitchen</div><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><div class="bar-val">17</div></div>
+  <div class="bar-row"><div class="bar-lab">TV / entertainment</div><div class="bar-track"><div class="bar-fill" style="width:6%"></div></div><div class="bar-val">6</div></div>
+
+  <h2>Top compliments &mdash; ranked by how often guests raise them</h2>
+  <table>
+    <tr><th style="width:6%">#</th><th style="width:30%">Compliment</th><th style="width:12%">Reviews</th><th>What it tells a buyer</th></tr>
+    <tr><td>1</td><td><strong>Decor, charm, &ldquo;beautiful&rdquo;</strong></td><td>101 &middot; 39%</td><td>The FF&amp;E <em>is</em> the product. Make sure furnishings convey in the contract.</td></tr>
+    <tr><td>2</td><td>The host / hospitality</td><td>95 &middot; 37%</td><td><span class="pill p-red">Does not convey</span> The largest single driver leaves at closing.</td></tr>
+    <tr><td>3</td><td>Quiet, peaceful, relaxing</td><td>87 &middot; 33%</td><td>Conveys &mdash; it is the setting.</td></tr>
+    <tr><td>4</td><td>Location: private yet walkable</td><td>78 &middot; 30%</td><td>Conveys. Genuinely rare in Hochatown.</td></tr>
+    <tr><td>5</td><td>Hot tub</td><td>53 &middot; 20%</td><td>Conveys. Repeatedly praised as <em>clean</em> &mdash; a real operational achievement.</td></tr>
+    <tr><td>6</td><td>Cleanliness</td><td>46&ndash;48 &middot; 18%</td><td>Conveys only if you match the seller's turnover standard.</td></tr>
+    <tr><td>7</td><td>Romance / couples fit</td><td>39 &middot; 15%</td><td>Conveys. This is the positioning.</td></tr>
+    <tr><td>8</td><td>Privacy / seclusion</td><td>38 &middot; 15%</td><td>Conveys, with the caveat in the pain table below.</td></tr>
+    <tr><td>9</td><td>Deck / covered porch</td><td>32 &middot; 12%</td><td>Conveys. Guests &ldquo;live outside&rdquo; here, in all weather.</td></tr>
+    <tr><td>10</td><td>The three-head rain shower</td><td>32 &middot; 12%</td><td>Conveys. Named as often as the sauna.</td></tr>
+    <tr><td>11</td><td>Walkable brewery / restaurants</td><td>29 &middot; 11%</td><td>Conveys &mdash; location moat.</td></tr>
+    <tr><td>12</td><td>Sauna</td><td>25 &middot; 10%</td><td>Conveys. The stated <em>reason for booking</em> in several reviews.</td></tr>
+  </table>
+
+  <h3>Hidden opportunities &mdash; loved by guests, under-sold in the listing</h3>
+  <ul class="bl-card">
+    <li><strong>The fireplace count.</strong> 21 reviews marvel at the sheer number of indoor and outdoor fires. One guest lists five. The listing title does not mention fireplaces at all.</li>
+    <li><strong>The kitchen.</strong> 20 reviews call it fully stocked and cook multiple meals in it &mdash; unusual for a 1-bedroom and a real length-of-stay driver. Not in the title.</li>
+    <li><strong>The arcade / game table.</strong> 9 mentions, and for one guest it was <em>the deciding factor</em>: &ldquo;the reason I was swayed into renting that specific cabin.&rdquo; Barely surfaced.</li>
+    <li><strong>Dog-friendliness.</strong> 9 mentions, warmly. The title says nothing; the avatar clearly travels with dogs.</li>
+    <li><strong>The covered porch as all-weather space.</strong> Repeatedly saves rainy trips (&ldquo;we were not even upset about the weather&rdquo;). A rain-insurance angle almost nobody markets.</li>
+  </ul>
+
+  <h2>Recurring themes</h2>
+  <table>
+    <tr><th style="width:30%">Theme</th><th style="width:12%">Reviews</th><th>What sits underneath it</th></tr>
+    <tr><td>&ldquo;Private but close to everything&rdquo;</td><td>~40</td><td>The single most repeated <em>sentence shape</em> in the whole set. It is the property's core promise, and guests confirm it unprompted.</td></tr>
+    <tr><td>&ldquo;We never left the cabin&rdquo;</td><td>~18</td><td>Amenity density converts a lodging into a destination. Supports higher ADR and longer stays.</td></tr>
+    <tr><td>Occasion travel</td><td>26</td><td>Anniversaries and honeymoons &mdash; price-insensitive, books ahead, low cancellation.</td></tr>
+    <tr><td>All-weather usability</td><td>~12</td><td>Covered porch + many fires means rain does not ruin the trip. Rare, and it protects shoulder season.</td></tr>
+    <tr><td>Host anticipates needs</td><td>95</td><td>Guidebook app, pre-arrival info, wine and music on arrival, fast fixes. Operational, not structural.</td></tr>
+    <tr><td>Repeat intent</td><td>~40 say &ldquo;we'll be back&rdquo;</td><td>But only <strong>7</strong> reviews evidence an actual second stay. Intent is high; realised repeat is thin.</td></tr>
+  </table>
+
+  <h2>True pain points</h2>
+  <p>Seasoned listing (260 reviews), so the strict filter applies: an item qualifies on <strong>more than one mention</strong>, or on a single mention inside the last 30 days. I ran that window against today &mdash; <strong>July 29 to August 28, 2026</strong> &mdash; and the newest review (Aug 10) falls inside it, so one single-mention item does qualify.</p>
+  <p>Because you would be the buyer, each row is also tagged <strong>property-driven</strong> (transfers to you) or <strong>host-driven</strong> (leaves with the seller). Costs are planning ballparks.</p>
+  <table>
+    <tr><th style="width:22%">Pain point</th><th style="width:7%">Times</th><th style="width:12%">Last raised</th><th style="width:14%">Type</th><th style="width:12%">Est. fix</th><th>Note</th></tr>
+    <tr>
+      <td><strong>Neighbouring cabin visible &amp; road noise behind the property</strong></td><td>8</td><td>Dec 2025</td>
+      <td><span class="pill p-red">Property</span> Structural</td><td>&mdash;</td>
+      <td>Consistent across four years. Guests forgive it (all 5&#9733;) but they <em>notice</em> it. Cannot be fixed &mdash; only disclosed. Verify the road behind at your site visit.</td>
+    </tr>
+    <tr>
+      <td><strong>Intermittent amenity failures</strong> &mdash; gas fire pit, grill, pilot light, TV remotes</td><td>4</td><td>Aug 2026</td>
+      <td><span class="pill p-amb">Property</span> Maintenance</td><td>$800&ndash;2,500</td>
+      <td>Grouped by root cause: gas features and electronics that intermittently do not start. Spans Jan 2025 to Aug 2026 &mdash; recurring, not one-off. Budget a full commissioning pass.</td>
+    </tr>
+    <tr>
+      <td><strong>Rough unpaved approach road</strong> &mdash; potholes and ruts</td><td>2</td><td>Feb 2024</td>
+      <td><span class="pill p-red">Property</span> Structural / shared</td><td>Unknown &mdash; diligence item</td>
+      <td>&ldquo;Recommend a truck&rdquo;. Older mentions, but this is a <em>road maintenance responsibility</em> question: who owns and grades it? Get it answered before you identify.</td>
+    </tr>
+    <tr>
+      <td><strong>Cleanliness lapse</strong> &mdash; previous guest's traces left behind</td><td>1</td><td>Aug 10, 2026</td>
+      <td><span class="pill p-amb">Host</span> Operational</td><td>Turnover spec</td>
+      <td><span class="pill p-yel">Keep an eye on</span> Single mention, but inside the 30-day window so it counts. Also the <em>most recent review on the listing</em> and the only 4&#9733; of 2026 &mdash; possible sign of turnover discipline slipping during a sale process.</td>
+    </tr>
+  </table>
+  <p style="font-size:14px"><em>That is the complete list &mdash; four items from 260 reviews. For a property of this age that is an exceptionally short pain list, and three of the four are cheap or disclosure-only.</em></p>
+
+  <h2>Notes</h2>
+  <h3>Structural &mdash; cannot be fixed, only set expectations for the guest on the listing</h3>
+  <table>
+    <tr><th style="width:32%">Item</th><th>Note</th></tr>
+    <tr><td>Neighbouring cabin in view</td><td>Visible through the trees from the back. Set expectations on the listing; the outdoor privacy curtains already soften it and guests say so.</td></tr>
+    <tr><td>Road behind the cabin</td><td>Occasional car noise. Two guests named it and still gave 5&#9733;. Set expectations for the guest on the listing.</td></tr>
+    <tr><td>3-guest hard cap / 1 bedroom</td><td>Caps ADR ceiling and excludes families entirely. This is the central limit on revenue upside &mdash; it cannot be engineered away without a permitted addition.</td></tr>
+    <tr><td>Unpaved approach</td><td>Set expectations for the guest on the listing; confirm who maintains it before purchase.</td></tr>
+  </table>
+
+  <h3>Deliberately excluded by the seasoned filter</h3>
+  <p>Logged here so the next pass can see they were considered, not missed. Each is a single mention older than 30 days, so none may ship as a pain point.</p>
+  <table>
+    <tr><th style="width:34%">Item</th><th style="width:16%">Date</th><th>Why excluded &mdash; and why a buyer should still glance at it</th></tr>
+    <tr><td>&ldquo;Slightly worn, some things clearly needing some love&rdquo;</td><td>Jan 12, 2025</td><td>Single mention. <strong>But:</strong> for a buyer this is a CapEx signal, not a listing-copy issue &mdash; carried into the diligence list below rather than dropped.</td></tr>
+    <tr><td>Arcade table volume control not findable</td><td>Sep 24, 2025</td><td>Single mention, trivial.</td></tr>
+    <tr><td>Yard swings not usable during stay</td><td>Mar 9, 2025</td><td>Single mention. Swings are in the listing title, so worth confirming they still exist and work.</td></tr>
+    <tr><td>&ldquo;Too tight for a family&rdquo;</td><td>Apr 26, 2024</td><td>Single mention, and not a defect &mdash; it is the 3-guest cap working as designed.</td></tr>
+  </table>
+
+  <h3>No retaliatory or unfair reviews found</h3>
+  <p>Nothing in the 260 reads as retaliatory, off-topic or unfair. There is no review below 4 stars to dismiss.</p>
+
+  <h2>&#128269; Verified outside the reviews &mdash; Aug 28, 2026</h2>
+  <p>Three things the reviews raised were checked against primary sources rather than left as guest impressions.</p>
+
+  <h3>1. Is there a visible neighbour? &mdash; <span class="hl2">Yes as of the imagery date, and that date is the problem</span></h3>
+  <div class="callout">
+    <strong>&#9888;&#65039; Correction &mdash; do not read the satellite view as current.</strong> The Google attribution line reads &ldquo;Imagery &copy;2026 Airbus, Maxar,&rdquo; but that is a <strong>copyright year, not a capture date</strong>. Google Earth's historical slider for this parcel appears to run out around <strong>2022</strong>, which is typical for rural McCurtain County. So the aerial below most likely shows the property as it stood <strong>three to four years ago</strong>, and should be treated that way.
+    <br><br>
+    <strong>That matters here more than usual.</strong> Local cabin supply grew from roughly 400 units to 3,200&ndash;4,500 over this period. Anything built next door since the capture <em>would not appear</em>. The aerial establishes a floor on how much development surrounds this parcel &mdash; not a ceiling.
+  </div>
+  <p>What the available imagery shows at the parcel (34.18153, &minus;94.78029), Timber Creek Trails:</p>
+  <ul class="bl-diamond">
+    <li><strong>Bent Pne Trl passes roughly 100 feet east of the cabin</strong> &mdash; and it is visibly <strong>unpaved</strong>. This is the &ldquo;road behind the cabin&rdquo; in four reviews and the &ldquo;potholes and ruts&rdquo; in two others. It is one road doing both complaints.</li>
+    <li><strong>The nearest neighbouring structure sits roughly 300 feet north-east, across that road</strong>, with tree canopy in between &mdash; exactly matching guests' &ldquo;visible through the trees&rdquo; phrasing rather than anything overlooking.</li>
+    <li>The parcel is <strong>1 acre</strong> (per MLS &mdash; the seller's booking site claims 1.5) inside a <strong>dense STR cabin subdivision</strong> &mdash; a dozen named rental cabins sit within a quarter mile (Panorama, Deacons Den, Sweetwater, Settle Inn, Dream Chaser, Salt + Light, Legends Lair and more).</li>
+    <li>Walkability confirmed: Mountain Fork Brewery, Shuck Me Kitchen and Okie Girls Coffee are ~500 feet north-east.</li>
+  </ul>
+  <div class="callout">
+    <strong>The seller already discloses the road herself.</strong> Her own listing copy states that <strong>SUVs or trucks are recommended due to local unpaved roads</strong>. So this is a known, permanent condition of the property &mdash; not a maintenance lapse someone let slide, and not something a new owner fixes.
+  </div>
+
+  <h4>When guests raised it &mdash; and whether it has been fixed</h4>
+  <table>
+    <tr><th style="width:14%">Date</th><th style="width:12%">Guest</th><th style="width:8%">Stars</th><th>What they said</th></tr>
+    <tr><td>2022-07-07</td><td>Allie</td><td>5</td><td><q>noise from the surrounding cabins&hellip; close to a couple of streets</q></td></tr>
+    <tr><td>2023-05-03</td><td>Kayla</td><td>5</td><td><q>other cabins in the vicinity but it felt pretty private</q></td></tr>
+    <tr><td>2023-10-12</td><td>Megan</td><td>5</td><td><q>Although it is near other cabins&hellip;</q></td></tr>
+    <tr><td>2023-12-26</td><td>Ekaterina</td><td>5</td><td><q>a lot of cabins in the area</q></td></tr>
+    <tr><td>2024-10-07</td><td>Samantha</td><td>5</td><td><q>Semiprivate with neighbors in view and a road behind cabin</q></td></tr>
+    <tr><td>2024-11-17</td><td>Tiffany</td><td>5</td><td><q>you could see other cabins through the trees</q></td></tr>
+    <tr><td>2025-06-20</td><td>Gina</td><td>5</td><td><q>a neighboring cabin visible from the back and a road (sometimes noisy) behind</q></td></tr>
+    <tr><td><strong>2025-08-20</strong></td><td>Stephanie</td><td>5</td><td><q>There was <strong>a house a little closer than expected</strong> but the curtains outside totally took care of the privacy part. We never heard them not once.</q></td></tr>
+    <tr><td><strong>2025-12-02</strong></td><td>Linda</td><td>5</td><td><q>We did hear a couple of cars, but only because there is a small road behind the cabin</q> &mdash; <em>most recent mention of either issue</em></td></tr>
+  </table>
+
+  <table>
+    <tr><th style="width:30%">Question</th><th>Answer on the evidence</th></tr>
+    <tr>
+      <td><strong>Has it been remedied?</strong></td>
+      <td><span class="pill p-red">No &mdash; and it cannot be.</span> A neighbouring structure and a road do not go away. What <em>has</em> been done is mitigation: <strong>outdoor privacy curtains</strong>, and they work &mdash; Stephanie names them explicitly as solving the problem. That mitigation conveys with the property.</td>
+    </tr>
+    <tr>
+      <td><strong>Is it getting worse?</strong></td>
+      <td><span class="pill p-amb">Possibly.</span> Stephanie's August 2025 <q>a house a little closer than expected</q> reads like <em>new</em> construction rather than the long-standing neighbour others describe. In a market that added thousands of cabins, that is entirely plausible &mdash; and it would not show on 2022-era imagery.</td>
+    </tr>
+    <tr>
+      <td><strong>Why no 2026 mentions?</strong></td>
+      <td><span class="pill p-gray">Weak signal either way.</span> 2026 has only 25 reviews and many are one-liners. Absence here is not evidence of improvement.</td>
+    </tr>
+    <tr>
+      <td><strong>Does it hurt bookings?</strong></td>
+      <td><span class="pill p-grn">No evidence that it does.</span> <strong>All nine mentions are five-star reviews.</strong> Guests notice it, name it, and rate the stay perfectly anyway. It is a disclosure item, not a revenue problem.</td>
+    </tr>
+  </table>
+  <div class="callout">
+    <strong>Because the aerial is stale, this is a site-visit question, not a desk question.</strong> Stand on the back deck and look. That single observation settles what no amount of imagery or review-reading can, and it is the one physical item worth travelling for.
+  </div>
+
+  <h3>1b. &#128681; The subdivision &mdash; and three neighbours also for sale</h3>
+  <p>The parcel sits in <strong>Timber Creek Trails, Phase 7</strong> (MLS #1223934). Public listing data raises two things that were not visible from the reviews:</p>
+  <table>
+    <tr><th style="width:26%">Finding</th><th style="width:30%">What the sources say</th><th>Why it matters</th></tr>
+    <tr>
+      <td><strong>Lot size discrepancy</strong></td>
+      <td>MLS and brokerage listings say <strong>&ldquo;approximately 1 acre&plusmn;&rdquo;</strong>. The seller's own booking site says <strong>1.5 acres</strong>.</td>
+      <td>A third of the claimed privacy buffer. Privacy is a core selling point and already the subject of 8 neighbour-visibility reviews. <strong>Verify against the recorded plat, not either marketing source.</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Three other cabins for sale on the same short street</strong></td>
+      <td>All verified active on Zillow, Aug 28, 2026 &mdash; full table below</td>
+      <td><span class="pill p-red">Direct comps</span> See the street comparison immediately following. This is the strongest negotiating material in the whole file.</td>
+    </tr>
+    <tr>
+      <td><strong>Phase 7 implies recorded covenants</strong></td>
+      <td>A phased, platted subdivision</td>
+      <td>There will be a recorded plat and likely CC&amp;Rs. <strong>Get them.</strong> They govern STR permission, road maintenance and any build restrictions.</td>
+    </tr>
+    <tr>
+      <td><strong>Listing appears recently refreshed</strong></td>
+      <td>One brokerage shows the listing as updated within a day; another dates it Aug 19, 2026</td>
+      <td><span class="pill p-grn">Now resolved</span> The full MLS price history has since been obtained (see below) &mdash; listed <strong>4/18/2024</strong> under a different MLS number. A relist resets days-on-market, so <strong>always cite 4/18/2024, never the current DOM figure</strong>.</td>
+    </tr>
+  </table>
+  <div class="callout">
+    <strong>Several neighbours exiting at once is itself a signal.</strong> Three concurrent sales on one short street in a phase-7 subdivision could be ordinary turnover, a cluster of investors reaching the end of a hold period, or owners reading the same oversupply picture we are. It is worth asking the agent directly which it is &mdash; and it strengthens the negotiating position either way.
+  </div>
+  <h3>&#128681; The Bent Pine Trail comparison &mdash; ask the realtor about this</h3>
+  <p>All four verified on Zillow, August 28, 2026. Every one <strong>built in 2014</strong>, same street, same subdivision phase, same walkability, same road.</p>
+  <table>
+    <tr><th style="width:20%">Address</th><th style="width:13%">Price</th><th style="width:10%">Bd/Ba</th><th style="width:11%">Sq ft</th><th style="width:11%">Lot</th><th style="width:11%">$/sq ft</th><th>Listed</th></tr>
+    <tr style="background:rgba(240,112,26,.10)">
+      <td><strong>94 &mdash; Cinnamon Spice</strong></td><td><strong>$485,000</strong></td><td>1 / 1</td><td>1,188</td><td><strong>1.0 ac</strong></td><td><strong>$408</strong></td><td>4/18/2024</td>
+    </tr>
+    <tr><td>67 Bent Pine</td><td>$494,700</td><td><strong>2 / 2</strong></td><td><strong>1,564</strong></td><td><strong>1.94 ac</strong></td><td><strong>$316</strong></td><td>Older listing, MLS #1208174</td></tr>
+    <tr><td>81 Bent Pine</td><td><strong>$379,000</strong></td><td>1 / 1</td><td>1,000</td><td>1.4 ac</td><td>$379</td><td>4/27/2026</td></tr>
+    <tr><td>83 Bent Pine</td><td><strong>$379,000</strong></td><td>1 / 1</td><td>1,000</td><td>1.4 ac</td><td>$379</td><td>4/27/2026</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>Cinnamon Spice has the highest price per square foot on its own street, and the smallest lot.</strong> $408/sq ft against $316&ndash;$379 for its neighbours, on 1 acre against their 1.4&ndash;1.94.
+  </div>
+
+  <table>
+    <tr><th style="width:30%">The comparison</th><th>What it says</th></tr>
+    <tr>
+      <td><strong>67 Bent Pine is the hard one</strong></td>
+      <td>For <strong>$9,700 more</strong> a buyer gets <strong>2 bedrooms and 2 baths, 32% more space, and nearly double the land</strong> &mdash; at 29% less per square foot. And a second bedroom lifts the guest cap, which is the exact ceiling holding Cinnamon Spice's revenue down.</td>
+    </tr>
+    <tr>
+      <td><strong>81 and 83 look like a matched pair</strong></td>
+      <td>Identical specs, identical $379,000 price, both listed <strong>4/27/2026</strong>, consecutive MLS numbers (#2614742 / #2614733). Almost certainly one seller releasing two units at once. <strong>$106,000 below Cinnamon Spice for the same 1/1 configuration on a larger lot.</strong></td>
+    </tr>
+    <tr>
+      <td><strong>The timing is a cluster</strong></td>
+      <td>81 and 83 hit the market on April 27. Cinnamon Spice went pending on April 29. Three of the four properties on this street moved within days of each other.</td>
+    </tr>
+    <tr>
+      <td><strong>67's price cuts tell their own story</strong></td>
+      <td>$494,900 &rarr; $494,800 &rarr; $494,700 across June &mdash; <strong>$100 at a time</strong>. That is a seller nudging the listing to stay visible in search, not one responding to the market. Another data point that Bent Pine Trail is not clearing.</td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>&#128200; Two independent methods now agree on the price.</strong> The revenue analysis in this report put the supportable range at <strong>$275,000&ndash;$375,000</strong>. The same-street, same-configuration comps are asking <strong>$379,000</strong>. Those are completely different approaches &mdash; one built from guest reviews and occupancy, the other from neighbouring list prices &mdash; and they land within about $4,000 of each other. <strong>That convergence is the single most useful number in this file.</strong>
+  </div>
+
+  <h3>What to put to the realtor</h3>
+  <ol class="bl-num">
+    <li><strong>Three other cabins on this street are for sale, two at $379,000. What justifies a $106,000 premium for the same bed and bath count on a smaller lot?</strong> The honest answer is 188 extra square feet plus the amenity package and the operating history &mdash; make them say it out loud and put a number on it.</li>
+    <li><strong>67 Bent Pine is a 2/2 on nearly two acres for $9,700 more. Why would a buyer choose this one?</strong> This is the question that most needs an answer, because a second bedroom removes the revenue ceiling that caps this property.</li>
+    <li><strong>Why did three properties on one short street come to market within days of each other?</strong> Ordinary turnover, an investor group reaching end-of-hold, or owners reading the same oversupply picture?</li>
+    <li><strong>Are 81 and 83 the same seller?</strong> If so, that owner is exiting two units at once at a price well below this ask.</li>
+  </ol>
+  <p style="font-size:13.5px"><em>Verified on Zillow Aug 28, 2026. Have the buyer's agent confirm current status and pull full MLS detail &mdash; list prices are asks, not sales, and none of these has sold either.</em></p>
+
+  <h3>2. Is there a VRBO listing? &mdash; <span class="hl2">Yes, and considerably more than that</span></h3>
+  <table>
+    <tr><th style="width:26%">Channel</th><th style="width:14%">Status</th><th>What it means</th></tr>
+    <tr><td>Airbnb</td><td><span class="pill p-grn">Live</span></td><td>260 reviews, &#9733;4.98 &mdash; the history analysed in this report</td></tr>
+    <tr><td>VRBO</td><td><span class="pill p-grn">Live</span></td><td>Same property, listed as &ldquo;Romantic&#124;Private&#124;Wellness&#124;OutdoorMovieNight&rdquo;</td></tr>
+    <tr><td>Expedia / Travelocity</td><td><span class="pill p-grn">Live</span></td><td>VRBO syndication (Expedia Group family)</td></tr>
+    <tr><td><strong>Direct &mdash; sunriserentalcottages.com</strong></td><td><span class="pill p-amb">Live</span></td><td>Her own booking site, with a dedicated Cinnamon Spice page</td></tr>
+    <tr><td>Facebook &ldquo;Sunrise Vacations&rdquo;</td><td><span class="pill p-amb">Live</span></td><td>~1,700 followers, actively posting this cabin</td></tr>
+    <tr><td>Instagram</td><td><span class="pill p-amb">Live</span></td><td>Active reels featuring Cinnamon Spice by name</td></tr>
+  </table>
+  <div class="callout">
+    <strong>And her site actively pushes guests off the platforms.</strong> The homepage headline is <em>&ldquo;Book Direct &amp; Save&mdash;up to 15%. Skip platform fees.&rdquo;</em> That is a deliberate, working strategy to move bookings away from Airbnb &mdash; which is <strong>the single most likely explanation for Airbnb review volume falling 42% while the property itself stayed excellent</strong>. It is also the explanation that hurts a buyer most: the migrated demand sits on a brand, a website, a social following and a guest list that are <strong>hers, not the cabin's</strong>.
+  </div>
+
+  <h3>3. How big is the portfolio the brand serves?</h3>
+  <p>Her site lists <strong>Cinnamon Spice as her only Broken Bow property</strong>; the rest of the portfolio is in Fredericksburg, TX (the site also references Caribbean stays). That cuts two ways, and both matter:</p>
+  <ul class="bl-chevron">
+    <li><strong>Against the seller's number:</strong> she is selling her sole Oklahoma asset and consolidating in Texas &mdash; consistent with the wind-down her own review reply hints at (&ldquo;I would love to have you in Fredericksburg as well!&rdquo;) and with a property marketed since June 2024.</li>
+    <li><strong>Against the buyer's inheritance:</strong> the direct channel is not a Broken Bow portfolio effect that a new owner could partly retain &mdash; it is a cross-market brand funnel. When she leaves, the funnel leaves whole.</li>
+  </ul>
+
+  <h3>4. &#128197; CONFIRMED &mdash; on the market <span class="hl2">28 months</span>, with a failed contract</h3>
+  <p>A guest review dated <strong>June 9, 2024</strong> read: <q>Thank you Kirthi for the amazing stay sad to see your selling the place&hellip;</q> That inference is now confirmed against the public MLS record, which also produced something the reviews could not have shown.</p>
+
+  <table>
+    <tr><th style="width:14%">Date</th><th style="width:22%">Event</th><th style="width:16%">Price</th><th>What it tells you</th></tr>
+    <tr><td>6/22/2019</td><td>Listed for sale</td><td>$339,900</td><td rowspan="3">Prior owner tried and failed to sell &mdash; cut the price, then withdrew. This property has form for sitting.</td></tr>
+    <tr><td>9/13/2019</td><td>Price change</td><td>$314,900 <span style="color:#F0701A">&minus;7.4%</span></td></tr>
+    <tr><td>12/19/2019</td><td><strong>Listing removed</strong></td><td>$314,900</td></tr>
+    <tr><td>10/29/2021</td><td>Listed for sale</td><td>$450,000</td><td rowspan="3"><strong>Current seller bought at $450,000.</strong> It went under contract in <strong>three days</strong> &mdash; that was the 2021 market.</td></tr>
+    <tr><td>11/1/2021</td><td>Pending</td><td>$450,000</td></tr>
+    <tr><td>12/16/2021</td><td><strong>SOLD</strong></td><td><strong>$450,000</strong></td></tr>
+    <tr><td><strong>4/18/2024</strong></td><td><strong>Listed for sale</strong></td><td><strong>$599,000</strong></td><td><span class="pill p-amb">Start of the clock</span> Confirms the June 2024 guest review. <strong>28 months ago.</strong></td></tr>
+    <tr><td>8/3/2024</td><td>Price change</td><td>$520,000 <span style="color:#F0701A">&minus;13.2%</span></td><td>First major cut, ~3.5 months in</td></tr>
+    <tr><td>4/25/2026</td><td>Price change</td><td>$515,000 <span style="color:#F0701A">&minus;1%</span></td><td>Token cut</td></tr>
+    <tr><td><strong>4/29/2026</strong></td><td><strong>&#128721; PENDING SALE</strong></td><td>$515,000</td><td><span class="pill p-red">A buyer went under contract</span></td></tr>
+    <tr><td><strong>6/1/2026</strong></td><td><strong>Back on market</strong></td><td>$515,000</td><td><span class="pill p-red">That contract FELL THROUGH</span> after ~4.5 weeks</td></tr>
+    <tr><td>6/20/2026</td><td>Price change</td><td><strong>$485,000</strong> <span style="color:#F0701A">&minus;5.8%</span></td><td>Current ask, cut three weeks after the deal died</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>&#128721; A deal on this property already collapsed this year.</strong> It went pending April 29, 2026 at $515,000 and was back on the market by June 1. Nothing in the public record says why &mdash; inspection, financing, appraisal, or a buyer who ran the same diligence in this report and walked. <strong>This is now the single most important question to put to the listing agent</strong>, and the answer materially changes what you are looking at.
+  </div>
+
+  <h3>What the price history establishes</h3>
+  <table>
+    <tr><th style="width:32%">Finding</th><th>Detail</th></tr>
+    <tr><td><strong>The ask is down 19% already</strong></td><td>$599,000 &rarr; $485,000 = <strong>&minus;$114,000</strong> across 28 months. The seller has been walking the price down for over two years and still has no buyer.</td></tr>
+    <tr><td><strong>Cost basis is $450,000</strong></td><td>Bought December 2021. She is asking <strong>+7.8% over 4.7 years</strong> &mdash; modest, which means she has room to move but also less cushion than a long-held owner would have.</td></tr>
+    <tr><td><strong>The market flipped underneath her</strong></td><td>In 2021 this property went under contract in <strong>three days</strong>. In 2024&ndash;26 it has taken 28 months and one failed contract. That contrast <em>is</em> the Broken Bow supply wave, visible in one property's own history.</td></tr>
+    <tr><td><strong>Two MLS numbers</strong></td><td>#1109077 (2024) and #1223934 (2026) &mdash; so it has been relisted. Current days-on-market will understate true exposure; always cite the 4/18/2024 start.</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>&#128200; And the timing of the booking decline now lines up with the sale, not with the market.</strong> Reviews by month tell a sharper story than the annual figure did:
+    <br><br>
+    <strong>Jan&ndash;Mar 2026: 14 reviews, versus 15 in Jan&ndash;Mar 2025 &mdash; essentially flat.</strong> The collapse begins in <strong>April</strong>, the month it went under contract, and does not recover after it came back on the market: April&ndash;August is 11 against 28.
+    <br><br>
+    That correlation supports the <span class="hl">most buyer-favourable reading</span> &mdash; that the calendar was closed for a pending sale and never fully reopened &mdash; and it is a real shift from where this report started. <strong>But it cuts the other way too:</strong> if the first buyer walked <em>because</em> of what they found, the same finding is still there waiting for you. Both readings now sit on the table, and the agent can settle them in one conversation.
+  </div>
+
+  <h3>5. A seasonality fact the reviews only hinted at</h3>
+  <div class="callout">
+    <strong>Her listing states the gas fireplaces are active October 1 &ndash; April 30 only.</strong> One guest (July 2023) wrote that it was too hot to use the fireplaces, hot tub or sauna at all. Taken together: <strong>the amenity moat that drives the bookings is a cold-weather moat, and it is switched off for five months of the year.</strong> Confirm how revenue splits by month before treating the annual gross as evenly earned.
+  </div>
+
+  <h3>6. The 3-guest cap &mdash; confirmed, but is it a rule or a setting?</h3>
+  <p><strong>Confirmed directly from Airbnb's own listing data, checked live on August 28, 2026:</strong></p>
+  <table>
+    <tr><th style="width:34%">Field</th><th>Value</th></tr>
+    <tr><td>Maximum guests</td><td><strong>3</strong> &mdash; Airbnb's <code>personCapacity</code> field</td></tr>
+    <tr><td>Listing headline</td><td>&ldquo;Cabin in Broken Bow &middot; &#9733;4.98 &middot; <strong>1 bedroom &middot; 2 beds &middot; 1 bath</strong>&rdquo;</td></tr>
+    <tr><td>Sleeping arrangement</td><td>1 king bed + 1 double sofa bed (per the seller's own booking site)</td></tr>
+    <tr><td>Interior</td><td>1,188 sq ft, single storey, one bathroom</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>&#128161; Notice the mismatch.</strong> A king sleeps two and a double sofa bed sleeps two &mdash; so the cabin <em>physically</em> sleeps four, but the listing is capped at <strong>three</strong>. That gap is not an accident, and it matters: <strong>it means the cap may be a host setting rather than a legal limit.</strong> If so, there is a revenue lever here that this report has been treating as immovable.
+  </div>
+
+  <table>
+    <tr><th style="width:30%">Why the cap might be 3</th><th style="width:22%">If true&hellip;</th><th>How to check</th></tr>
+    <tr><td><strong>Deliberate positioning</strong> &mdash; a couples cabin, avoiding parties and wear</td><td><span class="pill p-grn">Changeable</span></td><td>Ask the seller directly. The likeliest answer, given the avatar.</td></tr>
+    <tr><td><strong>Septic permit capacity</strong></td><td><span class="pill p-red">Fixed</span></td><td>The septic permit states design capacity. Oklahoma sizes by bedroom count &mdash; request it.</td></tr>
+    <tr><td><strong>Local occupancy or licence limit</strong></td><td><span class="pill p-red">Fixed</span></td><td>Hochatown STR licence terms.</td></tr>
+    <tr><td><strong>One bathroom</strong> &mdash; four people sharing one bath in 1,188 sq ft</td><td><span class="pill p-amb">Practical, not legal</span></td><td>Judgement call, but it protects the rating.</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>Before treating this as free upside &mdash; be careful.</strong> Going from three guests to four widens the search pool, but this listing's entire 4.98 record is built on <em>couples</em>. A guest already wrote that it is <q>perfect for a couple but might be too tight for a family</q>. Adding a fourth guest to a one-bedroom, one-bath cabin is the kind of change that lifts bookings slightly and puts the rating at risk &mdash; and the rating is the asset. <strong>Worth knowing whether the lever exists; not obviously worth pulling.</strong>
+  </div>
+  <p><strong>Add to the diligence list:</strong> <em>&ldquo;Is the 3-guest maximum your choice, or is it set by the septic permit or the STR licence? Please provide the septic permit showing design capacity.&rdquo;</em></p>
+
+  <h2>&#128273; What conveys, and what walks out the door</h2>
+  <p>This is the section that matters for the purchase decision. The reviews let us separate the two with evidence rather than assumption.</p>
+
+  <h3><span class="pill p-grn">Conveys</span> &nbsp;The property-driven moat</h3>
+  <ul class="bl-check">
+    <li><strong>The amenity stack</strong> &mdash; sauna, hot tub, jacuzzi tub, three-head rain shower, multiple indoor and outdoor fireplaces, wood fire pit, gas fire table, outdoor projector and daybed, arcade/game table, cornhole, grill. Guests name these as booking reasons, not extras.</li>
+    <li><strong>Walkability</strong> to Mountain Fork Brewery, restaurants, coffee and shops &mdash; 29 mentions, and genuinely uncommon for a wooded Hochatown cabin.</li>
+    <li><strong>The wooded setting</strong> and the private-yet-convenient feel, confirmed unprompted across all four years.</li>
+    <li><strong>The decor and furnishings</strong> &mdash; the single most-mentioned attribute at 101. This conveys <em>only if you write the FF&amp;E into the contract.</em> Do not assume it.</li>
+    <li><strong>All-weather covered porch</strong>, which repeatedly rescues rainy stays.</li>
+  </ul>
+
+  <h3><span class="pill p-red">Does not convey</span> &nbsp;The host-driven half</h3>
+  <ul class="bl-chevron">
+    <li><strong>Hospitality &mdash; 95 mentions, the #1 tag on the listing.</strong> Response speed, the guidebook app, pre-arrival planning help, the wine-and-music welcome. Airbnb's own synthesis ranks this above every physical feature. It leaves at closing.</li>
+    <li><strong>The 4.98 rating and 260-review history</strong>, if the listing itself does not transfer. In a market that grew from roughly 400 cabins to 3,200&ndash;4,500, relaunching at zero reviews against this comp set is the single largest risk in the deal.</li>
+    <li><strong>Superhost status and search placement</strong>, which are account-level, not property-level.</li>
+    <li><strong>The direct-booking and repeat channel.</strong> The seller replied to a returning guest in March 2026 with <em>&ldquo;I would love to have you in Fredericksburg as well!&rdquo;</em> &mdash; she operates a multi-property brand. Repeat and direct demand belongs to <strong>her portfolio</strong>, not to this cabin.</li>
+  </ul>
+
+  <div class="callout">
+    <strong>The asymmetry, stated plainly.</strong> Of the two largest drivers of this listing's performance &mdash; the decor (101) and the host (95) &mdash; one conveys only if you negotiate it into the contract, and the other does not convey at all. That is not a reason to walk. It <em>is</em> the reason the disclosed gross cannot be adopted as your year-one number.
+  </div>
+
+  <h2>&#9888;&#65039; The strategic problem: there is nothing here to beat</h2>
+  <div class="lead">
+    This is the part I would want flagged loudest. Normally you buy a short-term rental <span class="hl2">from a mediocre host</span> &mdash; the listing is under-photographed, the responses are slow, the turnovers are sloppy, the pricing is lazy &mdash; and the whole investment case is that <span class="hl">you will run it better than they did</span>. You are not really buying the building; you are buying the gap between how it performs today and how it performs once someone competent takes over. <span class="hl2">That gap does not exist here.</span>
+  </div>
+
+  <p>The unfiltered review read found <strong>six host complaints in 260 stays</strong> across four and a half years &mdash; one cleanliness lapse, one linens comment, one booking-process gripe, two people who wanted spices, and one hot-tub instruction note. Five of the six still gave five stars. There is no slack in this operation.</p>
+
+  <table>
+    <tr><th style="width:30%">The usual acquisition</th><th style="width:35%">What you'd normally find</th><th>What is actually here</th></tr>
+    <tr><td><strong>Seller's operating quality</strong></td><td>Mediocre &mdash; the source of your upside</td><td><span class="pill p-red">Top-1%</span> 6 complaints in 260 stays</td></tr>
+    <tr><td><strong>Guest satisfaction</strong></td><td>4.7&ndash;4.85, with fixable causes</td><td><span class="pill p-red">&#9733;4.98</span> and no review below 4, ever</td></tr>
+    <tr><td><strong>What the reviews praise most</strong></td><td>The property &mdash; which conveys</td><td><span class="pill p-red">The host (95)</span> &mdash; which does not</td></tr>
+    <tr><td><strong>Your value-add</strong></td><td>Better photos, faster replies, real pricing, tighter turnovers</td><td><span class="pill p-red">None available</span> All of it is already done</td></tr>
+    <tr><td><strong>Realistic year-one outcome</strong></td><td>Beat the seller's numbers</td><td><span class="pill p-amb">Match them, at best</span></td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>You would be buying a ceiling, not a floor.</strong> The $97,285 is not what this cabin produces &mdash; it is what <em>this cabin plus this operator plus her brand, her site, her following and her 260-review history</em> produced. You get the cabin. The price, however, is set as though you get all of it.
+  </div>
+
+  <h3>Which way the asymmetry runs</h3>
+  <ul class="bl-chevron">
+    <li><strong>No operational upside.</strong> There is no underperformance to capture. The only lever left is buying it cheaper.</li>
+    <li><strong>Real operational downside.</strong> If the Airbnb listing does not transfer, you relaunch at zero reviews into a market that went from ~400 cabins to 3,200&ndash;4,500 in six years &mdash; against her comp set, without her ranking.</li>
+    <li><strong>The equipment cluster inherits, the rescue does not.</strong> Eight reviews across 2022&ndash;2026 record gas features, remotes, the projector and the smart lock failing. Every single one was saved by her responding fast. You inherit the failures and rebuild the response.</li>
+    <li><strong>Her excellence is the comparison you will be judged against.</strong> Repeat guests, and there are some, will notice any drop. The 4.98 is a standard to defend, not a cushion to spend.</li>
+  </ul>
+
+  <p><strong>None of this says the property is bad</strong> &mdash; it is genuinely one of the best-reviewed listings we have looked at in any market. It says the <em>deal shape</em> is unusual, and unusual in the direction that should make you more careful, not less. The normal reason to feel good about buying a 4.98-star property is that quality de-risks the purchase. Here, the quality <em>is</em> the risk, because so much of it is standing next to the asset rather than inside it.</p>
+
+  <h2>Top 3 reviews</h2>
+  <p>Chosen from all 260 across every year, each one killing a different booking hesitation.</p>
+
+  <div class="quote">
+    &ldquo;My husband and I had such an amazing weekend at Kirthi's place. The cabin was beautiful, spotless and well appointed. We came here to celebrate my guy's birthday and I picked this place specifically for the sauna - my requirements were a private cabin, king bed and hot tub, but the sauna was the crowning touch.&rdquo;
+    <span class="who">&mdash; Heather &middot; Apr 2023 &nbsp;|&nbsp; <em>Kills: &ldquo;is the sauna a gimmick?&rdquo; &mdash; it is the stated reason she booked</em></span>
+  </div>
+
+  <div class="quote">
+    &ldquo;We played one of their games and a few we brought; we sat in front of the fireplace on the couch watching tv with our own shows since it's a Roku; sat in front of a different fireplace on the porch in the rain, watched a movie on the sleeper on the porch with the projector in front of the table side fire, sat on the softest porch loveseat looking out at the woods. We got in the hot tub, the sauna, and the gorgeous double shower with the rain head... Did I mention all the ways to have a fire?&rdquo;
+    <span class="who">&mdash; Tessa &middot; Mar 2025 &nbsp;|&nbsp; <em>Kills: &ldquo;what do you actually do there?&rdquo; &mdash; and it was raining the whole time</em></span>
+  </div>
+
+  <div class="quote">
+    &ldquo;The cabin is perfect for two people and stocked with all the amenities you need. The back porch area has a screen for watching movies, which we loved. Just be aware that there is a neighboring cabin visible from the back and a road (sometimes noisy) behind the cabin. We really liked being able to walk to some local restaurants (Mountain Fork Brewery a must!)... The cabin is beautiful, well maintained and decorated, very clean, and in a great location.&rdquo;
+    <span class="who">&mdash; Gina &middot; Jun 2025 &nbsp;|&nbsp; <em>Kills: &ldquo;are the 5-star reviews real?&rdquo; &mdash; she names the flaws and still gives five stars</em></span>
+  </div>
+
+  <h2>&#9878;&#65039; Both sides of it &mdash; what says walk, what says buy</h2>
+  <p>The reviews argue in both directions, and it would be dishonest to give you only one. Here is each case at its strongest.</p>
+
+  <div class="secthead">
+    <p class="t">&#128721;&nbsp; WHY THIS SAYS &ldquo;NOT A GOOD BUY&rdquo;</p>
+    <p class="s">Every item below is carried by evidence in this report.</p>
+  </div>
+  <table>
+    <tr><th style="width:32%">The argument</th><th>The evidence</th></tr>
+    <tr><td><strong>There is no operational upside to buy</strong></td><td>6 host complaints in 260 stays. You cannot beat her numbers by running it better &mdash; only match them. You are buying a ceiling.</td></tr>
+    <tr><td><strong>The biggest asset does not convey</strong></td><td>&ldquo;Hospitality&rdquo; is the #1 review tag at 95 mentions, ahead of location and the hot tub. It leaves at closing.</td></tr>
+    <tr><td><strong>Bookings are falling hard</strong></td><td>Same-window Jan&ndash;Aug: 43 &rarr; 25 (&minus;42%); April&ndash;August &minus;61%. Ratings flat, so it is not the stay.</td></tr>
+    <tr><td><strong>Demand is being actively moved off-platform</strong></td><td>Her site headlines <em>&ldquo;Book Direct &amp; Save&mdash;up to 15%&rdquo;</em> across VRBO, Expedia, Facebook and Instagram &mdash; onto a brand that is hers, not the cabin's.</td></tr>
+    <tr><td><strong>The relaunch risk is severe</strong></td><td>If the listing does not transfer you restart at zero reviews in a market that went from ~400 cabins to 3,200&ndash;4,500.</td></tr>
+    <tr><td><strong>It may revert to the failed median</strong></td><td>At an all-channel &minus;42% it is <strong>8.51&times;</strong> &mdash; essentially the 8.5&times; Broken Bow median that already failed the screen.</td></tr>
+    <tr><td><strong>Revenue has a hard structural cap</strong></td><td>1 bedroom, 3 guests. No family market, no group market, no ADR headroom without a permitted addition.</td></tr>
+    <tr><td><strong>The moat is seasonal</strong></td><td>Fireplaces run Oct 1&ndash;Apr 30 only; a guest confirms the sauna and hot tub went unused in summer heat.</td></tr>
+    <tr><td><strong>Two years unsold</strong></td><td>Marketed since June 2024. The market has been declining this price for 26 months.</td></tr>
+    <tr><td><strong>Supply keeps worsening</strong></td><td>+76% in three years. The competitive set gets harder every year you hold.</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">&#9989;&nbsp; WHY THIS SAYS &ldquo;IT IS A GOOD DEAL&rdquo;</p>
+    <p class="s">The case in favour is real, and mostly rests on things that physically transfer.</p>
+  </div>
+  <table>
+    <tr><th style="width:32%">The argument</th><th>The evidence</th></tr>
+    <tr><td><strong>The asset itself is exceptional</strong></td><td><strong>Zero reviews below 4 stars in 260 stays.</strong> That is not an operator trick &mdash; the building, layout and setting genuinely support a near-perfect stay. The cleanest record of anything screened.</td></tr>
+    <tr><td><strong>The amenity moat conveys in full</strong></td><td>Sauna, hot tub, jetted tub, three-head rain shower, multiple indoor and outdoor fireplaces, wood fire pit, gas fire table, outdoor projector and daybed, arcade table, cornhole, grill. Guests name these as the <em>reason they booked</em>. Rebuilding this stack from scratch would cost well into six figures.</td></tr>
+    <tr><td><strong>Walkability is a permanent, unbuildable moat</strong></td><td>29 mentions. Walking distance to Mountain Fork Brewery, Shuck Me and the coffee shop &mdash; genuinely rare for a wooded Hochatown cabin, and 100% locational. It cannot be competed away by new supply.</td></tr>
+    <tr><td><strong>There is no maintenance bomb</strong></td><td>Four real pain points from 260 reviews. Half the property complaints are disclosure-only. The entire inheritable fix list is roughly <strong>$800&ndash;2,500 plus a mattress topper</strong>.</td></tr>
+    <tr><td><strong>You get a real operating history, not a projection</strong></td><td>Four and a half years at ~$330/night and ~80% occupancy, and the review data independently reconciles with it. Almost nothing else on the board is 📗 documented rather than projected.</td></tr>
+    <tr><td><strong>AirDNA reads LOW in this market</strong></td><td>Projections run 18&ndash;45% <em>below</em> disclosed actuals for strong Hochatown operators. The pessimistic cases here may be too pessimistic.</td></tr>
+    <tr><td><strong>Market demand held; only supply broke</strong></td><td>2.0&ndash;2.8M visitors, $238M casino, 8M people in DFW three hours away, and the flattest seasonality of ten mountain markets.</td></tr>
+    <tr><td><strong>The decline may be the sale itself</strong></td><td>Year two of an active sale process. Blocked showing dates or a deliberate wind-down would mean 2026 <em>understates</em> earning power &mdash; and that is testable.</td></tr>
+    <tr><td><strong>Two years unsold is your leverage</strong></td><td>A motivated seller consolidating in Texas, with a stale listing and no buyer in 26 months. Price is negotiable in a way it rarely is.</td></tr>
+    <tr><td><strong>It started closer than anything else</strong></td><td>The only listing across five screened markets to clear the 20% floor <em>at ask</em>. Even discounted, it begins from a better place than the alternatives.</td></tr>
+  </table>
+
+  <h2>&#127919; The synthesis &mdash; it is not good or bad, it is mispriced</h2>
+  <div class="lead">
+    Both cases are true at once, and they are not actually in conflict. <span class="hl">The property is excellent and the fix list is trivial.</span> <span class="hl2">The price assumes you also receive an operator, a brand and a review history that you do not receive.</span> So this is not a judgement about quality &mdash; it is a judgement about <strong>what number the asset alone is worth</strong>. At $485,000 the answer is no. The whole question is what it becomes at a lower one.
+  </div>
+
+  <h3>What the asset alone plausibly earns for you</h3>
+  <p>Stripping out what leaves with her, and assuming you operate it remotely and competently:</p>
+  <table>
+    <tr><th style="width:36%">Case</th><th style="width:18%">Year-one gross</th><th>Price that clears our 20% floor</th></tr>
+    <tr><td><strong>Listing transfers</strong> &mdash; reviews and Superhost intact, Airbnb side continues, direct channel lost</td><td>~$70&ndash;75K</td><td><strong>$350,000 &ndash; $375,000</strong></td></tr>
+    <tr><td><strong>Listing does not transfer</strong> &mdash; relaunch at zero reviews</td><td>~$45&ndash;55K</td><td><strong>$225,000 &ndash; $275,000</strong></td></tr>
+    <tr><td><em>Seller's marketed case</em> &mdash; everything conveys and 2026 was calendar-blocking</td><td>$97,285</td><td>$486,000 (i.e. the ask)</td></tr>
+  </table>
+  <div class="callout">
+    <strong>So the negotiating range the reviews support is roughly $275,000&ndash;$375,000</strong>, against a $485,000 ask &mdash; a gap of $110K to $210K. That is a large ask, but this is a seller who has not found a buyer in 26 months and is exiting the state. <strong>The deal is not dead; the price is.</strong> And the single document that tells you which row of that table you are in is the channel-split T-12.
+  </div>
+
+  <h2>What I recommend you do next</h2>
+  <h3>Before the September 28 identification deadline</h3>
+  <ol class="bl-num">
+    <li><strong>Get the T-12 broken out by channel &mdash; Airbnb vs VRBO vs direct.</strong> This is now the decisive document, not a nice-to-have. It is the only thing that separates &ldquo;demand is falling&rdquo; from &ldquo;demand moved to channels that leave with her,&rdquo; and both readings change the price.</li>
+    <li><strong>Ask directly why 2026 bookings are down.</strong> The reviews establish the fact; the seller owes you the reason. A calendar blocked for showings, a personal-use block, or a deliberate wind-down are all recoverable. A market-share loss to 3,000 new cabins is not.</li>
+    <li><strong>Establish whether the Airbnb listing itself transfers.</strong> Ask explicitly. If the 260 reviews and Superhost status do not come with it, model year one at a relaunch occupancy, not at 80%.</li>
+    <li><strong>Put the FF&amp;E in writing.</strong> The decor is the most-praised attribute in the entire dataset. A furnished-sale inventory schedule attached to the contract protects the thing guests actually book.</li>
+    <li><strong>Answer the road question.</strong> Who owns and maintains the unpaved approach, and is there a POA or shared-maintenance obligation? Two guests said bring a truck.</li>
+    <li><strong>Commission the gas and electronic amenities.</strong> Fire pit, grill, pilot lights, fireplaces, remotes &mdash; a recurring failure cluster across 2025&ndash;2026. Budget $800&ndash;2,500 and inspect them live during the walkthrough.</li>
+  </ol>
+
+  <h3>If you proceed &mdash; what the reviews say to keep and to change</h3>
+  <ul class="bl-diamond">
+    <li><strong>Keep the positioning exactly.</strong> Two-person anniversary spa cabin. It is working at 4.98 and the market has been telling this seller so for four years. Do not broaden it to families &mdash; the cap forbids it anyway.</li>
+    <li><strong>Fix the title.</strong> Fireplaces (21 mentions), the stocked kitchen (20) and dog-friendliness (9) are entirely absent from it, while &ldquo;Swings&rdquo; &mdash; mentioned once in 260 reviews, and that once to say they could not use them &mdash; occupies a slot.</li>
+    <li><strong>Protect the hot tub standard.</strong> Guests call it the cleanest they have seen. That is a maintained standard, not a fixture; it will decay the moment turnover slips.</li>
+    <li><strong>Rebuild the hospitality layer deliberately.</strong> 95 mentions say guest experience is the top driver here. The guidebook, pre-arrival messaging and fast response are reproducible &mdash; but only if you plan for them from day one rather than discovering the gap in the reviews.</li>
+    <li><strong>Disclose the neighbour and the road up front.</strong> Every guest who was told, or who noticed and felt the listing was honest, still gave five stars.</li>
+  </ul>
+
+  <h2>Why you can trust this read</h2>
+  <p>Built from <strong>all 260</strong> reviews on the listing &mdash; every one from March 29, 2022 through August 10, 2026 &mdash; pulled directly from Airbnb rather than sampled or scrolled. Themes are weighted by how often they repeat and how recently, so this reflects what guests actually say most, not what the newest page happens to show. Where a keyword looked like a complaint I read the surrounding sentence before counting it, which is why the pain list is four items rather than forty: most apparent negatives were praise in disguise (&ldquo;tucked away from any bugs&rdquo;, &ldquo;close to everything&rdquo;, &ldquo;Broken Bow&rdquo; the town). Guest quotes are verbatim. The host-mention count was reached independently and then matched against Airbnb's own review-tag synthesis &mdash; 92 against 95, from two different methods.</p>
+
+  <div class="footer">
+    Banana Slug Getaways &middot; Review mining, pre-purchase diligence &middot; Prepared August 28,&nbsp;2026<br>
+    Source: 260 Airbnb guest reviews, listing 585025320809472264, captured Aug 28,&nbsp;2026. Raw dataset retained alongside this report.<br>
+    View and print in Google Chrome (File &gt; Print &gt; Save as PDF) so the fonts render correctly.
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="cover" style="margin-top:0;">
+    <p class="kicker">Appendix &middot; Complete record</p>
+    <h1>Every Observation, Logged For and Against</h1>
+    <p class="sub">The full ledger from this run &mdash; nothing summarised out</p>
+  </div>
+
+  <p>The two-sided section earlier gives the ten strongest arguments each way. This is the <strong>complete record</strong> &mdash; every observation made during this run, tagged, with its evidence. Items marked <span class="pill p-gray">Aug 23</span> come from the earlier market-analysis run rather than the reviews, and are included so the picture is whole.</p>
+
+  <div class="secthead">
+    <p class="t">A &middot; The guest experience and the asset itself</p>
+  </div>
+  <table>
+    <tr><th style="width:12%">Verdict</th><th style="width:40%">Observation</th><th>Evidence</th></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td><strong>Zero reviews below 4 stars, ever</strong></td><td>254 fives, 6 fours, nothing lower in 260 stays. Cleanest record of anything screened.</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>&#9733;4.98 overall &mdash; Rockstar tier, 0.01 below unicorn</td><td>Guest Favorite / top-5% badge</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Only 4 true pain points from 260 reviews</td><td>And 28 reviews (10.8%) contain any criticism at all</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td><strong>Decor is the #1 property attribute</strong> &mdash; the FF&amp;E <em>is</em> the product</td><td>101 mentions (39%). Conveys only if written into the contract</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Amenity stack is the stated booking trigger, not filler</td><td>Hot tub 53 &middot; sauna 25 &middot; fireplaces 21 &middot; outdoor movie 13. Guests name them before arriving</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Rebuilding that stack from scratch would cost well into six figures</td><td>Sauna, hot tub, jetted tub, 3-head rain shower, multiple indoor+outdoor fireplaces, wood fire pit, gas fire table, projector + daybed, arcade table, cornhole, grill</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Hot tub repeatedly praised as the cleanest guests have seen</td><td>Multiple reviews single it out by name</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Deck nearly equals interior square footage &mdash; guests &ldquo;live outside&rdquo;</td><td>1,188 sq ft cabin, <strong>1,000 sq ft wrap-around deck</strong>, 1-acre lot</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td><strong>All-weather covered porch rescues rainy stays</strong> &mdash; rain insurance for shoulder season</td><td>~12 reviews; one storm-hit guest: &ldquo;we were not even upset about the weather&rdquo;</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Wildlife on the parcel is a free, repeatedly-praised amenity</td><td>Deer sightings named in numerous reviews</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Pet-friendliness works and is warmly received</td><td>9 dog mentions; dedicated dog kennel, bowls, toys, waste bags provided</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">B &middot; Revenue and demand</p>
+  </div>
+  <table>
+    <tr><th style="width:12%">Verdict</th><th style="width:40%">Observation</th><th>Evidence</th></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td><strong>A real 4.5-year operating history, not a projection</strong></td><td>📗 documented; almost nothing else on the board is</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>The revenue figure survives an independent cross-check</td><td>295 nights, ~$330/night, 2.5&ndash;2.9 nights/booking all reconcile against $97,285</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Occasion travel is price-insensitive and books ahead</td><td>26 anniversary / honeymoon / birthday trips (10%)</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Drive market is proven, not assumed</td><td>~52 DFW &middot; ~24 OKC metro &middot; 8 Louisiana</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>AirDNA reads <em>low</em> in this market &mdash; downside cases may be conservative</td><td><span class="pill p-gray">Aug 23</span> 18&ndash;45% below disclosed actuals for strong Hochatown operators</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td><strong>Booking pace fell 42% same-window, 61% April&ndash;August</strong></td><td>Jan&ndash;Aug: 45 &rarr; 47 &rarr; 43 &rarr; <strong>25</strong>. Ratings flat, so it is not the stay</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>Rolling trailing-12 has fallen three years running</td><td>75 &rarr; 65 &rarr; 54</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td><strong>At an all-channel &minus;42% it reverts to the failed median</strong></td><td>8.51&times; vs the 8.5&times; Broken Bow median that already failed the screen</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>The amenity moat is switched off five months a year</td><td>Gas fireplaces run <strong>Oct 1 &ndash; Apr 30 only</strong>; a July guest confirms sauna/hot tub went unused in the heat</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>Realised repeat business is much thinner than intent suggests</td><td>~40 reviews say &ldquo;we'll be back&rdquo;; only <strong>7</strong> evidence an actual second stay</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">C &middot; Channels and conveyance &mdash; the heart of the problem</p>
+  </div>
+  <table>
+    <tr><th style="width:12%">Verdict</th><th style="width:40%">Observation</th><th>Evidence</th></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td><strong>&ldquo;Hospitality&rdquo; is the #1 review tag &mdash; the biggest asset does not convey</strong></td><td>95 mentions, ahead of Location (68) and Hot tub (51). My independent count said 92</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td><strong>She actively drives bookings off-platform</strong></td><td>Site headline: <em>&ldquo;Book Direct &amp; Save&mdash;up to 15%. Skip platform fees.&rdquo;</em></td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>Six live channels, all pointing at her brand</td><td>Airbnb, VRBO, Expedia, Travelocity, sunriserentalcottages.com, Facebook (~1,700 followers), Instagram</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>The direct funnel is cross-market &mdash; not partly retainable</td><td>Brand spans Fredericksburg TX and the Caribbean; Cinnamon Spice is her <strong>only</strong> Broken Bow property</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>She cross-sells her other market inside this listing's own reviews</td><td>Public reply, Mar 2026: <em>&ldquo;I would love to have you in Fredericksburg as well!&rdquo;</em></td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td><strong>Relaunch risk if the Airbnb listing does not transfer</strong></td><td>Zero reviews into a market of 3,200&ndash;4,500 cabins</td></tr>
+    <tr><td><span class="pill p-amb">TEST</span></td><td>~$24K/yr already sits outside Airbnb</td><td><span class="pill p-gray">Aug 23</span> AirDNA tracks the Airbnb side at $73.3K of the $97,285</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">D &middot; The operator &mdash; and why that is a problem, not a comfort</p>
+  </div>
+  <table>
+    <tr><th style="width:12%">Verdict</th><th style="width:40%">Observation</th><th>Evidence</th></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td><strong>Six host complaints in 260 stays &mdash; there is nothing to improve on</strong></td><td>One cleanliness lapse, one linens note, one booking-process gripe, two spice requests, one hot-tub instruction note. Five of six still gave 5&#9733;</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>You would be buying a <strong>ceiling, not a floor</strong></td><td>The normal STR play &mdash; buy from a weak operator and capture the gap &mdash; does not exist here</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>Her fast response is what rescued every equipment failure</td><td>8 failure reviews, all defused by her. You inherit the failures, not the response</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>The 4.98 is a standard to defend, not a cushion to spend</td><td>Repeat guests will notice any drop</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>She discloses honestly &mdash; which lowers surprise risk for a buyer</td><td>Her own listing warns &ldquo;SUVs or trucks recommended due to local unpaved roads&rdquo;</td></tr>
+    <tr><td><span class="pill p-amb">TEST</span></td><td>A cleanliness lapse appears in the most recent review on the listing</td><td>Aug 10 2026, the only 4&#9733; of the year &mdash; possible turnover slippage during the sale</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">E &middot; Physical and structural</p>
+  </div>
+  <table>
+    <tr><th style="width:12%">Verdict</th><th style="width:40%">Observation</th><th>Evidence</th></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td><strong>Walkability is a permanent, unbuildable moat</strong></td><td>29 mentions; ~500 ft to Mountain Fork Brewery, Shuck Me, Okie Girls. Locational &mdash; new supply cannot compete it away</td></tr>
+    <tr><td><span class="pill p-amb">CHECK</span></td><td>Lot is <strong>1 acre</strong>, not the 1.5 the seller's site claims &mdash; a third less privacy buffer than marketed</td><td>MLS + Zillow both say 1 acre, "Interior Lot, Wooded". Verify against the recorded plat</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td><strong>1 bedroom / 3-guest hard cap</strong> &mdash; no family or group market, no ADR headroom</td><td>Guest: &ldquo;perfect for a couple but might be too tight for a family&rdquo;</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>Expansion is constrained by septic rules</td><td><span class="pill p-gray">Aug 23</span> OAC 252:641 &mdash; 200 gpd &le;2BR + 66/BR</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>Neighbouring cabin visible &mdash; permanent</td><td>8 reviews 2022&ndash;2025; nearest structure ~300 ft NE, confirmed on imagery</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>Road noise behind the cabin &mdash; permanent</td><td>4 reviews; Bent Pne Trl runs ~100 ft east</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td><strong>Unpaved approach road with potholes and ruts</strong> &mdash; maintenance responsibility unknown</td><td>2 reviews (&ldquo;recommend a truck&rdquo;) + the seller's own disclosure + visible on imagery</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Both structural flaws are disclosure items, not spend</td><td>Every guest who named them still gave 5&#9733;</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">F &middot; Maintenance and CapEx</p>
+  </div>
+  <table>
+    <tr><th style="width:12%">Verdict</th><th style="width:40%">Observation</th><th>Evidence</th></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td><strong>No maintenance bomb anywhere in 260 reviews</strong></td><td>Entire inheritable fix list is ~$800&ndash;2,500 plus a mattress topper</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td><strong>Equipment failure cluster spanning all four years</strong></td><td>8 reviews: gas fire pit, grill, pilot light, TV remotes, projector, smart-lock code (2022, 2023, 2025&times;4, 2026)</td></tr>
+    <tr><td><span class="pill p-amb">WATCH</span></td><td>One wear signal &mdash; &ldquo;slightly worn, needing some love&rdquo;</td><td>Jan 2025. Single mention, but a CapEx signal for a buyer</td></tr>
+    <tr><td><span class="pill p-amb">WATCH</span></td><td>Bed firmness &mdash; minor, cheap</td><td>2 reviews; four others praise the bed</td></tr>
+    <tr><td><span class="pill p-amb">WATCH</span></td><td>The swings in the listing title may not be usable</td><td>1 review says they could not use them; verify they exist and work</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">G &middot; Market, tax and regulatory <span style="font-size:13px; font-weight:400;">&mdash; carried from the Aug 23 screen</span></p>
+  </div>
+  <table>
+    <tr><th style="width:12%">Verdict</th><th style="width:40%">Observation</th><th>Evidence</th></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td><strong>Market demand held &mdash; only supply broke</strong></td><td>2.0&ndash;2.8M visitors, $238M Choctaw casino, 8M people in DFW three hours away</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Flattest seasonality of ten mountain markets</td><td>Pooled monthly review range 19&ndash;26 confirms it independently</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Hochatown licenses STRs with <strong>no cap</strong></td><td>$300 + $100/yr</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Best cost-seg basis of any market screened</td><td>buildingPct 0.83 on real parcels</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Cheapest remote-management lane of any market</td><td>Stayhocha at 15%</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td><strong>Supply grew ~400 &rarr; 3,200&ndash;4,500 cabins (+76% in 3 years)</strong></td><td>The competitive set worsens every year you hold</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td><strong>Property tax resets on sale</strong> &mdash; the seller's bill is not your bill</td><td>~0.87&ndash;0.92% of price = <strong>~$4,400/yr</strong> at $500K</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>No Oklahoma FAIR plan; 1&ndash;2% wind/hail deductibles universal</td><td>Insurance mid ~$4,000 ($5&ndash;10K out of pocket per claim)</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>Remote operation costs materially more than self-management</td><td>opExpRatio 0.610 remote vs 0.410 self</td></tr>
+    <tr><td><span class="pill p-amb">TEST</span></td><td>STR licence transferability on sale is an open gap</td><td>Never resolved in the Aug 23 run</td></tr>
+    <tr><td><span class="pill p-amb">TEST</span></td><td>Verify the parcel is outside Broken Bow city limits</td><td>City bars STRs outside C-5. Check the town-limits map, never the mailing address</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">H &middot; Deal dynamics</p>
+  </div>
+  <table>
+    <tr><th style="width:12%">Verdict</th><th style="width:40%">Observation</th><th>Evidence</th></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td><strong>26 months unsold = real leverage</strong></td><td>Guest referenced the sale in June 2024; still on the market</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>Motivated seller exiting the state entirely</td><td>Consolidating into Fredericksburg TX; this is her only OK asset</td></tr>
+    <tr><td><span class="pill p-grn">PRO</span></td><td>It started closer than anything else found</td><td>The only listing across five screened markets to clear the 20% floor <em>at ask</em></td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>26 months unsold is also the market's verdict on the price</td><td>Nobody has paid $485,000 for this in two years</td></tr>
+    <tr><td><span class="pill p-red">CON</span></td><td>The market itself already screened Tier D and sits at the bottom of the queue</td><td><span class="pill p-gray">Aug 23</span> 5.90/10; deprioritised Aug 25</td></tr>
+    <tr><td><span class="pill p-amb">TEST</span></td><td>Whether the 2026 decline is the sale process itself</td><td>If calendar-blocked for showings, 2026 <em>understates</em> earning power &mdash; the best outcome, and the easiest to verify</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>Tally: 29 arguments for, 27 against, 8 unresolved and testable.</strong> That near-even split is the honest picture &mdash; and it is exactly why this comes down to price rather than to a yes or a no. Every &ldquo;pro&rdquo; above describes something that <em>conveys with the deed</em>. Almost every &ldquo;con&rdquo; describes either something that <em>leaves with the seller</em> or something already <em>priced into the ask</em>. Buy the first list; refuse to pay for the second.
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="cover" style="margin-top:0;">
+    <p class="kicker">Printable &middot; Question bank</p>
+    <h1>Questions for the Seller</h1>
+    <p class="sub">Every question this run generated, with the evidence behind each one</p>
+  </div>
+
+  <p>Grouped so you can work through them in one conversation or split them across the agent and the seller. <span class="pill p-red">&#9733;</span> marks the ones that change the price. The right-hand column is <em>why</em> you are asking &mdash; useful if you are challenged on any of them.</p>
+
+  <div class="secthead">
+    <p class="t">1 &middot; Revenue &mdash; the questions that decide the number</p>
+  </div>
+  <table>
+    <tr><th style="width:6%"></th><th style="width:47%">Question</th><th>Why you are asking</th></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>Please provide the T-12 gross, broken out by month AND by channel</strong> &mdash; Airbnb, VRBO, Expedia, direct.</td><td>The single decisive document. Separates &ldquo;demand is falling&rdquo; from &ldquo;demand moved to channels that leave with you.&rdquo;</td></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>For each month: nights booked versus nights blocked</strong>, and who blocked them.</td><td>Tells you whether the 2026 decline is market softness or a calendar closed for showings.</td></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>Why is 2026 booking volume down roughly 42% against 2025?</strong></td><td>Airbnb reviews Jan&ndash;Aug: 43 in 2025, 25 in 2026. April&ndash;August is down 61%.</td></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>What share of annual revenue lands October&ndash;April versus May&ndash;September?</strong></td><td>Your listing states the gas fireplaces run <strong>Oct 1 &ndash; Apr 30 only</strong>, and a July guest wrote it was too hot to use the fireplaces, hot tub or sauna. If the amenity moat is a cold-weather moat, the annual gross is not evenly earned.</td></tr>
+    <tr><td></td><td>Gross figures for 2022, 2023 and 2024 &mdash; not just 2025.</td><td>One year is a data point; four is a trend. 2025 may be the peak being quoted.</td></tr>
+    <tr><td></td><td>Is the $97,285 <strong>gross booking revenue or net of platform fees</strong>? Does it include cleaning fees?</td><td>Changes the multiple materially. Must be defined before it is used.</td></tr>
+    <tr><td></td><td>Average nights per booking, 2025 versus 2026. Did minimum-stay settings change?</td><td>Fewer bookings at longer stays would keep revenue intact &mdash; a benign explanation worth ruling in or out.</td></tr>
+    <tr><td></td><td>ADR by month for 2025 and 2026.</td><td>Tests whether rate rose to offset volume, or fell to chase it.</td></tr>
+    <tr><td></td><td>How many owner personal-use nights per year?</td><td>Removes them from the occupancy figure so you are comparing like with like.</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">2 &middot; What actually transfers &mdash; the conveyance questions</p>
+  </div>
+  <table>
+    <tr><th style="width:6%"></th><th style="width:47%">Question</th><th>Why you are asking</th></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>Does the Airbnb listing itself transfer</strong> &mdash; the 260 reviews, the 4.98 rating, Guest Favorite and Superhost status?</td><td>The largest single question in the deal. If not, year one is a relaunch at zero reviews against 3,200&ndash;4,500 cabins.</td></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>Does the VRBO listing transfer?</strong></td><td>It is live, and syndicated to Expedia and Travelocity.</td></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>What percentage of 2025 and 2026 revenue came from direct bookings and repeat guests?</strong></td><td>Your site headlines &ldquo;Book Direct &amp; Save&mdash;up to 15%.&rdquo; That demand may not be transferable at all.</td></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td>Does the <strong>Cinnamon Spice page on sunriserentalcottages.com</strong>, or the domain, convey? Or does the cabin simply come off the site at closing?</td><td>Sunrise Rental Cottages is a cross-market brand covering Fredericksburg TX. This cabin is your only Broken Bow property.</td></tr>
+    <tr><td></td><td>Does the <strong>guest email list / CRM</strong> convey?</td><td>The repeat-booking engine. Ask explicitly &mdash; it is rarely offered unprompted.</td></tr>
+    <tr><td></td><td>Do the <strong>Facebook page (~1,700 followers) and Instagram account</strong> convey?</td><td>Both actively post this cabin by name.</td></tr>
+    <tr><td></td><td>Are there <strong>forward bookings on the calendar</strong>, and do they transfer with deposits?</td><td>Affects year-one cash flow and the closing settlement.</td></tr>
+    <tr><td></td><td>Will you agree not to operate or market a competing Broken Bow cabin for a defined period?</td><td>You are buying her market position; worth protecting even though she is exiting Oklahoma.</td></tr>
+    <tr><td></td><td>A guest mentioned signing <strong>a separate rental contract outside Airbnb</strong>. What is that agreement, and does it create any ongoing obligation?</td><td>Jan 2025 review. Unresolved, and it touches liability.</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">3 &middot; The sale itself</p>
+  </div>
+  <table>
+    <tr><th style="width:6%"></th><th style="width:47%">Question</th><th>Why you are asking</th></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>How long has it been on the market, and what is the full price history?</strong></td><td>A guest referenced the sale in <strong>June 2024</strong> &mdash; about 26 months ago.</td></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>If the numbers are this strong, why has it not sold in two years?</strong></td><td>Ask it plainly. The answer, or the discomfort, is informative either way.</td></tr>
+    <tr><td></td><td>Have there been offers? What happened to them?</td><td>Tells you where the market has actually priced it, not where it is listed.</td></tr>
+    <tr><td></td><td>Why are you selling?</td><td>Your own review reply cross-sells Fredericksburg; consolidation is the likely answer, but confirm it.</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">4 &middot; Operations and seasonality</p>
+  </div>
+  <table>
+    <tr><th style="width:6%"></th><th style="width:47%">Question</th><th>Why you are asking</th></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>Why do the fireplaces run October 1 to April 30 only?</strong> Is that safety, propane cost, or demand?</td><td>Determines whether it is a policy you could change or a physical constraint you inherit.</td></tr>
+    <tr><td></td><td>What is summer occupancy versus winter? Do you discount May&ndash;September?</td><td>The moat amenities go unused in heat &mdash; confirmed by a July guest.</td></tr>
+    <tr><td></td><td>Who cleans, what does a turn cost, and will they stay on for a new owner?</td><td>Cleanliness is praised in ~47 reviews. That standard is a person, not a fixture.</td></tr>
+    <tr><td></td><td>Who handles maintenance and emergency call-outs? Will they stay?</td><td>Eight equipment failures across four years were all rescued by fast response.</td></tr>
+    <tr><td></td><td>Is there a property manager, or is this self-managed?</td><td>Changes your opex assumption substantially (0.410 self vs 0.610 remote).</td></tr>
+    <tr><td></td><td>Annual utilities, including propane. Is the tank owned or leased?</td><td>Multiple gas appliances; a leased tank is an assumable contract.</td></tr>
+    <tr><td></td><td>What does the hot tub cost to service and how often?</td><td>Guests call it the cleanest they have seen &mdash; that is a maintained standard.</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">5 &middot; The physical property</p>
+  </div>
+  <table>
+    <tr><th style="width:6%"></th><th style="width:47%">Question</th><th>Why you are asking</th></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>Who owns and maintains the unpaved approach road?</strong> Is there a shared-maintenance agreement or annual cost?</td><td>Two guests said bring a truck; your own listing recommends SUVs. An unfunded road obligation is a real liability.</td></tr>
+    <tr><td></td><td>Is there a POA or HOA? Dues, rules, and any STR restrictions?</td><td>Timbercreek Subdivision. POA rules have killed STR use elsewhere.</td></tr>
+    <tr><td></td><td>Septic: type, age, service contract, last pumped, and permitted capacity?</td><td>Oklahoma sets capacity by bedroom count; it caps any future expansion.</td></tr>
+    <tr><td></td><td>Well or public water? If well, depth, age, last test?</td><td>Standard, and it affects insurability.</td></tr>
+    <tr><td></td><td>Ages of roof, HVAC, water heater, hot tub and sauna.</td><td>Sets your CapEx reserve. The cabin has been operating since at least 2022.</td></tr>
+    <tr><td></td><td>A Jan 2025 guest described the unit as &ldquo;slightly worn, needing some love.&rdquo; <strong>What has been refreshed since?</strong></td><td>Tells you whether upkeep continued during the sale process or was deferred.</td></tr>
+    <tr><td></td><td>Any recurring issues with the gas fire pit, grill or pilot lights?</td><td>Named in four separate reviews between 2025 and 2026.</td></tr>
+    <tr><td></td><td>Smart lock brand, and does the account or subscription transfer?</td><td>One guest was locked out when a code failed.</td></tr>
+    <tr><td></td><td>Do the yard swings still exist and work?</td><td>&ldquo;Swings&rdquo; is in the listing title; a guest said they could not use them.</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">6 &middot; Regulatory, tax and insurance</p>
+  </div>
+  <table>
+    <tr><th style="width:6%"></th><th style="width:47%">Question</th><th>Why you are asking</th></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>Is the parcel inside Broken Bow city limits, or unincorporated / Hochatown?</strong></td><td>The city bars STRs outside C-5 zoning. Verify by town-limits map, never by mailing address.</td></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>Is the STR licence current, and does it transfer on sale?</strong></td><td>Transferability was an unresolved gap in the earlier market work.</td></tr>
+    <tr><td></td><td>Are you current on the 4% Hochatown lodging tax self-remittance?</td><td>Self-remitted, and the town is in dispute with Airbnb over misrouting. Unpaid tax can follow the property.</td></tr>
+    <tr><td></td><td>Insurance carrier, annual premium, deductible structure, and claims history.</td><td>No Oklahoma FAIR plan; 1&ndash;2% wind/hail deductibles are universal here.</td></tr>
+    <tr><td></td><td>Most recent property tax bill.</td><td>For reference only &mdash; <strong>your bill will differ</strong>, because Oklahoma resets assessment on sale (~$4,400/yr at $500K).</td></tr>
+    <tr><td></td><td>Any code violations, neighbour complaints, or permit issues?</td><td>Standard, and cheap to ask.</td></tr>
+  </table>
+
+  <div class="secthead">
+    <p class="t">7 &middot; What is included in the sale</p>
+  </div>
+  <table>
+    <tr><th style="width:6%"></th><th style="width:47%">Question</th><th>Why you are asking</th></tr>
+    <tr><td><span class="pill p-red">&#9733;</span></td><td><strong>Provide a full FF&amp;E inventory schedule to attach to the contract.</strong></td><td>Decor is the most-praised attribute in the entire dataset &mdash; 101 of 260 reviews. It is the product, and it conveys only if written down.</td></tr>
+    <tr><td></td><td>Specifically: the arcade / game table, the outdoor projector and screen, the daybed, outdoor furniture and cornhole.</td><td>All named by guests as booking reasons. One guest booked <em>because of</em> the arcade game.</td></tr>
+    <tr><td></td><td>Linens, kitchen equipment, the dog kennel and pet supplies?</td><td>Guests praise the stocked kitchen and dog provisions specifically.</td></tr>
+    <tr><td></td><td>Does the guidebook / welcome app content convey?</td><td>Repeatedly praised, and it is a real operational asset.</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>If you only get one thing, get the channel-split T-12 with blocked nights.</strong> Roughly half the starred questions collapse into that single document &mdash; it settles the revenue trend, the seasonality split, the channel mix and the calendar-blocking theory at once. Everything else is confirmatory.
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="cover" style="margin-top:0;">
+    <p class="kicker">Printable &middot; Buyer's worksheet</p>
+    <h1>Cinnamon Spice &mdash; Diligence Action Sheet</h1>
+    <p class="sub">Everything the 260 reviews say you need answered before September&nbsp;28</p>
+  </div>
+
+  <div class="goldtop">
+    <p class="ey">&#128204; Standing action &mdash; do this regardless of anything else</p>
+    <p><strong>GET THE RECORDED PLAT AND COVENANTS (CC&amp;Rs) for Timber Creek Trails, Phase&nbsp;7.</strong> Request from the title company, the listing agent, or the McCurtain County Clerk directly. Four things must be read out of them before any offer:</p>
+    <p style="margin-top:10px">
+      &#9634; &nbsp;<strong>Short-term rental permission</strong> &mdash; is STR use expressly allowed, silent, or restricted? A covenant ban would end the deal outright.<br>
+      &#9634; &nbsp;<strong>Road maintenance obligation</strong> &mdash; who owns and grades the unpaved approach, is there a cost-share, and is it funded or unfunded?<br>
+      &#9634; &nbsp;<strong>Build restrictions</strong> &mdash; setbacks, minimum/maximum size, outbuildings. Governs whether the 3-guest cap could ever be expanded.<br>
+      &#9634; &nbsp;<strong>POA existence and dues</strong> &mdash; is there an association, what does it cost annually, and does it carry any transfer or capital assessment on sale?
+    </p>
+    <p style="margin-top:10px"><em>A phased, platted subdivision almost always has recorded covenants. This is a public record &mdash; it does not depend on the seller's cooperation, and it can be pulled today.</em></p>
+  </div>
+
+  <h2>Answers to get from the seller &mdash; the short list</h2>
+  <p style="font-size:14px"><em>The full question bank is on the previous page. These are the ones to get if you only have one conversation.</em></p>
+  <ul class="bl-task">
+    <li><strong>What share of revenue lands Oct&ndash;Apr versus May&ndash;Sep?</strong> (fireplaces run Oct 1&ndash;Apr 30 only) &nbsp; <span class="blankline"></span></li>
+    <li><strong>T-12 gross, broken out by channel</strong> (Airbnb / VRBO / direct) &nbsp; <span class="blankline"></span></li>
+    <li><strong>Why is 2026 booking volume down roughly 42%?</strong> &nbsp; <span class="blankline"></span></li>
+    <li><strong>Does the Airbnb listing (260 reviews, Superhost) transfer?</strong> Yes / No &nbsp; <span class="blankline"></span></li>
+    <li><strong>Does the direct-booking site / guest list convey, or stay with the Fredericksburg portfolio?</strong> &nbsp; <span class="blankline"></span></li>
+    <li><strong>Is the calendar currently blocked for showings or personal use?</strong> How many nights YTD? &nbsp; <span class="blankline"></span></li>
+    <li><strong>How long has the property been listed for sale?</strong> (A guest referenced a sale in June 2024.) &nbsp; <span class="blankline"></span></li>
+    <li><strong>Who owns and maintains the unpaved approach road?</strong> POA? Shared cost? &nbsp; <span class="blankline"></span></li>
+    <li><strong>Full FF&amp;E inventory schedule</strong> to attach to the contract &nbsp; <span class="blankline"></span></li>
+  </ul>
+
+  <h2>Verify on site</h2>
+  <ul class="bl-task">
+    <li>Gas fire pit, gas fire table, grill, all pilot lights &mdash; <em>light every one</em> &nbsp; <span class="blankline"></span></li>
+    <li>Sauna, hot tub, jacuzzi tub, three-head shower &mdash; run them &nbsp; <span class="blankline"></span></li>
+    <li>Outdoor projector, screen, daybed, arcade/game table &nbsp; <span class="blankline"></span></li>
+    <li>The yard swings &mdash; they are in the listing title; confirm they exist and work &nbsp; <span class="blankline"></span></li>
+    <li>Stand on the back porch: how visible is the neighbouring cabin, how audible is the road? &nbsp; <span class="blankline"></span></li>
+    <li>Drive the approach road in a normal car, ideally after rain &nbsp; <span class="blankline"></span></li>
+    <li>General condition &mdash; one guest flagged &ldquo;slightly worn, needing some love&rdquo; in Jan 2025 &nbsp; <span class="blankline"></span></li>
+  </ul>
+
+  <h2>Decisions pending &mdash; yours to make</h2>
+  <table>
+    <tr><th style="width:38%">Decision</th><th style="width:24%">What it hinges on</th><th>Your call</th></tr>
+    <tr><td>Underwrite at $97,285, or at a discounted 2026 run-rate?</td><td>The channel-split T-12</td><td><span class="blankline"></span></td></tr>
+    <tr><td>Does this stay on the September 28 identification list?</td><td>Answers to the eight questions above</td><td><span class="blankline"></span></td></tr>
+    <tr><td>If the listing does not transfer, what is the property worth to you?</td><td>Relaunch-year occupancy assumption</td><td><span class="blankline"></span></td></tr>
+    <tr><td>Price adjustment sought against ask</td><td>Booking decline + amenity commissioning</td><td><span class="blankline"></span></td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>Where this leaves the deal.</strong> Nothing in 260 reviews argues the property is bad &mdash; the opposite, emphatically. What they argue is that the number underneath the 4.99&times; multiple belongs partly to a host who is leaving, partly to a direct-booking brand that leaves with her, and to a booking pace that has since fallen by roughly two fifths. <strong>The asset is excellent; the price assumes you also receive things you do not receive.</strong> On the review evidence the supportable range is roughly <strong>$275,000&ndash;$375,000</strong> against the $485,000 ask, depending entirely on whether the Airbnb listing transfers. This is a seller with no buyer in 26 months who is exiting the state. <strong>The deal is not dead &mdash; the price is.</strong> The channel-split T-12 is the one document that tells you which end of that range you are in.
+  </div>
+
+  <div class="footer">
+    Banana Slug Getaways &middot; Diligence Action Sheet &middot; August 28,&nbsp;2026
+  </div>
+
+</div>
+</body>
+</html>
