@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STR Market Analysis — Hocking Hills, OH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #0f1a13;
+  --bg-card:   #1c2b20;
+  --bg-card-2: #213526;
+  --border:    #2d4533;
+  --border-2:  #3d5c46;
+  --amber:     #e8924a;
+  --amber-dim: #c4743a;
+  --amber-bg:  #2a1e12;
+  --amber-pale:#f0b07a;
+  --teal:      #2ec4a8;
+  --teal-dim:  #1fa08a;
+  --teal-bg:   #0e2420;
+  --red:       #f06060;
+  --red-dim:   #c44545;
+  --red-bg:    #2a1212;
+  --red-border:#4a2020;
+  --red-muted: #7a5050;
+  --yellow:    #f0c040;
+  --yellow-dim:#c89c28;
+  --yellow-bg: #241e0a;
+  --neutral-icon-bg:     #1a2530;
+  --neutral-icon-border: #2a3f55;
+  --score-glow: rgba(232,146,74,0.12);
+  --text-1:    #f2f5f2;
+  --text-2:    #baced0;
+  --text-3:    #6a8070;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { text-wrap: balance; }
+article p { text-wrap: pretty; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.anim-fade-up  { animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-scale-in { animation: scaleIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up, .anim-scale-in { animation: none; opacity: 1; transform: none; }
+}
+.d0 { animation-delay: 0ms; }
+.d1 { animation-delay: 60ms; }
+.d2 { animation-delay: 120ms; }
+.d3 { animation-delay: 180ms; }
+.d4 { animation-delay: 240ms; }
+.d5 { animation-delay: 300ms; }
+.d6 { animation-delay: 360ms; }
+.page { max-width: 980px; margin: 0 auto; padding: 0 16px 80px; }
+.hero {
+  padding: 64px 0 56px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+.hero-state {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+.hero-summary {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  max-width: 580px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.hero-date {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.score-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card-2);
+  border: 2px solid var(--border-2);
+  border-radius: 20px;
+  padding: 36px 44px;
+  min-width: 172px;
+  position: relative;
+  overflow: hidden;
+}
+.score-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 10%, var(--score-glow) 0%, transparent 65%);
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+.score-hero .score-num {
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  z-index: 1;
+}
+.score-hero .score-denom {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-3);
+  line-height: 1;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+.score-hero .score-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+.score-hero.yellow .score-num   { color: var(--yellow); }
+.score-hero.yellow .score-label { color: var(--yellow-dim); }
+.score-hero.green  .score-num   { color: var(--teal); }
+.score-hero.green  .score-label { color: var(--teal-dim); }
+.score-hero.red    .score-num   { color: var(--red); }
+.score-hero.red    .score-label { color: var(--red-dim); }
+.verdict-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.verdict-pill.yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-dim); }
+.verdict-pill.green  { background: var(--teal-bg);   color: var(--teal);   border: 1px solid var(--teal-dim); }
+.verdict-pill.red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-dim); }
+.capital-alert {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-top: 3px solid var(--amber);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 32px;
+  font-size: 0.875rem;
+  color: var(--amber-pale);
+  line-height: 1.65;
+}
+.capital-alert strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.capital-alert em { color: var(--text-1); font-weight: 600; font-style: normal; }
+.red-flags-wrap {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 32px;
+}
+.red-flags-wrap h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.red-flags-wrap ul { list-style: none; }
+.red-flags-wrap li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--red-border);
+  color: var(--red-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.red-flags-wrap li:last-child { border-bottom: none; }
+.red-flags-wrap li strong { display: block; color: var(--red); font-weight: 600; margin-bottom: 3px; }
+.red-flags-clean {
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-dim);
+  border-radius: 12px;
+  padding: 14px 22px;
+  margin-bottom: 32px;
+  color: var(--teal);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.section-header {
+  padding: 20px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.15s;
+}
+.section-header:hover { background: rgba(255,255,255,0.02); }
+.section-header.open { border-bottom-color: var(--border); }
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.section-title-icon.amber { background: var(--amber-bg); border: 1px solid var(--amber-dim); }
+.section-title-icon.teal  { background: var(--teal-bg);  border: 1px solid var(--teal-dim);  }
+.section-title-icon.blue  { background: var(--neutral-icon-bg); border: 1px solid var(--neutral-icon-border); }
+.section-title-icon.red   { background: var(--red-bg);   border: 1px solid var(--red-dim);   }
+.section-toggle {
+  color: var(--text-3);
+  font-size: 0.7rem;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+}
+.section-header.open .section-toggle { transform: rotate(180deg); }
+.section-body { padding: 26px; }
+.section-body.collapsed { display: none; }
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.score-row:last-child { border-bottom: none; }
+.score-row-left { min-width: 0; }
+.score-row-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.score-row .cat-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 2px;
+}
+.score-row .cat-meta {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+.score-row .cat-weight {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.score-row .weighted-contrib {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-2);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.pills { display: flex; gap: 4px; flex-wrap: wrap; }
+.pill {
+  width: 40px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border-2);
+  background: var(--bg-card-2);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+}
+.pill:hover { border-color: var(--amber); color: var(--amber); }
+.pill:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.pill.active-1, .pill.active-2 { border-color: var(--red-dim);    background: var(--red-bg);    color: var(--red); }
+.pill.active-3                  { border-color: var(--yellow-dim); background: var(--yellow-bg); color: var(--yellow); }
+.pill.active-4, .pill.active-5  { border-color: var(--teal-dim);  background: var(--teal-bg);   color: var(--teal); }
+.rationale-toggle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--amber);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  transition: background 0.1s;
+}
+.rationale-toggle:hover { background: rgba(232,146,74,0.12); }
+.rationale-card {
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-1);
+  display: none;
+  line-height: 1.7;
+}
+.rationale-card .confidence {
+  font-size: 0.72rem;
+  color: var(--teal-dim);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.rationale-card.open { display: block; }
+.scorecard-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 26px;
+  background: var(--bg-card-2);
+  border-top: 2px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+.scorecard-total .total-val {
+  font-size: 2rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+.intel-section { margin-bottom: 28px; }
+.intel-section:last-child { margin-bottom: 0; }
+.intel-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.intel-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.intel-content {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.75;
+  font-weight: 400;
+}
+.intel-content .intel-entry {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.intel-content .intel-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.intel-content .intel-key {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-bottom: 5px;
+}
+.intel-content .intel-key.key-red {
+  color: var(--red);
+  background: var(--red-bg);
+  border-color: var(--red-dim);
+}
+.intel-content .intel-key.key-teal {
+  color: var(--teal);
+  background: var(--teal-bg);
+  border-color: var(--teal-dim);
+}
+.intel-content .intel-key.key-neutral {
+  color: var(--text-3);
+  background: var(--bg-card-2);
+  border-color: var(--border-2);
+}
+.intel-content p {
+  margin: 0;
+  line-height: 1.75;
+}
+.intel-content ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.intel-content ul li {
+  padding-left: 14px;
+  position: relative;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.intel-content ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-weight: 700;
+}
+.intel-content strong { color: var(--text-1); font-weight: 600; }
+.lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.lane-card {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+}
+.lane-card:hover { border-color: var(--border-2); }
+.lane-card.active {
+  border-color: var(--amber);
+  background: var(--amber-bg);
+  box-shadow: 0 0 0 1px var(--amber-dim);
+}
+.lane-card-left { min-width: 0; }
+.lane-card-right {
+  flex-shrink: 0;
+  text-align: right;
+}
+.lane-card .lane-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.lane-card .lane-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-1);
+}
+.lane-card.active .lane-title { color: var(--amber-pale); }
+.lane-card .lane-subtitle {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-3);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.lane-card.active .lane-subtitle { color: var(--amber-dim); }
+.lane-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 24px;
+}
+.lane-detail-item {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.lane-detail-item .detail-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: block;
+  margin-bottom: 1px;
+}
+.lane-card.active .lane-detail-item { color: var(--amber-pale); opacity: 0.9; }
+.lane-card.active .detail-label { color: var(--amber-dim); }
+.lane-price {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+.lane-card.active .lane-price { color: var(--amber); }
+.moat-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 14px; }
+.moat-tag {
+  background: var(--bg);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lane-card.active .moat-tag {
+  background: rgba(232,146,74,0.08);
+  color: var(--amber);
+  border-color: var(--amber-dim);
+}
+.capital-fit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+.capital-fit-badge.fits {
+  background: rgba(46,196,168,0.12);
+  color: var(--teal);
+  border: 1px solid var(--teal-dim);
+}
+.capital-fit-badge.short {
+  background: rgba(240,96,96,0.12);
+  color: var(--red);
+  border: 1px solid var(--red-dim);
+}
+.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pf-item {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.pf-item .pf-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+.pf-item .pf-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.pf-item .pf-note {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+.pass { color: var(--teal) !important; }
+.warn { color: var(--yellow) !important; }
+.fail { color: var(--red)  !important; }
+.bear-case {
+  grid-column: 1 / -1;
+  background: var(--bg-card-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.bear-case h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.bear-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.855rem;
+  color: var(--text-2);
+  padding: 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+.bear-result {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-1);
+}
+.checklist { list-style: none; counter-reset: check-counter; display: flex; flex-direction: column; gap: 10px; }
+.checklist li {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px 18px 64px;
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  counter-increment: check-counter;
+  position: relative;
+}
+.checklist li::before {
+  content: counter(check-counter, decimal-leading-zero);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 30px;
+  height: 30px;
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+.checklist li strong {
+  display: block;
+  color: var(--text-1);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.pf-lane-switch { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.pf-lane-switch-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.pf-lane-tabs { display: inline-flex; background: var(--bg); border: 1px solid var(--border-2); border-radius: 10px; padding: 3px; gap: 3px; }
+.pf-lane-tab { border: none; background: transparent; color: var(--text-2); font-family: var(--font); font-size: 0.8rem; font-weight: 700; padding: 7px 16px; border-radius: 7px; cursor: pointer; transition: all 0.14s; white-space: nowrap; }
+.pf-lane-tab:hover { color: var(--amber); }
+.pf-lane-tab.active { background: var(--amber); color: #1a1208; }
+.pf-lane-tab:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.confirming-listings { margin-top: 14px; }
+.confirming-listings .cl-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.confirming-listings a { display: inline-flex; align-items: center; gap: 5px; background: var(--teal-bg); border: 1px solid var(--teal-dim); color: var(--teal); border-radius: 6px; padding: 4px 10px; margin: 0 5px 5px 0; font-size: 0.72rem; font-weight: 600; text-decoration: none; transition: all 0.12s; }
+.confirming-listings a:hover { background: rgba(46,196,168,0.18); }
+.confirming-listings a::before { content: '↗'; font-size: 0.78rem; opacity: 0.8; }
+.lane-card.active .confirming-listings .cl-label { color: var(--amber-dim); }
+.lane-card.active .confirming-listings a { background: rgba(232,146,74,0.10); border-color: var(--amber-dim); color: var(--amber); }
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; }
+  .score-hero { flex-direction: row; gap: 16px; align-self: flex-start; padding: 20px 24px; min-width: 0; }
+  .score-hero .score-num { font-size: 3rem; }
+  .lane-card { grid-template-columns: 1fr; }
+  .lane-detail-grid { grid-template-columns: 1fr; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .score-row .weighted-contrib { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="anim-fade-up d0">
+      <div class="hero-eyebrow">STR Market Analysis · August 21, 2026</div>
+      <h1>Hocking Hills</h1>
+      <div class="hero-state">Ohio &middot; Logan &middot; Rockbridge &middot; South Bloomingville &middot; Laurelville</div>
+      <div class="hero-summary"><strong style='color:var(--red)'>VERDICT: NO &mdash; and the reason is capital, not negotiation.</strong> No property in Hocking Hills grosses &ge;$100,000 <em>and</em> can be bought or negotiated to &le;$500,000. Every confirmed operating STR with disclosed six-figure revenue asks <strong>$751,000&ndash;$1,450,000</strong>. <strong>Rocky Villa</strong> &mdash; your exact 2BR/2BA format, two waterfalls, on-parcel rock formations, creek, ~$193,000 gross &mdash; is live at <strong>$1,450,000</strong>, 2.9&times; the cap. <strong>Stargazer</strong> &mdash; private observatory, stocked pond, $120,000 disclosed gross, 4.98&#9733; Guest Favorite &mdash; is live at <strong>$979,000</strong>, and the seller&rsquo;s cost basis is <strong>$810,000</strong>, so $500,000 would mean eating a <strong>$310,000 loss</strong> on an asset whose revenue is <em>growing</em>. <br><br>The strategy is right and the moat thesis is <strong>proven</strong>: Stargazer grew +4.3% while the un-moated field fell 1.8&ndash;19.7% and one no-moat cabin collapsed $111K&rarr;$44K. But this market prices STRs at <strong>&asymp;8&times; gross annual revenue</strong>, so <strong>$500,000 buys &asymp;$62,500 of gross &mdash; a 12.5% yield</strong>. It clears at 12&ndash;13% at <em>every</em> rung. The 20% floor and 30% goal are not properties this market sells; they are prices it does not produce. <br><br>At <strong>6.21/10</strong>, Hocking Hills ranks in the lower-middle tier among cabin and nature-anchored STR markets &mdash; narrowly above comparable state-park cabin markets like <strong>Luray, VA (6.00, Tier D — run Aug 23 2026)</strong>. Aggregate demand demonstrably sustained (county lodging tax more than doubled 2019&rarr;2024), but per-listing economics did not: supply grew 35&ndash;50% into a slower-growing pie while prices compounded 5&ndash;9%/yr.</div>
+      <div style="margin-top:18px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px"><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">Budget Fit &mdash; TIGHT</div><div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">At $492,500, hitting $22,000 of net cash flow needs about <strong>$87,500 gross</strong> &mdash; above this lane&rsquo;s $75,000 ceiling, and about <strong>$107,800</strong> once the mandatory remote-owner costs (cleaning + local contact) are counted. The market&rsquo;s own pricing law says $492,500 buys roughly <strong>$61,500</strong> of gross.</div></div><div style="margin-top:12px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-left:3px solid var(--yellow);border-radius:8px;padding:14px 18px;max-width:580px"><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:4px">&#9888; Revenue Trend &mdash; Declining</div><div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">Five independent negative reads on revenue-per-listing: Logan &minus;8.2% &middot; South Bloomingville &minus;19.7% &middot; Rockbridge &minus;5.4% &middot; Laurelville &minus;2.6% &middot; AirDNA &minus;1.8%. Underwrite to recent actuals, and <strong>discount seller-provided revenue from peak years by 20&ndash;30%</strong>. One listing here advertises $111,000 (2023) and delivered $44,000 (2025).</div></div><div style="margin-top:12px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px"><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">&#9888; Jurisdiction Warning</div><div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">&ldquo;Hocking Hills&rdquo; is a tourism brand, not a jurisdiction &mdash; it spans <strong>five counties</strong>. Unincorporated Hocking County has <strong>no zoning at all</strong>, but <strong>City of Logan caps STR licenses at 60</strong> and bans them in R-1; <strong>Berne Twp (Fairfield/Sugar Grove)</strong> requires a discretionary CUP with a 5%-of-township cap; and <strong>Hide-A-Way Hills bans sub-31-day rentals in writing &mdash; grandfathering does NOT transfer to a buyer</strong>. Confirm the governing county <em>by parcel</em>, never by mailing ZIP: one carry-forward property mailing to &ldquo;Logan 43138&rdquo; is actually in <strong>Perry County</strong>.</div></div>
+      <div class="hero-meta">
+        <span class="hero-date">Analysis date: August 21, 2026</span>
+        <span class="verdict-pill yellow" id="threshold-label">Loading…</span>
+      </div>
+    </div>
+    <div class="score-hero yellow anim-scale-in d1" id="score-badge">
+      <div class="score-num" id="overall-score-display">—</div>
+      <div class="score-denom">/ 10</div>
+      <div class="score-label">Market Score</div>
+    </div>
+  </div>
+
+  <div id="capital-alert-container" class="anim-fade-up d2"></div>
+  <div id="roi-context-container" class="anim-fade-up d2"></div>
+
+  <div id="red-flags-section" class="anim-fade-up d3"></div>
+
+  <div class="section anim-fade-up d3">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">📊</span>
+        Market Scorecard
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="scorecard-body"></div>
+    <div class="scorecard-total">
+      <span>Weighted Total Score</span>
+      <span class="total-val yellow" id="total-score-display">—</span>
+    </div>
+  </div>
+
+  <div class="section anim-fade-up d4">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon teal">🔍</span>
+        Market Intelligence
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body collapsed" id="intel-body">
+      <div class="intel-section">
+        <div class="intel-label">⚖ Regulatory &amp; Legal</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-teal">No Zoning At All</span><p><strong>Unincorporated Hocking County has NO zoning</strong>, and <strong>no Hocking County township has adopted zoning</strong> (Good Hope, Laurel, Benton, Falls, Marion, Ward, Salt Creek, Green, Perry, Starr, Washington). No owner-occupancy rule anywhere in the market. Out-of-state ownership is explicitly accommodated. Enforcement today is, per County Regional Planner Audie Wykle, &ldquo;the wild, wild west.&rdquo;</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Draft Ordinance Pending</span><p>Hocking County <strong>STR Ordinance Draft 6</strong> (Jan 29 2026) was recommended to the Commissioners <strong>Feb 12 2026</strong> and remains <strong>unadopted</strong>. Terms are workable, not hostile: $50/yr permit, ~$350 pass-through inspection, <strong>no cap</strong>, no owner-occupancy, 18-hour minimum stay, $1M liability, BCI check, <strong>60-minute local contact</strong>, 1-year + 6-month compliance runway. The real teeth are county driveway/emergency-access standards and a landscaping buffer within 200 ft of an adjoining parcel.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Hide-A-Way Hills — Dead Zone</span><p>Code of Regulations Art. II &sect;4(F)(2) (amended 8/18/2024): <strong>no rental or lease under 31 days</strong>. Deed restrictions separately require any lessee to be an accepted Club member. <strong>The 2005 settlement grandfathering does NOT transfer</strong> &mdash; &ldquo;future owners of these properties are generally subject to the above stated prohibition.&rdquo; You cannot buy a currently-operating HAH short-term rental and continue it.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">City of Logan — Restrictive</span><p>Ord. 54-2023 &sect;157.163: STRs <strong>prohibited in R-1</strong>; <strong>hard cap of 60 active licenses</strong> in R-2/R-2-B; 500-ft spacing; max 3 per owner; <strong>$50 application + $500 annual</strong>; max 10 guests; renewals accepted only Oct 1&ndash;Dec 1. License transferability on sale is <em>undefined</em> in the code &mdash; a real turnkey risk.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Berne Township (Fairfield / Sugar Grove)</span><p>Effective <strong>Feb 2026</strong>: conditional-use permit from the BZA, <strong>2-acre minimum</strong>, <strong>shared driveways prohibited</strong>, 1,000-ft separation, 24-hour minimum stay, renter 21+, emergency contact within 30 minutes, annual renewal with <strong>&ldquo;NO GUARANTEE OF RENEWAL,&rdquo;</strong> and a hard <strong>cap at 5% of township houses</strong>.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Ohio Taxes</span><p>Lodging tax <strong>6% unincorporated</strong> (3% county + 3% township) / <strong>10% in Logan</strong>. <strong>Neither Airbnb nor Vrbo remits Ohio local lodging tax</strong> &mdash; monthly owner filings, 10% late penalty rising to 25%. Conveyance fee $4 per $1,000 (seller pays) in Hocking/Fairfield/Perry/Vinton; $1 in Ross. CAUV recoupment claws back 3 years of savings on conversion.</p></div>
+<div class="intel-entry"><span class="intel-key key-neutral">SB 104 — Do Not Underwrite On It</span><p>Ohio&rsquo;s pro-STR preemption bill (7.5% lodging cap, bars local bans/caps/owner-occupancy mandates, one-time $50 license) remains <strong>&ldquo;As Introduced&rdquo; in Senate Local Government Committee</strong> as of Aug 21 2026. It has passed neither chamber.</p></div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">📈 Demand &amp; Market Fundamentals</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-teal">Columbus at 52 Minutes</span><p><strong>Columbus MSA 2,242,028</strong> &mdash; the 15th-fastest-growing large US metro, growing at double the national rate &mdash; sits <strong>43 miles / 52 minutes</strong> away. ~12.5M people within 3 hours, ~21M within 4. This is the single fact that makes midweek sellable here, and it is unmatched among comparable cabin markets.</p></div>
+<div class="intel-entry"><span class="intel-key key-teal">Demand Is Verifiably Growing</span><p>County lodging-tax receipts <strong>$1,311,640 (2019) &rarr; $2,971,738 (2024), +127%</strong>. A Tourism Economics study released <strong>Aug 20 2026</strong> puts total economic impact at <strong>$295M</strong> (+9.1%), 1,635 jobs, <strong>14.1% of county employment</strong>. The anchor is <strong>permanent ODNR public land</strong> &mdash; free admission, no gate, no concession that can lapse.</p></div>
+<div class="intel-entry"><span class="intel-key key-teal">Flattest Season Of Ten Cabin Markets</span><p>AirROI ranks Hocking Hills the <strong>flattest revenue curve of ten US cabin markets</strong> at <strong>2.6&ndash;2.7&times; peak-to-trough</strong>. <strong>August is the top month (12.6%) &mdash; October is the co-peak (12.4%)</strong>: fall is a <em>price</em> event ($384 ADR), summer a <em>volume</em> event. No single week exceeds ~4% of annual revenue. February is the only true dead month (4.8%); Q1 still carries 16.6%.</p></div>
+<div class="intel-entry"><span class="intel-key key-neutral">Revenue Floor — Passes Thinly</span><p>February modeled at <strong>$2,320</strong> against the <strong>$2,006</strong> requirement (70% of $2,865.66 monthly debt service) &mdash; <strong>+15.7% headroom, 81% of full debt service</strong>. <strong>The pass is hot-tub-dependent:</strong> AirROI measures a <strong>+242.6% revenue uplift</strong> for a hot tub here ($59,413 with vs $17,340 without). A cabin without one fails the floor outright.</p></div>
+<div class="intel-entry"><span class="intel-key key-neutral">Weekend Concentration — And How The Top Tier Beats It</span><p>The median listing books <strong>42.1 reservations &times; 2.4 nights = ~101 nights/year</strong> against ~104 Friday/Saturday nights &mdash; the median cabin is literally a weekend-only business. Top-decile operators at 73&ndash;77% occupancy sell ~84 more nights, and those can only come from Sunday&ndash;Thursday. <strong>Midweek capture IS the value-add thesis, and Columbus is what makes it possible.</strong></p></div>
+<div class="intel-entry"><span class="intel-key key-teal">Forward Catalyst</span><p><strong>Ohio&rsquo;s first mountain coaster</strong> (3,640 ft) opens <strong>spring 2027</strong> in Logan &mdash; an all-weather winter/rainy-day anchor aimed squarely at the market&rsquo;s weakest season. The 2022 State Park Lodge (81 rooms) is a demand <em>generator</em>: its conference center manufactures midweek group demand.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Two Claimed Drivers Struck</span><p><strong>Dark Sky is REFUTED</strong> &mdash; John Glenn Astronomy Park is <em>not</em> IDA-certified (Ohio&rsquo;s certified sites are Observatory Park and Fry Family Park). Do not put &ldquo;Dark Sky Park&rdquo; in a listing title. <strong>Intel/New Albany has slipped to 2030&ndash;32</strong> and must not be underwritten; its only near-term effect is tight trades labor inflating rehab budgets.</p></div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🏠 Competitive &amp; Revenue</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-red">The Governing Law — 8&times; Gross Revenue</span><p>Hocking Hills prices short-term rentals at <strong>&asymp;8&times; gross annual revenue</strong> (5.5&times;&ndash;11.9&times; across 14 disclosing listings). <strong>$500,000 buys &asymp;$62,500 of gross &mdash; a 12.5% yield.</strong> The market clears at 12&ndash;13% at <em>every</em> rung. Buying $100,000 of gross costs ~$800,000; $150,000 costs ~$1.2M.</p></div>
+<div class="intel-entry"><span class="intel-key key-neutral">Three Disclosed T-12 Actuals (Browser-Verified)</span><p><strong>$70,000</strong> at 21221 Sterling Rd (asking $599,000 &mdash; 8.6&times;) &middot; <strong>$56,909</strong> FY2025 at 10104 Frasure-Helber Rd (asking $575,000 &mdash; 10.1&times;) &middot; <strong>$120,000</strong> at Stargazer (asking $979,000 &mdash; 8.2&times;). The first two are the best-presented no-moat 2BR/2BAs on the market: professionally managed, hot-tubbed, on private acreage &mdash; and they gross 1.3&times; the median.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Corrected Benchmarks</span><p>Median gross <strong>$48,250</strong> (AirDNA) vs <strong>$48,360</strong> (AirROI) &mdash; 0.2% apart, high confidence. But two carry-forward figures are <strong>corrected</strong>: working ADR is <strong>$360&ndash;$410</strong>, not $259; and <strong>top-decile occupancy is 73&ndash;77%, not 94&ndash;98%</strong> (the higher figure is scraped-calendar data counting owner blocks). Market-average occupancy is only <strong>40&ndash;42%</strong> at a <strong>2.4-night ALOS</strong>.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Supply — The Defining Weakness</span><p>AirROI sub-market growth: <strong>Logan +35.5% &middot; Rockbridge +50.9% &middot; Laurelville +48.7% &middot; South Bloomingville +48.1%</strong> against <strong>five independent negative reads</strong> on revenue-per-listing. Corroborated by Commissioner Michael Linton: <em>&ldquo;we have more cabins than we have demand for cabins.&rdquo;</em> <strong>Source conflict flagged:</strong> AirDNA reports only +6.6% &mdash; a 5&ndash;8&times; disagreement absorbed into the confidence rating, not the score.</p></div>
+<div class="intel-entry"><span class="intel-key key-teal">The Moat Thesis — Proven</span><p><strong>Stargazer</strong> (observatory + stocked pond) grew <strong>$115K&rarr;$120K, +4.3%</strong>, while the un-moated field fell 1.8&ndash;19.7% and <strong>25755 Amerine Rd collapsed $111K&rarr;$44K (&minus;60%)</strong>. Within one operator on one parcel, Dunlap Hollow&rsquo;s conventional cottage asks <strong>$250/night</strong> while its cave asks <strong>$820&ndash;$1,200</strong> &mdash; <strong>3.3&times; for the structure alone.</strong></p></div>
+<div class="intel-entry"><span class="intel-key key-neutral">But Not Every Distinctive Structure Earns A Premium</span><p>&ldquo;Steel Nest&rdquo; is a genuine container home, turnkey, hot-tubbed, on 4.72 acres at $485,000 &mdash; and its <strong>live nightly rate is $240</strong>. Even at top-decile occupancy that is ~$65,760. <strong>Test a moat on its live nightly rate, not on the adjective.</strong> If the rate is not &ge;2&times; median ADR, the moat is decorative and the property earns median-tier revenue.</p></div>
+<div class="intel-entry"><span class="intel-key key-neutral">Sub-Area Surprise</span><p><strong>Proximity to Old Man&rsquo;s Cave does NOT drive ADR.</strong> South Bloomingville is closest (~10 min) but has the <em>lowest</em> ADR ($314) because 40.3% of its stock is 1BR micro-cabins. <strong>Rockbridge</strong> is ~22 min out and commands the premium (<strong>$410 ADR, $52,044 median, $130,668 top-decile</strong>) because 52.5% is 3BR+. <strong>ADR tracks bedroom count, not drive time.</strong> Proximity buys occupancy, not rate.</p></div>
+<div class="intel-entry"><span class="intel-key key-neutral">Amenity Ranking</span><p>(1) On-parcel natural feature <strong>2&ndash;4&times; ADR</strong> &middot; (2) distinctive structure <strong>2&ndash;3.3&times;</strong> &middot; (3) pool <strong>+187%</strong> at only 6.9% prevalence &middot; (4) <strong>hot tub = table stakes</strong> at 93&ndash;96% prevalence &mdash; its <em>absence</em> costs 50&ndash;70% of revenue &middot; (5) sauna/wellness stack = <strong>the cheapest tier-jump available to a 2BR buyer</strong> &middot; (6) 3-channel distribution. EV charger showed no measurable premium &mdash; skip it.</p></div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🔧 Operations &amp; Exit</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-red">Ohio Property Tax — Worse Than A Reset</span><p>Post-sale rate is <strong>1.47% of price = $7,350/yr</strong>, against sellers currently paying just <strong>0.33&ndash;0.34% of sale price</strong> &mdash; <strong>+$5,694/yr, or 9% of gross revenue</strong>. Core district = 43.012 effective Class I mills. <strong>The Hocking Auditor has ALREADY reclassified STRs</strong> to be valued at STR fair-market value, &ldquo;resulting in higher values.&rdquo; <strong>H.B. 186 (Dec 2025) phases the 10% non-business credit to zero by TY2029</strong> &mdash; the STR loses <em>both</em> credits, not just the 2.5%. 2025 was Hocking&rsquo;s sexennial reappraisal; next update TY2028.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Operating Costs — Rebuilt From Local Vendors</span><p><strong>miscSupplies = $18,400</strong> &mdash; the standard $4,000 baseline is off by <strong>4.6&times;</strong>. Itemized: propane, electric, septic pumping + aerator contract, well treatment, <strong>hot-tub service and chemicals</strong>, winter freeze protection, <strong>gravel drive regrading and snow/ice removal on steep hill drives</strong>, tree and limb work, pest/humidity, trash haul, <strong>Starlink in a low-signal hollow</strong>, and generator/outage provisions. Insurance MID <strong>$3,400</strong>.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Property Management Is Non-Viable Here</span><p>Hocking Hills full-service PM runs <strong>40&ndash;50% of gross</strong>, not the standard 20&ndash;25% (1st Choice 50% full / 25% booking-only; Hocking Hills Management 40&ndash;50%). <strong>At 45% the expense ratio reaches 0.909.</strong> A Florida-based remote owner must run <strong>co-host + independent cleaner</strong>: local contact <strong>$3,600/yr</strong>, cleaning <strong>$6,720</strong> (42 turns) to <strong>$18,240</strong> (114 turns) at $160/turn. <strong>This market bills by the turn, not the night, at a 2.4-night ALOS.</strong></p></div>
+<div class="intel-entry"><span class="intel-key key-teal">Cleaning Ecosystem — Genuinely Abundant</span><p>10+ named local cleaning and turnover operators, a CVB vendor directory, and one-stop vendors bundling hot-tub service with cleaning. Wage pressure moderate ($14&ndash;15/hr). <strong>This is the opposite of the Arizona findings</strong> &mdash; the on-site-contact problem is priced, not a blocker. Note the draft ordinance would make a <strong>60-minute local contact a legal requirement</strong>.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Septic Caps Your Revenue</span><p>Ohio sizes HSTS at <strong>120 gpd per bedroom</strong> (OAC 3701-29-11), so a 2BR system <strong>caps the listing at ~6 guests permanently</strong> absent a <strong>$15,000&ndash;$25,000</strong> replacement. Hocking County does <em>not</em> require a transfer inspection &mdash; which is exactly why the <strong>$205 county property inspection with water test</strong> is the highest-value line in pre-offer diligence. Watch for shared wells: one verified listing discloses one.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Ohio FAIR Plan Is NOT A Backstop</span><p>Contrary to the working assumption, the Ohio FAIR Plan&rsquo;s homeowners program covers <strong>owner-occupied primary residences only</strong> &mdash; not seasonal or investor STRs. An out-of-state STR gets at best a bare dwelling-fire form: <strong>no business liability, no loss of rents</strong>. Price real perils: severe convective storm, hail, wind/tornado, and <strong>winter freeze/burst pipe</strong> (a major claim category in a part-time-occupied hot-tub cabin).</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Exit — The Worst Category</span><p>Median household income <strong>$62,960</strong> supports a ~$190K&ndash;$250K purchase, exactly where healthy activity sits (63-day pending, 96.9% of list). <strong>Above ~$450,000 there is ZERO owner-occupier participation</strong> &mdash; 100% investor pool, all running the same negative math. Evidence: <strong>417 DOM through 11 cuts unsold</strong> &middot; <strong>five failed listings since 2021</strong> including a $300,000/33.3% cut in 16 days &middot; 319 DOM &middot; 448 DOM with a fall-through &middot; three failed campaigns since 2023.</p></div>
+<div class="intel-entry"><span class="intel-key key-neutral">LTR Fallback Does Not Cover Debt</span><p>Realistic 2BR long-term rent of <strong>$1,000&ndash;$1,600/mo ($12,000&ndash;$19,200/yr)</strong> against <strong>$34,388</strong> of annual debt service &mdash; a <strong>$15,000&ndash;$22,000 shortfall</strong>. Even an outlier-high $1,791 Zestimate leaves a $12,896 gap. <strong>Resale is the only real exit.</strong> Appreciation underwritten at <strong>3.0%/yr</strong> &mdash; county-wide prints of 7.6&ndash;9.2% are dominated by sub-$300K owner-occupied stock the $450K+ STR segment is not participating in. County population is <strong>shrinking, &minus;6.5% since 2010</strong>.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section anim-fade-up d4">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">🎯</span>
+        Buy Box Recommendations
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="buybox-body">
+      <div class="lanes" id="lanes-container"></div>
+    </div>
+  </div>
+
+  <div class="section anim-fade-up d5">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon blue">💰</span>
+        Pro Forma — <span id="active-lane-name" style="color:var(--amber);margin-left:6px">Target Lane</span>
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="pf-lane-switch" id="pf-lane-switch">
+        <span class="pf-lane-switch-label">View lane:</span>
+        <div class="pf-lane-tabs" id="pf-lane-tabs"></div>
+      </div>
+      <div id="proforma-body"></div>
+    </div>
+  </div>
+
+
+</div>
+
+<script>
+const OVERALL_SCORE = 6.21;
+const SCORE_COLOR_CLASS = "yellow";
+
+const SHOW_CAPITAL_ALERT = true;
+const CAPITAL_ALERT_BODY = "Two of the three alert conditions are triggered. <em>Negative leverage</em>: the market cap rate of <em>4.42%</em> sits 3.33 points below your 7.75% cost of debt, and the $22,000 CF target is unreachable on the honest remote-owner cost ladder (needs <em>$107,773</em> gross vs a $91,000 best-case lane ceiling). <em>Down-payment concentration</em>: a 20% down payment of <em>$98,500</em> consumes 70% of your $141,428 &mdash; well past the 40% comfort threshold. All three lanes DO fit your cash (<em>$118,975</em> / <em>$130,211</em> / <em>$132,194</em> vs <em>$141,428</em>), and your capital breakeven is <em>$534,922</em>. The constraint is not whether you can close &mdash; it is that what $500,000 buys here cannot service its own debt.";
+const ROI_CONTEXT_NOTE = "All three lanes fail the 15% gross-ROI minimum, and that is a structural feature of this market rather than a deal-specific failure: Hocking Hills prices short-term rentals at <em>&asymp;8&times; gross annual revenue</em> (5.5&times;&ndash;11.9&times; across 14 disclosing listings), which fixes gross yield at <em>12&ndash;13% at every price rung</em>. Buying $100,000 of gross therefore costs about <em>$800,000</em> here. All three bear cases also show DISTRESS &mdash; expected arithmetic at 7.75% financing against 8&times; acquisition pricing. Evaluate through the Total Return lens (net CF + appreciation + one-time Year-1 cost segregation), and run it against your actual tax bracket and quoted financing before any capital decision.";
+
+const RED_FLAGS = [
+  { flag: "&#128308; Active anti-STR legislation (low severity)", data: " &mdash; Hocking County <strong>STR Ordinance Draft 6</strong> (Jan 29 2026) was recommended to the Commissioners <strong>Feb 12 2026</strong> and remains <strong>unadopted</strong> as of Aug 21 2026. <strong>Berne Township already adopted</strong> a restrictive CUP regime (Feb 2026): 2-acre min, shared driveways prohibited, 1,000-ft separation, 5%-of-township cap, no guarantee of renewal. <strong>City of Logan caps active licenses at 60.</strong> Severity held low because the county draft is capless, has no owner-occupancy rule, costs $50/yr, and carries an 18-month compliance runway." },
+  { flag: "&#128308; HOA prohibiting STR (localized but absolute)", data: " &mdash; Hide-A-Way Hills Code of Regulations Art. II &sect;4(F)(2) (amended 8/18/2024): <em>no rental or lease under 31 days</em>. Deed restrictions separately require any lessee to be an accepted Club member. <strong>Critically, the 2005 grandfathering does NOT transfer &mdash; you cannot buy a currently-operating HAH short-term rental and continue it.</strong> POA risk extends beyond Sugar Grove: 12681 Trillium Way carries a $75/mo HOA plus a private community lake; 19354 Deerberry Ln sits in Holiday Haven." },
+  { flag: "&#128308; Supply growing faster than demand, 2+ years", data: " &mdash; AirROI sub-market supply growth of <strong>+35.5% Logan &middot; +50.9% Rockbridge &middot; +48.7% Laurelville &middot; +48.1% South Bloomingville</strong> against <strong>five independent negative reads</strong> on revenue-per-listing. Corroborated on the record by Hocking County Commissioner Michael Linton: <em>we have more cabins than we have demand for cabins.</em> Source conflict noted &mdash; AirDNA reports only +6.6% supply growth." },
+  { flag: "&#128308; Prices outpaced revenue &mdash; cap rate below 6%", data: " &mdash; <strong>Cap rate 4.42%</strong>, 1.58 points under the 6% threshold and <strong>3.33 points below the 7.75% cost of debt (negative leverage)</strong>. Confirmed on three browser-verified disclosed actuals: $70,000/$599,000 = 8.6&times; &middot; $56,909/$575,000 = 10.1&times; &middot; $120,000/$979,000 = 8.2&times;. County values compound 5&ndash;9%/yr while 2BR actuals sit at $56,909&ndash;$70,000." },
+  { flag: "&#128308; No dual-use exit path", data: " &mdash; LTR conversion does not cover debt: realistic 2BR rent of <strong>$1,000&ndash;$1,600/mo ($12,000&ndash;$19,200/yr)</strong> against <strong>$34,388</strong> of debt service &mdash; a $15,000&ndash;$22,000 annual shortfall. Resale is the only real exit and it is documented poor above ~$450K: <strong>417 DOM through 11 price cuts unsold</strong> &middot; <strong>five failed listings since 2021</strong> including a $300,000/33.3% cut in 16 days &middot; 319 DOM &middot; 448 DOM with a fall-through &middot; three failed campaigns &mdash; all against a 63-day county pending time at 96.9% of list." },
+  { flag: "&#9888; Permit discretion &mdash; CLEAR in the core, TRIGGERED in named adjacent jurisdictions", data: " &mdash; Clear where the buy box sits: unincorporated Hocking County&rsquo;s draft ordinance is a ministerial <strong>$50/yr permit, no cap, no lottery, no neighbor approval</strong>. Triggered elsewhere: <strong>Berne Township</strong> requires a discretionary BZA conditional-use permit with a public hearing; <strong>City of Logan&rsquo;s hard 60-license cap</strong> with renewals only Oct 1&ndash;Dec 1 functions as a queue. Avoid both and this stays clear." }
+];
+
+const SCORECARD_DATA = [
+  { name: "Demand Strength &amp; Durability", weight: 0.25, score: 9, rationale: "Hocking Hills State Park is <strong>permanent ODNR public land</strong> &mdash; free admission, no gate, no lapsing concession &mdash; drawing <strong>3&ndash;5M visitors/yr</strong>. <strong>Columbus MSA (2,242,028) sits 52 minutes away</strong> and is the 15th-fastest-growing large US metro; ~12.5M within 3 hrs. Corroborated by two hard datasets: county lodging-tax receipts <strong>$1,311,640 (2019) &rarr; $2,971,738 (2024), +127%</strong>, and a Tourism Economics study released <strong>Aug 20 2026</strong> putting economic impact at <strong>$295M</strong>, 14.1% of county employment. Secondary layers are real: the 2022 State Park Lodge manufactures midweek group demand, plus weddings, ziplines, the Scenic Railway, and <strong>Ohio&rsquo;s first mountain coaster (3,640 ft) opening spring 2027</strong>. Two claimed drivers removed: <strong>Dark Sky is REFUTED</strong> (John Glenn Astronomy Park is not IDA-certified) and Intel/New Albany slipped to 2030&ndash;32. Falls short of 10 only for lacking a national-park anchor and any airline lift.", confidence: "High" },
+  { name: "Supply &amp; Competition", weight: 0.18, score: 3, rationale: "<strong>The market&rsquo;s defining weakness.</strong> AirROI reports sub-market supply growth of <strong>+35.5% Logan &middot; +50.9% Rockbridge &middot; +48.7% Laurelville &middot; +48.1% S. Bloomingville</strong>, while <strong>five independent reads of per-listing revenue are all negative</strong> (Logan &minus;8.2%, S. Bloomingville &minus;19.7%, Rockbridge &minus;5.4%, Laurelville &minus;2.6%, AirDNA &minus;1.8%). Corroborated on the record by Commissioner Michael Linton: <em>we have more cabins than we have demand for cabins.</em> Market occupancy is only <strong>40&ndash;42%</strong> at a <strong>2.4-night ALOS</strong> &mdash; the median listing books ~42 reservations / ~101 nights, functionally a Friday&ndash;Saturday business. The field is consolidating: Superhost 76&ndash;85%, professionally managed 50&ndash;56%, with branded multi-unit operators owning the premium tier. Counter-evidence, stated: AirROI still classifies the market <em>undersupplied relative to demand</em> &mdash; Hocking Hills earns $55,615 TTM on 702 listings vs Gatlinburg&rsquo;s $51,030 on 3,618 &mdash; which is why this is a 3, not a 2.", confidence: "Medium &mdash; unresolved 5&ndash;8&times; source conflict" },
+  { name: "Returns Profile", weight: 0.18, score: 5, rationale: "<em>Scored as the market&rsquo;s objective return profile, not your target feasibility.</em> Median gross <strong>$48,250</strong> (AirDNA) vs <strong>$48,360</strong> (AirROI) &mdash; 0.2% apart. Working ADR <strong>$360&ndash;$410</strong> (not the $259 carried forward); <strong>top-decile occupancy 73&ndash;77%</strong>, and the brief&rsquo;s 94&ndash;98% is <strong>rejected</strong> as scraped-calendar data counting owner blocks. <strong>The governing law: this market prices STRs at &asymp;8&times; gross annual revenue</strong> (5.5&times;&ndash;11.9&times; across 14 disclosing listings), fixing gross yield at <strong>12&ndash;13% at every rung</strong> &mdash; below the knowledge base&rsquo;s 15% minimum. At the $63,455 reference under the remote-owner structure: <strong>NOI $22,082 &middot; cap 4.42% &middot; DSCR 0.64 &middot; cash flow &minus;$12,306/yr</strong>. Break-even gross is $69,200&ndash;$95,500. Held at 5 rather than 3&ndash;4 by a genuinely strong top tier &mdash; a <strong>2.3&ndash;2.8&times; spread</strong> between median and top-decile 2BR ($110K&ndash;$135K), moat assets reaching $115K&ndash;$193K, and decisively <strong>Stargazer growing $115K&rarr;$120K (+4.3%) while the un-moated field fell 1.8&ndash;19.7%</strong>. Execution demonstrably wins here; the market&rsquo;s pricing takes the winnings back at acquisition.", confidence: "High" },
+  { name: "Regulatory Environment", weight: 0.12, score: 7, rationale: "The baseline is near best-in-class: <strong>unincorporated Hocking County has NO ZONING AT ALL</strong>, and <strong>no Hocking County township has adopted zoning</strong>. <strong>No owner-occupancy rule anywhere</strong>, and out-of-state ownership is explicitly accommodated (Logan &sect;157.163(G): owner or designated agent within 25 miles). Enforcement today is, per County Regional Planner Audie Wykle, <em>the wild, wild west.</em> Four things keep it off 8: (1) the unadopted countywide <strong>Draft 6 STR ordinance</strong> &mdash; workable, not hostile ($50/yr, ~$350 inspection, no cap, 18-hour minimum stay, $1M liability, 60-minute local contact); (2) <strong>City of Logan is genuinely restrictive</strong> &mdash; banned in R-1, hard 60-license cap, $500/yr; (3) <strong>Berne Township&rsquo;s CUP regime</strong> with a 5%-of-township cap; (4) <strong>Hide-A-Way Hills&rsquo; written STR ban whose grandfathering does not transfer</strong>. Ohio <strong>SB 104</strong> preemption remains in committee &mdash; do not underwrite on it. Lodging tax 6% unincorporated / 10% in Logan, and <strong>neither Airbnb nor Vrbo remits</strong> &mdash; monthly owner filings.", confidence: "High" },
+  { name: "Appreciation Potential", weight: 0.12, score: 5, rationale: "Headline prints run hot &mdash; <strong>ZIP 43138 median sale $254,942, +7.6% YoY (Jun 2026)</strong>; Hocking County $292K, +9.2%; Zillow Rockbridge $348,028, +5.0% &mdash; against FHFA U.S. +1.7%. <strong>But the target segment is not participating:</strong> those are county-wide medians dominated by sub-$300K owner-occupied stock, and <strong>the $450K+ STR segment is sitting the index out</strong>. The underwritable rate is therefore <strong>3.0%/yr</strong> (upside 5.0%, downside 0%). Structurally, <strong>county population is shrinking &mdash; &minus;6.5% since 2010</strong> &mdash; so no organic owner-occupier demand is growing underneath the STR bid, and the <strong>+35&ndash;50% supply pipeline</strong> is the classic oversupply signal. One genuine forward catalyst exists (the mountain coaster, spring 2027) and it is real but modest. Price has decisively outpaced revenue: values compounding 5&ndash;9%/yr against disclosed 2BR actuals of $56,909&ndash;$70,000.", confidence: "Medium" },
+  { name: "Seasonality &amp; Revenue Floor", weight: 0.08, score: 8, rationale: "<strong>A genuine strength, and the market&rsquo;s most counterintuitive finding.</strong> AirROI ranks Hocking Hills as having the <strong>flattest revenue curve of ten US cabin markets studied</strong>, at <strong>2.6&ndash;2.7&times; peak-to-trough</strong>, stating plainly that there is no single dominant season. <strong>August is the top month at 12.6% of annual gross &mdash; October is the co-peak at 12.4%</strong>: fall is a <em>price</em> event (highest ADR of the year, $384) while summer is a <em>volume</em> event. <strong>No single week exceeds ~4% of annual revenue</strong>, so the single-extreme-event overlay does not apply and there is no concentration nudge. <strong>February is the only true dead month</strong> (4.8%); Q1 still carries 16.6%. That is ~11 bookable months. <strong>REVENUE FLOOR TEST: PASS, thinly</strong> &mdash; February modeled <strong>$2,320</strong> against the <strong>$2,006</strong> requirement (+15.7% headroom, 81% of full debt service). Held to 8 by that thin margin and because <strong>the pass is hot-tub-dependent</strong>: AirROI measures a <strong>+242.6% revenue uplift</strong> for a hot tub here, so a cabin without one fails the floor outright.", confidence: "High" },
+  { name: "Ease of Management/Operations", weight: 0.04, score: 7, rationale: "The cleaning and vendor ecosystem is <strong>abundant for a market this size</strong> &mdash; 10+ named local operators, a CVB vendor directory, and one-stop vendors bundling hot-tub service with cleaning. Wage pressure is moderate ($14&ndash;15/hr) against a small labor pool (12,900 workers) where <strong>14.1% of jobs already depend on visitor spending</strong> &mdash; expect summer/fall scheduling friction, not shortage. <strong>The material caveat holding this to 7: full-service property management here runs 40&ndash;50% of gross, not the standard 20&ndash;25%</strong> (1st Choice 50% full / 25% booking-only; Hocking Hills Management 40&ndash;50%). <strong>At 45% the expense ratio reaches 0.909 and PM is non-viable.</strong> A Florida-based remote owner must run co-host plus independent cleaner: local contact <strong>$3,600/yr</strong> (and the draft ordinance makes a 60-minute local contact a <em>legal</em> requirement), cleaning <strong>$6,720</strong> at median (42 turns) to <strong>$18,240</strong> at top-decile occupancy (114 turns @ $160) &mdash; this market bills by the turn, not the night, at a 2.4-night ALOS.", confidence: "High" },
+  { name: "Infrastructure &amp; Access", weight: 0.02, score: 7, rationale: "A clean drive market and nothing more. <strong>Columbus MSA at 52 minutes / 43 miles</strong>, with John Glenn Columbus International roughly an hour out and US-33 four-lane access to Logan; ~12.5M people within 3 hours and ~21M within 4. That is comfortably the framework&rsquo;s solid-drive-access anchor. It does not reach 9&ndash;10 because there is <strong>no airline lift into the market itself</strong>, the final approach is on two-lane state routes (SR-664, SR-374) through gorge country, cell and WiFi reliability is variable in the hollows, and the draft ordinance&rsquo;s <strong>county driveway and emergency-access standards</strong> confirm that parcel-level access is a real constraint on some inventory.", confidence: "High" },
+  { name: "Exit Options", weight: 0.01, score: 2, rationale: "<strong>The worst category, and it is scored on resale liquidity only &mdash; the LTR fallback does not and must not raise it.</strong> Median household income <strong>$62,960</strong> supports roughly a $190,000&ndash;$250,000 purchase, which is exactly where the healthy activity sits: ordinary Hocking County homes pend in <strong>63 days at 96.9% of list</strong>. <strong>Above ~$450,000 there is ZERO owner-occupier participation</strong> &mdash; a $500,000 purchase needs ~$130,000 of household income, more than double the county median &mdash; so <strong>100% of the exit pool is investors, every one of them running the same negative math</strong> (&minus;$12,306/yr, 0.64 DSCR). The evidence is not theoretical: <strong>25755 Amerine Rd &mdash; 417 DOM through 11 price cuts, still unsold</strong> &middot; <strong>11097 Frasure Helber Rd &mdash; five failed listings since 2021</strong>, including a $300,000/33.3% cut in 16 days that still did not sell &middot; 22959 Bigham Rd &mdash; 319 DOM &middot; 58393 N Branch Rd &mdash; 448 DOM with a fall-through &middot; 20731 OH-664 &mdash; three failed campaigns since 2023. Noted only, as a downside cushion and <em>not</em> a score driver: realistic 2BR long-term rent of $1,000&ndash;$1,600/mo = $12,000&ndash;$19,200/yr against $34,388 of debt service &mdash; a <strong>$15,000&ndash;$22,000 annual shortfall</strong>. Values are not declining, which is why this is a 2 and not a 1.", confidence: "High" }
+];
+
+const LANES_DATA = [
+  { id: "conservative", title: "Conservative Lane", subtitle: "Confirmed-active turnkey cabin on real acreage. Median revenue tier, no moat premium assumed. Buy at ask — already under cap.", bedrooms: "1–3 BR / 1–2 BA (1BR near-misses labeled)", priceRange: "$435,000 – $465,000", maxDistance: "15–25 min to Old Man&rsquo;s Cave", guestAvatar: "Columbus couples, 2-night weekend escape (ALOS 2.4 nights)", mustHaveAmenities: ["Hot tub (table stakes — absence costs 50–70% of revenue)", "Fire pit", "Private acreage", "Septic + well or public water", "4-season access"], differentiatorAmenities: ["≥5 acres", "Sauna / cold plunge", "Dark-sky deck", "Pet-friendly", "Dual-platform + dynamic pricing"], valueAdd: "Add sauna/cold plunge — the cheapest tier-jump available in this market. Verify septic bedroom capacity before adding any sleeping space (120 gpd/bedroom).", revenueConfidence: "Median revenue tier · 0–1 of 4 moat categories", moatCategories: ["Location"], confirmingListings: [{ label: "58393 N Branch Rd, S. Bloomingville — $429,900 · 1BR/1BA · 22 ac · VINTON CO.", url: "https://www.redfin.com/OH/South-Bloomingville/58393-N-Branch-Rd-43152/home/195959775" }, { label: "16332 Kreashbaum Rd, Rockbridge — $435,000 · 1BR/1BA · 2.68 ac · FSBO · hot tub + sauna", url: "https://www.redfin.com/OH/Rockbridge/16332-Kreashbaum-Rd-43149/home/76382941" }, { label: "12681 Trillium Way, Rockbridge — $449,900 · 3BR/2BA · POA-SUSPECT", url: "https://www.redfin.com/OH/Rockbridge/12681-Trillium-Way-43149/home/76377019" }, { label: "5645 Township Rd 250 — $449,900 · 1BR/1BA · PERRY COUNTY · no trailing income", url: "https://www.redfin.com/OH/Monday-Creek-Township/5645-Township-Road-250-43138/home/202180159" }] },
+  { id: "target", title: "Target Lane", subtitle: "The best confirmed-active under-cap property carrying a real moat. Buy at ask, at the cap.", bedrooms: "2 BR — your stated target", priceRange: "$485,000 – $500,000", maxDistance: "10–20 min to Old Man&rsquo;s Cave", guestAvatar: "Design-led Columbus couples paying a structure premium", mustHaveAmenities: ["Hot tub", "Fire pit", "≥2 acres", "Turnkey + furnished", "Trailing T-12 P&amp;L in writing"], differentiatorAmenities: ["Distinctive structure", "Sauna", "Stargazing deck", "Stocked pond", "3-channel distribution"], valueAdd: "Sauna + cold plunge. A second bath lifts headcount — but Ohio septic caps bedrooms at 120 gpd/bedroom, so verify HSTS capacity first ($15–25K to replace).", revenueConfidence: "Top-quartile basis · 2 of 4 moat categories", moatCategories: ["Location", "Design"], confirmingListings: [{ label: "22959 Bigham Rd &ldquo;Steel Nest&rdquo; — $485,000 · 2BR/1BA · container home · 319 DOM · $240/night live", url: "https://www.redfin.com/OH/Rockbridge/22959-Bigham-Rd-43149/home/76375768" }, { label: "25755 Amerine Rd — $489,000 · 2BR/2BA · $44,000 2025 actual · 417 DOM · 11 cuts", url: "https://www.redfin.com/OH/South-Bloomingville/25755-Amerine-Rd-43152/home/76374112" }, { label: "37462 Price Rd, Logan — $499,000 · 2BR/2BA · 14 ac · public water · oil well on parcel", url: "https://www.redfin.com/OH/Logan/37462-Price-Rd-43138/home/76385655" }] },
+  { id: "aggressive", title: "Aggressive Lane", subtitle: "Above-cap asks ($550K–$600K) NEGOTIATED DOWN to $500,000 — modeled at $500,000, never at ask. The best disclosed-revenue operating STRs in the market.", bedrooms: "2–3 BR / 2 BA", priceRange: "$500,000", maxDistance: "10–20 min to Old Man&rsquo;s Cave", guestAvatar: "Repeat-booking couples on an established, reviewed listing", mustHaveAmenities: ["Hot tub", "Disclosed T-12 revenue", "Turnkey + furnished", "Established review history", "Private acreage"], differentiatorAmenities: ["On-parcel natural feature", "Multi-door / second unit", "Sauna", "Whole-house generator", "Professional management in place"], valueAdd: "Buy the reviews and the ranking, not just the building. An operating business with real books is also the strongest basis for negotiating an above-cap ask down to the cap.", revenueConfidence: "Requires a 9–17% discount off ask · market runs 96.9% sale-to-list", moatCategories: ["Location", "Design", "Operations"], confirmingListings: [{ label: "10104 Frasure-Helber Rd — $575,000 · 2BR/2BA · $56,909 FY2025 disclosed · needs 13.0% cut", url: "https://www.redfin.com/OH/Logan/10104-Frasure-Helber-Rd-43138/home/113569068" }, { label: "21221 Sterling Rd &ldquo;Hideaway Cabin&rdquo; — $599,000 · 2BR/2BA · ~$70,000 T-12 · needs 16.5% cut", url: "https://www.redfin.com/OH/Logan/21221-Sterling-Rd-43138/home/178371202" }, { label: "36849 Scout Rd — $599,000 · 1BR/1BA · 26 ac · proven STR · needs 16.5% cut", url: "https://www.redfin.com/OH/Logan/36849-Scout-Rd-43138/home/76385519" }, { label: "11097 Frasure Helber Rd — $599,900 · 6 units · pond · auditor says 2BR · needs 16.7% cut", url: "https://www.redfin.com/OH/Logan/11097-Frasure-Helber-Rd-43138/home/76387681" }] }
+];
+
+const PROFORMA_DATA = [
+  { laneId: "conservative", priceMid: 450000, revenueMin: 44000, revenueMax: 70000, debtService: 30949, loanNote: "DSCR, 20% down, 30-yr at 7.75% (ASSUMED, not quoted)", cashRequired: 118975, cashRequiredNote: "20% down + 3% closing + 6-mo reserve (NO furnishing line - 1031 turnkey, furniture conveys)", userCashAvailable: 141428, capitalBreakevenPrice: 534922, opExpRatio: 0.514, fixedOpEx: 27615, variableOpExRate: 0.03, netCfLow_pm: -40214, buildingPct: 0.76, bonusDepRate: 1.0, costSegAssumptions: "$450,000 &middot; 76% building (DERIVED - auditor Cloudflare-blocked) &middot; 25% reclassified to 5/15-yr &middot; 100% bonus dep (OBBBA 2025) &middot; 37% bracket", appreciationY1: 13500, costSegBenefit: 31635, netCfAfterCostSegY1: 15361, totalReturnLow: 28861, grossRoiLow: 9.8, grossRoiPass: false, fullCostOpExpMid: 47675 },
+  { laneId: "target", priceMid: 492500, revenueMin: 50000, revenueMax: 75000, debtService: 33872, loanNote: "DSCR, 20% down, 30-yr at 7.75% (ASSUMED, not quoted)", cashRequired: 130211, cashRequiredNote: "20% down + 3% closing + 6-mo reserve (NO furnishing line - 1031 turnkey, furniture conveys)", userCashAvailable: 141428, capitalBreakevenPrice: 534922, opExpRatio: 0.495, fixedOpEx: 29040, variableOpExRate: 0.03, netCfLow_pm: -41037, buildingPct: 0.92, bonusDepRate: 1.0, costSegAssumptions: "$492,500 &middot; 92% building (DERIVED - newer build, small acreage) &middot; 25% reclassified to 5/15-yr &middot; 100% bonus dep (OBBBA 2025) &middot; 37% bracket", appreciationY1: 14775, costSegBenefit: 41912, netCfAfterCostSegY1: 27125, totalReturnLow: 41900, grossRoiLow: 10.2, grossRoiPass: false, fullCostOpExpMid: 50543 },
+  { laneId: "aggressive", priceMid: 500000, revenueMin: 57000, revenueMax: 91000, debtService: 34388, loanNote: "DSCR, 20% down, 30-yr at 7.75% (ASSUMED, not quoted) - modeled at $500,000, not at ask", cashRequired: 132194, cashRequiredNote: "20% down + 3% closing + 6-mo reserve (NO furnishing line - 1031 turnkey, furniture conveys)", userCashAvailable: 141428, capitalBreakevenPrice: 534922, opExpRatio: 0.435, fixedOpEx: 29950, variableOpExRate: 0.03, netCfLow_pm: -40638, buildingPct: 0.76, bonusDepRate: 1.0, costSegAssumptions: "$500,000 &middot; 76% building (DERIVED - larger acreage/older stock) &middot; 25% reclassified to 5/15-yr &middot; 100% bonus dep (OBBBA 2025) &middot; 37% bracket", appreciationY1: 15000, costSegBenefit: 35150, netCfAfterCostSegY1: 25592, totalReturnLow: 40592, grossRoiLow: 11.4, grossRoiPass: false, fullCostOpExpMid: 53510 }
+];
+
+
+const DIFFERENTIATION = {
+  tier: "D",
+  distanceUp: "0.29 points below Tier C (needs 6.50)",
+  distanceDown: "0.71 points of cushion above Tier F (5.50)",
+  strengths: [ "<strong>Demand Strength &amp; Durability &mdash; 9/10.</strong> Hocking Hills State Park is permanent ODNR public land with 3&ndash;5M annual visitors, and county lodging-tax receipts more than doubled 2019&rarr;2024 ($1,311,640 &rarr; $2,971,738) &mdash; aggregate demand is verifiably growing, not a COVID artifact. Columbus (2.24M) at 52 minutes is what makes midweek sellable, and it is unmatched among comparable cabin markets.", "<strong>Seasonality &amp; Revenue Floor &mdash; 8/10.</strong> AirROI ranks this the flattest revenue curve of ten US cabin markets (2.6&ndash;2.7&times; peak-to-trough), with August (12.6%) edging October (12.4%) and no single week exceeding ~4% of annual gross. February is the only true dead month and it still clears the 70%-of-debt-service floor by 15.7%.", "<strong>The moat thesis is PROVEN here.</strong> Stargazer (observatory + stocked pond) grew $115K&rarr;$120K, +4.3%, while the un-moated field fell 1.8&ndash;19.7% and one no-moat cabin collapsed $111K&rarr;$44K. Within a single operator on one parcel, Dunlap Hollow&rsquo;s conventional cottage asks $250/night while its cave asks $820&ndash;$1,200 &mdash; 3.3&times; for the structure alone." ],
+  drags: [ { label: "Supply &amp; Competition &mdash; 3/10 (leak 1.26)", swing: "If Supply improves from 3 to 6 &mdash; because the AirDNA +6.6% read proves correct and AirROI&rsquo;s +35&ndash;50% sub-market growth turns out to be a geographic-boundary artifact, and per-listing revenue stabilizes across two consecutive periods &mdash; the total rises by 0.54 to 6.75, moving the market Tier D &rarr; Tier C." }, { label: "Returns Profile &mdash; 5/10 (leak 0.90)", swing: "If Returns improves from 5 to 7 &mdash; because the market&rsquo;s ~8&times; gross-revenue pricing multiple compresses toward 6&times;, lifting gross yield from 12&ndash;13% to roughly 16&ndash;17% and restoring positive leverage against 7.75% debt &mdash; the total rises by 0.36 to 6.57, moving the market Tier D &rarr; Tier C." } ]
+};
+
+let activeLaneIndex = 1;
+
+function fmt$(n) {
+  const val = Math.round(n);
+  return (val < 0 ? '−$' : '$') + Math.abs(val).toLocaleString();
+}
+function passIcon(pass) {
+  return pass
+    ? '<span class="pass">✓ PASS</span>'
+    : '<span class="fail">✗ FAIL</span>';
+}
+
+function thresholdLabel(score) {
+  if (score >= 8.5) return { text: 'Tier A · Priority Market',  cls: 'green'  };
+  if (score >= 7.5) return { text: 'Tier B · Strong Market',    cls: 'green'  };
+  if (score >= 6.5) return { text: 'Tier C · Selective Market', cls: 'yellow' };
+  if (score >= 5.5) return { text: 'Tier D · Marginal Market',  cls: 'yellow' };
+  return                   { text: 'Tier F · Pass',             cls: 'red'    };
+}
+
+function updateBadgeColor(score) {
+  const badge = document.getElementById('score-badge');
+  const label = document.getElementById('threshold-label');
+  const t = thresholdLabel(score);
+  badge.className = 'score-hero anim-scale-in d1 ' + t.cls;
+  label.className = 'verdict-pill ' + t.cls;
+  label.textContent = t.text;
+  document.getElementById('total-score-display').className = 'total-val ' + t.cls;
+  const glowMap = {
+    yellow: 'rgba(240,192,64,0.12)',
+    green:  'rgba(46,196,168,0.12)',
+    red:    'rgba(240,96,96,0.12)'
+  };
+  document.documentElement.style.setProperty('--score-glow', glowMap[t.cls] || glowMap.yellow);
+}
+
+function renderDifferentiation() {
+  const host = document.getElementById('red-flags-section');
+  if (!DIFFERENTIATION || !DIFFERENTIATION.tier || DIFFERENTIATION.tier.indexOf('{{') === 0) return;
+  let html = '<div class="section" style="margin-bottom:24px"><div class="section-body">' +
+    '<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:10px">Why This Market — Tier ' + DIFFERENTIATION.tier + '</div>';
+  if (DIFFERENTIATION.strengths && DIFFERENTIATION.strengths.length) {
+    html += '<div style="margin-bottom:12px"><strong style="color:var(--teal)">Strengths:</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.strengths.map(s => '<li style="margin-bottom:4px">' + s + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.drags && DIFFERENTIATION.drags.length) {
+    html += '<div><strong style="color:var(--yellow)">Swing factors (what moves the tier):</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.drags.map(d => '<li style="margin-bottom:4px"><strong>' + d.label + '</strong> — ' + d.swing + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.distanceUp || DIFFERENTIATION.distanceDown) {
+    html += '<div style="margin-top:10px;font-size:0.78rem;color:var(--text-3)">' +
+      [DIFFERENTIATION.distanceUp, DIFFERENTIATION.distanceDown].filter(Boolean).join(' · ') + '</div>';
+  }
+  html += '</div></div>';
+  host.insertAdjacentHTML('afterend', html);
+}
+
+function renderRedFlags() {
+  const el = document.getElementById('red-flags-section');
+  if (!RED_FLAGS || RED_FLAGS.length === 0) {
+    el.innerHTML = '<div class="red-flags-clean">✓ No disqualifying red flags detected for this market.</div>';
+    return;
+  }
+  let html = '<div class="red-flags-wrap anim-fade-up d3"><h2>⚠ Red Flags Detected (' + RED_FLAGS.length + ' of 10 Framework Items Triggered)</h2><ul>';
+  RED_FLAGS.forEach(f => {
+    html += '<li><strong>' + f.flag + '</strong>' + (f.data || '') + '</li>';
+  });
+  html += '</ul></div>';
+  el.innerHTML = html;
+}
+
+function bandClass(v) {
+  if (v <= 4) return '1';
+  if (v <= 6) return '3';
+  return '5';
+}
+
+function renderScorecard() {
+  const body = document.getElementById('scorecard-body');
+  let html = '';
+  SCORECARD_DATA.forEach((cat, i) => {
+    cat.currentScore = cat.score;
+    const contrib = (cat.score * cat.weight).toFixed(2);
+    html += '<div class="score-row" id="row-' + i + '">' +
+      '<div class="score-row-left">' +
+        '<div class="cat-name">' + cat.name + '</div>' +
+        '<div class="cat-meta">Weight: ' + (cat.weight * 100).toFixed(0) + '% · Contrib: <span id="contrib-' + i + '">' + contrib + '</span></div>' +
+        '<span class="rationale-toggle" onclick="toggleRationale(' + i + ')">▸ Why this score</span>' +
+        '<div class="rationale-card" id="rationale-' + i + '">' +
+          cat.rationale +
+          '<div class="confidence">Data confidence: ' + cat.confidence + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="score-row-right">' +
+        '<div class="pills" id="pills-' + i + '">' +
+          [1,2,3,4,5,6,7,8,9,10].map(v => '<button class="pill' + (v === cat.score ? ' active-' + bandClass(v) : '') + '" data-cat="' + i + '" data-val="' + v + '" onclick="setScore(' + i + ',' + v + ')">' + v + '</button>').join('') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  });
+  body.innerHTML = html;
+  updateTotalDisplay();
+}
+
+function setScore(catIndex, val) {
+  SCORECARD_DATA[catIndex].currentScore = val;
+  const pillsEl = document.getElementById('pills-' + catIndex);
+  pillsEl.querySelectorAll('.pill').forEach(p => {
+    p.className = 'pill' + (parseFloat(p.dataset.val) === val ? ' active-' + bandClass(val) : '');
+  });
+  const contribEl = document.getElementById('contrib-' + catIndex);
+  if (contribEl) contribEl.textContent = (val * SCORECARD_DATA[catIndex].weight).toFixed(2);
+  updateTotalDisplay();
+}
+
+function updateTotalDisplay() {
+  let total = 0;
+  SCORECARD_DATA.forEach(cat => { total += cat.currentScore * cat.weight; });
+  const rounded = total.toFixed(2);
+  document.getElementById('overall-score-display').textContent = rounded;
+  document.getElementById('total-score-display').textContent = rounded;
+  updateBadgeColor(total);
+}
+
+function toggleRationale(i) {
+  const el = document.getElementById('rationale-' + i);
+  const toggle = el.previousElementSibling;
+  el.classList.toggle('open');
+  toggle.textContent = el.classList.contains('open') ? '▾ Hide rationale' : '▸ Why this score';
+}
+
+function renderLanes() {
+  const container = document.getElementById('lanes-container');
+  let html = '';
+  LANES_DATA.forEach((lane, i) => {
+    const isActive = i === activeLaneIndex;
+    const pf = PROFORMA_DATA.find(p => p.laneId === lane.id);
+    let capitalBadge = '';
+    if (pf && pf.cashRequired && pf.userCashAvailable) {
+      const fits = pf.cashRequired <= pf.userCashAvailable;
+      if (fits) {
+        capitalBadge = '<div class="capital-fit-badge fits">✓ Fits Your Capital</div>';
+      } else {
+        const shortfall = Math.ceil((pf.cashRequired - pf.userCashAvailable) / 1000);
+        capitalBadge = '<div class="capital-fit-badge short">⚠ +$' + shortfall + 'K Needed</div>';
+      }
+    }
+    html += '<div class="lane-card' + (isActive ? ' active' : '') + '" id="lane-' + i + '" onclick="selectLane(' + i + ')">' +
+      '<div class="lane-card-left">' +
+        '<div class="lane-header">' +
+          '<div class="lane-title">' + lane.title + '</div>' +
+        '</div>' +
+        '<div class="lane-subtitle">' + lane.subtitle + '</div>' +
+        (lane.revenueConfidence ? '<div style="display:inline-block;margin-top:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--yellow);background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:5px;padding:3px 8px">⚑ ' + lane.revenueConfidence + '</div>' : '') +
+        '<div class="lane-detail-grid">' +
+          '<div class="lane-detail-item"><span class="detail-label">Bedrooms</span>' + lane.bedrooms + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Price Range</span>' + lane.priceRange + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Max Distance</span>' + lane.maxDistance + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Guest Profile</span>' + lane.guestAvatar + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Must-Have Amenities</span>' + lane.mustHaveAmenities.join(' · ') + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Differentiators</span>' + lane.differentiatorAmenities.join(' · ') + '</div>' +
+          (lane.valueAdd ? '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Value-Add to Seek</span>' + lane.valueAdd + '</div>' : '') +
+        '</div>' +
+        '<div class="moat-tags">' + lane.moatCategories.map(m => '<span class="moat-tag">' + m + '</span>').join('') + '</div>' +
+        ((lane.confirmingListings && lane.confirmingListings.length) ? (
+          '<div class="confirming-listings">' +
+            '<div class="cl-label">Live listings that fit this buy box</div>' +
+            lane.confirmingListings.map(l => '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">' + l.label + '</a>').join('') +
+          '</div>'
+        ) : '') +
+      '</div>' +
+      '<div class="lane-card-right">' +
+        '<div class="lane-price">' + lane.priceRange.replace(' – ', '–') + '</div>' +
+        '<div style="font-size:0.68rem;color:var(--text-3);letter-spacing:0.04em;text-transform:uppercase;font-weight:600">Purchase</div>' +
+        capitalBadge +
+      '</div>' +
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function renderProFormaTabs() {
+  const tabs = document.getElementById('pf-lane-tabs');
+  if (!tabs) return;
+  tabs.innerHTML = LANES_DATA.map((lane, i) =>
+    '<button class="pf-lane-tab' + (i === activeLaneIndex ? ' active' : '') + '" data-lane="' + i + '" onclick="selectLane(' + i + ')">' + lane.title + '</button>'
+  ).join('');
+}
+
+function selectLane(i) {
+  activeLaneIndex = i;
+  document.querySelectorAll('.lane-card').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.querySelectorAll('.pf-lane-tab').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.getElementById('active-lane-name').textContent = LANES_DATA[i].title;
+  renderProForma();
+}
+
+function renderProForma() {
+  const activeLaneId = LANES_DATA[activeLaneIndex].id;
+  const pf = PROFORMA_DATA.find(p => p.laneId === activeLaneId) || PROFORMA_DATA[activeLaneIndex];
+  const body = document.getElementById('proforma-body');
+  if (!pf) {
+    body.innerHTML = '<p style="color:var(--text-3);padding:16px">No pro forma data available.</p>';
+    return;
+  }
+
+  const opExpRatio = pf.opExpRatio || 0.40;
+  const hasOpExpSplit = typeof pf.fixedOpEx === 'number' && typeof pf.variableOpExRate === 'number';
+  const roiLow  = (pf.revenueMin / (pf.priceMid || 1) * 100).toFixed(1);
+  const roiHigh = (pf.revenueMax / (pf.priceMid || 1) * 100).toFixed(1);
+  const grossRoiPass = parseFloat(roiLow) >= 15;
+  const opExpLow  = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMin * pf.variableOpExRate) : Math.round(pf.revenueMin * opExpRatio);
+  const opExpHigh = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMax * pf.variableOpExRate) : Math.round(pf.revenueMax * opExpRatio);
+  const opExpPctLow  = pf.revenueMin > 0 ? Math.round(opExpLow  / pf.revenueMin * 100) : 0;
+  const opExpPctHigh = pf.revenueMax > 0 ? Math.round(opExpHigh / pf.revenueMax * 100) : 0;
+  const netLow  = Math.round(pf.revenueMin - opExpLow - pf.debtService);
+  const netHigh = Math.round(pf.revenueMax - opExpHigh - pf.debtService);
+  const netPctLow = pf.revenueMin > 0 ? (netLow / pf.revenueMin * 100).toFixed(0) : '—';
+  const cocLow  = pf.cashRequired > 0 ? (netLow  / pf.cashRequired * 100).toFixed(1) : '—';
+  const cocHigh = pf.cashRequired > 0 ? (netHigh / pf.cashRequired * 100).toFixed(1) : '—';
+  const bearRev  = Math.round(pf.revenueMin * 0.9);
+  const bearExp  = hasOpExpSplit ? Math.round((pf.fixedOpEx + bearRev * pf.variableOpExRate) * 1.1) : Math.round(opExpLow * 1.1);
+  const bearNet  = bearRev - bearExp - pf.debtService;
+  const capitalFits = pf.cashRequired <= pf.userCashAvailable;
+  const capitalNote = pf.cashRequiredNote || '20% down + 3% closing + 5% furnishing + 6-mo reserve';
+  const appreciationRate = pf.appreciationY1 ? (pf.appreciationY1 / pf.priceMid) : 0;
+  let bearTierBadge;
+  if (bearNet > 0) {
+    bearTierBadge = '<span class="pass">✓ PASS</span>';
+  } else if (bearNet > -(pf.debtService * 0.25) && appreciationRate > 0) {
+    bearTierBadge = '<span class="warn">⚠ SURVIVABLE</span>';
+  } else {
+    bearTierBadge = '<span class="fail">✗ DISTRESS</span>';
+  }
+  const opExpLabel = hasOpExpSplit
+    ? opExpPctLow + '%→' + opExpPctHigh + '% of revenue · fixed ' + fmt$(pf.fixedOpEx) + ' + ' + Math.round(pf.variableOpExRate * 100) + '% variable — ratio runs higher at low revenue'
+    : (opExpRatio * 100).toFixed(0) + '% (market-specific, per-lane)';
+
+  const hasCostSeg = pf.costSegBenefit && pf.buildingPct;
+  const buildingPctDisplay = hasCostSeg ? Math.round(pf.buildingPct * 100) + '%' : '—';
+  const landPctDisplay = hasCostSeg ? Math.round((1 - pf.buildingPct) * 100) + '%' : '—';
+  const netAfterCostSeg = pf.netCfAfterCostSegY1 || (netLow + (pf.costSegBenefit || 0));
+  const costSegAssumptions = pf.costSegAssumptions || '';
+
+  const hasPM = typeof pf.netCfLow_pm === 'number';
+  const pmSavings = hasPM ? (netLow - pf.netCfLow_pm) : 0;
+
+  const showBreakeven = !capitalFits && pf.capitalBreakevenPrice && pf.capitalBreakevenPrice > 0;
+
+  body.innerHTML =
+    '<div class="pf-grid">' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross Revenue Range</div>' +
+        '<div class="pf-value">' + fmt$(pf.revenueMin) + ' – ' + fmt$(pf.revenueMax) + '</div>' +
+        '<div class="pf-note">Tier-appropriate range · self-manage assumed</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross ROI</div>' +
+        '<div class="pf-value">' + roiLow + '% – ' + roiHigh + '% ' + passIcon(grossRoiPass) + '</div>' +
+        '<div class="pf-note">Min 15% · Target 18–20%</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Operating Expenses (' + opExpLabel + ')</div>' +
+        '<div class="pf-value">' + fmt$(opExpLow) + ' – ' + fmt$(opExpHigh) + '</div>' +
+        '<div class="pf-note">Narrow-lane: taxes + insurance + platform fee + supplies only · excl. debt service</div>' +
+        (pf.fullCostOpExpMid ? '<div style="margin-top:5px;font-size:0.78rem;padding:6px 10px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:6px;color:var(--amber-pale);line-height:1.5"><strong style="color:var(--yellow)">Full annual cost</strong> (adds cleaning + maintenance): <strong style="color:var(--text-1)">' + fmt$(pf.fullCostOpExpMid) + '</strong> · Self-manage net CF at midpoint revenue: ' + fmt$(Math.round((pf.revenueMin + pf.revenueMax)/2 - pf.fullCostOpExpMid - pf.debtService)) + '</div>' : '') +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Estimated Debt Service</div>' +
+        '<div class="pf-value">' + fmt$(pf.debtService) + '/yr</div>' +
+        '<div class="pf-note">' + pf.loanNote + '</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Net Cash Flow (Self-Manage)</div>' +
+        '<div class="pf-value">' + fmt$(netLow) + ' – ' + fmt$(netHigh) + '</div>' +
+        '<div class="pf-note">~' + netPctLow + '% of gross · self-manage only</div>' +
+      '</div>' +
+      (hasPM ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label">If PM-Managed (25%)</div>' +
+          '<div class="pf-value fail">' + fmt$(pf.netCfLow_pm) + '/yr</div>' +
+          '<div class="pf-note">Self-manage saves ' + fmt$(pmSavings) + '/yr vs full PM · co-host at 10–15% is middle option</div>' +
+        '</div>'
+      ) : '') +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Cash-on-Cash Return</div>' +
+        '<div class="pf-value">' + cocLow + '% – ' + cocHigh + '%</div>' +
+        '<div class="pf-note">Target 10%+ · Excellent 20%+</div>' +
+      '</div>' +
+      (pf.appreciationY1 ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label" style="color:var(--teal)">Total Economic Return (Yr 1 — incl. one-time cost seg)</div>' +
+          '<div class="pf-value" style="color:var(--teal)">' + fmt$(pf.totalReturnLow) + '</div>' +
+          '<div class="pf-note">Net CF ' + fmt$(netLow) + ' + ' + fmt$(pf.appreciationY1) + ' appreciation + ' + fmt$(pf.costSegBenefit || 0) + ' cost seg. The cost-seg benefit is a ONE-TIME Year-1 item — recurring annual return is the Net CF above; it does not repeat in Year 2+.</div>' +
+        '</div>'
+      ) : '') +
+      (hasCostSeg ? (
+        '<div class="pf-item" style="grid-column:1/-1;border-color:var(--teal-dim)">' +
+          '<div class="pf-label" style="color:var(--teal)">Cost Segregation Benefit (Year 1) — One-Time</div>' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px">' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Tax Savings (37% bracket)</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--teal)">' + fmt$(pf.costSegBenefit) + '</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Depreciable Basis</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-1)">' + buildingPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * pf.buildingPct)) + ')</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Land Excluded</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-2)">' + landPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * (1 - pf.buildingPct))) + ')</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem;color:var(--teal-dim)">' +
+            'Yr 1 effective position (net CF + cost seg): <strong style="color:var(--teal)">' + fmt$(netAfterCostSeg) + '</strong> · ' +
+            (costSegAssumptions ? costSegAssumptions + ' · ' : '') +
+            'Study cost: $5K–$12K · Requires 100+ hrs material participation' +
+          '</div>' +
+        '</div>'
+      ) : '') +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Total Cash Required</div>' +
+        '<div class="pf-value ' + (capitalFits ? 'pass' : 'fail') + '">' + fmt$(pf.cashRequired) + ' ' + (capitalFits ? '✓' : '⚠') + '</div>' +
+        '<div class="pf-note">' + capitalNote + ' · You have: ' + fmt$(pf.userCashAvailable) + '</div>' +
+        (showBreakeven ? '<div style="margin-top:6px;font-size:0.78rem;color:var(--yellow)">Capital breakeven: ~' + fmt$(pf.capitalBreakevenPrice) + ' — buy at or below this price to fit your cash</div>' : '') +
+      '</div>' +
+      '<div class="bear-case">' +
+        '<h4>Bear Case Stress Test — Revenue −10% / Expenses +10%</h4>' +
+        '<div class="bear-row"><span>Bear case revenue</span><span>' + fmt$(bearRev) + '</span></div>' +
+        '<div class="bear-row"><span>Bear case op expenses</span><span>' + fmt$(bearExp) + '</span></div>' +
+        '<div class="bear-row"><span>Debt service</span><span>' + fmt$(pf.debtService) + '</span></div>' +
+        '<div class="bear-row bear-result">' +
+          '<span>Bear case net cash flow</span>' +
+          '<span>' + fmt$(bearNet) + ' ' + bearTierBadge + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  header.classList.toggle('open', !isOpen);
+  body.classList.toggle('collapsed', isOpen);
+}
+
+function renderCapitalAlert() {
+  const container = document.getElementById('capital-alert-container');
+  if (!SHOW_CAPITAL_ALERT) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>⚠ Capital Fit Alert</strong> ${CAPITAL_ALERT_BODY}</div>`;
+}
+
+function renderRoiContext() {
+  const container = document.getElementById('roi-context-container');
+  if (!ROI_CONTEXT_NOTE) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>ℹ Market Context</strong> ${ROI_CONTEXT_NOTE}</div>`;
+}
+
+renderCapitalAlert();
+renderRoiContext();
+renderRedFlags();
+renderDifferentiation();
+renderScorecard();
+renderLanes();
+renderProFormaTabs();
+renderProForma();
+</script>
+</body>
+</html>

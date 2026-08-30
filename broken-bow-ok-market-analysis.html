@@ -1,0 +1,1557 @@
+<!--bstrw:ac4967314d55d2a8-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STR Market Analysis — Broken Bow / Hochatown, OK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ─── DESIGN TOKENS ──────────────────────────────────────────────────────── */
+:root {
+  /* Mountain palette */
+  --bg:        #0f1a13;
+  --bg-card:   #1c2b20;
+  --bg-card-2: #213526;
+  --border:    #2d4533;
+  --border-2:  #3d5c46;
+
+  --amber:     #e8924a;
+  --amber-dim: #c4743a;
+  --amber-bg:  #2a1e12;
+  --amber-pale:#f0b07a;
+
+  --teal:      #2ec4a8;
+  --teal-dim:  #1fa08a;
+  --teal-bg:   #0e2420;
+
+  --red:       #f06060;
+  --red-dim:   #c44545;
+  --red-bg:    #2a1212;
+  --red-border:#4a2020;
+  --red-muted: #7a5050;
+
+  --yellow:    #f0c040;
+  --yellow-dim:#c89c28;
+  --yellow-bg: #241e0a;
+
+  --neutral-icon-bg:     #1a2530;
+  --neutral-icon-border: #2a3f55;
+
+  /* Updated by JS to match the score band (yellow/green/red) */
+  --score-glow: rgba(232,146,74,0.12);
+
+  --text-1:    #f2f5f2;
+  --text-2:    #baced0;
+  --text-3:    #6a8070;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─── RESET & BASE ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { text-wrap: balance; }
+article p { text-wrap: pretty; }
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.anim-fade-up  { animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-scale-in { animation: scaleIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up, .anim-scale-in { animation: none; opacity: 1; transform: none; }
+}
+
+.d0 { animation-delay: 0ms; }
+.d1 { animation-delay: 60ms; }
+.d2 { animation-delay: 120ms; }
+.d3 { animation-delay: 180ms; }
+.d4 { animation-delay: 240ms; }
+.d5 { animation-delay: 300ms; }
+.d6 { animation-delay: 360ms; }
+
+/* ─── LAYOUT ─────────────────────────────────────────────────────────────── */
+.page { max-width: 980px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+.hero {
+  padding: 64px 0 56px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+
+.hero-state {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.hero-summary {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  max-width: 580px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-date {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.score-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card-2);
+  border: 2px solid var(--border-2);
+  border-radius: 20px;
+  padding: 36px 44px;
+  min-width: 172px;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 10%, var(--score-glow) 0%, transparent 65%);
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.score-hero .score-num {
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-denom {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-3);
+  line-height: 1;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero.yellow .score-num   { color: var(--yellow); }
+.score-hero.yellow .score-label { color: var(--yellow-dim); }
+.score-hero.green  .score-num   { color: var(--teal); }
+.score-hero.green  .score-label { color: var(--teal-dim); }
+.score-hero.red    .score-num   { color: var(--red); }
+.score-hero.red    .score-label { color: var(--red-dim); }
+
+.verdict-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.verdict-pill.yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-dim); }
+.verdict-pill.green  { background: var(--teal-bg);   color: var(--teal);   border: 1px solid var(--teal-dim); }
+.verdict-pill.red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-dim); }
+
+/* ─── CAPITAL ALERT BANNER ───────────────────────────────────────────────── */
+.capital-alert {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-top: 3px solid var(--amber);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 32px;
+  font-size: 0.875rem;
+  color: var(--amber-pale);
+  line-height: 1.65;
+}
+.capital-alert strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.capital-alert em { color: var(--text-1); font-weight: 600; font-style: normal; }
+
+/* ─── RED FLAGS ──────────────────────────────────────────────────────────── */
+.red-flags-wrap {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 32px;
+}
+.red-flags-wrap h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.red-flags-wrap ul { list-style: none; }
+.red-flags-wrap li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--red-border);
+  color: var(--red-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.red-flags-wrap li:last-child { border-bottom: none; }
+.red-flags-wrap li strong { display: block; color: var(--red); font-weight: 600; margin-bottom: 3px; }
+
+.red-flags-clean {
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-dim);
+  border-radius: 12px;
+  padding: 14px 22px;
+  margin-bottom: 32px;
+  color: var(--teal);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ─── SECTION SHELL ──────────────────────────────────────────────────────── */
+.section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 20px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.15s;
+}
+.section-header:hover { background: rgba(255,255,255,0.02); }
+.section-header.open { border-bottom-color: var(--border); }
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.section-title-icon.amber { background: var(--amber-bg); border: 1px solid var(--amber-dim); }
+.section-title-icon.teal  { background: var(--teal-bg);  border: 1px solid var(--teal-dim);  }
+.section-title-icon.blue  { background: var(--neutral-icon-bg); border: 1px solid var(--neutral-icon-border); }
+.section-title-icon.red   { background: var(--red-bg);   border: 1px solid var(--red-dim);   }
+
+.section-toggle {
+  color: var(--text-3);
+  font-size: 0.7rem;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+}
+.section-header.open .section-toggle { transform: rotate(180deg); }
+
+.section-body { padding: 26px; }
+.section-body.collapsed { display: none; }
+
+/* ─── SCORECARD ──────────────────────────────────────────────────────────── */
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.score-row:last-child { border-bottom: none; }
+
+.score-row-left { min-width: 0; }
+
+.score-row-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.score-row .cat-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 2px;
+}
+.score-row .cat-meta {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+.score-row .cat-weight {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.score-row .weighted-contrib {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-2);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.pills { display: flex; gap: 4px; flex-wrap: wrap; }
+.pill {
+  width: 40px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border-2);
+  background: var(--bg-card-2);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+}
+.pill:hover { border-color: var(--amber); color: var(--amber); }
+.pill:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.pill.active-1, .pill.active-2 { border-color: var(--red-dim);    background: var(--red-bg);    color: var(--red); }
+.pill.active-3                  { border-color: var(--yellow-dim); background: var(--yellow-bg); color: var(--yellow); }
+.pill.active-4, .pill.active-5  { border-color: var(--teal-dim);  background: var(--teal-bg);   color: var(--teal); }
+
+.rationale-toggle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--amber);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  transition: background 0.1s;
+}
+.rationale-toggle:hover { background: rgba(232,146,74,0.12); }
+
+.rationale-card {
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-1);
+  display: none;
+  line-height: 1.7;
+}
+.rationale-card .confidence {
+  font-size: 0.72rem;
+  color: var(--teal-dim);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.rationale-card.open { display: block; }
+
+.scorecard-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 26px;
+  background: var(--bg-card-2);
+  border-top: 2px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+.scorecard-total .total-val {
+  font-size: 2rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+/* ─── INTELLIGENCE PANELS ────────────────────────────────────────────────── */
+.intel-section { margin-bottom: 28px; }
+.intel-section:last-child { margin-bottom: 0; }
+
+.intel-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.intel-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.intel-content {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.75;
+  font-weight: 400;
+}
+.intel-content .intel-entry {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.intel-content .intel-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.intel-content .intel-key {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-bottom: 5px;
+}
+.intel-content .intel-key.key-red {
+  color: var(--red);
+  background: var(--red-bg);
+  border-color: var(--red-dim);
+}
+.intel-content .intel-key.key-teal {
+  color: var(--teal);
+  background: var(--teal-bg);
+  border-color: var(--teal-dim);
+}
+.intel-content .intel-key.key-neutral {
+  color: var(--text-3);
+  background: var(--bg-card-2);
+  border-color: var(--border-2);
+}
+.intel-content p {
+  margin: 0;
+  line-height: 1.75;
+}
+.intel-content ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.intel-content ul li {
+  padding-left: 14px;
+  position: relative;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.intel-content ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-weight: 700;
+}
+.intel-content strong { color: var(--text-1); font-weight: 600; }
+
+/* ─── LANES ──────────────────────────────────────────────────────────────── */
+.lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.lane-card {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+}
+.lane-card:hover { border-color: var(--border-2); }
+.lane-card.active {
+  border-color: var(--amber);
+  background: var(--amber-bg);
+  box-shadow: 0 0 0 1px var(--amber-dim);
+}
+
+.lane-card-left { min-width: 0; }
+
+.lane-card-right {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.lane-card .lane-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.lane-card .lane-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-1);
+}
+.lane-card.active .lane-title { color: var(--amber-pale); }
+
+.lane-card .lane-subtitle {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-3);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.lane-card.active .lane-subtitle { color: var(--amber-dim); }
+
+.lane-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 24px;
+}
+
+.lane-detail-item {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.lane-detail-item .detail-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: block;
+  margin-bottom: 1px;
+}
+.lane-card.active .lane-detail-item { color: var(--amber-pale); opacity: 0.9; }
+.lane-card.active .detail-label { color: var(--amber-dim); }
+
+.lane-price {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+.lane-card.active .lane-price { color: var(--amber); }
+
+.moat-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 14px; }
+.moat-tag {
+  background: var(--bg);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lane-card.active .moat-tag {
+  background: rgba(232,146,74,0.08);
+  color: var(--amber);
+  border-color: var(--amber-dim);
+}
+
+/* ─── CAPITAL FIT BADGE ──────────────────────────────────────────────────── */
+.capital-fit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+.capital-fit-badge.fits {
+  background: rgba(46,196,168,0.12);
+  color: var(--teal);
+  border: 1px solid var(--teal-dim);
+}
+.capital-fit-badge.short {
+  background: rgba(240,96,96,0.12);
+  color: var(--red);
+  border: 1px solid var(--red-dim);
+}
+
+/* ─── PRO FORMA ──────────────────────────────────────────────────────────── */
+.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.pf-item {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.pf-item .pf-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+.pf-item .pf-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.pf-item .pf-note {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.pass { color: var(--teal) !important; }
+.warn { color: var(--yellow) !important; }
+.fail { color: var(--red)  !important; }
+
+.bear-case {
+  grid-column: 1 / -1;
+  background: var(--bg-card-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.bear-case h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.bear-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.855rem;
+  color: var(--text-2);
+  padding: 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+.bear-result {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-1);
+}
+
+/* ─── CHECKLIST ──────────────────────────────────────────────────────────── */
+.checklist { list-style: none; counter-reset: check-counter; display: flex; flex-direction: column; gap: 10px; }
+.checklist li {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px 18px 64px;
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  counter-increment: check-counter;
+  position: relative;
+}
+.checklist li::before {
+  content: counter(check-counter, decimal-leading-zero);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 30px;
+  height: 30px;
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+.checklist li strong {
+  display: block;
+  color: var(--text-1);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* ─── PRO FORMA LANE TOGGLE ──────────────────────────────────────────────── */
+.pf-lane-switch { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.pf-lane-switch-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.pf-lane-tabs { display: inline-flex; background: var(--bg); border: 1px solid var(--border-2); border-radius: 10px; padding: 3px; gap: 3px; }
+.pf-lane-tab { border: none; background: transparent; color: var(--text-2); font-family: var(--font); font-size: 0.8rem; font-weight: 700; padding: 7px 16px; border-radius: 7px; cursor: pointer; transition: all 0.14s; white-space: nowrap; }
+.pf-lane-tab:hover { color: var(--amber); }
+.pf-lane-tab.active { background: var(--amber); color: #1a1208; }
+.pf-lane-tab:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+/* ─── CONFIRMING LISTINGS (buy box links) ────────────────────────────────── */
+.confirming-listings { margin-top: 14px; }
+.confirming-listings .cl-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.confirming-listings a { display: inline-flex; align-items: center; gap: 5px; background: var(--teal-bg); border: 1px solid var(--teal-dim); color: var(--teal); border-radius: 6px; padding: 4px 10px; margin: 0 5px 5px 0; font-size: 0.72rem; font-weight: 600; text-decoration: none; transition: all 0.12s; }
+.confirming-listings a:hover { background: rgba(46,196,168,0.18); }
+.confirming-listings a::before { content: '↗'; font-size: 0.78rem; opacity: 0.8; }
+.lane-card.active .confirming-listings .cl-label { color: var(--amber-dim); }
+.lane-card.active .confirming-listings a { background: rgba(232,146,74,0.10); border-color: var(--amber-dim); color: var(--amber); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; }
+  .score-hero { flex-direction: row; gap: 16px; align-self: flex-start; padding: 20px 24px; min-width: 0; }
+  .score-hero .score-num { font-size: 3rem; }
+  .lane-card { grid-template-columns: 1fr; }
+  .lane-detail-grid { grid-template-columns: 1fr; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .score-row .weighted-contrib { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO ────────────────────────────────────────────────────────────────── -->
+  <div class="hero">
+    <div class="anim-fade-up d0">
+      <div class="hero-eyebrow">STR Market Analysis · August 23, 2026</div>
+      <h1>Broken Bow / Hochatown</h1>
+      <div class="hero-state">Oklahoma · McCurtain County</div>
+      <div class="hero-summary">Broken Bow / Hochatown is the rare market where the demand thesis is fully intact and the investment thesis is still broken. Five durable drivers (Broken Bow Lake, Beavers Bend, Ouachita NF, a year-round trout tailwater, the $238M Choctaw Landing casino) held visitation at 2.0&ndash;2.8M/yr &mdash; and supply answered louder than demand: ~400 cabins became 3,200&ndash;4,500 (+76% in 3 years), with ADR and occupancy falling and asset prices &minus;15&ndash;25% off peak. Regulation is genuinely friendly (licensed, no cap, litigation-tested) and seasonality is the flattest of 10 benchmarked mountain markets &mdash; but the Gate Zero disclosed-revenue median of 8.5&times; means a median cabin loses money on 7.75% debt. At 5.90/10, Broken Bow/Hochatown ranks marginal (Tier D) among secondary drive-to cabin STR markets &mdash; below Luray, VA (~7.0 Tier C anchor), landing beside Nicole's Hocking Hills (6.21) and Luray (6.00) runs. The one live path: the disclosed-revenue left tail &mdash; led by 94 Bent Pine Trl at 4.99&times;, the only listing in any market screened that passes the 20% floor at asking price.</div>
+      <div style="margin-top:18px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px"><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">Budget Fit &mdash; TIGHT</div><div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">At $500K, hitting the $22K net-CF target needs ~$80K gross &mdash; above the Target lane&rsquo;s $70K ceiling. Only the disclosed-revenue left tail (Bent Pine $97.3K, Hygge $80.6K on actuals) reaches it.</div></div><div style="margin-top:12px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-left:3px solid var(--yellow);border-radius:8px;padding:14px 18px;max-width:580px"><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:4px">&#9888; Revenue Trend &mdash; Declining</div><div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">Per-listing revenue is flat-to-declining (Airbtics &minus;5.8% rev, &minus;3.9% occ; 2/2-class ADR &minus;5.5%). AirDNA&rsquo;s all-listings +3.4% is a luxury-lodge mix-shift artifact. Underwrite to recent actuals and haircut seller peak-year claims 20&ndash;30% &mdash; though calibration shows disclosed numbers here sit ABOVE AirDNA projections, so those haircuts are conservative floors.</div></div><div style="margin-top:12px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px"><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">&#9888; Jurisdiction Warning</div><div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">Everything mails as &ldquo;Broken Bow 74728,&rdquo; but City of Broken Bow limits confine STRs to C-5/commercial zones &mdash; target Town of Hochatown (licensed, no cap) or unincorporated McCurtain County parcels, and verify jurisdiction on the official town-limits map before any offer, never by mailing address.</div></div>
+      <div class="hero-meta">
+        <span class="hero-date">Analysis date: August 23, 2026</span>
+        <span class="verdict-pill yellow" id="threshold-label">Loading…</span>
+      </div>
+    </div>
+    <div class="score-hero yellow anim-scale-in d1" id="score-badge">
+      <div class="score-num" id="overall-score-display">—</div>
+      <div class="score-denom">/ 10</div>
+      <div class="score-label">Market Score</div>
+    </div>
+  </div>
+
+  <!-- CAPITAL ALERT ───────────────────────────────────────────────────────── -->
+  <!-- Rendered by renderCapitalAlert() below based on SHOW_CAPITAL_ALERT constant -->
+  <div id="capital-alert-container" class="anim-fade-up d2"></div>
+  <div id="roi-context-container" class="anim-fade-up d2"></div>
+
+  <!-- RED FLAGS ───────────────────────────────────────────────────────────── -->
+  <div id="red-flags-section" class="anim-fade-up d3"></div>
+
+  <!-- SCORECARD ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d3">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">📊</span>
+        Market Scorecard
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="scorecard-body"></div>
+    <div class="scorecard-total">
+      <span>Weighted Total Score</span>
+      <span class="total-val yellow" id="total-score-display">—</span>
+    </div>
+  </div>
+
+  <!-- MARKET INTELLIGENCE ─────────────────────────────────────────────────── -->
+  <!-- Collapsed by default — user expands to read -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon teal">🔍</span>
+        Market Intelligence
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body collapsed" id="intel-body">
+      <div class="intel-section">
+        <div class="intel-label">⚖ Regulatory & Legal</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-teal">Hochatown — the STR core</span><p><strong>Licensed, NO cap, litigation-tested.</strong> $300 initial + $100/yr (July 1 renewal; $250/MONTH late fee), self-certification inspection, 24/7 contact required (Ord. 6). STR is a defined principal use in the zoning code (Ord. 18). Incorporation survived trial (2019) and appeal — unwind risk closed. Direction of travel: tax capture, not restriction. Open gap: license transferability on sale.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Broken Bow city limits</span><p>Ord. 428 (Feb 2024) bars STRs outside C-5/Commercial-Rec zones, plus a NEW 5% city lodging tax effective 1/1/2026. <strong>Avoid city parcels entirely</strong> — and everything mails as "Broken Bow," so verify by the town-limits map, never the address.</p></div>
+<div class="intel-entry"><span class="intel-key">Tax stack & the Airbnb lawsuit</span><p>Hochatown parcel: ≈16.25% guest-paid (9.25% sales + 3% county lodging + 4% town lodging). The town's 4% is HOST-self-remitted via the town portal — Airbnb doesn't reliably remit it (Hochatown has no own ZIP; the town sued Airbnb/Broken Bow/OTC in July 2026 over misrouting). Unincorporated county: ~9.25%, no ordinance, no zoning — friendliest tier.</p></div>
+<div class="intel-entry"><span class="intel-key key-teal">Choctaw Nation / McGirt</span><p>Per Stroble (OK Sup. Ct. 2025, cert denied): <strong>no practical effect on a non-tribal buyer of fee-simple land</strong> — taxation, permitting, and civil jurisdiction unchanged; the title abstract screens for restricted/trust parcels as routine practice.</p></div>
+<div class="intel-entry"><span class="intel-key key-neutral">POA posture</span><p>Most Hochatown subdivisions are purpose-built FOR STRs, but the risk is parcel-level: any listing with an HOA fee or named community is POA-suspect until the recorded CC&Rs + a written association statement clear it. No 1031-window regulatory deadline conflicts found; watch Planning Commission Sep 24 / Oct 29 / Nov 19 / Dec 17, 2026.</p></div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">📈 Demand & Market Fundamentals</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-teal">Demand held</span><p>Five durable drivers — Broken Bow Lake, Beavers Bend SP, Ouachita NF, a year-round trout tailwater, and the $238M Choctaw Landing casino (Apr 2024, Wyndham-flagged 2025). Visitation ~1M pre-COVID → 2.2M (2021) → holding 2.0–2.8M/yr. Not a faded-boom demand base.</p></div>
+<div class="intel-entry"><span class="intel-key">Feeder & access</span><p>Pure drive-to: DFW ~3 hrs/175 mi (8M people), ~15M within 4 hrs, no real airport option. <strong>Single 2-lane US-259 corridor is the only way in</strong> — the access story on any peak weekend.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Lifecycle: late majority</span><p>Professionalized PMs (61.9% of listings), price correction underway (−15–25% off peak, 2022-vintage buyers exiting at losses), town incorporation, tax lawsuits, a 20-yr comprehensive plan. The easy-money phase is over; execution wins now.</p></div>
+<div class="intel-entry"><span class="intel-key key-neutral">Year-round claim: partially true</span><p>Winter books (trout, casino, holiday events) at materially lower rates — no dead months, but Dec–Feb is a discount season. Demand dips land first on undifferentiated small cabins — exactly the median 2/2 product.</p></div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🏠 Competitive & Revenue</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-red">Supply — the thesis-killer</span><p>Two-sourced: <strong>AirROI +29.5% and Airbtics +16.4% YoY (+76% over 3 years)</strong>; ~400 cabins (2020) → 3,200–4,500 (2026); AirDNA's +0.2% is the outlier. Full oversupply signature: ADR down, occupancy mid-30s%, 450+ cabins for sale at ~101 DOM, building still 20–40% cheaper than buying. Builder starts down >50% — the wave is decelerating but the backlog lands through 2026.</p></div>
+<div class="intel-entry"><span class="intel-key">The percentile ladder</span><p>Market median ~$50.3K / $373 ADR / 34% occ · top-25% ~$83K · <strong>top-10% ~$128.8K / $789 / 67%</strong>. The 2BR class averages $35.8K (AirROI)–$45.1K (AirDNA); its top decile ≈ $89–112K. <strong>The $100K floor requires top-decile execution; the $150K goal requires an Epic-Treehouse-class outlier</strong> ($277K/yr @ 96% occ, $1,926/nt ≈ 5× median ADR — the moat rule passes on structure, not theming).</p></div>
+<div class="intel-entry"><span class="intel-key key-teal">Gate Zero + calibration</span><p>Disclosed-revenue median <strong>8.5× (n=9)</strong>; left tail: Bent Pine 4.99×, Hygge 6.19×. AirDNA calibration INVERTS Luray: projections read −18% to −45% LOW vs disclosed actuals for strong operators (accurate for a median operator) — board pulls are floors a top operator beats by 1.2–1.6×.</p></div>
+<div class="intel-entry"><span class="intel-key key-neutral">Structure of competition</span><p>61.9% professionally managed, 76.3% superhost, 4.86 avg rating; 77% dual-listed (dual-platform = table stakes). Gaps: revenue management (85% on simplified pricing), Instant Book only 25%. ALOS 2.7 nights → 51–91 turns/yr. Geofence: <strong>Hochatown first</strong> ($63.9–69K avg), Beavers Bend/Lukfata corridor second, Broken Bow city third; Smithville/Idabel/Ringold off the board.</p></div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🔧 Operations & Exit</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-red">Property tax RESETS on sale</span><p>Confirmed on statute (Art. X §8B / 68 O.S. §2817.1) and real parcels: the 5% cap is removed on transfer. McCurtain ratio 11.0%, millage 79.16–83.70 → <strong>0.87–0.92% of price = ~$4,400/yr at $500K</strong>. The $1,003–$6,281 dispersion on similar asks is cap-lag — the seller's bill is meaningless; underwrite the reset.</p></div>
+<div class="intel-entry"><span class="intel-key key-red">Insurance: hail state, NO safety net</span><p>Mid ~$4,000/yr (band $2.8–5.6K) but 1–2% wind/hail percentage deductibles are universal ($5–10K/claim on $500K) and <strong>Oklahoma has NO FAIR plan</strong> (OK-MAP is referral-only) — a genuine availability tail-risk for a remote-owned STR. ACV roof schedules on older cabins are the hidden cost.</p></div>
+<div class="intel-entry"><span class="intel-key">Septic caps revenue</span><p>OAC 252:641: 200 gpd ≤2BR + 66/BR after → a standard 2/2 aerobic system legally supports ~6 guests; "sleeps 8" bunk configurations run ~2× design load. Aerobic service contract ~$350/yr, no point-of-sale inspection mandate. <strong>Pull the DEQ permit on every finalist.</strong></p></div>
+<div class="intel-entry"><span class="intel-key key-teal">Cheapest remote lane yet</span><p>PM market 15–35% (Stayhocha 15%, SkyRun ~20%) vs Hocking Hills' 40–50%. Ratios at $56K reference: self-manage 0.410 · remote 0.610 · full-PM 0.660. miscSupplies rebuilt from local vendors = <strong>$12,900</strong> (LOW $9.8K / HIGH $17.6K) — cheap co-op power and propane offset hot-tub/termite/gravel costs; Pine Telephone fiber reaches 94%.</p></div>
+<div class="intel-entry"><span class="intel-key key-neutral">Exit honesty</span><p>DOM 121, sale-to-list 96–97% (a $530–560K ask to $500K is plausible; a $575K+ ask usually isn't), prices −15–25% off peak, cap ~5.3% on the one real NOI disclosure. <strong>LTR exit is dead</strong>; resale-to-the-next-DFW-STR-buyer is the only path. buildingPct 0.83 (real parcels) makes cost seg the strongest of any market screened: ~$38.4K Year-1 benefit at $500K.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUY BOX ─────────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">🎯</span>
+        Buy Box Recommendations
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="buybox-body">
+      <div class="lanes" id="lanes-container"></div>
+    </div>
+  </div>
+
+  <!-- PRO FORMA ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d5">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon blue">💰</span>
+        Pro Forma — <span id="active-lane-name" style="color:var(--amber);margin-left:6px">Target Lane</span>
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="pf-lane-switch" id="pf-lane-switch">
+        <span class="pf-lane-switch-label">View lane:</span>
+        <div class="pf-lane-tabs" id="pf-lane-tabs"></div>
+      </div>
+      <div id="proforma-body"></div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+// ─── DATA INJECTION ───────────────────────────────────────────────────────────
+// Data injected August 23, 2026 (Broken Bow / Hochatown run).
+// Do not change variable names, function names, or JS structure.
+// Arrays and objects must remain valid JSON-compatible JavaScript literals.
+
+const OVERALL_SCORE = 5.90;          // e.g. 3.20 — one decimal place minimum
+const SCORE_COLOR_CLASS = "yellow"; // "yellow" | "green" | "red"
+
+// CAPITAL ALERT — set SHOW_CAPITAL_ALERT to true if the investor's stated cash or
+// budget does not comfortably cover any of the three buy box lanes.
+// CAPITAL_ALERT_BODY should name the specific conditions and exact numbers.
+const SHOW_CAPITAL_ALERT = true;  // true | false
+const CAPITAL_ALERT_BODY = "Condition 3 triggered: the $100,000 down payment at $500K is 71% of your $141,428 total pot (threshold: 40%). Target/Aggressive lanes need $132,194 cash-to-close, leaving only $9,234 of the pot — and a $560K purchase does NOT fund (capital breakeven $534,918, real math incl. no-furnishing turnkey basis). All three lanes technically fit, but there is no cushion above ~$535K."; // e.g. "Your $200K cash covers Conservative ($190K required) but not Target ($265K). See Pro Forma for details."
+// ROI CONTEXT NOTE — set to the market-context note when ALL three lanes fail grossRoiPass
+// (gross ROI < 15% is a market-wide 2025–26 condition in appreciation-driven markets, NOT a
+// deal-specific failure). Set to "" (empty string) to hide the tile. Quoted string — never an array.
+const ROI_CONTEXT_NOTE = "";
+
+// RED FLAGS — array of {flag, data} objects.
+// flag: short headline (what is it)
+// data: supporting detail with a leading " — " separator
+// Set to [] if no red flags.
+const RED_FLAGS = [
+    { flag: "Supply growing faster than demand (2+ years)", data: " — Two-sourced: +29.5% (AirROI) / +16.4% (Airbtics) YoY, +76% over 3 years; ~400 cabins (2020) → 3,200–4,500 (2026). Occupancy fell to mid-30s% while ADR declined — the full oversupply signature, with 450+ cabins for sale." },
+  { flag: "Prices outpaced revenue — cap rate below 6%", data: " — Underwritten cap 5.0–5.5% (real disclosure: $31,656 NET on a $599.9K ask = 5.3%). Gate Zero disclosed-revenue median 8.5× ≈ 12% gross yield — the same arithmetic that killed Hocking Hills (8×)." },
+  { flag: "No dual-use exit path", data: " — LTR rents ($1,050–2,390/mo) cannot touch $34,388/yr debt service. The only exit is resale to the next DFW STR buyer — a real pool (115 June sales) but a single buyer type in a falling-price market." }
+];
+
+// SCORECARD — 9 categories, weights must sum to 1.00
+// name: category label string — KEY IS name, NOT category (cat.name is what renders)
+// weight: decimal fraction (all weights sum to 1.0)
+// score: integer 1–10 (initial displayed score; user can override interactively)
+// rationale: 2–4 sentences explaining the score
+// confidence: data quality note
+const SCORECARD_DATA = [
+    { name: "Demand Strength & Durability", weight: 0.25, score: 8, rationale: "Five real drivers (lake, state park, national forest, year-round trout tailwater, $238M casino opened 2024) and visitation that HELD post-COVID at 2.0–2.8M/yr — not a faded-boom demand base. 8M DFW feeder at 3 hrs / 15M+ at 4 hrs, pure drive-to, no substitute mountain-lake destination within 3 hrs of Dallas. Held below 9 because access is a single 2-lane corridor (US-259), the feeder is effectively one metro, and demand dips land first on undifferentiated small cabins.", confidence: "High" },
+  { name: "Supply & Competition", weight: 0.18, score: 3, rationale: "The thesis-killer, two-sourced: AirROI +29.5% and Airbtics +16.4% YoY supply growth (+76.1% over 3 yrs; AirDNA's +0.2% is the outlier), ~400 cabins (2020) → 3,200–4,500 (2026). Full oversupply signature — ADR down, occupancy down to mid-30s%, prices −15–25% off peak, 450+ cabins for sale. Builder starts down >50%, but the permitted backlog keeps landing through 2026, and competition is professional (61.9% PM-managed, 76.3% superhost).", confidence: "High" },
+  { name: "Returns Profile", weight: 0.18, score: 5, rationale: "Market median ~$50.3K gross on $500–630K assets is an 8–10% gross yield; a median operator nets ~$29.7K vs $34.4K debt service — median runs a deficit; underwritten cap 5.0–5.5%. Scored 5 not 4 because the objective profile carries real offsets: top-decile $128.8K, the flattest seasonality of 10 mountain markets, the cheapest PM tier of any market screened (15–35%), and calibration proof that strong operators beat AirDNA comp-medians by 1.2–1.6×.", confidence: "High" },
+  { name: "Regulatory Environment", weight: 0.12, score: 8, rationale: "Genuinely strong: Hochatown LICENSES STRs with no cap ($300 initial / $100 yr), STR is a defined principal zoning use, incorporation is litigation-tested and final, and the direction of travel is tax capture, not restriction — no pending restrictive ordinance in the Sept 2026–Feb 2027 1031 window. Watch items: Broken Bow city limits confine STRs to C-5 zones (avoid city parcels), the 4% town lodging tax is host-self-remitted (ZIP-routing lawsuit active), and license transferability on sale is unconfirmed.", confidence: "High" },
+  { name: "Appreciation Potential", weight: 0.12, score: 3, rationale: "Declining values plus an oversupply pipeline: segments −15–25% off the 2022–23 peak, Redfin 74728 median −1.2% YoY, 2022-vintage buyers exiting at losses, and building remains 20–40% cheaper than buying — a structural cap on resale appreciation. Forward expectation 0–2% nominal. A buyer's market for ENTRY, which helps the purchase but not the hold-period thesis.", confidence: "High" },
+  { name: "Seasonality & Revenue Floor", weight: 0.08, score: 9, rationale: "The market's best feature: 2.1× peak-to-trough — the flattest of 10 benchmarked mountain markets — with no dead months (Feb trough is 6.8% of annual). Revenue-floor test PASSES at median: Feb ≈ $3,420 vs the $2,006 threshold (119% of full debt service). Held at 9 because winter books at lower ADR, coverage is hot-tub-dependent, and the bottom quartile fails the floor.", confidence: "High" },
+  { name: "Ease of Management / Operations", weight: 0.04, score: 7, rationale: "Deep, competitive operator ecosystem: PM at 15–35% (Stayhocha from 15%) — the cheapest of any market screened and far below Hocking Hills' 40–50% — cleaning $100–150/turn guest-paid, fiber internet to 94% of the area. Drags: heavy-turn cadence (ALOS 2.7 → 51–91 turns/yr), remote-operating ratio 0.610, and NO Oklahoma FAIR-plan backstop in a top-2 hail state with 1–2% wind/hail deductibles.", confidence: "High" },
+  { name: "Infrastructure & Access", weight: 0.02, score: 5, rationale: "A single 2-lane corridor (US-259) is the only meaningful way in, ~3 hrs from DFW with no usable airport access; unpaved-road complaints are common on cabin lanes. Functional for a drive-to market but at the bottom of that band.", confidence: "High" },
+  { name: "Exit Options", weight: 0.01, score: 4, rationale: "Thin, cyclical resale: 121 days on market, 96–97% sale-to-list, falling prices, and essentially one buyer type — DFW absentee STR money (115 June sales prove liquidity exists, at clearing prices). The LTR fallback is dead and cannot prop the score; resale-to-the-next-STR-buyer is the only exit.", confidence: "Medium" }
+];
+
+// LANES — 3 buy box lanes: conservative, target, aggressive
+// Render reads these keys: id, title, subtitle, bedrooms, priceRange, maxDistance, guestAvatar, mustHaveAmenities[], differentiatorAmenities[], valueAdd?, revenueConfidence?, moatCategories[], confirmingListings[{label,url}]
+//   id is the lane key — PROFORMA_DATA.laneId must equal it. valueAdd & revenueConfidence are optional.
+// All other fields required. mustHaveAmenities and differentiatorAmenities are arrays of strings.
+// moatCategories: subset of ["Location","Quality","Design","Amenities","Operations"]
+// confirmingListings: array of 3–5 {label, url} from Step 6A inventory validation —
+//   active FOR-SALE / purchase listings the investor could offer on today (NOT rental comps),
+//   from Zillow/Redfin/Realtor.com/Homes.com/Trulia or local MLS/IDX. label = property address,
+//   url = the for-sale listing URL. Renders as clickable links inside the lane card.
+//   Use [] only if a lane has no linkable inventory.
+const LANES_DATA = [
+    {
+    id: "conservative",
+    title: "Conservative Lane",
+    subtitle: "Verified-value corridor cabin — the downside-calibrated floor, NOT a purchase recommendation: a median cabin at a fair price loses money on 7.75% debt.",
+    bedrooms: "2BR/2BA (or strong 1/1.5)",
+    priceRange: "$440K – $490K",
+    maxDistance: "Hochatown or unincorp. Beavers Bend/Lukfata corridor — NEVER inside Broken Bow city limits (C-5 rule)",
+    guestAvatar: "DFW couples & small families, 2–4 guests, hot-tub-and-firepit weekenders",
+    mustHaveAmenities: ["Hot tub (absence disqualifies)", "Fireplace", "Aerobic septic verified w/ capacity", "Fiber internet"],
+    differentiatorAmenities: ["National-forest adjacency", "Walkable to dining", "Boat/RV parking"],
+    valueAdd: "Operations lift — calibration shows strong operators beat AirDNA comp-medians by 1.2–1.6×",
+    moatCategories: ["Location", "Operations"],
+    confirmingListings: [
+      { label: "Moonlit Dance, 3 White Spring Ct — $495,000 · 2BR/2BA, forest-backed", url: "https://www.zillow.com/homedetails/3-White-Spring-Ct-Broken-Bow-OK-74728/461143822_zpid/" },
+      { label: "655 Chinook Rd DUAL-HOME — $449,000 · 5BR/3.5BA across 2 cabins", url: "https://www.redfin.com/OK/Broken-Bow/655-Chinook-Rd-74728/home/74200619" },
+      { label: "1 Happy Place Trl — $475,000 · 1BR/1BA operating STR", url: "https://www.redfin.com/OK/Broken-Bow/1-Happy-Place-Cir-74728/home/201638482" },
+      { label: "141 Laurel Branch Ln — $475,000 · 4BR/2BA active STR (+ optional 2nd cabin)", url: "https://www.redfin.com/OK/Broken-Bow/141-Laurel-Ln-74728/home/187423608" }
+    ]
+  },
+  {
+    id: "target",
+    title: "Target Lane",
+    subtitle: "Tier-1 Hochatown 2/2 negotiated to ≤$500K — breaks roughly even self-managed; cannot reach the $22K CF target without top-15–20% execution.",
+    bedrooms: "2BR/2BA site-built 2019+",
+    priceRange: "$500K – $575K ask → buy ≤$500K",
+    maxDistance: "Hochatown submarket or Lukfata corridor; ≤15 min to Hochatown dining",
+    guestAvatar: "Couples + two-couple groups, 4–6 guests (septic caps a 2/2 at ~6 legal guests — verify permits on any \"sleeps 8\")",
+    mustHaveAmenities: ["Hot tub", "2 full baths", "15+ High-strength AirDNA comps", "120+ DOM seller with cut history (negotiability)"],
+    differentiatorAmenities: ["Walkability", "Forest adjacency", "Water feature ON parcel", "Outdoor cinema / sauna"],
+    valueAdd: "Buy the tired listing: every board cabin has cut $24K–$174K already; target the 8.9–13% discount to $500K",
+    moatCategories: ["Location", "Quality", "Amenities"],
+    confirmingListings: [
+      { label: "Haus of Pine, 453 Triton Trl — $530,000 · 2BR/2BA, HIGH comp confidence", url: "https://www.zillow.com/homedetails/453-Triton-Trl-Broken-Bow-OK-74728/2058939304_zpid/" },
+      { label: "Blue Beary Hill, 285 Bear Pine Trl — $524,900 · 2BR/2BA built 2023", url: "https://www.zillow.com/homedetails/285-Bear-Pine-Trl-Broken-Bow-OK-74728/447762344_zpid/" },
+      { label: "Naked Bear, 140 S Spruce Trl — $524,900 · 2BR+loft/2.5BA, $70.1K AirDNA floor", url: "https://www.zillow.com/homedetails/140-S-Spruce-Trl-Broken-Bow-OK-74728/443497753_zpid/" },
+      { label: "Range Life, 166 Carter Creek Ln — $549,000 · 2BR/2BA + 4 bunks, mini golf", url: "https://www.zillow.com/homedetails/166-Carter-Creek-Ln-Broken-Bow-OK-74728/443620238_zpid/" },
+      { label: "The Astrodome, 22 Steelhead Bay Ln — $550,000 · 2BR/2BA + stargazing dome", url: "https://www.redfin.com/OK/Broken-Bow/22-Steelhead-Bay-Ln-74728/home/191968067" }
+    ]
+  },
+  {
+    id: "aggressive",
+    title: "Aggressive Lane",
+    subtitle: "Disclosed-revenue outlier / distinctive structure — the ONLY lane that reaches the $100K floor. Anchor: 94 Bent Pine at 4.99× disclosed, the first listing in any screened market to pass the 20% floor at ask.",
+    bedrooms: "1–2BR proven outlier or 3-suite distinctive structure",
+    priceRange: "$485K – $600K ask → buy ≤$500–540K",
+    maxDistance: "Hochatown core; walkability or structural moat required",
+    guestAvatar: "Couples/experience-seekers paying 1.5–5× median ADR for the property itself",
+    mustHaveAmenities: ["WRITTEN T-12 P&L before offer", "Hot tub + spa stack", "Channel/brand conveyance answered", "Septic-legal headcount"],
+    differentiatorAmenities: ["Treehouse/dome/distinctive build (Epic Treehouse: $1,926/nt ≈ 5× median ADR, $277K/yr)", "Walkable-to-brewery location", "Sauna + outdoor cinema"],
+    valueAdd: "Nicole's own operations ARE the value-add: the anchor's $97,285 embeds a top-1% operator — the buyer must replace, not inherit, that skill",
+    revenueConfidence: "Disclosed / top-10% basis · elite-operations dependent · low-moderate confidence",
+    moatCategories: ["Design", "Location", "Amenities", "Operations"],
+    confirmingListings: [
+      { label: "Cinnamon Spice, 94 Bent Pine Trl — $485,000 · 1BR/1BA · $97,285 disclosed 2025 = 4.99×", url: "https://www.redfin.com/OK/Broken-Bow/94-Bent-Pine-Trl-74728/home/187425482" },
+      { label: "Hygge House, 75 Birch View Ln — $499,000 · 1BR/1.5BA · $80,602 disclosed 2025 = 6.19×", url: "https://www.redfin.com/OK/Broken-Bow/75-Birch-View-Ln-74728/home/176132956" },
+      { label: "Scissortail Nest TREEHOUSE, 62 W Eagle Mountain Trl — $590,000 · 3 suites, creek below", url: "https://www.redfin.com/OK/Broken-Bow/62-Eagle-Mountain-Trl-74728/home/143438181" },
+      { label: "Naked Bear, 140 S Spruce Trl — $524,900 · 2BR+loft/2.5BA · $82.7K on Zillow's own 3/3 basis", url: "https://www.zillow.com/homedetails/140-S-Spruce-Trl-Broken-Bow-OK-74728/443497753_zpid/" }
+    ]
+  }
+];
+
+// PRO FORMA — one entry per lane, matched by laneId
+// revenueMin/Max: annual gross revenue range
+// priceMid: purchase price midpoint used for ROI calculation
+// debtService: annual debt service (12 × monthly P&I)
+// loanNote: short string describing loan assumptions
+// cashRequired: 20% down + 3% closing + 5% furnishing/setup + 6-month reserve
+// cashRequiredNote: short human-readable label for cashRequired components
+// userCashAvailable: investor's stated cash position (0 if unknown)
+// capitalBreakevenPrice: max purchase price that fits userCashAvailable; 0 if capitalFits=true
+// opExpRatio: operating expense ratio as decimal — per-lane recalculated value, NOT 0.40 default (kept as the blended reference + render fallback)
+// fixedOpEx: annual operating $ that do NOT scale with revenue (propTax + insurance + miscSupplies)
+// variableOpExRate: decimal share that scales with revenue (platform fee ~0.03). Render uses fixedOpEx + revenue×variableOpExRate when BOTH present (honest low-end net CF); falls back to revenue×opExpRatio when absent.
+// netCfLow_pm: net CF at revenueMin with 25% PM (REQUIRED — renders in PM tile)
+// buildingPct: land-to-building ratio from county assessor — NOT hardcoded 0.85
+// bonusDepRate: 1.00 for OBBBA 2025 assets (placed in service on/after Jan 19, 2025)
+// costSegAssumptions: short string describing cost seg inputs
+// netCfAfterCostSegY1: netCfLow + costSegBenefit (Year 1 effective with tax savings; one-time)
+// grossRoiLow: gross ROI at revenueMin as percent (e.g. 12.7) — used by QA Check 10
+// grossRoiPass: true if grossRoiLow >= 15 — used by QA Check 10
+// costSegBenefit: federal tax savings in dollars (Year 1 cost-seg tile) = round(priceMid × buildingPct × reclassPct × bonusDepRate × 0.37); reclassPct≈0.25 (only the 5/15-yr reclassified share gets bonus dep — NOT the full building basis)
+// appreciationY1: estimated Year 1 appreciation in dollars (≈3–4% × priceMid) — gates the Total Economic Return tile + bear-tier classification
+// totalReturnLow: netCfLow + costSegBenefit + appreciationY1 (Total Economic Return tile)
+const PROFORMA_DATA = [
+    {
+    laneId: "conservative", priceMid: 465000, revenueMin: 47000, revenueMax: 57000,
+    debtService: 31981, loanNote: "DSCR 7.75% ASSUMED (Parker Borofsky, not quoted), 20% down, 30-yr",
+    cashRequired: 122940, cashRequiredNote: "20% down + 3% closing + 6-mo reserve (no furnishing — turnkey 1031, furniture conveys)",
+    userCashAvailable: 141428, capitalBreakevenPrice: 534918,
+    opExpRatio: 0.411, fixedOpEx: 19792, variableOpExRate: 0.03,
+    netCfLow_pm: -17773, buildingPct: 0.83, bonusDepRate: 1.00,
+    costSegAssumptions: "$465K · 83% building (real McCurtain parcels) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket",
+    appreciationY1: 0, costSegBenefit: 35700, netCfAfterCostSegY1: 29367, totalReturnLow: 29367,
+    grossRoiLow: 10.1, grossRoiPass: false, fullCostOpExpMid: 29777
+  },
+  {
+    laneId: "target", priceMid: 500000, revenueMin: 56000, revenueMax: 70000,
+    debtService: 34388, loanNote: "DSCR 7.75% ASSUMED (Parker Borofsky, not quoted), 20% down, 30-yr · DSCR 0.95 at rev-low (may not fund) / 1.16 at mid",
+    cashRequired: 132194, cashRequiredNote: "20% down + 3% closing + 6-mo reserve (no furnishing — turnkey 1031) · only $9,234 margin",
+    userCashAvailable: 141428, capitalBreakevenPrice: 534918,
+    opExpRatio: 0.368, fixedOpEx: 21300, variableOpExRate: 0.03,
+    netCfLow_pm: -15438, buildingPct: 0.83, bonusDepRate: 1.00,
+    costSegAssumptions: "$500K · 83% building (real McCurtain parcels) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket",
+    appreciationY1: 0, costSegBenefit: 38388, netCfAfterCostSegY1: 36810, totalReturnLow: 36810,
+    grossRoiLow: 11.2, grossRoiPass: false, fullCostOpExpMid: 32140
+  },
+  {
+    laneId: "aggressive", priceMid: 500000, revenueMin: 85000, revenueMax: 112000,
+    debtService: 34388, loanNote: "DSCR 7.75% ASSUMED, 20% down, 30-yr · DSCR 1.72 at rev-low — comfortably fundable",
+    cashRequired: 132194, cashRequiredNote: "20% down + 3% closing + 6-mo reserve (no furnishing — turnkey 1031)",
+    userCashAvailable: 141428, capitalBreakevenPrice: 534918,
+    opExpRatio: 0.263, fixedOpEx: 22900, variableOpExRate: 0.03,
+    netCfLow_pm: 3087, buildingPct: 0.83, bonusDepRate: 1.00,
+    costSegAssumptions: "$500K · 83% building (real McCurtain parcels) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket",
+    appreciationY1: 0, costSegBenefit: 38388, netCfAfterCostSegY1: 63145, totalReturnLow: 63145,
+    grossRoiLow: 17.0, grossRoiPass: true, fullCostOpExpMid: 34805
+  }
+];
+
+
+// SCORE DIFFERENTIATION — tier verdict + why this market beats/trails the median
+// strengths: array of strings. drags: array of { label, swing } objects (NOT plain strings) —
+//   label = short category headline; swing = what it means + the tier-move number.
+const DIFFERENTIATION = {
+  tier: "D — Marginal Market",
+  distanceUp: "0.60 points to Tier C (6.5) — needs BOTH Supply and Returns to re-rate",
+  distanceDown: "0.40 points above Tier F",
+  strengths: [ "Seasonality & Revenue Floor — 9: flattest peak-to-trough (2.1×) of 10 benchmarked mountain markets, no dead months, median Feb covers debt at 119%.", "Demand — 8: five durable drivers, visitation HELD at 2.0–2.8M/yr post-COVID, $238M casino anchor, 8M DFW feeder at 3 hrs (Regulatory also 8: licensed, no cap, litigation-tested)." ],
+  drags: [ { label: "Supply & Competition (3/10 — leaks 1.26 pts)", swing: "If Supply improves from 3 to 5 (builder starts already down >50%; backlog finishes landing 2027–28 while casino demand absorbs the overhang), the total rises by 0.36 to 6.26 — top of Tier D, still short of C." },
+  { label: "Returns Profile (5/10 — leaks 0.90 pts)", swing: "If Returns improves from 5 to 7 (entry at the disclosed-revenue left tail — a ≤5–6× purchase like 94 Bent Pine at 4.99× — or asks correct another 15–20%), the total rises by 0.36 to 6.26. BOTH swings together = 6.62, Tier C — the buy-box thesis: this market is only investable where the entry multiple, not the market median, sets the returns." } ]
+};
+// ─── END DATA ─────────────────────────────────────────────────────────────────
+
+let activeLaneIndex = 1;
+
+function fmt$(n) {
+  const val = Math.round(n);
+  return (val < 0 ? '−$' : '$') + Math.abs(val).toLocaleString();
+}
+function passIcon(pass) {
+  return pass
+    ? '<span class="pass">✓ PASS</span>'
+    : '<span class="fail">✗ FAIL</span>';
+}
+
+function thresholdLabel(score) {
+  // 1–10 scale, five named tiers
+  if (score >= 8.5) return { text: 'Tier A · Priority Market',  cls: 'green'  };
+  if (score >= 7.5) return { text: 'Tier B · Strong Market',    cls: 'green'  };
+  if (score >= 6.5) return { text: 'Tier C · Selective Market', cls: 'yellow' };
+  if (score >= 5.5) return { text: 'Tier D · Marginal Market',  cls: 'yellow' };
+  return                   { text: 'Tier F · Pass',             cls: 'red'    };
+}
+
+function updateBadgeColor(score) {
+  const badge = document.getElementById('score-badge');
+  const label = document.getElementById('threshold-label');
+  const t = thresholdLabel(score);
+  badge.className = 'score-hero anim-scale-in d1 ' + t.cls;
+  label.className = 'verdict-pill ' + t.cls;
+  label.textContent = t.text;
+  document.getElementById('total-score-display').className = 'total-val ' + t.cls;
+  const glowMap = {
+    yellow: 'rgba(240,192,64,0.12)',
+    green:  'rgba(46,196,168,0.12)',
+    red:    'rgba(240,96,96,0.12)'
+  };
+  document.documentElement.style.setProperty('--score-glow', glowMap[t.cls] || glowMap.yellow);
+}
+
+function renderDifferentiation() {
+  const host = document.getElementById('red-flags-section');
+  if (!DIFFERENTIATION || !DIFFERENTIATION.tier || DIFFERENTIATION.tier.indexOf('{{') === 0) return;
+  let html = '<div class="section" style="margin-bottom:24px"><div class="section-body">' +
+    '<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:10px">Why This Market — Tier ' + DIFFERENTIATION.tier + '</div>';
+  if (DIFFERENTIATION.strengths && DIFFERENTIATION.strengths.length) {
+    html += '<div style="margin-bottom:12px"><strong style="color:var(--teal)">Strengths:</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.strengths.map(s => '<li style="margin-bottom:4px">' + s + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.drags && DIFFERENTIATION.drags.length) {
+    html += '<div><strong style="color:var(--yellow)">Swing factors (what moves the tier):</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.drags.map(d => '<li style="margin-bottom:4px"><strong>' + d.label + '</strong> — ' + d.swing + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.distanceUp || DIFFERENTIATION.distanceDown) {
+    html += '<div style="margin-top:10px;font-size:0.78rem;color:var(--text-3)">' +
+      [DIFFERENTIATION.distanceUp, DIFFERENTIATION.distanceDown].filter(Boolean).join(' · ') + '</div>';
+  }
+  html += '</div></div>';
+  host.insertAdjacentHTML('afterend', html);
+}
+
+function renderRedFlags() {
+  const el = document.getElementById('red-flags-section');
+  if (!RED_FLAGS || RED_FLAGS.length === 0) {
+    el.innerHTML = '<div class="red-flags-clean">✓ No disqualifying red flags detected for this market.</div>';
+    return;
+  }
+  let html = '<div class="red-flags-wrap anim-fade-up d3"><h2>⚠ Red Flags Detected (' + RED_FLAGS.length + ' of 10 Framework Items Triggered)</h2><ul>';
+  RED_FLAGS.forEach(f => {
+    html += '<li><strong>' + f.flag + '</strong>' + (f.data || '') + '</li>';
+  });
+  html += '</ul></div>';
+  el.innerHTML = html;
+}
+
+function bandClass(v) {
+  if (v <= 4) return '1';      // red band
+  if (v <= 6) return '3';      // yellow band
+  return '5';                  // teal band
+}
+
+function renderScorecard() {
+  const body = document.getElementById('scorecard-body');
+  let html = '';
+  SCORECARD_DATA.forEach((cat, i) => {
+    cat.currentScore = cat.score;
+    const contrib = (cat.score * cat.weight).toFixed(2);
+    html += '<div class="score-row" id="row-' + i + '">' +
+      '<div class="score-row-left">' +
+        '<div class="cat-name">' + cat.name + '</div>' +
+        '<div class="cat-meta">Weight: ' + (cat.weight * 100).toFixed(0) + '% · Contrib: <span id="contrib-' + i + '">' + contrib + '</span></div>' +
+        '<span class="rationale-toggle" onclick="toggleRationale(' + i + ')">▸ Why this score</span>' +
+        '<div class="rationale-card" id="rationale-' + i + '">' +
+          cat.rationale +
+          '<div class="confidence">Data confidence: ' + cat.confidence + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="score-row-right">' +
+        '<div class="pills" id="pills-' + i + '">' +
+          [1,2,3,4,5,6,7,8,9,10].map(v => '<button class="pill' + (v === cat.score ? ' active-' + bandClass(v) : '') + '" data-cat="' + i + '" data-val="' + v + '" onclick="setScore(' + i + ',' + v + ')">' + v + '</button>').join('') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  });
+  body.innerHTML = html;
+  updateTotalDisplay();
+}
+
+function setScore(catIndex, val) {
+  SCORECARD_DATA[catIndex].currentScore = val;
+  const pillsEl = document.getElementById('pills-' + catIndex);
+  pillsEl.querySelectorAll('.pill').forEach(p => {
+    p.className = 'pill' + (parseFloat(p.dataset.val) === val ? ' active-' + bandClass(val) : '');
+  });
+  const contribEl = document.getElementById('contrib-' + catIndex);
+  if (contribEl) contribEl.textContent = (val * SCORECARD_DATA[catIndex].weight).toFixed(2);
+  updateTotalDisplay();
+}
+
+function updateTotalDisplay() {
+  let total = 0;
+  SCORECARD_DATA.forEach(cat => { total += cat.currentScore * cat.weight; });
+  const rounded = total.toFixed(2);
+  document.getElementById('overall-score-display').textContent = rounded;
+  document.getElementById('total-score-display').textContent = rounded;
+  updateBadgeColor(total);
+}
+
+function toggleRationale(i) {
+  const el = document.getElementById('rationale-' + i);
+  const toggle = el.previousElementSibling;
+  el.classList.toggle('open');
+  toggle.textContent = el.classList.contains('open') ? '▾ Hide rationale' : '▸ Why this score';
+}
+
+function renderLanes() {
+  const container = document.getElementById('lanes-container');
+  let html = '';
+  LANES_DATA.forEach((lane, i) => {
+    const isActive = i === activeLaneIndex;
+    // Look up matching pro forma for capital fit badge
+    const pf = PROFORMA_DATA.find(p => p.laneId === lane.id);
+    let capitalBadge = '';
+    if (pf && pf.cashRequired && pf.userCashAvailable) {
+      const fits = pf.cashRequired <= pf.userCashAvailable;
+      if (fits) {
+        capitalBadge = '<div class="capital-fit-badge fits">✓ Fits Your Capital</div>';
+      } else {
+        const shortfall = Math.ceil((pf.cashRequired - pf.userCashAvailable) / 1000);
+        capitalBadge = '<div class="capital-fit-badge short">⚠ +$' + shortfall + 'K Needed</div>';
+      }
+    }
+    html += '<div class="lane-card' + (isActive ? ' active' : '') + '" id="lane-' + i + '" onclick="selectLane(' + i + ')">' +
+      '<div class="lane-card-left">' +
+        '<div class="lane-header">' +
+          '<div class="lane-title">' + lane.title + '</div>' +
+        '</div>' +
+        '<div class="lane-subtitle">' + lane.subtitle + '</div>' +
+        (lane.revenueConfidence ? '<div style="display:inline-block;margin-top:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--yellow);background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:5px;padding:3px 8px">⚑ ' + lane.revenueConfidence + '</div>' : '') +
+        '<div class="lane-detail-grid">' +
+          '<div class="lane-detail-item"><span class="detail-label">Bedrooms</span>' + lane.bedrooms + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Price Range</span>' + lane.priceRange + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Max Distance</span>' + lane.maxDistance + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Guest Profile</span>' + lane.guestAvatar + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Must-Have Amenities</span>' + lane.mustHaveAmenities.join(' · ') + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Differentiators</span>' + lane.differentiatorAmenities.join(' · ') + '</div>' +
+          (lane.valueAdd ? '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Value-Add to Seek</span>' + lane.valueAdd + '</div>' : '') +
+        '</div>' +
+        '<div class="moat-tags">' + lane.moatCategories.map(m => '<span class="moat-tag">' + m + '</span>').join('') + '</div>' +
+        ((lane.confirmingListings && lane.confirmingListings.length) ? (
+          '<div class="confirming-listings">' +
+            '<div class="cl-label">Live listings that fit this buy box</div>' +
+            lane.confirmingListings.map(l => '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">' + l.label + '</a>').join('') +
+          '</div>'
+        ) : '') +
+      '</div>' +
+      '<div class="lane-card-right">' +
+        '<div class="lane-price">' + lane.priceRange.replace(' – ', '–') + '</div>' +
+        '<div style="font-size:0.68rem;color:var(--text-3);letter-spacing:0.04em;text-transform:uppercase;font-weight:600">Purchase</div>' +
+        capitalBadge +
+      '</div>' +
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function renderProFormaTabs() {
+  const tabs = document.getElementById('pf-lane-tabs');
+  if (!tabs) return;
+  tabs.innerHTML = LANES_DATA.map((lane, i) =>
+    '<button class="pf-lane-tab' + (i === activeLaneIndex ? ' active' : '') + '" data-lane="' + i + '" onclick="selectLane(' + i + ')">' + lane.title + '</button>'
+  ).join('');
+}
+
+function selectLane(i) {
+  activeLaneIndex = i;
+  document.querySelectorAll('.lane-card').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.querySelectorAll('.pf-lane-tab').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.getElementById('active-lane-name').textContent = LANES_DATA[i].title;
+  renderProForma();
+}
+
+function renderProForma() {
+  const activeLaneId = LANES_DATA[activeLaneIndex].id;
+  const pf = PROFORMA_DATA.find(p => p.laneId === activeLaneId) || PROFORMA_DATA[activeLaneIndex];
+  const body = document.getElementById('proforma-body');
+  if (!pf) {
+    body.innerHTML = '<p style="color:var(--text-3);padding:16px">No pro forma data available.</p>';
+    return;
+  }
+
+  const opExpRatio = pf.opExpRatio || 0.40;
+  const hasOpExpSplit = typeof pf.fixedOpEx === 'number' && typeof pf.variableOpExRate === 'number';
+  const roiLow  = (pf.revenueMin / (pf.priceMid || 1) * 100).toFixed(1);
+  const roiHigh = (pf.revenueMax / (pf.priceMid || 1) * 100).toFixed(1);
+  const grossRoiPass = parseFloat(roiLow) >= 15;
+  const opExpLow  = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMin * pf.variableOpExRate) : Math.round(pf.revenueMin * opExpRatio);
+  const opExpHigh = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMax * pf.variableOpExRate) : Math.round(pf.revenueMax * opExpRatio);
+  const opExpPctLow  = pf.revenueMin > 0 ? Math.round(opExpLow  / pf.revenueMin * 100) : 0;
+  const opExpPctHigh = pf.revenueMax > 0 ? Math.round(opExpHigh / pf.revenueMax * 100) : 0;
+  const netLow  = Math.round(pf.revenueMin - opExpLow - pf.debtService);
+  const netHigh = Math.round(pf.revenueMax - opExpHigh - pf.debtService);
+  const netPctLow = pf.revenueMin > 0 ? (netLow / pf.revenueMin * 100).toFixed(0) : '—';
+  const cocLow  = pf.cashRequired > 0 ? (netLow  / pf.cashRequired * 100).toFixed(1) : '—';
+  const cocHigh = pf.cashRequired > 0 ? (netHigh / pf.cashRequired * 100).toFixed(1) : '—';
+  const bearRev  = Math.round(pf.revenueMin * 0.9);
+  const bearExp  = hasOpExpSplit ? Math.round((pf.fixedOpEx + bearRev * pf.variableOpExRate) * 1.1) : Math.round(opExpLow * 1.1);
+  const bearNet  = bearRev - bearExp - pf.debtService;
+  const capitalFits = pf.cashRequired <= pf.userCashAvailable;
+  const capitalNote = pf.cashRequiredNote || '20% down + 3% closing + 5% furnishing + 6-mo reserve';
+  // Bear case 3-tier classification
+  const appreciationRate = pf.appreciationY1 ? (pf.appreciationY1 / pf.priceMid) : 0;
+  let bearTierBadge;
+  if (bearNet > 0) {
+    bearTierBadge = '<span class="pass">✓ PASS</span>';
+  } else if (bearNet > -(pf.debtService * 0.25) && appreciationRate > 0) {
+    bearTierBadge = '<span class="warn">⚠ SURVIVABLE</span>';
+  } else {
+    bearTierBadge = '<span class="fail">✗ DISTRESS</span>';
+  }
+  const opExpLabel = hasOpExpSplit
+    ? opExpPctLow + '%→' + opExpPctHigh + '% of revenue · fixed ' + fmt$(pf.fixedOpEx) + ' + ' + Math.round(pf.variableOpExRate * 100) + '% variable — ratio runs higher at low revenue'
+    : (opExpRatio * 100).toFixed(0) + '% (market-specific, per-lane)';
+
+  // Cost seg tile values
+  const hasCostSeg = pf.costSegBenefit && pf.buildingPct;
+  const buildingPctDisplay = hasCostSeg ? Math.round(pf.buildingPct * 100) + '%' : '—';
+  const landPctDisplay = hasCostSeg ? Math.round((1 - pf.buildingPct) * 100) + '%' : '—';
+  const netAfterCostSeg = pf.netCfAfterCostSegY1 || (netLow + (pf.costSegBenefit || 0));
+  const costSegAssumptions = pf.costSegAssumptions || '';
+
+  // PM impact tile
+  const hasPM = typeof pf.netCfLow_pm === 'number';
+  const pmSavings = hasPM ? (netLow - pf.netCfLow_pm) : 0;
+
+  // Capital breakeven
+  const showBreakeven = !capitalFits && pf.capitalBreakevenPrice && pf.capitalBreakevenPrice > 0;
+
+  body.innerHTML =
+    '<div class="pf-grid">' +
+      // Row 1: Revenue + Gross ROI
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross Revenue Range</div>' +
+        '<div class="pf-value">' + fmt$(pf.revenueMin) + ' – ' + fmt$(pf.revenueMax) + '</div>' +
+        '<div class="pf-note">Tier-appropriate range · self-manage · assumes dual-platform (Airbnb + VRBO) listing — single-platform operators typically achieve 15–20% less gross</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross ROI</div>' +
+        '<div class="pf-value">' + roiLow + '% – ' + roiHigh + '% ' + passIcon(grossRoiPass) + '</div>' +
+        '<div class="pf-note">Min 15% · Target 18–20%</div>' +
+      '</div>' +
+      // Row 2: OpExp + Debt Service
+      '<div class="pf-item">' +
+        '<div class="pf-label">Operating Expenses (' + opExpLabel + ')</div>' +
+        '<div class="pf-value">' + fmt$(opExpLow) + ' – ' + fmt$(opExpHigh) + '</div>' +
+        '<div class="pf-note">Narrow-lane: taxes + insurance + platform fee + supplies only · excl. debt service</div>' +
+        (pf.fullCostOpExpMid ? '<div style="margin-top:5px;font-size:0.78rem;padding:6px 10px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:6px;color:var(--amber-pale);line-height:1.5"><strong style="color:var(--yellow)">Full annual cost</strong> (adds cleaning + maintenance): <strong style="color:var(--text-1)">' + fmt$(pf.fullCostOpExpMid) + '</strong> · Self-manage net CF at midpoint revenue: ' + fmt$(Math.round((pf.revenueMin + pf.revenueMax)/2 - pf.fullCostOpExpMid - pf.debtService)) + '</div>' : '') +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Estimated Debt Service</div>' +
+        '<div class="pf-value">' + fmt$(pf.debtService) + '/yr</div>' +
+        '<div class="pf-note">' + pf.loanNote + '</div>' +
+      '</div>' +
+      // Row 3: Net CF (self-manage) + PM Impact
+      '<div class="pf-item">' +
+        '<div class="pf-label">Net Cash Flow (Self-Manage)</div>' +
+        '<div class="pf-value">' + fmt$(netLow) + ' – ' + fmt$(netHigh) + '</div>' +
+        '<div class="pf-note">~' + netPctLow + '% of gross · self-manage only</div>' +
+      '</div>' +
+      (hasPM ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label">If PM-Managed (25%)</div>' +
+          '<div class="pf-value fail">' + fmt$(pf.netCfLow_pm) + '/yr</div>' +
+          '<div class="pf-note">Self-manage saves ' + fmt$(pmSavings) + '/yr vs full PM · co-host at 10–15% is middle option</div>' +
+        '</div>'
+      ) : '') +
+      // Row 4: CoC Return + Total Return
+      '<div class="pf-item">' +
+        '<div class="pf-label">Cash-on-Cash Return</div>' +
+        '<div class="pf-value">' + cocLow + '% – ' + cocHigh + '%</div>' +
+        '<div class="pf-note">Target 10%+ · Excellent 20%+</div>' +
+      '</div>' +
+      (pf.appreciationY1 ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label" style="color:var(--teal)">Total Economic Return (Yr 1 — incl. one-time cost seg)</div>' +
+          '<div class="pf-value" style="color:var(--teal)">' + fmt$(pf.totalReturnLow) + '</div>' +
+          '<div class="pf-note">Net CF ' + fmt$(netLow) + ' + ' + fmt$(pf.appreciationY1) + ' appreciation + ' + fmt$(pf.costSegBenefit || 0) + ' cost seg. The cost-seg benefit is a ONE-TIME Year-1 item — recurring annual return is the Net CF above; it does not repeat in Year 2+.</div>' +
+        '</div>'
+      ) : '') +
+      // Cost Segregation section (full row)
+      (hasCostSeg ? (
+        '<div class="pf-item" style="grid-column:1/-1;border-color:var(--teal-dim)">' +
+          '<div class="pf-label" style="color:var(--teal)">Cost Segregation Benefit (Year 1) — One-Time</div>' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px">' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Tax Savings (37% bracket)</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--teal)">' + fmt$(pf.costSegBenefit) + '</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Depreciable Basis</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-1)">' + buildingPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * pf.buildingPct)) + ')</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Land Excluded</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-2)">' + landPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * (1 - pf.buildingPct))) + ')</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem;color:var(--teal-dim)">' +
+            'Yr 1 effective position (net CF + cost seg): <strong style="color:var(--teal)">' + fmt$(netAfterCostSeg) + '</strong> · ' +
+            (costSegAssumptions ? costSegAssumptions + ' · ' : '') +
+            'Study cost: $5K–$12K · Requires 100+ hrs material participation' +
+          '</div>' +
+        '</div>'
+      ) : '') +
+      // Cash Required + Capital Breakeven
+      '<div class="pf-item">' +
+        '<div class="pf-label">Total Cash Required</div>' +
+        '<div class="pf-value ' + (capitalFits ? 'pass' : 'fail') + '">' + fmt$(pf.cashRequired) + ' ' + (capitalFits ? '✓' : '⚠') + '</div>' +
+        '<div class="pf-note">' + capitalNote + ' · You have: ' + fmt$(pf.userCashAvailable) + '</div>' +
+        (showBreakeven ? '<div style="margin-top:6px;font-size:0.78rem;color:var(--yellow)">Capital breakeven: ~' + fmt$(pf.capitalBreakevenPrice) + ' — buy at or below this price to fit your cash</div>' : '') +
+      '</div>' +
+      // Bear Case (full row)
+      '<div class="bear-case">' +
+        '<h4>Bear Case Stress Test — Revenue −10% / Expenses +10%</h4>' +
+        '<div class="bear-row"><span>Bear case revenue</span><span>' + fmt$(bearRev) + '</span></div>' +
+        '<div class="bear-row"><span>Bear case op expenses</span><span>' + fmt$(bearExp) + '</span></div>' +
+        '<div class="bear-row"><span>Debt service</span><span>' + fmt$(pf.debtService) + '</span></div>' +
+        '<div class="bear-row bear-result">' +
+          '<span>Bear case net cash flow</span>' +
+          '<span>' + fmt$(bearNet) + ' ' + bearTierBadge + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  header.classList.toggle('open', !isOpen);
+  body.classList.toggle('collapsed', isOpen);
+}
+
+function renderCapitalAlert() {
+  const container = document.getElementById('capital-alert-container');
+  if (!SHOW_CAPITAL_ALERT) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>⚠ Capital Fit Alert</strong> ${CAPITAL_ALERT_BODY}</div>`;
+}
+
+function renderRoiContext() {
+  const container = document.getElementById('roi-context-container');
+  if (!ROI_CONTEXT_NOTE) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>ℹ Market Context</strong> ${ROI_CONTEXT_NOTE}</div>`;
+}
+
+renderCapitalAlert();
+renderRoiContext();
+renderRedFlags();
+renderDifferentiation();
+renderScorecard();
+renderLanes();
+renderProFormaTabs();
+renderProForma();
+</script>
+</body>
+</html>

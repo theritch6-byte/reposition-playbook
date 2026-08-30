@@ -1,0 +1,1555 @@
+<!--bstrw:4c171381d1a61c38-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STR Market Analysis — Blue Ridge / Fannin County, GA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ─── DESIGN TOKENS ──────────────────────────────────────────────────────── */
+:root {
+  /* Mountain palette */
+  --bg:        #0f1a13;
+  --bg-card:   #1c2b20;
+  --bg-card-2: #213526;
+  --border:    #2d4533;
+  --border-2:  #3d5c46;
+
+  --amber:     #e8924a;
+  --amber-dim: #c4743a;
+  --amber-bg:  #2a1e12;
+  --amber-pale:#f0b07a;
+
+  --teal:      #2ec4a8;
+  --teal-dim:  #1fa08a;
+  --teal-bg:   #0e2420;
+
+  --red:       #f06060;
+  --red-dim:   #c44545;
+  --red-bg:    #2a1212;
+  --red-border:#4a2020;
+  --red-muted: #7a5050;
+
+  --yellow:    #f0c040;
+  --yellow-dim:#c89c28;
+  --yellow-bg: #241e0a;
+
+  --neutral-icon-bg:     #1a2530;
+  --neutral-icon-border: #2a3f55;
+
+  /* Updated by JS to match the score band (yellow/green/red) */
+  --score-glow: rgba(232,146,74,0.12);
+
+  --text-1:    #f2f5f2;
+  --text-2:    #baced0;
+  --text-3:    #6a8070;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─── RESET & BASE ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { text-wrap: balance; }
+article p { text-wrap: pretty; }
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.anim-fade-up  { animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-scale-in { animation: scaleIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up, .anim-scale-in { animation: none; opacity: 1; transform: none; }
+}
+
+.d0 { animation-delay: 0ms; }
+.d1 { animation-delay: 60ms; }
+.d2 { animation-delay: 120ms; }
+.d3 { animation-delay: 180ms; }
+.d4 { animation-delay: 240ms; }
+.d5 { animation-delay: 300ms; }
+.d6 { animation-delay: 360ms; }
+
+/* ─── LAYOUT ─────────────────────────────────────────────────────────────── */
+.page { max-width: 980px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+.hero {
+  padding: 64px 0 56px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+
+.hero-state {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.hero-summary {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  max-width: 580px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-date {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.score-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card-2);
+  border: 2px solid var(--border-2);
+  border-radius: 20px;
+  padding: 36px 44px;
+  min-width: 172px;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 10%, var(--score-glow) 0%, transparent 65%);
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.score-hero .score-num {
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-denom {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-3);
+  line-height: 1;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero.yellow .score-num   { color: var(--yellow); }
+.score-hero.yellow .score-label { color: var(--yellow-dim); }
+.score-hero.green  .score-num   { color: var(--teal); }
+.score-hero.green  .score-label { color: var(--teal-dim); }
+.score-hero.red    .score-num   { color: var(--red); }
+.score-hero.red    .score-label { color: var(--red-dim); }
+
+.verdict-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.verdict-pill.yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-dim); }
+.verdict-pill.green  { background: var(--teal-bg);   color: var(--teal);   border: 1px solid var(--teal-dim); }
+.verdict-pill.red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-dim); }
+
+/* ─── CAPITAL ALERT BANNER ───────────────────────────────────────────────── */
+.capital-alert {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-top: 3px solid var(--amber);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 32px;
+  font-size: 0.875rem;
+  color: var(--amber-pale);
+  line-height: 1.65;
+}
+.capital-alert strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.capital-alert em { color: var(--text-1); font-weight: 600; font-style: normal; }
+
+/* ─── RED FLAGS ──────────────────────────────────────────────────────────── */
+.red-flags-wrap {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 32px;
+}
+.red-flags-wrap h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.red-flags-wrap ul { list-style: none; }
+.red-flags-wrap li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--red-border);
+  color: var(--red-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.red-flags-wrap li:last-child { border-bottom: none; }
+.red-flags-wrap li strong { display: block; color: var(--red); font-weight: 600; margin-bottom: 3px; }
+
+.red-flags-clean {
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-dim);
+  border-radius: 12px;
+  padding: 14px 22px;
+  margin-bottom: 32px;
+  color: var(--teal);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ─── SECTION SHELL ──────────────────────────────────────────────────────── */
+.section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 20px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.15s;
+}
+.section-header:hover { background: rgba(255,255,255,0.02); }
+.section-header.open { border-bottom-color: var(--border); }
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.section-title-icon.amber { background: var(--amber-bg); border: 1px solid var(--amber-dim); }
+.section-title-icon.teal  { background: var(--teal-bg);  border: 1px solid var(--teal-dim);  }
+.section-title-icon.blue  { background: var(--neutral-icon-bg); border: 1px solid var(--neutral-icon-border); }
+.section-title-icon.red   { background: var(--red-bg);   border: 1px solid var(--red-dim);   }
+
+.section-toggle {
+  color: var(--text-3);
+  font-size: 0.7rem;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+}
+.section-header.open .section-toggle { transform: rotate(180deg); }
+
+.section-body { padding: 26px; }
+.section-body.collapsed { display: none; }
+
+/* ─── SCORECARD ──────────────────────────────────────────────────────────── */
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.score-row:last-child { border-bottom: none; }
+
+.score-row-left { min-width: 0; }
+
+.score-row-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.score-row .cat-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 2px;
+}
+.score-row .cat-meta {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+.score-row .cat-weight {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.score-row .weighted-contrib {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-2);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.pills { display: flex; gap: 4px; flex-wrap: wrap; }
+.pill {
+  width: 40px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border-2);
+  background: var(--bg-card-2);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+}
+.pill:hover { border-color: var(--amber); color: var(--amber); }
+.pill:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.pill.active-1, .pill.active-2 { border-color: var(--red-dim);    background: var(--red-bg);    color: var(--red); }
+.pill.active-3                  { border-color: var(--yellow-dim); background: var(--yellow-bg); color: var(--yellow); }
+.pill.active-4, .pill.active-5  { border-color: var(--teal-dim);  background: var(--teal-bg);   color: var(--teal); }
+
+.rationale-toggle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--amber);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  transition: background 0.1s;
+}
+.rationale-toggle:hover { background: rgba(232,146,74,0.12); }
+
+.rationale-card {
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-1);
+  display: none;
+  line-height: 1.7;
+}
+.rationale-card .confidence {
+  font-size: 0.72rem;
+  color: var(--teal-dim);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.rationale-card.open { display: block; }
+
+.scorecard-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 26px;
+  background: var(--bg-card-2);
+  border-top: 2px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+.scorecard-total .total-val {
+  font-size: 2rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+/* ─── INTELLIGENCE PANELS ────────────────────────────────────────────────── */
+.intel-section { margin-bottom: 28px; }
+.intel-section:last-child { margin-bottom: 0; }
+
+.intel-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.intel-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.intel-content {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.75;
+  font-weight: 400;
+}
+.intel-content .intel-entry {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.intel-content .intel-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.intel-content .intel-key {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-bottom: 5px;
+}
+.intel-content .intel-key.key-red {
+  color: var(--red);
+  background: var(--red-bg);
+  border-color: var(--red-dim);
+}
+.intel-content .intel-key.key-teal {
+  color: var(--teal);
+  background: var(--teal-bg);
+  border-color: var(--teal-dim);
+}
+.intel-content .intel-key.key-neutral {
+  color: var(--text-3);
+  background: var(--bg-card-2);
+  border-color: var(--border-2);
+}
+.intel-content p {
+  margin: 0;
+  line-height: 1.75;
+}
+.intel-content ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.intel-content ul li {
+  padding-left: 14px;
+  position: relative;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.intel-content ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-weight: 700;
+}
+.intel-content strong { color: var(--text-1); font-weight: 600; }
+
+/* ─── LANES ──────────────────────────────────────────────────────────────── */
+.lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.lane-card {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+}
+.lane-card:hover { border-color: var(--border-2); }
+.lane-card.active {
+  border-color: var(--amber);
+  background: var(--amber-bg);
+  box-shadow: 0 0 0 1px var(--amber-dim);
+}
+
+.lane-card-left { min-width: 0; }
+
+.lane-card-right {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.lane-card .lane-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.lane-card .lane-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-1);
+}
+.lane-card.active .lane-title { color: var(--amber-pale); }
+
+.lane-card .lane-subtitle {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-3);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.lane-card.active .lane-subtitle { color: var(--amber-dim); }
+
+.lane-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 24px;
+}
+
+.lane-detail-item {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.lane-detail-item .detail-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: block;
+  margin-bottom: 1px;
+}
+.lane-card.active .lane-detail-item { color: var(--amber-pale); opacity: 0.9; }
+.lane-card.active .detail-label { color: var(--amber-dim); }
+
+.lane-price {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+.lane-card.active .lane-price { color: var(--amber); }
+
+.moat-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 14px; }
+.moat-tag {
+  background: var(--bg);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lane-card.active .moat-tag {
+  background: rgba(232,146,74,0.08);
+  color: var(--amber);
+  border-color: var(--amber-dim);
+}
+
+/* ─── CAPITAL FIT BADGE ──────────────────────────────────────────────────── */
+.capital-fit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+.capital-fit-badge.fits {
+  background: rgba(46,196,168,0.12);
+  color: var(--teal);
+  border: 1px solid var(--teal-dim);
+}
+.capital-fit-badge.short {
+  background: rgba(240,96,96,0.12);
+  color: var(--red);
+  border: 1px solid var(--red-dim);
+}
+
+/* ─── PRO FORMA ──────────────────────────────────────────────────────────── */
+.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.pf-item {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.pf-item .pf-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+.pf-item .pf-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.pf-item .pf-note {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.pass { color: var(--teal) !important; }
+.warn { color: var(--yellow) !important; }
+.fail { color: var(--red)  !important; }
+
+.bear-case {
+  grid-column: 1 / -1;
+  background: var(--bg-card-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.bear-case h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.bear-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.855rem;
+  color: var(--text-2);
+  padding: 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+.bear-result {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-1);
+}
+
+/* ─── CHECKLIST ──────────────────────────────────────────────────────────── */
+.checklist { list-style: none; counter-reset: check-counter; display: flex; flex-direction: column; gap: 10px; }
+.checklist li {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px 18px 64px;
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  counter-increment: check-counter;
+  position: relative;
+}
+.checklist li::before {
+  content: counter(check-counter, decimal-leading-zero);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 30px;
+  height: 30px;
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+.checklist li strong {
+  display: block;
+  color: var(--text-1);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* ─── PRO FORMA LANE TOGGLE ──────────────────────────────────────────────── */
+.pf-lane-switch { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.pf-lane-switch-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.pf-lane-tabs { display: inline-flex; background: var(--bg); border: 1px solid var(--border-2); border-radius: 10px; padding: 3px; gap: 3px; }
+.pf-lane-tab { border: none; background: transparent; color: var(--text-2); font-family: var(--font); font-size: 0.8rem; font-weight: 700; padding: 7px 16px; border-radius: 7px; cursor: pointer; transition: all 0.14s; white-space: nowrap; }
+.pf-lane-tab:hover { color: var(--amber); }
+.pf-lane-tab.active { background: var(--amber); color: #1a1208; }
+.pf-lane-tab:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+/* ─── CONFIRMING LISTINGS (buy box links) ────────────────────────────────── */
+.confirming-listings { margin-top: 14px; }
+.confirming-listings .cl-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.confirming-listings a { display: inline-flex; align-items: center; gap: 5px; background: var(--teal-bg); border: 1px solid var(--teal-dim); color: var(--teal); border-radius: 6px; padding: 4px 10px; margin: 0 5px 5px 0; font-size: 0.72rem; font-weight: 600; text-decoration: none; transition: all 0.12s; }
+.confirming-listings a:hover { background: rgba(46,196,168,0.18); }
+.confirming-listings a::before { content: '↗'; font-size: 0.78rem; opacity: 0.8; }
+.lane-card.active .confirming-listings .cl-label { color: var(--amber-dim); }
+.lane-card.active .confirming-listings a { background: rgba(232,146,74,0.10); border-color: var(--amber-dim); color: var(--amber); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; }
+  .score-hero { flex-direction: row; gap: 16px; align-self: flex-start; padding: 20px 24px; min-width: 0; }
+  .score-hero .score-num { font-size: 3rem; }
+  .lane-card { grid-template-columns: 1fr; }
+  .lane-detail-grid { grid-template-columns: 1fr; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .score-row .weighted-contrib { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO ────────────────────────────────────────────────────────────────── -->
+  <div class="hero">
+    <div class="anim-fade-up d0">
+      <div class="hero-eyebrow">STR Market Analysis · August 23, 2026</div>
+      <h1>Blue Ridge</h1>
+      <div class="hero-state">Fannin County · North Georgia Mountains</div>
+      <div class="hero-summary">Blue Ridge has the strongest demand engine and the friendliest regulatory regime of the six markets screened — and none of it is buyable at the cap. Gate Zero verified a median <strong>8.58× price-to-disclosed-revenue</strong> with a completely <strong>empty left tail</strong> (zero listings at or under 6× at any price — no Broken Bow–style exception exists), supply has compounded +64–77% over 3–5 years while occupancy eroded from 68.6% to ~53%, and the $90–115K operators that do clear debt trade at $740K–$925K. At 5.99/10, Blue Ridge ranks in the marginal band among mountain-cabin STR markets — below the ~7.0 Luray calibration anchor and Destin&#39;s 6.9–7.5 Tier C band, slotting between Broken Bow (5.90) and Luray (6.00) among the six full runs. The revenue is real (AirDNA reads 11–53% LOW here); the entry price is the failure.</div>
+      <div style="margin-top:18px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-left:3px solid var(--yellow);border-radius:8px;padding:14px 18px;max-width:580px">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:4px">Budget Fit — MARGINAL</div>
+        <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">At $500K your $22,000 net-CF target needs ~$77,400 gross — top-quartile 3BR execution; the 3BR market median ($55–59K) misses it by ~$20K/yr. If PM-managed (25%), the requirement rises to ~$102,500.</div>
+      </div>
+      <div style="margin-top:12px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">⚠ Jurisdiction Warning</div>
+        <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">Buy UNINCORPORATED FANNIN only, verified by qPublic parcel — the City of Blue Ridge limits new STR certificates to the CBD and grandfathering dies at sale; Gilmer County (Ellijay, west Cherry Log) host licenses are NON-transferable; Cherry Log 30522 parcels straddle the county line. Fannin&#39;s certificate transfers with a 30-day grace + $50 fee.</div>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-date">Analysis date: August 23, 2026</span>
+        <span class="verdict-pill yellow" id="threshold-label">Loading…</span>
+      </div>
+    </div>
+    <div class="score-hero yellow anim-scale-in d1" id="score-badge">
+      <div class="score-num" id="overall-score-display">—</div>
+      <div class="score-denom">/ 10</div>
+      <div class="score-label">Market Score</div>
+    </div>
+  </div>
+
+  <!-- CAPITAL ALERT ───────────────────────────────────────────────────────── -->
+  <div id="capital-alert-container" class="anim-fade-up d2"></div>
+  <div id="roi-context-container" class="anim-fade-up d2"></div>
+
+  <!-- RED FLAGS ───────────────────────────────────────────────────────────── -->
+  <div id="red-flags-section" class="anim-fade-up d3"></div>
+
+  <!-- SCORECARD ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d3">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">📊</span>
+        Market Scorecard
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="scorecard-body"></div>
+    <div class="scorecard-total">
+      <span>Weighted Total Score</span>
+      <span class="total-val yellow" id="total-score-display">—</span>
+    </div>
+  </div>
+
+  <!-- MARKET INTELLIGENCE ─────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon teal">🔍</span>
+        Market Intelligence
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body collapsed" id="intel-body">
+      <div class="intel-section">
+        <div class="intel-label">⚖ Regulatory &amp; Legal</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-teal">Unincorporated Fannin — The Buy Box</span><p>No countywide zoning; STR effectively <strong>by-right</strong> with a $225/yr Accommodation Excise Tax Certificate (expires Dec 31). Ordinance revised Aug 12, 2025 — no pending amendments or moratoriums found vs the 1031 calendar (ID 09/28/26 · close 02/10/27). <strong>Best transfer regime screened:</strong> buyer files within 7 days of closing → 30-day operating grace, $50 fee.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">City of Blue Ridge + Gilmer County — Excluded</span><p>City: new certificates CBD-only; grandfathering dies at sale — in-city cabins (e.g. 266 Ada St) are dead ends for a buyer. Gilmer (Ellijay, west Cherry Log): host license NON-transferable + third-party safety inspection — expect a licensing gap buying any Gilmer-side operating STR. Resolve Cherry Log BY PARCEL on qPublic, never mailing address.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">TVA Lake Blue Ridge</span><p>Most &quot;lakefront&quot; is TVA takeline / National Forest, not deeded frontage. Section 26a dock permits do NOT auto-transfer (reapply ~60 days post-close) and can be denied — never pay dock pricing without written 26a status.</p></div>
+          <div class="intel-entry"><span class="intel-key">Tax Stack</span><p>7% sales + 6% county excise + $5/night GA hotel-motel fee (~13% + $5). Owner files a monthly county excise report by the 20th even on platform bookings.</p></div>
+          <div class="intel-entry"><span class="intel-key key-neutral">Private Gates</span><p>With no zoning, recorded covenants are the ONLY private gate — parts of Aska, Coosawattee (Gilmer), and some Old Toccoa Farm tracts restrict STRs. Order covenants with title on EVERY parcel; Sunrise Valley&#39;s covenant posture is unverified ($31/mo HOA confirmed). Shared wells (Sunrise Valley, Rocky Top) need a RECORDED well-sharing agreement or lenders balk. GA septic: 150 gpd/bedroom → <strong>2BR = 4 guests, 3BR = 6</strong> — loft-sleeper listings are over-permit (same trap as Luray).</p></div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">📈 Demand &amp; Market Fundamentals</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-teal">Deepest Driver Stack Screened</span><p>6+ independent drivers: downtown Depot St district, the <strong>verified-operating</strong> Blue Ridge Scenic Railway (expanded 2026–27 calendar), Toccoa trout/tubing (&quot;Trout Fishing Capital of Georgia&quot;), Aska / Chattahoochee NF trails, Lake Blue Ridge, Mercier Orchards, wineries + leaf season. Visitor spend $231M (2022) → <strong>$254M (2024)</strong>; $7.07M lodging-tax receipts FY2024.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">Strongest Feeder Verified</span><p>Metro Atlanta (~6.4M) at ~1h35m — wealthy north suburbs ~1h05–1h25 — on four-lane GA-515 the whole way. ~7M within 2h, ~9.5M within 3h. Beats Broken Bow (DFW 3h) and Luray (substitute-rich DC corridor).</p></div>
+          <div class="intel-entry"><span class="intel-key key-neutral">Mature Market</span><p>Secondary, MATURE/late-majority — an early pre-Airbnb STR market. No early-adopter upside; wide performance spread between designed cabins and commodity cabins. The 2023 correction happened and was digested, but supply is still being absorbed (see Competitive).</p></div>
+          <div class="intel-entry"><span class="intel-key">Durability</span><p>No single point of failure — losing the railway ≈ under 10% of room-nights. Recession trade-down beneficiary (drive-to substitution). ~180 wedding venues; retiree/remote-worker in-migration (+10.9% county since 2010). Watch item: occupancy softness, not demand dollars.</p></div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🏠 Competitive &amp; Revenue</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-red">Supply — The Two-Source Rule Fired Again</span><p>AirDNA&#39;s +4.5% YoY is the OUTLIER: AirROI <strong>+36.0%</strong>, Airbtics <strong>+21.8%/yr (+64%/3yr)</strong>, StaySTRA <strong>+77% 2021→2026</strong> (839→1,484) — while occupancy eroded 68.6% → ~53% and ADR kept rising: the classic ADR-masked oversupply signature. <strong>Still absorbing, not post-correction.</strong> Morganton (−9.8%) and Mineral Bluff (−5.2%) are already in per-listing revenue decline.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Gate Zero — 8.58× and an Empty Left Tail</span><p>8 disclosed-actual revenue listings across all 7 ZIPs: clean median <strong>8.58×</strong> ask ÷ gross (every sensitivity cut 8.3–9.4×). <strong>Zero listings ≤6× at any price</strong>; lowest under $600K is 266 Ada St at 8.56×. The 20% floor (5.0×) is arithmetically unreachable — every disclosed listing would need a 40%+ cut.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">Calibration — AirDNA Reads LOW Here</span><p>Rentalizer vs disclosed actuals: −11% to −53% on 6 real operators (184 High Meadows: $54.1K projected vs $114K documented 3-yr actual). Comp tables corroborate $95–109K actual trailing revenue on 3–4BR. Inverts Luray; matches Broken Bow. No seller-haircut view applies — the fail stands at face value.</p></div>
+          <div class="intel-entry"><span class="intel-key">Bedroom Ladder (two-sourced)</span><p>2BR: $41.6–44.1K median / ~$75K 90th pct — <strong>the 2BR guide misses the $100K floor even at the 90th percentile</strong>. 3BR: $55.3–58.7K / ~$91K 90th. 4BR: ~$73K / $103.9K top-quartile / $123.4K top-decile — the only count whose top-quartile clears $100K. 54.3% of the market sleeps 8+; this is a 4BR+ group market.</p></div>
+          <div class="intel-entry"><span class="intel-key">No Accessible Moat</span><p>Treehouses run 1.04–1.14× market ADR (FAIL vs the 2× bar; Broken Bow&#39;s ran 5×). A-frames UNDERPERFORM log cabins ($38.5K vs $44.8K). Riverfront is a peak-amplifier on 4BR+, not a 2× moat at 2–3BR. Hot tubs are 82.4%-prevalence table stakes. Only true scarcities: Lake Blue Ridge deeded frontage (+28%, n=3) and pools (+215% uplift, 1.9% prevalence) — neither buyable at the cap. Walkable-downtown shows no out-earning evidence.</p></div>
+          <div class="intel-entry"><span class="intel-key key-neutral">Geofence Order + Floor Test</span><p>Shop Blue Ridge proper FIRST, Epworth/Fightingtown Creek SECOND (county-best ADR $438, only rising sub-area, +6%), Cherry Log THIRD. Avoid Morganton/Mineral Bluff medians; Aska carries a −19% earnings discount. Revenue floor: median worst month Feb $3,384 = 118% of full P&amp;I — PASS 1.69×; bottom quartile fails by −5%. ALOS 3.4 → plan 45–55 turns/yr.</p></div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🔧 Operations &amp; Exit</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-teal">Cheapest Tax Bill of 6 Markets</span><p>propTax ≈ <strong>$2,900/yr</strong> on a $500K basis (40% × ~14.3 unincorporated mills ≈ 0.57%). Assessor chases sales — 48 Lookout was assessed at 99.7% of its 2023 sale — and HB 581 caps homesteads only: investors fully exposed. CUVA rollback flag on 10+ acre parcels.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">Best Cost-Seg Profile Screened</span><p>buildingPct <strong>86–96%</strong> (6 live Fannin qPublic parcels; model 88–90%) → ~$34–43K Year-1 bonus-depreciation shelter on $500K. Every comp parcel pulled is absentee-owned (FL/TN/OH/metro-GA) — a fully financialized market.</p></div>
+          <div class="intel-entry"><span class="intel-key">Operating Costs</span><p>insurance $2,000–4,500 (STR-endorsed; flat inland wind/hail deductibles; the real trap is freeze-vacancy exclusions — keep heat ≥55°F + smart shutoff). miscSupplies <strong>$12,800 MID</strong> ($9.7K–$18.0K from real local vendors) — never $4,000. Fiber (ETC ~55%) + cheap co-op power ($0.123/kWh) help; hot tubs, gravel drives, freeze exposure hurt.</p></div>
+          <div class="intel-entry"><span class="intel-key">PM Market</span><p>Real range <strong>18–30%, model 25%</strong> (Chady publishes 18–25%; nationals 25–35%). Cleaning $150–225/turn from a deep independent bench. Remote self-management from Florida is the market norm here. Expense ratios at reference revenue: selfmanage 35.6% · <strong>remote 38.8%</strong> · with_pm 60.6% — PM-run loses ~$11.8K/yr at $500K.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Exit Reality</span><p>Sale-to-list <strong>92.9–94.5%</strong> + DOM 61–138 days = the strongest buyer-side negotiation posture screened (a 7–8% discount is market-normal) — but values are flat-to-down (ZHVI −2.8% YoY) and LTR does NOT cover debt ($2,450 rent vs $2,866 P&amp;I). Resale is the only exit.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUY BOX ─────────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">🎯</span>
+        Buy Box Recommendations
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="buybox-body">
+      <div class="lanes" id="lanes-container"></div>
+    </div>
+  </div>
+
+  <!-- PRO FORMA ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d5">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon blue">💰</span>
+        Pro Forma — <span id="active-lane-name" style="color:var(--amber);margin-left:6px">Target Lane</span>
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="pf-lane-switch" id="pf-lane-switch">
+        <span class="pf-lane-switch-label">View lane:</span>
+        <div class="pf-lane-tabs" id="pf-lane-tabs"></div>
+      </div>
+      <div id="proforma-body"></div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+// ─── DATA INJECTION ───────────────────────────────────────────────────────────
+
+const OVERALL_SCORE = 5.99;
+const SCORE_COLOR_CLASS = "yellow";
+
+const SHOW_CAPITAL_ALERT = true;
+const CAPITAL_ALERT_BODY = "Negotiation is capital-mandatory above $534,918: at 7.75% DSCR terms the $141,428 pot funds a close up to ~$534,918 — a $560K close does NOT fund. All three lanes are modeled at a $500K-or-below close and fit: $112,365 (Conservative) to $132,194 (Target/Aggressive), leaving as little as $9,234 in reserve. Nothing LISTED above $600,000 was considered (SPEND RULE).";
+const ROI_CONTEXT_NOTE = "";
+
+const RED_FLAGS = [
+  { flag: "Red Flag #4 — Supply Growing Faster Than Demand (2+ Years)", data: " — Supply +21.8–36%/yr (AirROI/Airbtics; +64%/3yr, +77% 2021→2026) while occupancy eroded 68.6% → ~53% and revenue-per-listing sits flat. AirDNA&#39;s +4.5% is the documented outlier — the Broken Bow pattern repeats. Morganton (−9.8%) and Mineral Bluff (−5.2%) sub-areas are already declining." },
+  { flag: "Red Flag #8 — Prices Outpaced Revenue / Cap Rate Below 6% (Negative Leverage)", data: " — Gate Zero median 8.58× (implied gross yield ~11.6%); cap rate ~5.5% at the $641K median sale and only 4.2–7.0% at a $500K basis vs 7.75% debt — negative leverage, so cost seg (not appreciation, currently flat-to-negative) must carry the Year-1 thesis. Every disclosed-actual listing needs a 40%+ price cut to reach the 5.0× / 20% floor." },
+  { flag: "Red Flag #10 — No Dual-Use Exit Path", data: " — LTR rent (~$2,450/mo median; 3BR ~$2,800) does not cover the $2,866/mo P&amp;I alone (rent-to-price ~0.49%). Resale is the only exit, into a current buyer&#39;s market: DOM 61–138 days, values flat-to-down." }
+];
+
+const SCORECARD_DATA = [
+  { name: "Demand Strength & Durability", weight: 0.25, score: 9, rationale: "6+ independent durable drivers — Depot St district, the verified-operating Scenic Railway, Toccoa trout/tubing, Aska/Chattahoochee NF, Lake Blue Ridge, Mercier Orchards, wineries + leaf season — with visitor spending growing $231M (2022) → $254M (2024). Strongest feeder of the six markets screened: metro Atlanta (~6.4M) at ~1h35m on four-lane GA-515; ~7M within 2h. Held off 10 for the missing national-park-class anchor and inflation-pace revenue growth.", confidence: "High" },
+  { name: "Supply & Competition", weight: 0.18, score: 3, rationale: "Two-source hard rule: AirDNA&#39;s +4.5% is the OUTLIER — AirROI +36.0%, Airbtics +21.8%/yr (+64%/3yr), StaySTRA +77% 2021→2026 — while occupancy eroded 68.6% → ~53%: the ADR-masked oversupply signature, still absorbing. Competition is sophisticated (70.7% Superhost, 46.9% pro-managed) and no accessible 2× moat exists at the cap.", confidence: "High" },
+  { name: "Returns Profile", weight: 0.18, score: 3, rationale: "Gate Zero: median 8.58× clean price-to-disclosed-revenue (N=8, verbatim-verified) with an EMPTY left tail — zero listings ≤6× at any price. Implied gross ROI ~11.6% at the median; at consensus revenue a $500K remote owner runs a deficit, and the $93–114K operators that clear debt trade at $740–925K. Calibration proved the revenue real — the entry price is the failure, not the revenue.", confidence: "High" },
+  { name: "Regulatory Environment", weight: 0.12, score: 8, rationale: "Friendliest regime screened: unincorporated Fannin has no countywide zoning — STR by-right with a $225/yr certificate, transfer via 30-day grace + $50 fee, no cap, no pending amendments (ordinance settled Aug 2025). Capped at 8 because local discretion is alive next door: City of Blue Ridge is CBD-only with grandfathering that dies at sale; Gilmer licenses are non-transferable — buy unincorporated Fannin only, verified by parcel.", confidence: "High" },
+  { name: "Appreciation Potential", weight: 0.12, score: 4, rationale: "Values flat-to-down after the COVID double: Zillow ZHVI Fannin $469,154 (−2.8% YoY), Blue Ridge proper −1.9% to −6.6%; the +17.5% median-sale print is luxury mix-shift, not appreciation. No transformative forward catalyst found; steady in-migration and growing tourism dollars prevent a 3.", confidence: "Medium" },
+  { name: "Seasonality & Revenue Floor", weight: 0.08, score: 8, rationale: "Two-humped, well-spread calendar (Oct 64% / Jul 59% / Dec 57% occupancy; only Jan–Feb soft) — ~10–11 bookable months, no month above 10.3% of annual revenue. The median listing&#39;s worst month (Feb $3,384) covers 118% of FULL debt service — 1.69× the 70% bar; not hot-tub-dependent. Bottom-quartile floor fails marginally (−5%).", confidence: "Medium" },
+  { name: "Ease of Management / Operations", weight: 0.04, score: 9, rationale: "Deepest cleaner/PM bench of any market screened: thousands of cabins under management, PM competitively priced 18–30% (Chady publishes 18–25%), cleaning $150–225/turn, plan 45–55 turns/yr. Remote Florida ownership is the market norm — every comp parcel pulled is absentee-owned. ETC fiber ~55% of homes; Starlink fallback.", confidence: "High" },
+  { name: "Infrastructure & Access", weight: 0.02, score: 8, rationale: "Four-lane divided GA-515 the entire way — no mountain passes; Atlanta north suburbs ~1h05–1h25, metro core ~1h35m. The cleanest drive access of the screened set; no near-market commercial airport keeps it off 9–10.", confidence: "High" },
+  { name: "Exit Options", weight: 0.01, score: 6, rationale: "Deepest resale audience screened — all-investor comps, turnkey-with-revenue-history is the standard traded product, STR-fluent agents and 1031 buyers are native. But currently a soft, cyclical buyer&#39;s market: DOM 61–138 days, sale-to-list 92.9–94.5%, values flat-to-down. LTR is not a cushion ($2,450 rent vs $2,866 P&amp;I).", confidence: "Medium" }
+];
+
+const LANES_DATA = [
+  {
+    id: "conservative",
+    title: "Conservative Lane",
+    subtitle: "Buy the honest median — a 2–3BR Fannin cabin at Tier-2 revenue. The truth-teller lane: at today&#39;s prices it loses money before cleaning and maintenance.",
+    bedrooms: "2–3 BR / 2+ BA",
+    priceRange: "$375K – $475K",
+    maxDistance: "≤15 min to downtown Blue Ridge or the Aska trailheads (unincorporated Fannin only)",
+    guestAvatar: "Atlanta couples + small families (2–4 guests; GA septic caps a 2BR at 4 guests)",
+    mustHaveAmenities: ["Hot tub (82.4% prevalence — table stakes)", "Fireplace + deck", "Fast wifi (ETC fiber or Starlink)"],
+    differentiatorAmenities: ["Long-range view", "Game-room loft", "Fenced / pet-ready"],
+    valueAdd: "Design refresh + dual-platform + dynamic pricing to climb Tier 2 → Tier 1",
+    revenueConfidence: "Tier-2 revenue band — the honest starting tier for a bought-at-median cabin",
+    moatCategories: ["Operations"],
+    confirmingListings: [
+      { label: "660 Aska Rd, Blue Ridge — $375,000 · 3BR/2BA Aska-corridor cabin", url: "https://www.redfin.com/GA/Blue-Ridge/660-Aska-Rd-30513/home/131016828" },
+      { label: "234 Old Indian Trl, Blue Ridge — $414,900 · 3BR/3BA mountain cabin", url: "https://www.redfin.com/GA/Blue-Ridge/234-Old-Indian-Trl-30513/home/131045917" },
+      { label: "234 Holly Hollow Rd, Cherry Log — $424,777 · 2BR/2BA true log cabin", url: "https://www.redfin.com/GA/Cherry-Log/234-Holly-Hollow-Rd-30522/home/175426782" },
+      { label: "399 Pack Creek Rd, Blue Ridge — $462,000 · 3BR/2BA 3,000 sqft private retreat", url: "https://www.redfin.com/GA/Blue-Ridge/399-Pack-Creek-Rd-30513/home/130994116" }
+    ]
+  },
+  {
+    id: "target",
+    title: "Target Lane",
+    subtitle: "Build a Tier-1 3BR sleeping 8 in Blue Ridge proper / Epworth / Cherry Log. The numbers only work at top-quartile execution that no listing at this price has documented — you would be creating the performance, not buying it.",
+    bedrooms: "3 BR / 2.5–3 BA · sleeps 8 (septic-legal 6 — verify permit vs marketing)",
+    priceRange: "$450K – $550K",
+    maxDistance: "Blue Ridge proper first · Epworth/Fightingtown second · Cherry Log (Fannin side) third",
+    guestAvatar: "Atlanta families + small groups (13.5% of bookings originate in Atlanta)",
+    mustHaveAmenities: ["Hot tub", "Long-range view OR creek proximity", "Game room", "Fire feature"],
+    differentiatorAmenities: ["Designed interiors", "EV charger", "Fenced yard"],
+    valueAdd: "Dual-platform + dynamic pricing + photography to force Tier-1 occupancy",
+    revenueConfidence: "Tier-1 (top-25% → top-10%) 3BR band · LOW-MODERATE confidence — 3BR median is $55–59K; regression case ≈ breakeven",
+    moatCategories: ["Location", "Design", "Amenities"],
+    confirmingListings: [
+      { label: "245 Sunrise Valley Rd, Blue Ridge — $479,900 · 3BR/3BA log cabin (board)", url: "https://www.redfin.com/GA/Blue-Ridge/245-Sunrise-Valley-Rd-30513/home/131053130" },
+      { label: "237 Chestnut Gap Rd, Blue Ridge — $514,900 · 3BR/2.5BA (board)", url: "https://www.redfin.com/GA/Blue-Ridge/237-Chestnut-Gap-Rd-30513/home/131038611" },
+      { label: "801 Davenport Mountain Rd — $524,000 · 3BR/3BA, 5 min to town", url: "https://www.redfin.com/GA/Blue-Ridge/801-Davenport-Mountain-Rd-30513/home/131058732" },
+      { label: "375 S Dream Catcher — $549,900 · 3BR/3BA established furnished STR", url: "https://www.redfin.com/GA/Blue-Ridge/375-S-Dream-Catcher-30513/home/131054844" }
+    ]
+  },
+  {
+    id: "aggressive",
+    title: "Aggressive Lane",
+    subtitle: "The 4BR+ group-capacity play — the only lane that clears the 20% floor, on a revenue band no listing at this price has documented. A negotiated close at or below $500K is capital-mandatory (nothing above $534,918 funds).",
+    bedrooms: "4+ BR / 3+ BA · sleeps 10+",
+    priceRange: "$500K – $600K listed → ≤$500K close",
+    maxDistance: "Blue Ridge proper preferred; unincorporated Fannin only",
+    guestAvatar: "Atlanta multi-family groups (54.3% of the market sleeps 8+)",
+    mustHaveAmenities: ["Sleeps 10+ legally (septic-verified)", "Hot tub", "Game room", "Long-range view or creek"],
+    differentiatorAmenities: ["Pool (+215% uplift at 1.9% prevalence — the only real lever)", "Toccoa frontage", "Designed interiors"],
+    valueAdd: "Amenity-stack to force top-decile (game room + fire feature + pool where site allows)",
+    revenueConfidence: "Top-25% → top-10% 4BR revenue · LOW confidence — Gate Zero found ZERO listings ≤6× anywhere",
+    moatCategories: ["Location", "Amenities", "Quality"],
+    confirmingListings: [
+      { label: "211 Highland Forest Dr, Morganton — $499,000 · 4BR/3BA turnkey guest favorite", url: "https://www.redfin.com/GA/Morganton/211-Highland-Forest-Dr-30560/home/130996560" },
+      { label: "2 Watson Gap Rd, Mineral Bluff — $549,000 · 6BR/3BA full renovation", url: "https://www.redfin.com/GA/Mineral-Bluff/2-Watson-Gap-Rd-30559/home/131204304" },
+      { label: "37 River Rdg, Blue Ridge — $599,000 · 5BR/5BA Aska group cabin", url: "https://www.redfin.com/GA/Blue-Ridge/37-River-Ridge-Ln-30513/home/130896260" },
+      { label: "126 Brookwood Dr, Blue Ridge — $599,900 · 4BR/3BA creek-front Adirondack chalet", url: "https://www.redfin.com/GA/Blue-Ridge/126-Brookwood-Dr-30513/home/131020381" }
+    ]
+  }
+];
+
+const PROFORMA_DATA = [
+  {
+    laneId: "conservative",
+    priceMid: 425000,
+    revenueMin: 44000,
+    revenueMax: 60000,
+    debtService: 29230,
+    loanNote: "DSCR 7.75% assumed (not quoted), 20% down, 30-yr — Parker Borofsky terms pending",
+    cashRequired: 112365,
+    cashRequiredNote: "20% down + 3% closing + 6-mo reserve — NO furnishing line (turnkey 1031)",
+    userCashAvailable: 141428,
+    capitalBreakevenPrice: 534918,
+    opExpRatio: 0.337,
+    fixedOpEx: 15965,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -14195,
+    buildingPct: 0.86,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$425K · 86% building (Fannin qPublic parcel-verified) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket · Y1 appreciation modeled $0 (ZHVI −2.8% YoY)",
+    appreciationY1: 0,
+    costSegBenefit: 33809,
+    netCfAfterCostSegY1: 31294,
+    totalReturnLow: 31294,
+    grossRoiLow: 10.4,
+    grossRoiPass: false,
+    fullCostOpExpMid: 33125
+  },
+  {
+    laneId: "target",
+    priceMid: 500000,
+    revenueMin: 75000,
+    revenueMax: 91000,
+    debtService: 34388,
+    loanNote: "DSCR 7.75% assumed (not quoted), 20% down, 30-yr — $2,865.66/mo",
+    cashRequired: 132194,
+    cashRequiredNote: "20% down + 3% closing + 6-mo reserve — NO furnishing line (turnkey 1031); leaves $9,234 of the pot",
+    userCashAvailable: 141428,
+    capitalBreakevenPrice: 534918,
+    opExpRatio: 0.255,
+    fixedOpEx: 18700,
+    variableOpExRate: 0.03,
+    netCfLow_pm: 1162,
+    buildingPct: 0.89,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$500K · 89% building (parcel-verified) · 25% reclassified · 100% bonus dep (OBBBA 2025) · 37% bracket · Y1 appreciation $0",
+    appreciationY1: 0,
+    costSegBenefit: 41163,
+    netCfAfterCostSegY1: 60825,
+    totalReturnLow: 60825,
+    grossRoiLow: 15.0,
+    grossRoiPass: true,
+    fullCostOpExpMid: 39740
+  },
+  {
+    laneId: "aggressive",
+    priceMid: 500000,
+    revenueMin: 104000,
+    revenueMax: 123000,
+    debtService: 34388,
+    loanNote: "DSCR 7.75% assumed, 20% down, 30-yr — modeled at a NEGOTIATED ≤$500K close (9–17% off list; market norm is 5.5–7.1%)",
+    cashRequired: 132194,
+    cashRequiredNote: "20% down + 3% closing + 6-mo reserve — NO furnishing line (turnkey 1031)",
+    userCashAvailable: 141428,
+    capitalBreakevenPrice: 534918,
+    opExpRatio: 0.232,
+    fixedOpEx: 22900,
+    variableOpExRate: 0.03,
+    netCfLow_pm: 18337,
+    buildingPct: 0.93,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$500K · 93% building (newer-build parcel-verified) · 25% reclassified · 100% bonus dep (OBBBA 2025) · 37% bracket · Y1 appreciation $0",
+    appreciationY1: 0,
+    costSegBenefit: 43013,
+    netCfAfterCostSegY1: 86605,
+    totalReturnLow: 86605,
+    grossRoiLow: 20.8,
+    grossRoiPass: true,
+    fullCostOpExpMid: 48105
+  }
+];
+
+const DIFFERENTIATION = {
+  tier: "D — Marginal Market",
+  distanceUp: "0.51 below Tier C (needs 6.50)",
+  distanceDown: "0.49 of cushion above the 5.50 F-line",
+  strengths: [ "Deepest demand-driver stack of the 6 markets screened — 6+ independent drivers, $254M visitor economy growing, 6.4M-person Atlanta feeder 90 minutes away on four-lane GA-515",
+    "Deepest operations bench screened — published 18–25% PM rates, abundant cleaners, remote FL ownership is the market norm; regulatory friendliest yet (by-right + $225 certificate, transferable via 30-day grace)" ],
+  drags: [ { label: "Entry price vs revenue (8.58×, empty left tail)", swing: "If Returns improves from 3 to 5 (a ~30% price correction or genuine sub-6× listings with documented T-12s), the total rises by 0.36 to 6.35 — still Tier D; Returns alone cannot reach Tier C." },
+    { label: "Oversupply still absorbing (+64–77%/3–5yr; occupancy 68.6% → 53%)", swing: "If Supply improves from 3 to 5 (growth decelerating below ~10%/yr with occupancy stabilizing), the total rises by 0.36 to 6.35 — still Tier D; only fixing BOTH drags (total 6.71) moves Blue Ridge D → C." } ]
+};
+// ─── END DATA ─────────────────────────────────────────────────────────────────
+
+let activeLaneIndex = 1;
+
+function fmt$(n) {
+  const val = Math.round(n);
+  return (val < 0 ? '−$' : '$') + Math.abs(val).toLocaleString();
+}
+function passIcon(pass) {
+  return pass
+    ? '<span class="pass">✓ PASS</span>'
+    : '<span class="fail">✗ FAIL</span>';
+}
+
+function thresholdLabel(score) {
+  // 1–10 scale, five named tiers
+  if (score >= 8.5) return { text: 'Tier A · Priority Market',  cls: 'green'  };
+  if (score >= 7.5) return { text: 'Tier B · Strong Market',    cls: 'green'  };
+  if (score >= 6.5) return { text: 'Tier C · Selective Market', cls: 'yellow' };
+  if (score >= 5.5) return { text: 'Tier D · Marginal Market',  cls: 'yellow' };
+  return                   { text: 'Tier F · Pass',             cls: 'red'    };
+}
+
+function updateBadgeColor(score) {
+  const badge = document.getElementById('score-badge');
+  const label = document.getElementById('threshold-label');
+  const t = thresholdLabel(score);
+  badge.className = 'score-hero anim-scale-in d1 ' + t.cls;
+  label.className = 'verdict-pill ' + t.cls;
+  label.textContent = t.text;
+  document.getElementById('total-score-display').className = 'total-val ' + t.cls;
+  const glowMap = {
+    yellow: 'rgba(240,192,64,0.12)',
+    green:  'rgba(46,196,168,0.12)',
+    red:    'rgba(240,96,96,0.12)'
+  };
+  document.documentElement.style.setProperty('--score-glow', glowMap[t.cls] || glowMap.yellow);
+}
+
+function renderDifferentiation() {
+  const host = document.getElementById('red-flags-section');
+  if (!DIFFERENTIATION || !DIFFERENTIATION.tier || DIFFERENTIATION.tier.indexOf('{{') === 0) return;
+  let html = '<div class="section" style="margin-bottom:24px"><div class="section-body">' +
+    '<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:10px">Why This Market — Tier ' + DIFFERENTIATION.tier + '</div>';
+  if (DIFFERENTIATION.strengths && DIFFERENTIATION.strengths.length) {
+    html += '<div style="margin-bottom:12px"><strong style="color:var(--teal)">Strengths:</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.strengths.map(s => '<li style="margin-bottom:4px">' + s + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.drags && DIFFERENTIATION.drags.length) {
+    html += '<div><strong style="color:var(--yellow)">Swing factors (what moves the tier):</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.drags.map(d => '<li style="margin-bottom:4px"><strong>' + d.label + '</strong> — ' + d.swing + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.distanceUp || DIFFERENTIATION.distanceDown) {
+    html += '<div style="margin-top:10px;font-size:0.78rem;color:var(--text-3)">' +
+      [DIFFERENTIATION.distanceUp, DIFFERENTIATION.distanceDown].filter(Boolean).join(' · ') + '</div>';
+  }
+  html += '</div></div>';
+  host.insertAdjacentHTML('afterend', html);
+}
+
+function renderRedFlags() {
+  const el = document.getElementById('red-flags-section');
+  if (!RED_FLAGS || RED_FLAGS.length === 0) {
+    el.innerHTML = '<div class="red-flags-clean">✓ No disqualifying red flags detected for this market.</div>';
+    return;
+  }
+  let html = '<div class="red-flags-wrap anim-fade-up d3"><h2>⚠ Red Flags Detected (' + RED_FLAGS.length + ' of 10 Framework Items Triggered)</h2><ul>';
+  RED_FLAGS.forEach(f => {
+    html += '<li><strong>' + f.flag + '</strong>' + (f.data || '') + '</li>';
+  });
+  html += '</ul></div>';
+  el.innerHTML = html;
+}
+
+function bandClass(v) {
+  if (v <= 4) return '1';      // red band
+  if (v <= 6) return '3';      // yellow band
+  return '5';                  // teal band
+}
+
+function renderScorecard() {
+  const body = document.getElementById('scorecard-body');
+  let html = '';
+  SCORECARD_DATA.forEach((cat, i) => {
+    cat.currentScore = cat.score;
+    const contrib = (cat.score * cat.weight).toFixed(2);
+    html += '<div class="score-row" id="row-' + i + '">' +
+      '<div class="score-row-left">' +
+        '<div class="cat-name">' + cat.name + '</div>' +
+        '<div class="cat-meta">Weight: ' + (cat.weight * 100).toFixed(0) + '% · Contrib: <span id="contrib-' + i + '">' + contrib + '</span></div>' +
+        '<span class="rationale-toggle" onclick="toggleRationale(' + i + ')">▸ Why this score</span>' +
+        '<div class="rationale-card" id="rationale-' + i + '">' +
+          cat.rationale +
+          '<div class="confidence">Data confidence: ' + cat.confidence + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="score-row-right">' +
+        '<div class="pills" id="pills-' + i + '">' +
+          [1,2,3,4,5,6,7,8,9,10].map(v => '<button class="pill' + (v === cat.score ? ' active-' + bandClass(v) : '') + '" data-cat="' + i + '" data-val="' + v + '" onclick="setScore(' + i + ',' + v + ')">' + v + '</button>').join('') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  });
+  body.innerHTML = html;
+  updateTotalDisplay();
+}
+
+function setScore(catIndex, val) {
+  SCORECARD_DATA[catIndex].currentScore = val;
+  const pillsEl = document.getElementById('pills-' + catIndex);
+  pillsEl.querySelectorAll('.pill').forEach(p => {
+    p.className = 'pill' + (parseFloat(p.dataset.val) === val ? ' active-' + bandClass(val) : '');
+  });
+  const contribEl = document.getElementById('contrib-' + catIndex);
+  if (contribEl) contribEl.textContent = (val * SCORECARD_DATA[catIndex].weight).toFixed(2);
+  updateTotalDisplay();
+}
+
+function updateTotalDisplay() {
+  let total = 0;
+  SCORECARD_DATA.forEach(cat => { total += cat.currentScore * cat.weight; });
+  const rounded = total.toFixed(2);
+  document.getElementById('overall-score-display').textContent = rounded;
+  document.getElementById('total-score-display').textContent = rounded;
+  updateBadgeColor(total);
+}
+
+function toggleRationale(i) {
+  const el = document.getElementById('rationale-' + i);
+  const toggle = el.previousElementSibling;
+  el.classList.toggle('open');
+  toggle.textContent = el.classList.contains('open') ? '▾ Hide rationale' : '▸ Why this score';
+}
+
+function renderLanes() {
+  const container = document.getElementById('lanes-container');
+  let html = '';
+  LANES_DATA.forEach((lane, i) => {
+    const isActive = i === activeLaneIndex;
+    // Look up matching pro forma for capital fit badge
+    const pf = PROFORMA_DATA.find(p => p.laneId === lane.id);
+    let capitalBadge = '';
+    if (pf && pf.cashRequired && pf.userCashAvailable) {
+      const fits = pf.cashRequired <= pf.userCashAvailable;
+      if (fits) {
+        capitalBadge = '<div class="capital-fit-badge fits">✓ Fits Your Capital</div>';
+      } else {
+        const shortfall = Math.ceil((pf.cashRequired - pf.userCashAvailable) / 1000);
+        capitalBadge = '<div class="capital-fit-badge short">⚠ +$' + shortfall + 'K Needed</div>';
+      }
+    }
+    html += '<div class="lane-card' + (isActive ? ' active' : '') + '" id="lane-' + i + '" onclick="selectLane(' + i + ')">' +
+      '<div class="lane-card-left">' +
+        '<div class="lane-header">' +
+          '<div class="lane-title">' + lane.title + '</div>' +
+        '</div>' +
+        '<div class="lane-subtitle">' + lane.subtitle + '</div>' +
+        (lane.revenueConfidence ? '<div style="display:inline-block;margin-top:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--yellow);background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:5px;padding:3px 8px">⚑ ' + lane.revenueConfidence + '</div>' : '') +
+        '<div class="lane-detail-grid">' +
+          '<div class="lane-detail-item"><span class="detail-label">Bedrooms</span>' + lane.bedrooms + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Price Range</span>' + lane.priceRange + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Max Distance</span>' + lane.maxDistance + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Guest Profile</span>' + lane.guestAvatar + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Must-Have Amenities</span>' + lane.mustHaveAmenities.join(' · ') + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Differentiators</span>' + lane.differentiatorAmenities.join(' · ') + '</div>' +
+          (lane.valueAdd ? '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Value-Add to Seek</span>' + lane.valueAdd + '</div>' : '') +
+        '</div>' +
+        '<div class="moat-tags">' + lane.moatCategories.map(m => '<span class="moat-tag">' + m + '</span>').join('') + '</div>' +
+        ((lane.confirmingListings && lane.confirmingListings.length) ? (
+          '<div class="confirming-listings">' +
+            '<div class="cl-label">Live listings that fit this buy box</div>' +
+            lane.confirmingListings.map(l => '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">' + l.label + '</a>').join('') +
+          '</div>'
+        ) : '') +
+      '</div>' +
+      '<div class="lane-card-right">' +
+        '<div class="lane-price">' + lane.priceRange.replace(' – ', '–') + '</div>' +
+        '<div style="font-size:0.68rem;color:var(--text-3);letter-spacing:0.04em;text-transform:uppercase;font-weight:600">Purchase</div>' +
+        capitalBadge +
+      '</div>' +
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function renderProFormaTabs() {
+  const tabs = document.getElementById('pf-lane-tabs');
+  if (!tabs) return;
+  tabs.innerHTML = LANES_DATA.map((lane, i) =>
+    '<button class="pf-lane-tab' + (i === activeLaneIndex ? ' active' : '') + '" data-lane="' + i + '" onclick="selectLane(' + i + ')">' + lane.title + '</button>'
+  ).join('');
+}
+
+function selectLane(i) {
+  activeLaneIndex = i;
+  document.querySelectorAll('.lane-card').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.querySelectorAll('.pf-lane-tab').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.getElementById('active-lane-name').textContent = LANES_DATA[i].title;
+  renderProForma();
+}
+
+function renderProForma() {
+  const activeLaneId = LANES_DATA[activeLaneIndex].id;
+  const pf = PROFORMA_DATA.find(p => p.laneId === activeLaneId) || PROFORMA_DATA[activeLaneIndex];
+  const body = document.getElementById('proforma-body');
+  if (!pf) {
+    body.innerHTML = '<p style="color:var(--text-3);padding:16px">No pro forma data available.</p>';
+    return;
+  }
+
+  const opExpRatio = pf.opExpRatio || 0.40;
+  const hasOpExpSplit = typeof pf.fixedOpEx === 'number' && typeof pf.variableOpExRate === 'number';
+  const roiLow  = (pf.revenueMin / (pf.priceMid || 1) * 100).toFixed(1);
+  const roiHigh = (pf.revenueMax / (pf.priceMid || 1) * 100).toFixed(1);
+  const grossRoiPass = parseFloat(roiLow) >= 15;
+  const opExpLow  = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMin * pf.variableOpExRate) : Math.round(pf.revenueMin * opExpRatio);
+  const opExpHigh = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMax * pf.variableOpExRate) : Math.round(pf.revenueMax * opExpRatio);
+  const opExpPctLow  = pf.revenueMin > 0 ? Math.round(opExpLow  / pf.revenueMin * 100) : 0;
+  const opExpPctHigh = pf.revenueMax > 0 ? Math.round(opExpHigh / pf.revenueMax * 100) : 0;
+  const netLow  = Math.round(pf.revenueMin - opExpLow - pf.debtService);
+  const netHigh = Math.round(pf.revenueMax - opExpHigh - pf.debtService);
+  const netPctLow = pf.revenueMin > 0 ? (netLow / pf.revenueMin * 100).toFixed(0) : '—';
+  const cocLow  = pf.cashRequired > 0 ? (netLow  / pf.cashRequired * 100).toFixed(1) : '—';
+  const cocHigh = pf.cashRequired > 0 ? (netHigh / pf.cashRequired * 100).toFixed(1) : '—';
+  const bearRev  = Math.round(pf.revenueMin * 0.9);
+  const bearExp  = hasOpExpSplit ? Math.round((pf.fixedOpEx + bearRev * pf.variableOpExRate) * 1.1) : Math.round(opExpLow * 1.1);
+  const bearNet  = bearRev - bearExp - pf.debtService;
+  const capitalFits = pf.cashRequired <= pf.userCashAvailable;
+  const capitalNote = pf.cashRequiredNote || '20% down + 3% closing + 5% furnishing + 6-mo reserve';
+  // Bear case 3-tier classification
+  const appreciationRate = pf.appreciationY1 ? (pf.appreciationY1 / pf.priceMid) : 0;
+  let bearTierBadge;
+  if (bearNet > 0) {
+    bearTierBadge = '<span class="pass">✓ PASS</span>';
+  } else if (bearNet > -(pf.debtService * 0.25) && appreciationRate > 0) {
+    bearTierBadge = '<span class="warn">⚠ SURVIVABLE</span>';
+  } else {
+    bearTierBadge = '<span class="fail">✗ DISTRESS</span>';
+  }
+  const opExpLabel = hasOpExpSplit
+    ? opExpPctLow + '%→' + opExpPctHigh + '% of revenue · fixed ' + fmt$(pf.fixedOpEx) + ' + ' + Math.round(pf.variableOpExRate * 100) + '% variable — ratio runs higher at low revenue'
+    : (opExpRatio * 100).toFixed(0) + '% (market-specific, per-lane)';
+
+  // Cost seg tile values
+  const hasCostSeg = pf.costSegBenefit && pf.buildingPct;
+  const buildingPctDisplay = hasCostSeg ? Math.round(pf.buildingPct * 100) + '%' : '—';
+  const landPctDisplay = hasCostSeg ? Math.round((1 - pf.buildingPct) * 100) + '%' : '—';
+  const netAfterCostSeg = pf.netCfAfterCostSegY1 || (netLow + (pf.costSegBenefit || 0));
+  const costSegAssumptions = pf.costSegAssumptions || '';
+
+  // PM impact tile
+  const hasPM = typeof pf.netCfLow_pm === 'number';
+  const pmSavings = hasPM ? (netLow - pf.netCfLow_pm) : 0;
+
+  // Capital breakeven
+  const showBreakeven = !capitalFits && pf.capitalBreakevenPrice && pf.capitalBreakevenPrice > 0;
+
+  body.innerHTML =
+    '<div class="pf-grid">' +
+      // Row 1: Revenue + Gross ROI
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross Revenue Range</div>' +
+        '<div class="pf-value">' + fmt$(pf.revenueMin) + ' – ' + fmt$(pf.revenueMax) + '</div>' +
+        '<div class="pf-note">Tier-appropriate range · self-manage assumed · assumes dual-platform listing (Airbnb + VRBO) — single-platform operators typically achieve 15–20% less gross</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross ROI</div>' +
+        '<div class="pf-value">' + roiLow + '% – ' + roiHigh + '% ' + passIcon(grossRoiPass) + '</div>' +
+        '<div class="pf-note">Min 15% · Target 18–20%</div>' +
+      '</div>' +
+      // Row 2: OpExp + Debt Service
+      '<div class="pf-item">' +
+        '<div class="pf-label">Operating Expenses (' + opExpLabel + ')</div>' +
+        '<div class="pf-value">' + fmt$(opExpLow) + ' – ' + fmt$(opExpHigh) + '</div>' +
+        '<div class="pf-note">Narrow-lane: taxes + insurance + platform fee + supplies only · excl. debt service</div>' +
+        (pf.fullCostOpExpMid ? '<div style="margin-top:5px;font-size:0.78rem;padding:6px 10px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:6px;color:var(--amber-pale);line-height:1.5"><strong style="color:var(--yellow)">Full annual cost</strong> (adds cleaning + maintenance): <strong style="color:var(--text-1)">' + fmt$(pf.fullCostOpExpMid) + '</strong> · Self-manage net CF at midpoint revenue: ' + fmt$(Math.round((pf.revenueMin + pf.revenueMax)/2 - pf.fullCostOpExpMid - pf.debtService)) + '</div>' : '') +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Estimated Debt Service</div>' +
+        '<div class="pf-value">' + fmt$(pf.debtService) + '/yr</div>' +
+        '<div class="pf-note">' + pf.loanNote + '</div>' +
+      '</div>' +
+      // Row 3: Net CF (self-manage) + PM Impact
+      '<div class="pf-item">' +
+        '<div class="pf-label">Net Cash Flow (Self-Manage)</div>' +
+        '<div class="pf-value">' + fmt$(netLow) + ' – ' + fmt$(netHigh) + '</div>' +
+        '<div class="pf-note">~' + netPctLow + '% of gross · self-manage only</div>' +
+      '</div>' +
+      (hasPM ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label">If PM-Managed (25%)</div>' +
+          '<div class="pf-value fail">' + fmt$(pf.netCfLow_pm) + '/yr</div>' +
+          '<div class="pf-note">Self-manage saves ' + fmt$(pmSavings) + '/yr vs full PM · co-host at 10–15% is middle option</div>' +
+        '</div>'
+      ) : '') +
+      // Row 4: CoC Return + Total Return
+      '<div class="pf-item">' +
+        '<div class="pf-label">Cash-on-Cash Return</div>' +
+        '<div class="pf-value">' + cocLow + '% – ' + cocHigh + '%</div>' +
+        '<div class="pf-note">Target 10%+ · Excellent 20%+</div>' +
+      '</div>' +
+      (pf.appreciationY1 ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label" style="color:var(--teal)">Total Economic Return (Yr 1 — incl. one-time cost seg)</div>' +
+          '<div class="pf-value" style="color:var(--teal)">' + fmt$(pf.totalReturnLow) + '</div>' +
+          '<div class="pf-note">Net CF ' + fmt$(netLow) + ' + ' + fmt$(pf.appreciationY1) + ' appreciation + ' + fmt$(pf.costSegBenefit || 0) + ' cost seg. The cost-seg benefit is a ONE-TIME Year-1 item — recurring annual return is the Net CF above; it does not repeat in Year 2+.</div>' +
+        '</div>'
+      ) : '') +
+      // Cost Segregation section (full row)
+      (hasCostSeg ? (
+        '<div class="pf-item" style="grid-column:1/-1;border-color:var(--teal-dim)">' +
+          '<div class="pf-label" style="color:var(--teal)">Cost Segregation Benefit (Year 1) — One-Time</div>' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px">' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Tax Savings (37% bracket)</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--teal)">' + fmt$(pf.costSegBenefit) + '</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Depreciable Basis</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-1)">' + buildingPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * pf.buildingPct)) + ')</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Land Excluded</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-2)">' + landPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * (1 - pf.buildingPct))) + ')</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem;color:var(--teal-dim)">' +
+            'Yr 1 effective position (net CF + cost seg): <strong style="color:var(--teal)">' + fmt$(netAfterCostSeg) + '</strong> · ' +
+            (costSegAssumptions ? costSegAssumptions + ' · ' : '') +
+            'Study cost: $5K–$12K · Requires 100+ hrs material participation' +
+          '</div>' +
+        '</div>'
+      ) : '') +
+      // Cash Required + Capital Breakeven
+      '<div class="pf-item">' +
+        '<div class="pf-label">Total Cash Required</div>' +
+        '<div class="pf-value ' + (capitalFits ? 'pass' : 'fail') + '">' + fmt$(pf.cashRequired) + ' ' + (capitalFits ? '✓' : '⚠') + '</div>' +
+        '<div class="pf-note">' + capitalNote + ' · You have: ' + fmt$(pf.userCashAvailable) + '</div>' +
+        (showBreakeven ? '<div style="margin-top:6px;font-size:0.78rem;color:var(--yellow)">Capital breakeven: ~' + fmt$(pf.capitalBreakevenPrice) + ' — buy at or below this price to fit your cash</div>' : '') +
+      '</div>' +
+      // Bear Case (full row)
+      '<div class="bear-case">' +
+        '<h4>Bear Case Stress Test — Revenue −10% / Expenses +10%</h4>' +
+        '<div class="bear-row"><span>Bear case revenue</span><span>' + fmt$(bearRev) + '</span></div>' +
+        '<div class="bear-row"><span>Bear case op expenses</span><span>' + fmt$(bearExp) + '</span></div>' +
+        '<div class="bear-row"><span>Debt service</span><span>' + fmt$(pf.debtService) + '</span></div>' +
+        '<div class="bear-row bear-result">' +
+          '<span>Bear case net cash flow</span>' +
+          '<span>' + fmt$(bearNet) + ' ' + bearTierBadge + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  header.classList.toggle('open', !isOpen);
+  body.classList.toggle('collapsed', isOpen);
+}
+
+function renderCapitalAlert() {
+  const container = document.getElementById('capital-alert-container');
+  if (!SHOW_CAPITAL_ALERT) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>⚠ Capital Fit Alert</strong> ${CAPITAL_ALERT_BODY}</div>`;
+}
+
+function renderRoiContext() {
+  const container = document.getElementById('roi-context-container');
+  if (!ROI_CONTEXT_NOTE) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>ℹ Market Context</strong> ${ROI_CONTEXT_NOTE}</div>`;
+}
+
+renderCapitalAlert();
+renderRoiContext();
+renderRedFlags();
+renderDifferentiation();
+renderScorecard();
+renderLanes();
+renderProFormaTabs();
+renderProForma();
+</script>
+</body>
+</html>

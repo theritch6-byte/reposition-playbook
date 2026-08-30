@@ -1,0 +1,1612 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STR Market Analysis — Kachina Village, AZ (Playbook)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ─── DESIGN TOKENS ──────────────────────────────────────────────────────── */
+:root {
+  /* Mountain palette */
+  --bg:        #0f1a13;
+  --bg-card:   #1c2b20;
+  --bg-card-2: #213526;
+  --border:    #2d4533;
+  --border-2:  #3d5c46;
+
+  --amber:     #e8924a;
+  --amber-dim: #c4743a;
+  --amber-bg:  #2a1e12;
+  --amber-pale:#f0b07a;
+
+  --teal:      #2ec4a8;
+  --teal-dim:  #1fa08a;
+  --teal-bg:   #0e2420;
+
+  --red:       #f06060;
+  --red-dim:   #c44545;
+  --red-bg:    #2a1212;
+  --red-border:#4a2020;
+  --red-muted: #7a5050;
+
+  --yellow:    #f0c040;
+  --yellow-dim:#c89c28;
+  --yellow-bg: #241e0a;
+
+  --neutral-icon-bg:     #1a2530;
+  --neutral-icon-border: #2a3f55;
+
+  /* Updated by JS to match the score band (yellow/green/red) */
+  --score-glow: rgba(232,146,74,0.12);
+
+  --text-1:    #f2f5f2;
+  --text-2:    #baced0;
+  --text-3:    #6a8070;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─── RESET & BASE ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { text-wrap: balance; }
+article p { text-wrap: pretty; }
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.anim-fade-up  { animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-scale-in { animation: scaleIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up, .anim-scale-in { animation: none; opacity: 1; transform: none; }
+}
+
+.d0 { animation-delay: 0ms; }
+.d1 { animation-delay: 60ms; }
+.d2 { animation-delay: 120ms; }
+.d3 { animation-delay: 180ms; }
+.d4 { animation-delay: 240ms; }
+.d5 { animation-delay: 300ms; }
+.d6 { animation-delay: 360ms; }
+
+/* ─── LAYOUT ─────────────────────────────────────────────────────────────── */
+.page { max-width: 980px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+.hero {
+  padding: 64px 0 56px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+
+.hero-state {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.hero-summary {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  max-width: 580px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-date {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.score-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card-2);
+  border: 2px solid var(--border-2);
+  border-radius: 20px;
+  padding: 36px 44px;
+  min-width: 172px;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 10%, var(--score-glow) 0%, transparent 65%);
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.score-hero .score-num {
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-denom {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-3);
+  line-height: 1;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero.yellow .score-num   { color: var(--yellow); }
+.score-hero.yellow .score-label { color: var(--yellow-dim); }
+.score-hero.green  .score-num   { color: var(--teal); }
+.score-hero.green  .score-label { color: var(--teal-dim); }
+.score-hero.red    .score-num   { color: var(--red); }
+.score-hero.red    .score-label { color: var(--red-dim); }
+
+.verdict-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.verdict-pill.yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-dim); }
+.verdict-pill.green  { background: var(--teal-bg);   color: var(--teal);   border: 1px solid var(--teal-dim); }
+.verdict-pill.red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-dim); }
+
+/* ─── CAPITAL ALERT BANNER ───────────────────────────────────────────────── */
+.capital-alert {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-top: 3px solid var(--amber);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 32px;
+  font-size: 0.875rem;
+  color: var(--amber-pale);
+  line-height: 1.65;
+}
+.capital-alert strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.capital-alert em { color: var(--text-1); font-weight: 600; font-style: normal; }
+
+/* ─── RED FLAGS ──────────────────────────────────────────────────────────── */
+.red-flags-wrap {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 32px;
+}
+.red-flags-wrap h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.red-flags-wrap ul { list-style: none; }
+.red-flags-wrap li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--red-border);
+  color: var(--red-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.red-flags-wrap li:last-child { border-bottom: none; }
+.red-flags-wrap li strong { display: block; color: var(--red); font-weight: 600; margin-bottom: 3px; }
+
+.red-flags-clean {
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-dim);
+  border-radius: 12px;
+  padding: 14px 22px;
+  margin-bottom: 32px;
+  color: var(--teal);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ─── SECTION SHELL ──────────────────────────────────────────────────────── */
+.section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 20px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.15s;
+}
+.section-header:hover { background: rgba(255,255,255,0.02); }
+.section-header.open { border-bottom-color: var(--border); }
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.section-title-icon.amber { background: var(--amber-bg); border: 1px solid var(--amber-dim); }
+.section-title-icon.teal  { background: var(--teal-bg);  border: 1px solid var(--teal-dim);  }
+.section-title-icon.blue  { background: var(--neutral-icon-bg); border: 1px solid var(--neutral-icon-border); }
+.section-title-icon.red   { background: var(--red-bg);   border: 1px solid var(--red-dim);   }
+
+.section-toggle {
+  color: var(--text-3);
+  font-size: 0.7rem;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+}
+.section-header.open .section-toggle { transform: rotate(180deg); }
+
+.section-body { padding: 26px; }
+.section-body.collapsed { display: none; }
+
+/* ─── SCORECARD ──────────────────────────────────────────────────────────── */
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.score-row:last-child { border-bottom: none; }
+
+.score-row-left { min-width: 0; }
+
+.score-row-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.score-row .cat-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 2px;
+}
+.score-row .cat-meta {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+.score-row .cat-weight {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.score-row .weighted-contrib {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-2);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.pills { display: flex; gap: 4px; flex-wrap: wrap; }
+.pill {
+  width: 40px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border-2);
+  background: var(--bg-card-2);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+}
+.pill:hover { border-color: var(--amber); color: var(--amber); }
+.pill:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.pill.active-1, .pill.active-2 { border-color: var(--red-dim);    background: var(--red-bg);    color: var(--red); }
+.pill.active-3                  { border-color: var(--yellow-dim); background: var(--yellow-bg); color: var(--yellow); }
+.pill.active-4, .pill.active-5  { border-color: var(--teal-dim);  background: var(--teal-bg);   color: var(--teal); }
+
+.rationale-toggle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--amber);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  transition: background 0.1s;
+}
+.rationale-toggle:hover { background: rgba(232,146,74,0.12); }
+
+.rationale-card {
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-1);
+  display: none;
+  line-height: 1.7;
+}
+.rationale-card .confidence {
+  font-size: 0.72rem;
+  color: var(--teal-dim);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.rationale-card.open { display: block; }
+
+.scorecard-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 26px;
+  background: var(--bg-card-2);
+  border-top: 2px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+.scorecard-total .total-val {
+  font-size: 2rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+/* ─── INTELLIGENCE PANELS ────────────────────────────────────────────────── */
+.intel-section { margin-bottom: 28px; }
+.intel-section:last-child { margin-bottom: 0; }
+
+.intel-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.intel-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.intel-content {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.75;
+  font-weight: 400;
+}
+.intel-content .intel-entry {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.intel-content .intel-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.intel-content .intel-key {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-bottom: 5px;
+}
+.intel-content .intel-key.key-red {
+  color: var(--red);
+  background: var(--red-bg);
+  border-color: var(--red-dim);
+}
+.intel-content .intel-key.key-teal {
+  color: var(--teal);
+  background: var(--teal-bg);
+  border-color: var(--teal-dim);
+}
+.intel-content .intel-key.key-neutral {
+  color: var(--text-3);
+  background: var(--bg-card-2);
+  border-color: var(--border-2);
+}
+.intel-content p {
+  margin: 0;
+  line-height: 1.75;
+}
+.intel-content ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.intel-content ul li {
+  padding-left: 14px;
+  position: relative;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.intel-content ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-weight: 700;
+}
+.intel-content strong { color: var(--text-1); font-weight: 600; }
+
+/* ─── LANES ──────────────────────────────────────────────────────────────── */
+.lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.lane-card {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+}
+.lane-card:hover { border-color: var(--border-2); }
+.lane-card.active {
+  border-color: var(--amber);
+  background: var(--amber-bg);
+  box-shadow: 0 0 0 1px var(--amber-dim);
+}
+
+.lane-card-left { min-width: 0; }
+
+.lane-card-right {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.lane-card .lane-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.lane-card .lane-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-1);
+}
+.lane-card.active .lane-title { color: var(--amber-pale); }
+
+.lane-card .lane-subtitle {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-3);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.lane-card.active .lane-subtitle { color: var(--amber-dim); }
+
+.lane-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 24px;
+}
+
+.lane-detail-item {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.lane-detail-item .detail-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: block;
+  margin-bottom: 1px;
+}
+.lane-card.active .lane-detail-item { color: var(--amber-pale); opacity: 0.9; }
+.lane-card.active .detail-label { color: var(--amber-dim); }
+
+.lane-price {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+.lane-card.active .lane-price { color: var(--amber); }
+
+.moat-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 14px; }
+.moat-tag {
+  background: var(--bg);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lane-card.active .moat-tag {
+  background: rgba(232,146,74,0.08);
+  color: var(--amber);
+  border-color: var(--amber-dim);
+}
+
+/* ─── CAPITAL FIT BADGE ──────────────────────────────────────────────────── */
+.capital-fit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+.capital-fit-badge.fits {
+  background: rgba(46,196,168,0.12);
+  color: var(--teal);
+  border: 1px solid var(--teal-dim);
+}
+.capital-fit-badge.short {
+  background: rgba(240,96,96,0.12);
+  color: var(--red);
+  border: 1px solid var(--red-dim);
+}
+
+/* ─── PRO FORMA ──────────────────────────────────────────────────────────── */
+.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.pf-item {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.pf-item .pf-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+.pf-item .pf-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.pf-item .pf-note {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.pass { color: var(--teal) !important; }
+.warn { color: var(--yellow) !important; }
+.fail { color: var(--red)  !important; }
+
+.bear-case {
+  grid-column: 1 / -1;
+  background: var(--bg-card-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.bear-case h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.bear-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.855rem;
+  color: var(--text-2);
+  padding: 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+.bear-result {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-1);
+}
+
+/* ─── CHECKLIST ──────────────────────────────────────────────────────────── */
+.checklist { list-style: none; counter-reset: check-counter; display: flex; flex-direction: column; gap: 10px; }
+.checklist li {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px 18px 64px;
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  counter-increment: check-counter;
+  position: relative;
+}
+.checklist li::before {
+  content: counter(check-counter, decimal-leading-zero);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 30px;
+  height: 30px;
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+.checklist li strong {
+  display: block;
+  color: var(--text-1);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* ─── PRO FORMA LANE TOGGLE ──────────────────────────────────────────────── */
+.pf-lane-switch { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.pf-lane-switch-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.pf-lane-tabs { display: inline-flex; background: var(--bg); border: 1px solid var(--border-2); border-radius: 10px; padding: 3px; gap: 3px; }
+.pf-lane-tab { border: none; background: transparent; color: var(--text-2); font-family: var(--font); font-size: 0.8rem; font-weight: 700; padding: 7px 16px; border-radius: 7px; cursor: pointer; transition: all 0.14s; white-space: nowrap; }
+.pf-lane-tab:hover { color: var(--amber); }
+.pf-lane-tab.active { background: var(--amber); color: #1a1208; }
+.pf-lane-tab:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+/* ─── CONFIRMING LISTINGS (buy box links) ────────────────────────────────── */
+.confirming-listings { margin-top: 14px; }
+.confirming-listings .cl-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.confirming-listings a { display: inline-flex; align-items: center; gap: 5px; background: var(--teal-bg); border: 1px solid var(--teal-dim); color: var(--teal); border-radius: 6px; padding: 4px 10px; margin: 0 5px 5px 0; font-size: 0.72rem; font-weight: 600; text-decoration: none; transition: all 0.12s; }
+.confirming-listings a:hover { background: rgba(46,196,168,0.18); }
+.confirming-listings a::before { content: '↗'; font-size: 0.78rem; opacity: 0.8; }
+.lane-card.active .confirming-listings .cl-label { color: var(--amber-dim); }
+.lane-card.active .confirming-listings a { background: rgba(232,146,74,0.10); border-color: var(--amber-dim); color: var(--amber); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; }
+  .score-hero { flex-direction: row; gap: 16px; align-self: flex-start; padding: 20px 24px; min-width: 0; }
+  .score-hero .score-num { font-size: 3rem; }
+  .lane-card { grid-template-columns: 1fr; }
+  .lane-detail-grid { grid-template-columns: 1fr; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .score-row .weighted-contrib { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO ────────────────────────────────────────────────────────────────── -->
+  <div class="hero">
+    <div class="anim-fade-up d0">
+      <div class="hero-eyebrow">STR Market Analysis · August 21, 2026</div>
+      <h1>Kachina Village</h1>
+      <div class="hero-state">Arizona &middot; Unincorporated Coconino County</div>
+      <div class="hero-summary">Kachina Village is a genuinely excellent place to <strong>operate</strong> a short-term rental and a poor place to <strong>buy</strong> one at $500,000. The regulatory framework is close to best-in-class for an investor — unincorporated Coconino County, not the City of Flagstaff — and the market posts the best occupancy in the I-17 south corridor on five durable demand drivers. But a 2BR grosses about $38,000 while asking $440,000–$620,000: a 5.74%–7.6% gross yield and a 2.0%–2.8% cap rate against a 7.75% note, which is deep structural negative leverage. At 5.90/10, Kachina Village ranks below the mountain-market median among STR markets — well below anchors like Banner Elk / Shenandoah Valley (7.6–8.4) and below Luray, VA (6.00, Tier D — run Aug 23 2026), sitting instead near the single-driver COVID-boom band (5.4–6.2) despite having genuinely durable demand. <strong>All three buy-box lanes fail your 20% revenue floor by more than 2× and every bear case is Distress. Do not build a buy box here at the $500,000 cap.</strong></div>
+      <div style="margin-top:18px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px">
+  <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">Budget Fit &mdash; TIGHT</div>
+  <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">At $465,000, reaching $22,000 net cash flow requires roughly <strong>$79,178</strong> in gross revenue &mdash; <strong>65% above</strong> this market&rsquo;s $48,000 ceiling for a 3BR. Under true remote-owner costs (the analysis modelled an out-of-state owner, so a paid local designee was included) the requirement rises to <strong>$97,194</strong>, more than double the ceiling. No Kachina Village property under the $500,000 cap reaches either figure.</div>
+</div>
+<div style="margin-top:12px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px">
+  <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">&#9888; Jurisdiction Warning</div>
+  <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">Kachina Village is <strong>unincorporated Coconino County</strong>, governed by County Ordinance 2023-04 &mdash; <strong>not</strong> the City of Flagstaff, whose STR rules are the most restrictive in the region. The trap is that Kachina&rsquo;s mailing address reads &ldquo;Flagstaff, AZ 86005.&rdquo; Confirm every parcel against the Coconino County parcel viewer or Community Development (928-679-8856) <strong>before</strong> making any offer &mdash; buying inside city limits by mistake changes the rules, the 6.90% lodging tax (to &asymp;11.39%), and the entire thesis.</div>
+</div>
+      <div class="hero-meta">
+        <span class="hero-date">Analysis date: August 21, 2026</span>
+        <span class="verdict-pill yellow" id="threshold-label">Loading…</span>
+      </div>
+    </div>
+    <div class="score-hero yellow anim-scale-in d1" id="score-badge">
+      <div class="score-num" id="overall-score-display">—</div>
+      <div class="score-denom">/ 10</div>
+      <div class="score-label">Market Score</div>
+    </div>
+  </div>
+
+  <!-- CAPITAL ALERT ───────────────────────────────────────────────────────── -->
+  <!-- Rendered by renderCapitalAlert() below based on SHOW_CAPITAL_ALERT constant -->
+  <div id="capital-alert-container" class="anim-fade-up d2"></div>
+  <div id="roi-context-container" class="anim-fade-up d2"></div>
+
+  <!-- RED FLAGS ───────────────────────────────────────────────────────────── -->
+  <div id="red-flags-section" class="anim-fade-up d3"></div>
+
+  <!-- SCORECARD ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d3">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">📊</span>
+        Market Scorecard
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="scorecard-body"></div>
+    <div class="scorecard-total">
+      <span>Weighted Total Score</span>
+      <span class="total-val yellow" id="total-score-display">—</span>
+    </div>
+  </div>
+
+  <!-- MARKET INTELLIGENCE ─────────────────────────────────────────────────── -->
+  <!-- Collapsed by default — user expands to read -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon teal">🔍</span>
+        Market Intelligence
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body collapsed" id="intel-body">
+      <div class="intel-section">
+        <div class="intel-label">⚖ Regulatory &amp; Legal</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+  <span class="intel-key key-teal">Jurisdiction — CONFIRMED</span>
+  <p>Unincorporated Coconino County, ZIP 86005. Never incorporated, no annexation found. Governed by County Ordinance 2023-04 under A.R.S. &sect;11-269.17 &mdash; NOT the City of Flagstaff. Zoning is predominantly RS-6,000 / RS-10,000, pulled live from county GIS.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Permit</span>
+  <p>$250/yr, 7-business-day issuance, no inspection, no cap, no owner-occupancy requirement, no minimum stay, no neighbor approval, no lottery.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Emergency Contact — NOT a blocker</span>
+  <p>Statute says &ldquo;owner <em>or the owner&rsquo;s designee</em>&rdquo; with no distance rule anywhere. A paid Flagstaff-area cleaner or handyman qualifies. County practice: 24-hour contact, 72-hour non-emergency response. Budget $2,400/yr.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Lodging Tax Advantage</span>
+  <p>6.90% in unincorporated Coconino vs. &asymp;11.39% inside Flagstaff &mdash; about 4.5 points of guest-side price headroom. Airbnb and Vrbo auto-remit in Arizona, but the owner must still file returns using Deduction Code 775, including $0 returns.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-neutral">Property Tax — Legal Class 4</span>
+  <p>Investor STRs are Class 4, which forfeits the state-aid-to-education credit ($370–$378/yr verified on live bills). Prop 117 means LPV does NOT reset to purchase price on sale, and &sect;42-13302(A)(2)(a) confirms verbatim that the Class 3&rarr;4 flip is not a change in use &mdash; so Rule B does not trigger. Effective rate 0.65% of purchase price, tax area 0104 (SD#1 FD Highlands).</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Habitable-Dwelling Screen</span>
+  <p>STRs are limited to lawfully permitted single-family dwellings. Garages, sheds, tents, travel trailers, RVs and temporary structures are explicitly excluded. Domes, yurts, park models and skoolies do NOT qualify &mdash; no variance path.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">HOA / CC&amp;R — UNRESOLVED</span>
+  <p>The one item that needs your attention. The county&rsquo;s Kachina Village Area Plan states the original HOA disbanded and covenants went unenforced &mdash; but disbanded is not released, a nearby sub-association exists (Kachina Parkway HOA), and later subdivision units can carry live CC&amp;Rs. The county issues the permit regardless; the permit is not a legal opinion. Clear this with parcel-specific title work as a written go/no-go contingency.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-neutral">Comparison Set</span>
+  <p>Kachina Village, Munds Park, Mountainaire and Fort Valley are regulatorily <em>identical</em> &mdash; same ordinance, fee, tax and enforcement body. The only regulatory decision in this region is inside-Flagstaff versus outside. One operational differentiator: Kachina is on KVID community sewer while Mountainaire is largely on-lot septic.</p>
+</div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">📈 Demand &amp; Market Fundamentals</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+  <span class="intel-key key-teal">Five Verified Demand Drivers</span>
+  <p>Phoenix heat-escape (dominant), Grand Canyon South Rim ~1h30, Sedona / Oak Creek ~45 min, Arizona Snowbowl ~35 min, and Flagstaff itself (NAU, Lowell Observatory, Route 66). No fewer-than-three flag.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Phoenix Heat-Escape — quantified</span>
+  <p>Phoenix metro 4.83M, 2h05–2h15 on I-17, 20–25&deg;F cooler typically and 30&deg;F+ on peak days. Booking-origin data confirms it: Phoenix 16.13% + Scottsdale 4.15% + Tucson 5.37% &asymp; 26% of all Flagstaff bookings.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Weekend Compression — model it</span>
+  <p>A 2h15 drive is Friday-evening distance. A 53% blended occupancy with a strong weekend means <strong>midweek runs in the 30s</strong>. Any flat-occupancy pro forma overstates revenue.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Wildfire is a DEMAND risk, not just a cost</span>
+  <p>A materially demand-suppressing fire or closure in roughly 6 of the last 9 summers. Full Coconino NF closure June 23&ndash;July 6, 2021. The 2026 Pocket Fire (27,393 acres) closed SR-89A for 25 days between Fort Tuthill and north Sedona &mdash; immediately adjacent to Kachina Village, which was placed in SET evacuation status. All five drivers route through one physical asset, so they fail together and at peak. Budget a 2&ndash;4 peak-week vacancy reserve (~4&ndash;7% of gross).</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Revenue Trend</span>
+  <p>Flat to softening. AirDNA May 2025&rarr;May 2026: revenue +0.4%, occupancy &minus;4.1%, ADR &minus;0.7%, <strong>RevPAR &minus;7.3%</strong>. Airbtics grades Flagstaff &ldquo;C &mdash; lowest 20% for STR yield nationally.&rdquo; Not flagged as formally DECLINING because 2+ consecutive declining periods could not be confirmed.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Vendor Disagreement — material</span>
+  <p>AirDNA and Airbtics disagree violently on both listings (&minus;13.6% vs. +16.2%) and revenue (+0.4% vs. +25.2%). PriceLabs Market Research &mdash; the one tool that could have resolved this at ZIP level &mdash; is not enabled on this account. Treat every single-vendor number as directional.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Forward Signals</span>
+  <p>I-17 widening and flex lanes substantially complete 2025, directly attacking the Sunday Phoenix-return bottleneck. Snowbowl $2.5M capex on snowmaking. NAU enrollment +2%. Lowell&rsquo;s new Astronomy Discovery Center.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Negative Signal</span>
+  <p>Northern Arizona Healthcare paused its new Flagstaff Medical Center in February 2026, killing a construction-crew demand pulse and ~315 planned housing units.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Kachina-Specific Shoulder Play</span>
+  <p>The village sits in elk Game Management Unit 6A (Mormon Lake). September archery rut and an 825-permit late rifle hunt Nov 28&ndash;Dec 4 land squarely in the two dead shoulders (April&ndash;May mud season; mid-September to early November).</p>
+</div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🏠 Competitive &amp; Revenue</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+  <span class="intel-key key-red">THE CENTRAL FINDING</span>
+  <p>A Kachina 2BR grosses ~$38,000/yr (band $34K&ndash;$42K) while 2BR/2BA site-builts ask $440,000&ndash;$620,000. Best-fit price is <strong>$126,667</strong> at the 30% goal and <strong>$190,000</strong> at the 20% floor &mdash; a 2.3&times; to 5&times; gap. At $500,000 the revenue-to-price ratio is <strong>7.6%</strong>, about one-third of the floor.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Even the best property fails</span>
+  <p>The top 10% of Kachina listings gross $90,960/yr; at $500,000 that is 18.2% &mdash; still under the 20% floor. And those top-decile properties are 4&ndash;6BR homes trading at $700K&ndash;$1M. The #1 earner is a 6BR at $191,997.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Small Market Flag — TRIGGERED</span>
+  <p>130&ndash;136 active Kachina Airbnb listings. Revenue benchmarks carry higher variance; treat medians as directional. Supply &amp; Competition confidence is capped at Medium as a result. Greater Flagstaff (1,016&ndash;2,741 listings) is NOT a small market and supplies the bedroom-level shape.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Kachina wins its corridor</span>
+  <p>Best occupancy (46.3%) and best median gross ($39,504) of the I-17 south corridor &mdash; beating Flagstaff city, Munds Park and Mountainaire &mdash; despite a lower ADR. Superhost rate 76.9%, highest of the sub-areas. Kachina fills its calendar; it is the acquisition price that fails.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-neutral">Sub-Area Comparison</span>
+  <p>Kachina Village $269 ADR / 46.3% / $39,504 median &bull; Flagstaff city $303 / 42.4% / $37,668 &bull; Munds Park $311 / 35.7% / $35,196 &bull; Mountainaire $232 / 40.8% / $30,624 (shedding supply at &minus;23.4%) &bull; Fort Valley $422 / 42.5% / $53,760 (but median asking $2,275,000 &mdash; out of reach).</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-neutral">Bedroom Bands (Flagstaff, 2 sources)</span>
+  <p>1BR $22,500&ndash;$28,142 &bull; <strong>2BR $32,580&ndash;$38,261</strong> &bull; 3BR $40,200&ndash;$47,580 &bull; 4BR $52,773&ndash;$59,050. Re-indexed to Kachina at 0.97&times; the ADR curve. Two-source rule satisfied at the Flagstaff bedroom level (Rabbu + Chalet); the Kachina 2BR band itself is single-source direct and tagged Low&ndash;Moderate.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Sweet spot is 4&ndash;5BR, not 2BR</span>
+  <p>Revenue roughly doubles from 2BR to 4BR while Kachina asking prices barely move. But the thesis fails on price: site-built 4BR+ asks $725,000 and sold $580K&ndash;$863K over 12 months. Only one traded under $500K.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Amenity Gaps — real opportunity</span>
+  <p>Hot tub penetration only 25% (and just 1 of 14 active listings has one), EV charging 9%, pet-friendly 38%. A/C is confirmed unnecessary at 7,000 ft (July average high 82&deg;F). MTR share is 38.5%, just under the 40% adjustment trigger but real &mdash; NAU plus travel-nurse demand gives midweek a floor.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-neutral">Revenue Floor — SPLIT</span>
+  <p>Threshold $2,006/mo (70% of monthly debt service). Kachina market-average February $2,902 PASSES; 2BR indexed off AirROI $2,622 PASSES; 2BR indexed off Rabbu&rsquo;s harsher read $1,790 FAILS. Both Kachina-anchored bases clear, but a 2BR has no dead-month cushion.</p>
+</div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🔧 Operations &amp; Exit</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+  <span class="intel-key key-red">Manufactured Screen — READ THIS BEFORE ANY OFFER</span>
+  <p>36% of active Kachina inventory is manufactured, concentrated exactly in the buy zone, and two listings actively obscure it. <strong>2449 Blue Gap Ovi ($450,000)</strong> is marketed as &ldquo;Affordable Newer Construction&hellip; durable 2x6 construction&rdquo; and is manufactured (2020). <strong>3206 Mesa Trl ($465,000)</strong>, the only 4BR under $500K, is manufactured (2019). Strip manufactured out and the site-built 3&ndash;4BR median jumps from $465,000 to $602,500. Verify on the assessor record, not the listing copy.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Elevation OpEx — $12,500, not $4,000</span>
+  <p>Itemized across 12 lines: metered KVID water/sewer ($1,900 on the district&rsquo;s own published tier schedule), snow plowing ($1,100 &mdash; the county plows public roads only, never driveways), propane/heating, freeze protection, insurer-mandated defensible-space clearing ($600), higher electric, and the $250 county STR registration. The standard $4,000 baseline understates this market by more than 3&times;. Premise correction: UniSource natural gas serves Kachina Village, so it is not propane-only.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Insurance — no FAIR plan in Arizona</span>
+  <p>A declined parcel has no state backstop: surplus lines or uninsured. State Farm has halted new property applications in Arizona&rsquo;s high country. Bands LOW $4,200 / MID $6,500 / HIGH $11,000, plus $800 standalone NFIP flood. <strong>Recommended pro forma figure $7,300.</strong> Kachina Village was in SET evacuation status during the June 2026 Pocket Fire. Treat E&amp;S as the practical primary market.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Flood — check the parcel</span>
+  <p>Kachina is NOT in the Museum or Pipeline post-fire flood watersheds (those are Spruce Wash and Rio de Flag, north and east of the city). But the 2022 Pipeline Fire feeds Pumphouse Wash &mdash; literally the assessor&rsquo;s land code on Old Munds Hwy parcels &mdash; and the county&rsquo;s 2022/2025 remap left some Kachina parcels in Zone A/AE. Zone A/AE flood runs $1,500&ndash;$3,000+ vs. $400&ndash;$800 preferred. Get an elevation certificate before releasing the inspection contingency.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Local Contact — priced, not a blocker</span>
+  <p>$2,400/yr ($200/mo retainer). Cheaper than the Williams run&rsquo;s $4,200 because the responder pool is Flagstaff at 12 minutes, not 35 miles. Flagstaff Cleaning Company, Pine Country Windows and the Turno marketplace all serve the area.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Cleaning — the one line that behaves</span>
+  <p>Roughly revenue-neutral: ~60 turns &times; ~$115 cost = $6,900 against a Flagstaff median guest cleaning fee of $160 charged by 92.4% of listings = ~$9,600 collected. Caveat: a $160 fee against a ~$270 ADR makes a 2-night stay 23% cleaning, suppressing short shoulder bookings.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-neutral">Land-to-Building — 0.63, worse than Williams</span>
+  <p>Coconino assigns a flat $145,445 land value to every standard Kachina lot, so vintage drives the split: 0.73 newer (2000+) / 0.62 mid-age / 0.61 pre-1980 / 0.20 Kachina Mobiles. From 68 real EagleWeb parcels, TY2026. The same dollar of purchase price buys ~21% less depreciable basis here than in Williams (0.63 vs. 0.80). Cost seg is still worth running: ~5&ndash;9&times; return in year one against a $3,000&ndash;$4,000 study fee.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Appreciation — mixed, currently negative</span>
+  <p>FHFA Flagstaff MSA: +8.6%/yr over 5 years but only +3.9%/yr over 3, peaking at 495.64 in 2025Q4 then falling to 475.19 in 2026Q1 (&minus;4.1% in a quarter). Zillow has Flagstaff at ~$665,540, &minus;0.5% YoY &mdash; a real-terms loss. Meanwhile LPV compounds at exactly the 5.00% Prop-117 cap, so taxes rise faster than values.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">LTR Exit — tested honestly, and it FAILS</span>
+  <p>Flagstaff 2BR apartments run $2,100&ndash;$2,317/mo with vacancy under 7%; a Kachina 2BR realistically rents $1,800&ndash;$2,400. At $2,100/mo, NOI &asymp; $13,870 = a <strong>2.8% cap</strong> against $34,388 of annual P&amp;I &mdash; leaving the owner ~$20,500/yr short. A strong occupancy backstop; not a debt-service backstop.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-neutral">Resale</span>
+  <p>Median DOM in Kachina ~98 days (range 12&ndash;168), with three of the most interesting listings at 120/142/150 days and two already price-cut. That is real negotiating room &mdash; and a signal that the market is currently a buyer&rsquo;s market.</p>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUY BOX ─────────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">🎯</span>
+        Buy Box Recommendations
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="buybox-body">
+      <div class="lanes" id="lanes-container"></div>
+    </div>
+  </div>
+
+  <!-- PRO FORMA ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d5">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon blue">💰</span>
+        Pro Forma — <span id="active-lane-name" style="color:var(--amber);margin-left:6px">Target Lane</span>
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="pf-lane-switch" id="pf-lane-switch">
+        <span class="pf-lane-switch-label">View lane:</span>
+        <div class="pf-lane-tabs" id="pf-lane-tabs"></div>
+      </div>
+      <div id="proforma-body"></div>
+    </div>
+  </div>
+
+  </div><!-- /page -->
+
+<script>
+// ─── DATA INJECTION ───────────────────────────────────────────────────────────
+// Do not change variable names, function names, or JS structure.
+// Arrays and objects must remain valid JSON-compatible JavaScript literals.
+
+const OVERALL_SCORE = 5.90;          // e.g. 3.20 — one decimal place minimum
+const SCORE_COLOR_CLASS = "yellow"; // "yellow" | "green" | "red"
+
+// CAPITAL ALERT — set SHOW_CAPITAL_ALERT to true if the investor's stated cash or
+// budget does not comfortably cover any of the three buy box lanes.
+// CAPITAL_ALERT_BODY should name the specific conditions and exact numbers.
+const SHOW_CAPITAL_ALERT = true;  // true | false
+const CAPITAL_ALERT_BODY = "Your capital clears every lane — but two of the three structural alerts fire. Cap rates of 0.51%–2.20% under true remote-owner costs sit far below a 7.75% note (ASSUMED, not quoted), so leverage works against you in all three lanes. And Lane 2's $93,000 down payment consumes 66% of your $141,428 (Lane 3's $100,000 consumes 71%), leaving $34,478 and $26,428 respectively — enough for the six-month reserve, but little else in a market where a single wildfire evacuation can zero out a peak month. Separately: at the modeled revenue, debt-service coverage runs 0.07–0.32 against the 1.00–1.20 most DSCR lenders require, so this loan likely does not fund at all."; // e.g. "Your $200K cash covers Conservative ($190K required) but not Target ($265K). See Pro Forma for details."
+// ROI CONTEXT NOTE — set to the market-context note when ALL three lanes fail grossRoiPass
+// (gross ROI < 15% is a market-wide 2025–26 condition in appreciation-driven markets, NOT a
+// deal-specific failure). Set to "" (empty string) to hide the tile. Quoted string — never an array.
+const ROI_CONTEXT_NOTE = "All three lanes fall below the 15% gross-ROI floor and every bear case shows Distress. Part of that is the ordinary arithmetic of 30-year debt at 7.75% in an appreciation-driven 2026 market — but here it is not merely arithmetic: Kachina 2BR homes gross about $38,000 while asking $440,000–$620,000, and assessor values rose +7.30%/yr while RevPAR fell 7.2%. This is a genuine price-to-revenue failure, and the Total Return lens does not rescue it — cost segregation and appreciation are real but one-time and unrealized, while the cash-flow deficit recurs every year.";
+
+// RED FLAGS — array of {flag, data} objects.
+// flag: short headline (what is it)
+// data: supporting detail with a leading " — " separator
+// Set to [] if no red flags.
+const RED_FLAGS = [
+  {"flag": "#8 Prices Outpaced Revenue — Cap Rate Below 6%", "data": " — TRIGGERED, decisively. This is the finding that drives the whole verdict. Assessor values across 50 local parcels rose +7.30%/yr TY2023→TY2027 while per-listing revenue went sideways-to-down (RevPAR −7.2%, occupancy −4.1%). A 2BR grosses ~$38,000 against $440K–$620K asking. Cap rate 2.76% self-manage / 2.04% true remote-owner against a 7.75% note."},
+  {"flag": "#3 HOA / CC&R Prohibiting STR", "data": " — UNRESOLVED, neither Clear nor Triggered. The county's own Kachina Village Area Plan states the original HOA disbanded and covenants went unenforced — but disbanded does not mean released, a nearby sub-association exists (Kachina Parkway HOA), and later subdivision units can carry live CC&Rs. The county issues the $250 permit regardless; the permit is not a legal opinion. CLEARED ONLY BY parcel-specific title work, which must be a written go/no-go contingency."},
+  {"flag": "#5 Revenue Floor Below 70% of Debt Service", "data": " — SPLIT / MARGINAL, not Triggered. Threshold is $2,006/mo. Kachina market-average worst month (February) $2,902 PASSES (+45%); the 2BR indexed off AirROI $2,622 PASSES (+31%); the 2BR indexed off Rabbu's harsher Flagstaff read $1,790 FAILS (−11%). Both Kachina-anchored bases clear. But a 2BR here has no dead-month cushion, and February is followed by April mud season."},
+  {"flag": "#7 Single Fragile Demand Driver", "data": " — CLEAR on count (five verified drivers), but flagged on CORRELATION. All five route through the Coconino National Forest, so they fail together and at peak. A demand-suppressing fire or closure has occurred in roughly 6 of the last 9 summers; the full forest closure of June 23–July 6, 2021 is the worst case. Budget a 2–4 peak-week vacancy reserve (~4–7% of gross)."},
+  {"flag": "#4 Supply Growing Faster Than Demand 2+ Years", "data": " — CLEAR, but only on a technicality. Kachina supply grew +25.9% YoY against flat revenue and −7.2% RevPAR, which is the pattern. It is not Triggered only because two consecutive years of that divergence could not be confirmed from the available vendor data — and the vendors disagree sharply with one another."},
+  {"flag": "Negative Leverage", "data": " — Cap rate (2.04%–6.51% depending on cost basis and lane) sits far below the cost of debt (7.75%, ASSUMED not quoted). Leverage works against the investor in all three lanes. Appreciation and cost segregation would have to carry the entire return thesis — and both are one-time or unrealized while the cash-flow deficit recurs every year."},
+  {"flag": "#1 STR Ban or Moratorium", "data": " — CLEAR. Legal and uncapped in unincorporated Coconino County under Ordinance 2023-04."},
+  {"flag": "#2 Active Anti-STR Legislation", "data": " — CLEAR. A.R.S. §11-269.17 preempts county bans; no pending county measure found. Flagstaff city pressure does not reach unincorporated land."},
+  {"flag": "#6 No Cleaning / Management Infrastructure", "data": " — CLEAR, decisively. ~2,700 Flagstaff STR listings support multiple dedicated turnover companies, 12 minutes away."},
+  {"flag": "#9 Permit Requires Neighbor Approval or Lottery", "data": " — CLEAR. $250/yr, 7-business-day issuance, no inspection, no neighbor consent, no lottery."},
+  {"flag": "#10 No Dual-Use Exit Path", "data": " — CLEAR, but the cushion is thin. Flagstaff's rental shortage is genuine and vacancy is under 7%, so the property would rent. It just would not cover debt — a 2BR at ~$2,100/mo leaves a ~$20,500/yr gap."}
+];
+
+// SCORECARD — 9 categories, weights must sum to 1.00
+// name: category label string — KEY IS name, NOT category (cat.name is what renders)
+// weight: decimal fraction (all weights sum to 1.0)
+// score: integer 1–10 (initial displayed score; user can override interactively)
+// rationale: 2–4 sentences explaining the score
+// confidence: data quality note
+const SCORECARD_DATA = [
+  {"name": "Demand Strength & Durability", "weight": 0.25, "score": 8, "confidence": "High", "rationale": "Five independently verified demand drivers, not one: Phoenix heat-escape (the dominant driver — Phoenix/Scottsdale/Tucson supply ~26% of Flagstaff bookings from 2h05–2h15 away, 20–25°F cooler), Grand Canyon South Rim (~1h30), Sedona/Oak Creek (~45 min), Snowbowl (~35 min), and Flagstaff itself. Stress tests hold: a bad snow year is already observed and survived on snowmaking, and Grand Canyon did 4.43M visitors even after losing the entire North Rim developed area. The I-17 widening completed in 2025 directly attacks the Sunday Phoenix-return bottleneck. Held at 8 rather than 9 because all five drivers route through one physical asset — the Coconino National Forest — so they fail simultaneously and at peak."},
+  {"name": "Supply & Competition", "weight": 0.18, "score": 4, "confidence": "Medium (capped — small-market flag)", "rationale": "Supply grew +25.9% YoY in Kachina while RevPAR fell 7.2–7.3% and occupancy fell 4.1% — more operators splitting a flat pot. Adjacent Mountainaire is shedding supply at −23.4%, which is what the corridor's marginal product looks like when it stops working. Kachina does compete well on execution (46.3% occupancy and a 76.9% Superhost rate, both best in the I-17 south corridor), which is why this is a 4 and not a 2. Confidence capped at Medium per the small-market rule: only 130–136 active Kachina listings, and the three data vendors disagree violently (AirDNA −13.6% listings vs. Airbtics +16.2%)."},
+  {"name": "Returns Profile", "weight": 0.18, "score": 3, "confidence": "Medium", "rationale": "Scored on the market's objective return profile, not on the investor's target. A Kachina 2BR grosses ~$38,000 against $440K–$620K asking prices — a 5.74%–7.6% gross yield, less than half the 15% floor. Conservative cap rate at $500,000 is 2.76% self-manage and 2.04% true remote-owner, against a 7.75% note (ASSUMED, not quoted). Held at 3 rather than 2 because the failure is price-to-revenue, not revenue generation: top-quartile operators clear $60,192 and the top decile $90,960+ on genuine 46.3% occupancy. Post-Step-6 revisit confirmed 3 is still correct — all three lanes fail the 15% floor and every bear case is Distress."},
+  {"name": "Regulatory Environment", "weight": 0.12, "score": 9, "confidence": "High", "rationale": "Among the most investor-favorable frameworks available anywhere. Unincorporated Coconino County (Ordinance 2023-04 under A.R.S. §11-269.17): STRs legal, no cap, no owner-occupancy requirement, no minimum stay, $250/yr permit, 7-business-day issuance, no inspection. The local emergency contact may be the owner's paid designee with no distance rule. Transient lodging tax is 6.90% here vs. ≈11.39% inside Flagstaff — ~4.5 points of guest-side price headroom. Prop 117 means LPV does not reset on sale, and §42-13302(A)(2)(a) confirms verbatim that the Class 3→4 flip is not a change in use, so Rule B does not trigger. Not a 10 only because the HOA/CC&R question is unresolved from public records."},
+  {"name": "Appreciation Potential", "weight": 0.12, "score": 5, "confidence": "High", "rationale": "Genuinely mixed and currently negative at the margin. FHFA Flagstaff MSA shows a strong +8.6%/yr 5-year CAGR but only +3.9%/yr over 3 years, and the index peaked at 495.64 in 2025Q4 then fell to 475.19 in 2026Q1 — a −4.1% quarterly pullback. Zillow has Flagstaff at ~$665,540, −0.5% YoY, a real-terms loss. Meanwhile assessor values across 50 local parcels rose +7.30%/yr TY2023→TY2027 and LPV is compounding at exactly the 5.00% Prop-117 cap, so taxes are rising faster than values. The structural land constraint is real — Kachina is ringed by national forest and cannot sprawl — which is what holds this at 5 rather than 3."},
+  {"name": "Seasonality & Revenue Floor", "weight": 0.08, "score": 6, "confidence": "Medium", "rationale": "Dual-peak with ~3 genuinely slow months — the \"~9 bookable months\" anchor. Peak by volume is Jun–Aug (heat escape, Grand Canyon); peak by rate is December ($6,204/mo, 57.2% occupancy, $313 ADR). The holes are February (worst, $2,902), April mud season, and a mid-September-to-early-November lull. Revenue-floor test is SPLIT so no nudge was applied: threshold $2,006/mo, and both Kachina-anchored reads clear it ($2,902 and $2,622) while the harsher imported Flagstaff read fails ($1,790). Two real Kachina-specific shoulder plays offset part of the drag — elk Game Management Unit 6A hunts land squarely in the dead weeks, and 38.5% of listings run 30+ night minimums, giving midweek an MTR floor."},
+  {"name": "Ease of Management/Operations", "weight": 0.04, "score": 7, "confidence": "High", "rationale": "Kachina is 7 miles and about 12 minutes from Flagstaff, which supports roughly 2,700 STR listings and multiple dedicated turnover companies — a deep vendor bench, and a decisive improvement over the 35-mile Williams responder problem. Cleaning is roughly revenue-neutral here (~60 turns × ~$115 cost against a $160 median guest fee charged by 92.4% of listings), which is unusual and genuinely favorable. Kachina is also on KVID community sewer rather than on-lot septic, materially de-risking guest turnover for an absentee owner. Held at 7 rather than 9 by the real elevation burden: snow plowing, freeze protection, propane, and insurer-mandated defensible-space work push misc-supplies to $12,500/yr."},
+  {"name": "Infrastructure & Access", "weight": 0.02, "score": 7, "confidence": "High", "rationale": "Direct I-17 access with the 2025 widening and flex lanes substantially complete — a genuine tailwind on the Sunday Phoenix-return bottleneck that shapes this weekend-compression market. Flagstaff Pulliam (FLG) is small but real, and Sky Harbor is a 2h15 drive. KVID provides community water and sewer. The drag is winter road risk on I-17 and, more seriously, wildfire-driven closures: SR-89A closed for 25 days during the 2026 Pocket Fire, and Kachina Village itself was placed in SET evacuation status."},
+  {"name": "Exit Options", "weight": 0.01, "score": 6, "confidence": "Medium", "rationale": "Scored on resale liquidity, not on an LTR-covers-debt thesis. Flagstaff-area resale has a real buyer pool — second-home, retiree, remote-worker and investor — and the structural land constraint supports values. But median DOM in Kachina is ~98 days (range 12–168), several of the most interesting listings sit at 120–150 days, and the index is off its 2025Q4 peak, so this is a solid-but-currently-soft market. The LTR fallback is mentioned but not scored: a 2BR at ~$2,100/mo yields a 2.8% cap and still leaves the owner ~$20,500/yr short of debt service."}
+];
+
+// LANES — 3 buy box lanes: conservative, target, aggressive
+// Render reads these keys: id, title, subtitle, bedrooms, priceRange, maxDistance, guestAvatar, mustHaveAmenities[], differentiatorAmenities[], valueAdd?, revenueConfidence?, moatCategories[], confirmingListings[{label,url}]
+//   id is the lane key — PROFORMA_DATA.laneId must equal it. valueAdd & revenueConfidence are optional.
+// All other fields required. mustHaveAmenities and differentiatorAmenities are arrays of strings.
+// moatCategories: subset of ["Location","Quality","Design","Amenities","Operations"]
+// confirmingListings: array of 3–5 {label, url} from Step 6A inventory validation —
+//   active FOR-SALE / purchase listings the investor could offer on today (NOT rental comps),
+//   from Zillow/Redfin/Realtor.com/Homes.com/Trulia or local MLS/IDX. label = property address,
+//   url = the for-sale listing URL. Renders as clickable links inside the lane card.
+//   Use [] only if a lane has no linkable inventory.
+const LANES_DATA = [
+  {"id": "conservative", "title": "Conservative", "subtitle": "Small older site-built — lowest capital at risk", "bedrooms": "2BR/1–2BA", "priceRange": "$300K – $425K", "maxDistance": "≤20 min to Flagstaff; ≤40 min to Snowbowl", "guestAvatar": "Phoenix couple or small family on a 2-night weekend heat-escape; shoulder-season elk hunters in Game Management Unit 6A", "mustHaveAmenities": ["Site-built (NOT manufactured)", "Snow-capable parking", "Wood stove or gas fireplace", "Freeze-protected plumbing", "Fast Wi-Fi"], "differentiatorAmenities": ["Hot tub (must be installed — only 1 of 14 listings has one)", "Fenced yard for pets", "EV charger"], "valueAdd": "NOT AVAILABLE — the 1031 requires a turnkey, already-producing, as-is purchase inside the 180-day window. Value-add is structurally off the table for this buyer.", "revenueConfidence": "Market-median 2BR band · Low–Moderate confidence (Kachina covered directly by one source at market level; bedroom cut imported from Flagstaff and re-indexed)", "moatCategories": ["Location", "Amenities", "Operations"], "confirmingListings": [{"label": "994 Osage, Mountainaire — $415,000 · 2BR/1BA · site-built 1974 · 778 sf", "url": "https://www.redfin.com/AZ/Flagstaff/994-Osage-86005/home/116052014"}, {"label": "17145 S Poco Pl, Munds Park — $369,000 · 2BR/2BA · site-built 1977 · 920 sf", "url": "https://www.redfin.com/AZ/Munds-Park/17145-S-Poco-Pl-86017/home/116769244"}, {"label": "17075 S Deer Run Rd, Munds Park — $425,000 · 3BR/1BA · site-built 1972 · 816 sf", "url": "https://www.redfin.com/AZ/Munds-Park/17075-S-Deer-Run-Rd-86017/home/116538272"}, {"label": "⚠ 2212 Hano Trl, Kachina Village — $425,000 · 3BR/2BA · MANUFACTURED 1993 · 1,248 sf", "url": "https://www.redfin.com/AZ/Flagstaff/2212-Hano-Trl-86005/home/116747922"}, {"label": "⚠ 3114 Owl Pl, Kachina Village — $395,000 · 1BR/1BA · MANUFACTURED 1977 · 700 sf", "url": "https://www.redfin.com/AZ/Flagstaff/3114-Owl-Pl-86005/home/116790197"}]},
+  {"id": "target", "title": "Target", "subtitle": "Site-built 3BR — the market sweet spot on paper", "bedrooms": "3BR/2BA", "priceRange": "$425K – $500K", "maxDistance": "≤15 min to Flagstaff", "guestAvatar": "Phoenix family of 5–6, weekend-heavy; NAU parent weekends; Grand Canyon and Sedona touring base", "mustHaveAmenities": ["Site-built (NOT manufactured)", "2 full baths", "Snow-capable driveway a plow truck can service", "Dining table for 6", "Wood stove or gas fireplace", "Freeze-protected plumbing"], "differentiatorAmenities": ["Hot tub", "Fire pit", "Game room or bunk space", "Self check-in"], "valueAdd": "NOT AVAILABLE — 1031 turnkey constraint.", "revenueConfidence": "Market-median 3BR band · Low–Moderate confidence (bedroom cut imported from Flagstaff and re-indexed to Kachina at 0.97× ADR)", "moatCategories": ["Location", "Amenities", "Operations"], "confirmingListings": [{"label": "4028 Canyon Loop, Kachina Village — $459,000 · 3BR/2BA · site-built 1983 · 1,056 sf · 77 DOM", "url": "https://www.redfin.com/AZ/Flagstaff/4028-Canyon-Loop-86005/home/116824140"}, {"label": "3464 Yapa Ovi, Kachina Village — $450,000 · 3BR/2BA · site-built 1978 · 1,467 sf · 0.33 ac", "url": "https://www.redfin.com/AZ/Flagstaff/3464-Yapa-Ovi-86005/home/116649573"}, {"label": "840 E Caribou Rd, Munds Park — $475,000 · 3BR/2BA · site-built 1968 · 1,140 sf · fully furnished", "url": "https://www.redfin.com/AZ/Munds-Park/840-E-Caribou-Rd-86017/home/116269439"}, {"label": "945 Osage, Mountainaire — $500,000 · 2BR/1BA · site-built 1960 log cabin · 909 sf · FSBO", "url": "https://www.redfin.com/AZ/Flagstaff/945-Osage-86005/home/116401551"}, {"label": "⚠ 2449 Blue Gap Ovi, Kachina Village — $450,000 · 3BR/2BA · MANUFACTURED 2020, marketed as “newer construction” · 1,240 sf", "url": "https://www.redfin.com/AZ/Flagstaff/2449-Blue-Gap-Ovi-86005/home/116583366"}]},
+  {"id": "aggressive", "title": "Aggressive", "subtitle": "Turnkey operating STR — negotiation targets only, never buy at ask", "bedrooms": "2–5BR, already operating as an STR", "priceRange": "$500K – $600K ASKING → modeled at the $500K cap", "maxDistance": "≤20 min to Flagstaff (includes Munds Park at ~25 min)", "guestAvatar": "Larger Phoenix multi-family groups; ski groups; reunion and holiday bookings at the December peak ADR of $313", "mustHaveAmenities": ["Site-built", "Existing furnishings that convey", "Transferable forward bookings", "Seller's actual trailing-12-month P&L", "Existing Coconino County STR permit"], "differentiatorAmenities": ["Hot tub already installed", "5BR sleeping capacity", "Proven booking history and review corpus"], "valueAdd": "NOT AVAILABLE as value-add — but these are already-producing, which is exactly what the 1031 requires.", "revenueConfidence": "⚠ Top-quartile-to-top-decile execution on a mixed 2BR–5BR set — NOT directly comparable to Lanes 1–2, which use market-median bands. Pull each seller's actual T-12 statements; they supersede every vendor estimate in this report.", "moatCategories": ["Location", "Amenities", "Operations", "Quality"], "confirmingListings": [{"label": "1245 E Antelope Trl, Munds Park — $520,000 · 3BR/1.5BA · site-built 1978 A-frame · currently an active STR", "url": "https://www.redfin.com/AZ/Munds-Park/1245-E-Antelope-Trl-86017/home/116516455"}, {"label": "2780 Chaco Trl, Kachina Village — $525,000 · 2BR/2BA + loft · site-built 1985 · 150 DOM, just cut $25K", "url": "https://www.redfin.com/AZ/Flagstaff/2780-Chaco-Trl-86005/home/116829187"}, {"label": "17410 Mountainside Pl, Munds Park — $529,000 · 2BR/1BA · site-built 1984 · 0.4 ac · turnkey, proven VRBO producer", "url": "https://www.redfin.com/AZ/Munds-Park/17410-Mountainside-Pl-86017/home/116695762"}, {"label": "776 Kiowa, Mountainaire — $595,000 · 2BR/1BA · site-built ICF 2022 · furnished, operating vacation rental", "url": "https://www.redfin.com/AZ/Flagstaff/776-Kiowa-86005/home/174892717"}, {"label": "2553 Mesa Trl, Kachina Village — $599,900 · 5BR/2BA · site-built 1984 · HOT TUB + operating STR · 120 DOM", "url": "https://www.redfin.com/AZ/Flagstaff/2553-Mesa-Trl-86005/home/116757018"}]}
+];
+
+// PRO FORMA — one entry per lane, matched by laneId
+// revenueMin/Max: annual gross revenue range
+// priceMid: purchase price midpoint used for ROI calculation
+// debtService: annual debt service (12 × monthly P&I)
+// loanNote: short string describing loan assumptions
+// cashRequired: 20% down + 3% closing + 5% furnishing/setup + 6-month reserve
+// cashRequiredNote: short human-readable label for cashRequired components
+// userCashAvailable: investor's stated cash position (0 if unknown)
+// capitalBreakevenPrice: max purchase price that fits userCashAvailable; 0 if capitalFits=true
+// opExpRatio: operating expense ratio as decimal — per-lane recalculated value, NOT 0.40 default (kept as the blended reference + render fallback)
+// fixedOpEx: annual operating $ that do NOT scale with revenue (propTax + insurance + miscSupplies)
+// variableOpExRate: decimal share that scales with revenue (platform fee ~0.03). Render uses fixedOpEx + revenue×variableOpExRate when BOTH present (honest low-end net CF); falls back to revenue×opExpRatio when absent.
+// netCfLow_pm: net CF at revenueMin with 25% PM (REQUIRED — renders in PM tile)
+// buildingPct: land-to-building ratio from county assessor — NOT hardcoded 0.85
+// bonusDepRate: 1.00 for OBBBA 2025 assets (placed in service on/after Jan 19, 2025)
+// costSegAssumptions: short string describing cost seg inputs
+// netCfAfterCostSegY1: netCfLow + costSegBenefit (Year 1 effective with tax savings; one-time)
+// grossRoiLow: gross ROI at revenueMin as percent (e.g. 12.7) — used by QA Check 10
+// grossRoiPass: true if grossRoiLow >= 15 — used by QA Check 10
+// costSegBenefit: federal tax savings in dollars (Year 1 cost-seg tile) = round(priceMid × buildingPct × reclassPct × bonusDepRate × 0.37); reclassPct≈0.25 (only the 5/15-yr reclassified share gets bonus dep — NOT the full building basis)
+// appreciationY1: estimated Year 1 appreciation in dollars (≈3–4% × priceMid) — gates the Total Economic Return tile + bear-tier classification
+// totalReturnLow: netCfLow + costSegBenefit + appreciationY1 (Total Economic Return tile)
+const PROFORMA_DATA = [
+  {"laneId": "conservative", "priceMid": 400000, "revenueMin": 28000, "revenueMax": 36000, "debtService": 27510, "loanNote": "30-yr DSCR at 7.75% (ASSUMED, not quoted), 20% down", "cashRequired": 105755, "cashRequiredNote": "20% down + 3% closing + 6-mo reserve (turnkey 1031 — furniture conveys, so no 5% furnishing line)", "userCashAvailable": 141428, "capitalBreakevenPrice": 534918, "opExpRatio": 0.611, "fixedOpEx": 18600, "variableOpExRate": 0.03, "netCfLow_pm": -26110, "buildingPct": 0.61, "bonusDepRate": 1.0, "costSegAssumptions": "$400,000 · 61% building (Coconino Assessor EagleWeb TY2026) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket", "appreciationY1": 12000, "costSegBenefit": 22570, "netCfAfterCostSegY1": 3500, "totalReturnLow": 15500, "grossRoiLow": 7.0, "grossRoiPass": false, "fullCostOpExpMid": 31310},
+  {"laneId": "target", "priceMid": 465000, "revenueMin": 40000, "revenueMax": 48000, "debtService": 31981, "loanNote": "30-yr DSCR at 7.75% (ASSUMED, not quoted), 20% down", "cashRequired": 122940, "cashRequiredNote": "20% down + 3% closing + 6-mo reserve (turnkey 1031 — furniture conveys, so no 5% furnishing line)", "userCashAvailable": 141428, "capitalBreakevenPrice": 534918, "opExpRatio": 0.549, "fixedOpEx": 22822, "variableOpExRate": 0.03, "netCfLow_pm": -25803, "buildingPct": 0.62, "bonusDepRate": 1.0, "costSegAssumptions": "$465,000 · 62% building (Coconino Assessor EagleWeb TY2026) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket", "appreciationY1": 13950, "costSegBenefit": 26668, "netCfAfterCostSegY1": 10545, "totalReturnLow": 24495, "grossRoiLow": 8.6, "grossRoiPass": false, "fullCostOpExpMid": 38018},
+  {"laneId": "aggressive", "priceMid": 500000, "revenueMin": 50000, "revenueMax": 75000, "debtService": 34388, "loanNote": "30-yr DSCR at 7.75% (ASSUMED, not quoted), 20% down", "cashRequired": 132194, "cashRequiredNote": "20% down + 3% closing + 6-mo reserve (turnkey 1031 — furniture conveys, so no 5% furnishing line)", "userCashAvailable": 141428, "capitalBreakevenPrice": 534918, "opExpRatio": 0.479, "fixedOpEx": 28050, "variableOpExRate": 0.03, "netCfLow_pm": -28063, "buildingPct": 0.66, "bonusDepRate": 1.0, "costSegAssumptions": "$500,000 · 66% building (Coconino Assessor EagleWeb TY2026) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket", "appreciationY1": 15000, "costSegBenefit": 30525, "netCfAfterCostSegY1": 16212, "totalReturnLow": 31212, "grossRoiLow": 10.0, "grossRoiPass": false, "fullCostOpExpMid": 47925}
+];
+
+
+// SCORE DIFFERENTIATION — tier verdict + why this market beats/trails the median
+// strengths: array of strings. drags: array of { label, swing } objects (NOT plain strings) —
+//   label = short category headline; swing = what it means + the tier-move number.
+const DIFFERENTIATION = {
+  tier: "D — Marginal Market",
+  distanceUp: "0.60 below Tier C (Selective Market)",
+  distanceDown: "0.40 above Tier F (Pass)",
+  strengths: [ "Regulatory Environment (9/10) — unincorporated Coconino County is among the most investor-favorable STR frameworks in the country: legal, uncapped, no owner-occupancy, no minimum stay, $250/yr permit issued in 7 business days with no inspection, and a 6.90% lodging tax against Flagstaff's ≈11.39%.",
+    "Demand Strength & Durability (8/10) — five independently verified drivers rather than one, anchored by a Phoenix metro of 4.83M sitting 2h05 away and 20–25°F hotter, and Kachina posts the best occupancy (46.3%) and highest Superhost rate (76.9%) in the I-17 south corridor." ],
+  drags: [ {"label": "Returns Profile — 3/10, the single biggest point leak (1.26)", "swing": "If Returns improves from 3 to 7 — which requires acquisition prices roughly halving, to about $190,000–$220,000 for a 3BR — the total rises by 0.72 to 6.62, moving the market D→C. This is the ONLY single lever that crosses a tier: Returns 3→6 reaches just 6.44 and stays in Tier D."},
+    {"label": "Supply & Competition — 4/10, second-largest leak (1.08)", "swing": "If Supply improves from 4 to 7 — requiring supply growth to stop outrunning demand and RevPAR to stabilize after its −7.2% slide — the total rises by 0.54 to 6.44, which is NOT enough to leave Tier D on its own. Supply and Returns would both have to move."} ]
+};
+// ─── END DATA ─────────────────────────────────────────────────────────────────
+
+let activeLaneIndex = 1;
+
+function fmt$(n) {
+  const val = Math.round(n);
+  return (val < 0 ? '−$' : '$') + Math.abs(val).toLocaleString();
+}
+function passIcon(pass) {
+  return pass
+    ? '<span class="pass">✓ PASS</span>'
+    : '<span class="fail">✗ FAIL</span>';
+}
+
+function thresholdLabel(score) {
+  // 1–10 scale, five named tiers
+  if (score >= 8.5) return { text: 'Tier A · Priority Market',  cls: 'green'  };
+  if (score >= 7.5) return { text: 'Tier B · Strong Market',    cls: 'green'  };
+  if (score >= 6.5) return { text: 'Tier C · Selective Market', cls: 'yellow' };
+  if (score >= 5.5) return { text: 'Tier D · Marginal Market',  cls: 'yellow' };
+  return                   { text: 'Tier F · Pass',             cls: 'red'    };
+}
+
+function updateBadgeColor(score) {
+  const badge = document.getElementById('score-badge');
+  const label = document.getElementById('threshold-label');
+  const t = thresholdLabel(score);
+  badge.className = 'score-hero anim-scale-in d1 ' + t.cls;
+  label.className = 'verdict-pill ' + t.cls;
+  label.textContent = t.text;
+  document.getElementById('total-score-display').className = 'total-val ' + t.cls;
+  const glowMap = {
+    yellow: 'rgba(240,192,64,0.12)',
+    green:  'rgba(46,196,168,0.12)',
+    red:    'rgba(240,96,96,0.12)'
+  };
+  document.documentElement.style.setProperty('--score-glow', glowMap[t.cls] || glowMap.yellow);
+}
+
+function renderDifferentiation() {
+  const host = document.getElementById('red-flags-section');
+  if (!DIFFERENTIATION || !DIFFERENTIATION.tier || DIFFERENTIATION.tier.indexOf('{{') === 0) return;
+  let html = '<div class="section" style="margin-bottom:24px"><div class="section-body">' +
+    '<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:10px">Why This Market — Tier ' + DIFFERENTIATION.tier + '</div>';
+  if (DIFFERENTIATION.strengths && DIFFERENTIATION.strengths.length) {
+    html += '<div style="margin-bottom:12px"><strong style="color:var(--teal)">Strengths:</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.strengths.map(s => '<li style="margin-bottom:4px">' + s + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.drags && DIFFERENTIATION.drags.length) {
+    html += '<div><strong style="color:var(--yellow)">Swing factors (what moves the tier):</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.drags.map(d => '<li style="margin-bottom:4px"><strong>' + d.label + '</strong> — ' + d.swing + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.distanceUp || DIFFERENTIATION.distanceDown) {
+    html += '<div style="margin-top:10px;font-size:0.78rem;color:var(--text-3)">' +
+      [DIFFERENTIATION.distanceUp, DIFFERENTIATION.distanceDown].filter(Boolean).join(' · ') + '</div>';
+  }
+  html += '</div></div>';
+  host.insertAdjacentHTML('afterend', html);
+}
+
+function renderRedFlags() {
+  const el = document.getElementById('red-flags-section');
+  if (!RED_FLAGS || RED_FLAGS.length === 0) {
+    el.innerHTML = '<div class="red-flags-clean">✓ No disqualifying red flags detected for this market.</div>';
+    return;
+  }
+  let html = '<div class="red-flags-wrap anim-fade-up d3"><h2>⚠ Red Flags Detected (' + RED_FLAGS.length + ' of 10 Framework Items Triggered)</h2><ul>';
+  RED_FLAGS.forEach(f => {
+    html += '<li><strong>' + f.flag + '</strong>' + (f.data || '') + '</li>';
+  });
+  html += '</ul></div>';
+  el.innerHTML = html;
+}
+
+function bandClass(v) {
+  if (v <= 4) return '1';      // red band
+  if (v <= 6) return '3';      // yellow band
+  return '5';                  // teal band
+}
+
+function renderScorecard() {
+  const body = document.getElementById('scorecard-body');
+  let html = '';
+  SCORECARD_DATA.forEach((cat, i) => {
+    cat.currentScore = cat.score;
+    const contrib = (cat.score * cat.weight).toFixed(2);
+    html += '<div class="score-row" id="row-' + i + '">' +
+      '<div class="score-row-left">' +
+        '<div class="cat-name">' + cat.name + '</div>' +
+        '<div class="cat-meta">Weight: ' + (cat.weight * 100).toFixed(0) + '% · Contrib: <span id="contrib-' + i + '">' + contrib + '</span></div>' +
+        '<span class="rationale-toggle" onclick="toggleRationale(' + i + ')">▸ Why this score</span>' +
+        '<div class="rationale-card" id="rationale-' + i + '">' +
+          cat.rationale +
+          '<div class="confidence">Data confidence: ' + cat.confidence + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="score-row-right">' +
+        '<div class="pills" id="pills-' + i + '">' +
+          [1,2,3,4,5,6,7,8,9,10].map(v => '<button class="pill' + (v === cat.score ? ' active-' + bandClass(v) : '') + '" data-cat="' + i + '" data-val="' + v + '" onclick="setScore(' + i + ',' + v + ')">' + v + '</button>').join('') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  });
+  body.innerHTML = html;
+  updateTotalDisplay();
+}
+
+function setScore(catIndex, val) {
+  SCORECARD_DATA[catIndex].currentScore = val;
+  const pillsEl = document.getElementById('pills-' + catIndex);
+  pillsEl.querySelectorAll('.pill').forEach(p => {
+    p.className = 'pill' + (parseFloat(p.dataset.val) === val ? ' active-' + bandClass(val) : '');
+  });
+  const contribEl = document.getElementById('contrib-' + catIndex);
+  if (contribEl) contribEl.textContent = (val * SCORECARD_DATA[catIndex].weight).toFixed(2);
+  updateTotalDisplay();
+}
+
+function updateTotalDisplay() {
+  let total = 0;
+  SCORECARD_DATA.forEach(cat => { total += cat.currentScore * cat.weight; });
+  const rounded = total.toFixed(2);
+  document.getElementById('overall-score-display').textContent = rounded;
+  document.getElementById('total-score-display').textContent = rounded;
+  updateBadgeColor(total);
+}
+
+function toggleRationale(i) {
+  const el = document.getElementById('rationale-' + i);
+  const toggle = el.previousElementSibling;
+  el.classList.toggle('open');
+  toggle.textContent = el.classList.contains('open') ? '▾ Hide rationale' : '▸ Why this score';
+}
+
+function renderLanes() {
+  const container = document.getElementById('lanes-container');
+  let html = '';
+  LANES_DATA.forEach((lane, i) => {
+    const isActive = i === activeLaneIndex;
+    // Look up matching pro forma for capital fit badge
+    const pf = PROFORMA_DATA.find(p => p.laneId === lane.id);
+    let capitalBadge = '';
+    if (pf && pf.cashRequired && pf.userCashAvailable) {
+      const fits = pf.cashRequired <= pf.userCashAvailable;
+      if (fits) {
+        capitalBadge = '<div class="capital-fit-badge fits">✓ Fits Your Capital</div>';
+      } else {
+        const shortfall = Math.ceil((pf.cashRequired - pf.userCashAvailable) / 1000);
+        capitalBadge = '<div class="capital-fit-badge short">⚠ +$' + shortfall + 'K Needed</div>';
+      }
+    }
+    html += '<div class="lane-card' + (isActive ? ' active' : '') + '" id="lane-' + i + '" onclick="selectLane(' + i + ')">' +
+      '<div class="lane-card-left">' +
+        '<div class="lane-header">' +
+          '<div class="lane-title">' + lane.title + '</div>' +
+        '</div>' +
+        '<div class="lane-subtitle">' + lane.subtitle + '</div>' +
+        (lane.revenueConfidence ? '<div style="display:inline-block;margin-top:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--yellow);background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:5px;padding:3px 8px">⚑ ' + lane.revenueConfidence + '</div>' : '') +
+        '<div class="lane-detail-grid">' +
+          '<div class="lane-detail-item"><span class="detail-label">Bedrooms</span>' + lane.bedrooms + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Price Range</span>' + lane.priceRange + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Max Distance</span>' + lane.maxDistance + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Guest Profile</span>' + lane.guestAvatar + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Must-Have Amenities</span>' + lane.mustHaveAmenities.join(' · ') + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Differentiators</span>' + lane.differentiatorAmenities.join(' · ') + '</div>' +
+          (lane.valueAdd ? '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Value-Add to Seek</span>' + lane.valueAdd + '</div>' : '') +
+        '</div>' +
+        '<div class="moat-tags">' + lane.moatCategories.map(m => '<span class="moat-tag">' + m + '</span>').join('') + '</div>' +
+        ((lane.confirmingListings && lane.confirmingListings.length) ? (
+          '<div class="confirming-listings">' +
+            '<div class="cl-label">Live listings that fit this buy box</div>' +
+            lane.confirmingListings.map(l => '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">' + l.label + '</a>').join('') +
+          '</div>'
+        ) : '') +
+      '</div>' +
+      '<div class="lane-card-right">' +
+        '<div class="lane-price">' + lane.priceRange.replace(' – ', '–') + '</div>' +
+        '<div style="font-size:0.68rem;color:var(--text-3);letter-spacing:0.04em;text-transform:uppercase;font-weight:600">Purchase</div>' +
+        capitalBadge +
+      '</div>' +
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function renderProFormaTabs() {
+  const tabs = document.getElementById('pf-lane-tabs');
+  if (!tabs) return;
+  tabs.innerHTML = LANES_DATA.map((lane, i) =>
+    '<button class="pf-lane-tab' + (i === activeLaneIndex ? ' active' : '') + '" data-lane="' + i + '" onclick="selectLane(' + i + ')">' + lane.title + '</button>'
+  ).join('');
+}
+
+function selectLane(i) {
+  activeLaneIndex = i;
+  document.querySelectorAll('.lane-card').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.querySelectorAll('.pf-lane-tab').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.getElementById('active-lane-name').textContent = LANES_DATA[i].title;
+  renderProForma();
+}
+
+function renderProForma() {
+  const activeLaneId = LANES_DATA[activeLaneIndex].id;
+  const pf = PROFORMA_DATA.find(p => p.laneId === activeLaneId) || PROFORMA_DATA[activeLaneIndex];
+  const body = document.getElementById('proforma-body');
+  if (!pf) {
+    body.innerHTML = '<p style="color:var(--text-3);padding:16px">No pro forma data available.</p>';
+    return;
+  }
+
+  const opExpRatio = pf.opExpRatio || 0.40;
+  const hasOpExpSplit = typeof pf.fixedOpEx === 'number' && typeof pf.variableOpExRate === 'number';
+  const roiLow  = (pf.revenueMin / (pf.priceMid || 1) * 100).toFixed(1);
+  const roiHigh = (pf.revenueMax / (pf.priceMid || 1) * 100).toFixed(1);
+  const grossRoiPass = parseFloat(roiLow) >= 15;
+  const opExpLow  = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMin * pf.variableOpExRate) : Math.round(pf.revenueMin * opExpRatio);
+  const opExpHigh = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMax * pf.variableOpExRate) : Math.round(pf.revenueMax * opExpRatio);
+  const opExpPctLow  = pf.revenueMin > 0 ? Math.round(opExpLow  / pf.revenueMin * 100) : 0;
+  const opExpPctHigh = pf.revenueMax > 0 ? Math.round(opExpHigh / pf.revenueMax * 100) : 0;
+  const netLow  = Math.round(pf.revenueMin - opExpLow - pf.debtService);
+  const netHigh = Math.round(pf.revenueMax - opExpHigh - pf.debtService);
+  const netPctLow = pf.revenueMin > 0 ? (netLow / pf.revenueMin * 100).toFixed(0) : '—';
+  const cocLow  = pf.cashRequired > 0 ? (netLow  / pf.cashRequired * 100).toFixed(1) : '—';
+  const cocHigh = pf.cashRequired > 0 ? (netHigh / pf.cashRequired * 100).toFixed(1) : '—';
+  const bearRev  = Math.round(pf.revenueMin * 0.9);
+  const bearExp  = hasOpExpSplit ? Math.round((pf.fixedOpEx + bearRev * pf.variableOpExRate) * 1.1) : Math.round(opExpLow * 1.1);
+  const bearNet  = bearRev - bearExp - pf.debtService;
+  const capitalFits = pf.cashRequired <= pf.userCashAvailable;
+  const capitalNote = pf.cashRequiredNote || '20% down + 3% closing + 5% furnishing + 6-mo reserve';
+  // Bear case 3-tier classification
+  const appreciationRate = pf.appreciationY1 ? (pf.appreciationY1 / pf.priceMid) : 0;
+  let bearTierBadge;
+  if (bearNet > 0) {
+    bearTierBadge = '<span class="pass">✓ PASS</span>';
+  } else if (bearNet > -(pf.debtService * 0.25) && appreciationRate > 0) {
+    bearTierBadge = '<span class="warn">⚠ SURVIVABLE</span>';
+  } else {
+    bearTierBadge = '<span class="fail">✗ DISTRESS</span>';
+  }
+  const opExpLabel = hasOpExpSplit
+    ? opExpPctLow + '%→' + opExpPctHigh + '% of revenue · fixed ' + fmt$(pf.fixedOpEx) + ' + ' + Math.round(pf.variableOpExRate * 100) + '% variable — ratio runs higher at low revenue'
+    : (opExpRatio * 100).toFixed(0) + '% (market-specific, per-lane)';
+
+  // Cost seg tile values
+  const hasCostSeg = pf.costSegBenefit && pf.buildingPct;
+  const buildingPctDisplay = hasCostSeg ? Math.round(pf.buildingPct * 100) + '%' : '—';
+  const landPctDisplay = hasCostSeg ? Math.round((1 - pf.buildingPct) * 100) + '%' : '—';
+  const netAfterCostSeg = pf.netCfAfterCostSegY1 || (netLow + (pf.costSegBenefit || 0));
+  const costSegAssumptions = pf.costSegAssumptions || '';
+
+  // PM impact tile
+  const hasPM = typeof pf.netCfLow_pm === 'number';
+  const pmSavings = hasPM ? (netLow - pf.netCfLow_pm) : 0;
+
+  // Capital breakeven
+  const showBreakeven = !capitalFits && pf.capitalBreakevenPrice && pf.capitalBreakevenPrice > 0;
+
+  body.innerHTML =
+    '<div class="pf-grid">' +
+      // Row 1: Revenue + Gross ROI
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross Revenue Range</div>' +
+        '<div class="pf-value">' + fmt$(pf.revenueMin) + ' – ' + fmt$(pf.revenueMax) + '</div>' +
+        '<div class="pf-note">Tier-appropriate range · self-manage assumed · Assumes dual-platform listing (Airbnb + VRBO); single-platform operators typically achieve 15–20% less gross.</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross ROI</div>' +
+        '<div class="pf-value">' + roiLow + '% – ' + roiHigh + '% ' + passIcon(grossRoiPass) + '</div>' +
+        '<div class="pf-note">Generic floor 15% · Target 18–20% · YOUR bar: 30% goal / 20% floor — all three lanes fail both</div>' +
+      '</div>' +
+      // Row 2: OpExp + Debt Service
+      '<div class="pf-item">' +
+        '<div class="pf-label">Operating Expenses (' + opExpLabel + ')</div>' +
+        '<div class="pf-value">' + fmt$(opExpLow) + ' – ' + fmt$(opExpHigh) + '</div>' +
+        '<div class="pf-note">Narrow-lane: taxes + insurance + platform fee + supplies only · excl. debt service</div>' +
+        (pf.fullCostOpExpMid ? '<div style="margin-top:5px;font-size:0.78rem;padding:6px 10px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:6px;color:var(--amber-pale);line-height:1.5"><strong style="color:var(--yellow)">Full annual cost</strong> (adds cleaning + maintenance): <strong style="color:var(--text-1)">' + fmt$(pf.fullCostOpExpMid) + '</strong> · Self-manage net CF at midpoint revenue: ' + fmt$(Math.round((pf.revenueMin + pf.revenueMax)/2 - pf.fullCostOpExpMid - pf.debtService)) + '</div>' : '') +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Estimated Debt Service</div>' +
+        '<div class="pf-value">' + fmt$(pf.debtService) + '/yr</div>' +
+        '<div class="pf-note">' + pf.loanNote + '</div>' +
+      '</div>' +
+      // Row 3: Net CF (self-manage) + PM Impact
+      '<div class="pf-item">' +
+        '<div class="pf-label">Net Cash Flow (Self-Manage)</div>' +
+        '<div class="pf-value">' + fmt$(netLow) + ' – ' + fmt$(netHigh) + '</div>' +
+        '<div class="pf-note">~' + netPctLow + '% of gross · self-manage only</div>' +
+      '</div>' +
+      (hasPM ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label">If PM-Managed (25%)</div>' +
+          '<div class="pf-value fail">' + fmt$(pf.netCfLow_pm) + '/yr</div>' +
+          '<div class="pf-note">Self-manage saves ' + fmt$(pmSavings) + '/yr vs full PM · co-host at 10–15% is middle option</div>' +
+        '</div>'
+      ) : '') +
+      // Row 4: CoC Return + Total Return
+      '<div class="pf-item">' +
+        '<div class="pf-label">Cash-on-Cash Return</div>' +
+        '<div class="pf-value">' + cocLow + '% – ' + cocHigh + '%</div>' +
+        '<div class="pf-note">Target 10%+ · Excellent 20%+</div>' +
+      '</div>' +
+      (pf.appreciationY1 ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label" style="color:var(--teal)">Total Economic Return (Yr 1 — incl. one-time cost seg)</div>' +
+          '<div class="pf-value" style="color:var(--teal)">' + fmt$(pf.totalReturnLow) + '</div>' +
+          '<div class="pf-note">Net CF ' + fmt$(netLow) + ' + ' + fmt$(pf.appreciationY1) + ' appreciation + ' + fmt$(pf.costSegBenefit || 0) + ' cost seg. The cost-seg benefit is a ONE-TIME Year-1 item — recurring annual return is the Net CF above; it does not repeat in Year 2+.</div>' +
+        '</div>'
+      ) : '') +
+      // Cost Segregation section (full row)
+      (hasCostSeg ? (
+        '<div class="pf-item" style="grid-column:1/-1;border-color:var(--teal-dim)">' +
+          '<div class="pf-label" style="color:var(--teal)">Cost Segregation Benefit (Year 1) — One-Time</div>' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px">' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Tax Savings (37% bracket)</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--teal)">' + fmt$(pf.costSegBenefit) + '</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Depreciable Basis</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-1)">' + buildingPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * pf.buildingPct)) + ')</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Land Excluded</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-2)">' + landPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * (1 - pf.buildingPct))) + ')</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem;color:var(--teal-dim)">' +
+            'Yr 1 effective position (net CF + cost seg): <strong style="color:var(--teal)">' + fmt$(netAfterCostSeg) + '</strong> · ' +
+            (costSegAssumptions ? costSegAssumptions + ' · ' : '') +
+            'Study cost: $5K–$12K · Requires 100+ hrs material participation' +
+          '</div>' +
+        '</div>'
+      ) : '') +
+      // Cash Required + Capital Breakeven
+      '<div class="pf-item">' +
+        '<div class="pf-label">Total Cash Required</div>' +
+        '<div class="pf-value ' + (capitalFits ? 'pass' : 'fail') + '">' + fmt$(pf.cashRequired) + ' ' + (capitalFits ? '✓' : '⚠') + '</div>' +
+        '<div class="pf-note">' + capitalNote + ' · You have: ' + fmt$(pf.userCashAvailable) + '</div>' +
+        (showBreakeven ? '<div style="margin-top:6px;font-size:0.78rem;color:var(--yellow)">Capital breakeven: ~' + fmt$(pf.capitalBreakevenPrice) + ' — buy at or below this price to fit your cash</div>' : '') +
+      '</div>' +
+      // Bear Case (full row)
+      '<div class="bear-case">' +
+        '<h4>Bear Case Stress Test — Revenue −10% / Expenses +10%</h4>' +
+        '<div class="bear-row"><span>Bear case revenue</span><span>' + fmt$(bearRev) + '</span></div>' +
+        '<div class="bear-row"><span>Bear case op expenses</span><span>' + fmt$(bearExp) + '</span></div>' +
+        '<div class="bear-row"><span>Debt service</span><span>' + fmt$(pf.debtService) + '</span></div>' +
+        '<div class="bear-row bear-result">' +
+          '<span>Bear case net cash flow</span>' +
+          '<span>' + fmt$(bearNet) + ' ' + bearTierBadge + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  header.classList.toggle('open', !isOpen);
+  body.classList.toggle('collapsed', isOpen);
+}
+
+function renderCapitalAlert() {
+  const container = document.getElementById('capital-alert-container');
+  if (!SHOW_CAPITAL_ALERT) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>⚠ Capital Fit Alert</strong> ${CAPITAL_ALERT_BODY}</div>`;
+}
+
+function renderRoiContext() {
+  const container = document.getElementById('roi-context-container');
+  if (!ROI_CONTEXT_NOTE) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>ℹ Market Context</strong> ${ROI_CONTEXT_NOTE}</div>`;
+}
+
+renderCapitalAlert();
+renderRoiContext();
+renderRedFlags();
+renderDifferentiation();
+renderScorecard();
+renderLanes();
+renderProFormaTabs();
+renderProForma();
+</script>
+</body>
+</html>

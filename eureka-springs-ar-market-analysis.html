@@ -1,0 +1,1739 @@
+<!--bstrw:28d6b8492de7488a-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STR Market Analysis — Eureka Springs, Arkansas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ─── DESIGN TOKENS ──────────────────────────────────────────────────────── */
+:root {
+  /* Mountain palette */
+  --bg:        #0f1a13;
+  --bg-card:   #1c2b20;
+  --bg-card-2: #213526;
+  --border:    #2d4533;
+  --border-2:  #3d5c46;
+
+  --amber:     #e8924a;
+  --amber-dim: #c4743a;
+  --amber-bg:  #2a1e12;
+  --amber-pale:#f0b07a;
+
+  --teal:      #2ec4a8;
+  --teal-dim:  #1fa08a;
+  --teal-bg:   #0e2420;
+
+  --red:       #f06060;
+  --red-dim:   #c44545;
+  --red-bg:    #2a1212;
+  --red-border:#4a2020;
+  --red-muted: #7a5050;
+
+  --yellow:    #f0c040;
+  --yellow-dim:#c89c28;
+  --yellow-bg: #241e0a;
+
+  --neutral-icon-bg:     #1a2530;
+  --neutral-icon-border: #2a3f55;
+
+  /* Updated by JS to match the score band (yellow/green/red) */
+  --score-glow: rgba(232,146,74,0.12);
+
+  --text-1:    #f2f5f2;
+  --text-2:    #baced0;
+  --text-3:    #6a8070;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─── RESET & BASE ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { text-wrap: balance; }
+article p { text-wrap: pretty; }
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.anim-fade-up  { animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-scale-in { animation: scaleIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up, .anim-scale-in { animation: none; opacity: 1; transform: none; }
+}
+
+.d0 { animation-delay: 0ms; }
+.d1 { animation-delay: 60ms; }
+.d2 { animation-delay: 120ms; }
+.d3 { animation-delay: 180ms; }
+.d4 { animation-delay: 240ms; }
+.d5 { animation-delay: 300ms; }
+.d6 { animation-delay: 360ms; }
+
+/* ─── LAYOUT ─────────────────────────────────────────────────────────────── */
+.page { max-width: 980px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+.hero {
+  padding: 64px 0 56px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+
+.hero-state {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.hero-summary {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  max-width: 580px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-date {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.score-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card-2);
+  border: 2px solid var(--border-2);
+  border-radius: 20px;
+  padding: 36px 44px;
+  min-width: 172px;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 10%, var(--score-glow) 0%, transparent 65%);
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.score-hero .score-num {
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-denom {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-3);
+  line-height: 1;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero.yellow .score-num   { color: var(--yellow); }
+.score-hero.yellow .score-label { color: var(--yellow-dim); }
+.score-hero.green  .score-num   { color: var(--teal); }
+.score-hero.green  .score-label { color: var(--teal-dim); }
+.score-hero.red    .score-num   { color: var(--red); }
+.score-hero.red    .score-label { color: var(--red-dim); }
+
+.verdict-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.verdict-pill.yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-dim); }
+.verdict-pill.green  { background: var(--teal-bg);   color: var(--teal);   border: 1px solid var(--teal-dim); }
+.verdict-pill.red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-dim); }
+
+/* ─── CAPITAL ALERT BANNER ───────────────────────────────────────────────── */
+.capital-alert {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-top: 3px solid var(--amber);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 32px;
+  font-size: 0.875rem;
+  color: var(--amber-pale);
+  line-height: 1.65;
+}
+.capital-alert strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.capital-alert em { color: var(--text-1); font-weight: 600; font-style: normal; }
+
+/* ─── RED FLAGS ──────────────────────────────────────────────────────────── */
+.red-flags-wrap {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 32px;
+}
+.red-flags-wrap h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.red-flags-wrap ul { list-style: none; }
+.red-flags-wrap li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--red-border);
+  color: var(--red-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.red-flags-wrap li:last-child { border-bottom: none; }
+.red-flags-wrap li strong { display: block; color: var(--red); font-weight: 600; margin-bottom: 3px; }
+
+.red-flags-clean {
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-dim);
+  border-radius: 12px;
+  padding: 14px 22px;
+  margin-bottom: 32px;
+  color: var(--teal);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ─── SECTION SHELL ──────────────────────────────────────────────────────── */
+.section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 20px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.15s;
+}
+.section-header:hover { background: rgba(255,255,255,0.02); }
+.section-header.open { border-bottom-color: var(--border); }
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.section-title-icon.amber { background: var(--amber-bg); border: 1px solid var(--amber-dim); }
+.section-title-icon.teal  { background: var(--teal-bg);  border: 1px solid var(--teal-dim);  }
+.section-title-icon.blue  { background: var(--neutral-icon-bg); border: 1px solid var(--neutral-icon-border); }
+.section-title-icon.red   { background: var(--red-bg);   border: 1px solid var(--red-dim);   }
+
+.section-toggle {
+  color: var(--text-3);
+  font-size: 0.7rem;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+}
+.section-header.open .section-toggle { transform: rotate(180deg); }
+
+.section-body { padding: 26px; }
+.section-body.collapsed { display: none; }
+
+/* ─── SCORECARD ──────────────────────────────────────────────────────────── */
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.score-row:last-child { border-bottom: none; }
+
+.score-row-left { min-width: 0; }
+
+.score-row-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.score-row .cat-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 2px;
+}
+.score-row .cat-meta {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+.score-row .cat-weight {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.score-row .weighted-contrib {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-2);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.pills { display: flex; gap: 4px; flex-wrap: wrap; }
+.pill {
+  width: 40px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border-2);
+  background: var(--bg-card-2);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+}
+.pill:hover { border-color: var(--amber); color: var(--amber); }
+.pill:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.pill.active-1, .pill.active-2 { border-color: var(--red-dim);    background: var(--red-bg);    color: var(--red); }
+.pill.active-3                  { border-color: var(--yellow-dim); background: var(--yellow-bg); color: var(--yellow); }
+.pill.active-4, .pill.active-5  { border-color: var(--teal-dim);  background: var(--teal-bg);   color: var(--teal); }
+
+.rationale-toggle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--amber);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  transition: background 0.1s;
+}
+.rationale-toggle:hover { background: rgba(232,146,74,0.12); }
+
+.rationale-card {
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-1);
+  display: none;
+  line-height: 1.7;
+}
+.rationale-card .confidence {
+  font-size: 0.72rem;
+  color: var(--teal-dim);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.rationale-card.open { display: block; }
+
+.scorecard-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 26px;
+  background: var(--bg-card-2);
+  border-top: 2px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+.scorecard-total .total-val {
+  font-size: 2rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+/* ─── INTELLIGENCE PANELS ────────────────────────────────────────────────── */
+.intel-section { margin-bottom: 28px; }
+.intel-section:last-child { margin-bottom: 0; }
+
+.intel-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.intel-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.intel-content {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.75;
+  font-weight: 400;
+}
+.intel-content .intel-entry {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.intel-content .intel-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.intel-content .intel-key {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-bottom: 5px;
+}
+.intel-content .intel-key.key-red {
+  color: var(--red);
+  background: var(--red-bg);
+  border-color: var(--red-dim);
+}
+.intel-content .intel-key.key-teal {
+  color: var(--teal);
+  background: var(--teal-bg);
+  border-color: var(--teal-dim);
+}
+.intel-content .intel-key.key-neutral {
+  color: var(--text-3);
+  background: var(--bg-card-2);
+  border-color: var(--border-2);
+}
+.intel-content p {
+  margin: 0;
+  line-height: 1.75;
+}
+.intel-content ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.intel-content ul li {
+  padding-left: 14px;
+  position: relative;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.intel-content ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-weight: 700;
+}
+.intel-content strong { color: var(--text-1); font-weight: 600; }
+
+/* ─── LANES ──────────────────────────────────────────────────────────────── */
+.lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.lane-card {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+}
+.lane-card:hover { border-color: var(--border-2); }
+.lane-card.active {
+  border-color: var(--amber);
+  background: var(--amber-bg);
+  box-shadow: 0 0 0 1px var(--amber-dim);
+}
+
+.lane-card-left { min-width: 0; }
+
+.lane-card-right {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.lane-card .lane-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.lane-card .lane-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-1);
+}
+.lane-card.active .lane-title { color: var(--amber-pale); }
+
+.lane-card .lane-subtitle {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-3);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.lane-card.active .lane-subtitle { color: var(--amber-dim); }
+
+.lane-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 24px;
+}
+
+.lane-detail-item {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.lane-detail-item .detail-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: block;
+  margin-bottom: 1px;
+}
+.lane-card.active .lane-detail-item { color: var(--amber-pale); opacity: 0.9; }
+.lane-card.active .detail-label { color: var(--amber-dim); }
+
+.lane-price {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+.lane-card.active .lane-price { color: var(--amber); }
+
+.moat-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 14px; }
+.moat-tag {
+  background: var(--bg);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lane-card.active .moat-tag {
+  background: rgba(232,146,74,0.08);
+  color: var(--amber);
+  border-color: var(--amber-dim);
+}
+
+/* ─── CAPITAL FIT BADGE ──────────────────────────────────────────────────── */
+.capital-fit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+.capital-fit-badge.fits {
+  background: rgba(46,196,168,0.12);
+  color: var(--teal);
+  border: 1px solid var(--teal-dim);
+}
+.capital-fit-badge.short {
+  background: rgba(240,96,96,0.12);
+  color: var(--red);
+  border: 1px solid var(--red-dim);
+}
+
+/* ─── PRO FORMA ──────────────────────────────────────────────────────────── */
+.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.pf-item {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.pf-item .pf-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+.pf-item .pf-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.pf-item .pf-note {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.pass { color: var(--teal) !important; }
+.warn { color: var(--yellow) !important; }
+.fail { color: var(--red)  !important; }
+
+.bear-case {
+  grid-column: 1 / -1;
+  background: var(--bg-card-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.bear-case h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.bear-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.855rem;
+  color: var(--text-2);
+  padding: 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+.bear-result {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-1);
+}
+
+/* ─── CHECKLIST ──────────────────────────────────────────────────────────── */
+.checklist { list-style: none; counter-reset: check-counter; display: flex; flex-direction: column; gap: 10px; }
+.checklist li {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px 18px 64px;
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  counter-increment: check-counter;
+  position: relative;
+}
+.checklist li::before {
+  content: counter(check-counter, decimal-leading-zero);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 30px;
+  height: 30px;
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+.checklist li strong {
+  display: block;
+  color: var(--text-1);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* ─── PRO FORMA LANE TOGGLE ──────────────────────────────────────────────── */
+.pf-lane-switch { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.pf-lane-switch-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.pf-lane-tabs { display: inline-flex; background: var(--bg); border: 1px solid var(--border-2); border-radius: 10px; padding: 3px; gap: 3px; }
+.pf-lane-tab { border: none; background: transparent; color: var(--text-2); font-family: var(--font); font-size: 0.8rem; font-weight: 700; padding: 7px 16px; border-radius: 7px; cursor: pointer; transition: all 0.14s; white-space: nowrap; }
+.pf-lane-tab:hover { color: var(--amber); }
+.pf-lane-tab.active { background: var(--amber); color: #1a1208; }
+.pf-lane-tab:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+/* ─── CONFIRMING LISTINGS (buy box links) ────────────────────────────────── */
+.confirming-listings { margin-top: 14px; }
+.confirming-listings .cl-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.confirming-listings a { display: inline-flex; align-items: center; gap: 5px; background: var(--teal-bg); border: 1px solid var(--teal-dim); color: var(--teal); border-radius: 6px; padding: 4px 10px; margin: 0 5px 5px 0; font-size: 0.72rem; font-weight: 600; text-decoration: none; transition: all 0.12s; }
+.confirming-listings a:hover { background: rgba(46,196,168,0.18); }
+.confirming-listings a::before { content: '↗'; font-size: 0.78rem; opacity: 0.8; }
+.lane-card.active .confirming-listings .cl-label { color: var(--amber-dim); }
+.lane-card.active .confirming-listings a { background: rgba(232,146,74,0.10); border-color: var(--amber-dim); color: var(--amber); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; }
+  .score-hero { flex-direction: row; gap: 16px; align-self: flex-start; padding: 20px 24px; min-width: 0; }
+  .score-hero .score-num { font-size: 3rem; }
+  .lane-card { grid-template-columns: 1fr; }
+  .lane-detail-grid { grid-template-columns: 1fr; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .score-row .weighted-contrib { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO ────────────────────────────────────────────────────────────────── -->
+  <div class="hero">
+    <div class="anim-fade-up d0">
+      <div class="hero-eyebrow">STR Market Analysis · August 23, 2026</div>
+      <h1>Eureka Springs</h1>
+      <div class="hero-state">Carroll County, Arkansas</div>
+      <div class="hero-summary"><strong>Eureka Springs scores 5.21/10 &mdash; Tier F (Pass).</strong> The demand is real and durable: an entire National-Register Victorian city that cannot be reproduced, a year-round haunted-tourism economy, a Great Passion Play that drew 112,000+ in 2025 on its best per-show attendance in eighteen years, and a Northwest Arkansas metro of 622,177 &mdash; the 9th-fastest-growing in the country &mdash; 45 to 60 minutes away. Nothing here argues that people will stop coming.<br><br><strong>The arithmetic is the story, and the arithmetic fails.</strong> Against a consensus market-median gross of roughly $25,000, a $500,000 purchase is a <strong>20.0&times; price-to-revenue multiple</strong> &mdash; the worst of the nine markets screened in this series, on a scale where 5.0&times; is the 20% floor. Operating costs at the median equal or exceed revenue <em>before debt service</em> (opExpRatio 0.949 self-manage, <strong>1.027 remote</strong>). Supply is arriving at 30&ndash;36%/yr into demand growing ~9%/yr, and the February revenue floor fails at both the $500,000 and $300,000 bases with no mid-term-rental fallback.<br><br><strong>The structural finding that ends it:</strong> the median Eureka Springs property justifies <strong>$125,000</strong> at the 20% floor, while the 1031 exchange requires a purchase of <strong>at least $231,000</strong>. The median is not marginal here &mdash; it is <em>arithmetically excluded</em>. The 30% goal is unreachable at <em>any</em> compliant price: a top-decile $61,700 producer supports only $205,667.<br><br><strong>One live exception is on the board and is not dismissed:</strong> <strong>190 N Main St, $329,000&ndash;$345,000, 3bd/3ba</strong>, projecting $69.2K at HIGH comp strength = <strong>4.75&times;&ndash;4.99&times; at ask</strong>, on a commercial lot where tourist lodging is by right. But it rests on a projection rather than a disclosure, and &lsquo;can be utilized as nightly rental&rsquo; is potential, not operation &mdash; so it likely fails the 1031 already-producing test. At 5.21/10 this ranks at the bottom of the mature drive-to heritage markets screened, below Luray VA (~7.0) and far below Banner Elk / Shenandoah Valley (7.6&ndash;8.4).</div>
+      <div style="margin-top:18px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px">
+  <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">Budget Fit &mdash; TIGHT</div>
+  <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">At $300,000 in unincorporated Carroll County, hitting your $22,000 net cash flow target requires about <strong>$67,600 in gross revenue</strong> &mdash; well above the ~$49,300 this lane's best real listing projects, and nearly 3&times; the market's $23,000 median. Only the by-right commercial downtown lane comes close, and only at its ceiling.</div>
+</div>
+<div style="margin-top:12px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-left:3px solid var(--yellow);border-radius:8px;padding:14px 18px;max-width:580px">
+  <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:4px">&#9888; Revenue Trend &mdash; Declining</div>
+  <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">Per-listing revenue is falling. City lodging-tax receipts rose 9.0% while supply grew ~36%, implying roughly <strong>&minus;20% per listing</strong> &mdash; corroborated by AirROI at &minus;16.9% (Holiday Island) and &minus;16.7% (Berryville). Underwrite to recent actuals, and discount any seller-provided revenue from peak years by 20&ndash;30%.</div>
+</div>
+<div style="margin-top:12px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px">
+  <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">&#9888; Jurisdiction Warning</div>
+  <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">Ordinance 2311 bans new short-term rentals in Eureka Springs' R-1/R-2/R-3 residential zones, and the conditional use permit is <strong>expressly non-transferable</strong> on sale. Buy only in <strong>C-1/C-2/C-3 commercial</strong> parcels (tourist lodging by right) or in <strong>unincorporated Carroll County</strong> (no zoning at all). Confirm the parcel's zoning in writing with the city before any offer.</div>
+</div>
+      <div class="hero-meta">
+        <span class="hero-date">Analysis date: August 23, 2026</span>
+        <span class="verdict-pill yellow" id="threshold-label">Loading…</span>
+      </div>
+    </div>
+    <div class="score-hero yellow anim-scale-in d1" id="score-badge">
+      <div class="score-num" id="overall-score-display">—</div>
+      <div class="score-denom">/ 10</div>
+      <div class="score-label">Market Score</div>
+    </div>
+  </div>
+
+  <!-- CAPITAL ALERT ───────────────────────────────────────────────────────── -->
+  <!-- Rendered by renderCapitalAlert() below based on SHOW_CAPITAL_ALERT constant -->
+  <div id="capital-alert-container" class="anim-fade-up d2"></div>
+  <div id="roi-context-container" class="anim-fade-up d2"></div>
+
+  <!-- RED FLAGS ───────────────────────────────────────────────────────────── -->
+  <div id="red-flags-section" class="anim-fade-up d3"></div>
+
+  <!-- SCORECARD ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d3">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">📊</span>
+        Market Scorecard
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="scorecard-body"></div>
+    <div class="scorecard-total">
+      <span>Weighted Total Score</span>
+      <span class="total-val yellow" id="total-score-display">—</span>
+    </div>
+  </div>
+
+  <!-- MARKET INTELLIGENCE ─────────────────────────────────────────────────── -->
+  <!-- Collapsed by default — user expands to read -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon teal">🔍</span>
+        Market Intelligence
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body collapsed" id="intel-body">
+      <div class="intel-section">
+        <div class="intel-label">⚖ Regulatory &amp; Legal</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+  <span class="intel-key key-red">Permit Is NOT Transferable</span>
+  <p>Eureka Springs Title 14, verbatim: <strong>"The conditional use is granted to the applicant for a specific use at a specific property and is not transferable."</strong> A new owner must win a fresh noticed public hearing and <strong>can be denied</strong>. The B&amp;B sale matrix confirms it: "If the B&amp;B is sold, the B&amp;B requires a new CUP." For a 1031 buyer, this is the difference between buying a business and buying a building.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">New STRs Banned in Residential Zones</span>
+  <p>Ordinance 2311 (Oct 2021) bans new short-term rentals in R-1/R-2/R-3, enforced at $250/day. A 200-ft spacing rule separates lodging uses in R-1 Victorian. Only Title 14 Appendix A's <strong>closed 18-address list</strong> ("No additions may be made to this list", pre-9/30/1986, no 180-day operating lapse) survives a sale. <strong>Roughly 20 of the 43 listings in the $230&ndash;520K band sit in this category and are legally unusable.</strong></p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Two Clean Lanes Do Exist</span>
+  <p>Tourist lodging is <strong>permitted BY RIGHT in C-1, C-2 and C-3</strong> &mdash; no conditional use permit, therefore no transferability exposure at closing. And <strong>unincorporated Carroll County has no zoning and no STR ordinance at all</strong>. These two categories are the entire buyable universe here.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Corps Docks Cannot Be Rented &mdash; "There Are No Exceptions"</span>
+  <p>36 CFR 327.30(d)(4) and the 2018 Beaver Lake Shoreline Management Plan prohibit including a private Corps dock in any rental agreement, with penalties to $5,000/6 months and summary revocation. New Beaver Lake dock permits have been closed since late 2020. This matters doubly: it kills the only moat that cleared the 2&times; ADR bar, <strong>and it means any "private dock" STR comp in this market is operating non-compliantly.</strong></p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Tax Load Over the Flag &mdash; and Owner-Remitted</span>
+  <p>Combined city tax load <strong>&asymp;14.375%</strong>, above the 12% warning threshold (unincorporated county &asymp;9.0%). Airbnb auto-remits the 3% CAPC tax and Vrbo only since 6/1/2025 &mdash; <strong>every other channel, including direct bookings, is owner-remitted.</strong> Title 14 also requires a CAPC good-standing letter to continue a permit, so a delinquent seller can void the buyer's lodging rights.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Hearings Land Inside the 1031 Window</span>
+  <p>City Council meets <strong>Monday, Sept 28 2026 &mdash; the exact identification deadline</strong> (2nd/4th Monday cadence). The last Planning Commission before the 02/10/2027 close is <strong>Tuesday Feb 9 2027, one day out.</strong> Separately, <strong>Arkansas SB 197 would preempt Ordinance 2311</strong> &mdash; the in-city supply moat is legislative and repealable in a single session.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Holiday Island Is Excluded</span>
+  <p>The Holiday Island Suburban Improvement District's STR permit is expressly <strong>non-transferable AND revocable at will</strong>. That is not a lane; it is a liability.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-neutral">Documented Data Gaps</span>
+  <p>Every fee, renewal cycle, inspection requirement and occupancy/minimum-stay rule &mdash; for both Eureka Springs and Holiday Island &mdash; is unpublished, as is whether the B&amp;B conditional-use moratorium (last extended to 8/15/2024) is still live. These need City Hall calls (479-253-9703 / 479-379-8040) before 09/28.</p>
+</div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">📈 Demand &amp; Market Fundamentals</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+  <span class="intel-key key-teal">Demand Is Durable and Multi-Anchor</span>
+  <p>The <strong>entire city is NRHP-listed Victorian</strong> (built 1880&ndash;1910; Arkansas' 2nd-largest city in 1889, now ~2,000 people) &mdash; physically unreproducible supply of the thing people come for. No single point of failure across the anchor set.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">The Great Passion Play Is GROWING, Not Fading</span>
+  <p><strong>112,000+ attendance in 2025 &mdash; the best per-show attendance in 18 years</strong>, with the mortgage retired in 2023. The "fading attraction" hypothesis this run went in with is <strong>refuted</strong>.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">The NWA Feeder Is Real and Durable</span>
+  <p>Northwest Arkansas: <strong>622,177 people (Jul 2025), +2.4%, +14,744/yr &mdash; the 9th-fastest-growing US metro</strong>, +41% since 2010, and only 45&ndash;60 minutes away. XNA airport carries <strong>2.52M passengers (+10.4%)</strong>, now larger than Little Rock, with a $109M concourse underway. This is what structurally separates Eureka from a purely rural market.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Mountain Biking: Eureka Is a Node, Not a Spillover Catcher</span>
+  <p>Eureka Springs is a listed <strong>OZ Trails node</strong> ("Bella Vista to Eureka Springs") with Walton-funded trails inside the city, plus <strong>Lake Leatherwood</strong> &mdash; 1,600 acres, 25 mi cross-country, a 7-line downhill gravity zone with a paid shuttle. The framing that it merely catches drips from Bentonville is wrong. Dollar magnitude remains unquantified.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key">Other Verified Anchors</span>
+  <ul>
+    <li>Thorncrown Chapel &mdash; <strong>250+ weddings/yr</strong>; ~8M visitors over 45 years</li>
+    <li>Beaver Lake &mdash; ~3.1M visitors/yr (Confidence Medium; developed recreation concentrates on the Benton County end)</li>
+    <li>Compression stack: Bikes Blues &amp; BBQ (275&ndash;300K, Rogers, 45 min) + fall foliage + Halloween/paranormal makes <strong>October the peak of peaks</strong>; Diversity Weekends compress April</li>
+  </ul>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Durable Floor, Low Ceiling &mdash; Supply Has Passed Demand</span>
+  <p>Occupancy at <strong>33.6%</strong> settles the maturity question. Demand is durable but demand <em>growth</em> is capped, while the unincorporated ring adds supply at 31&ndash;36%/yr into flat demand. The market has also <strong>split</strong>: city supply is legally frozen (~24 grandfathered) while the ring grows &mdash; which is what reconciles city A&amp;P receipts +9% against platform supply +36%. Different geographies, not contradictory data.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Two Live Negatives</span>
+  <p><strong>AGFC emergency trout limits</strong> on the Beaver Dam tailwater after a hatchery crash &mdash; the fishing segment is currently suppressed, which undercuts any White River frontage thesis. <strong>Tyson cancelled 39 Carroll County grower contracts</strong>, hitting both the local economy and the Berryville/Green Forest long-term-rental fallback.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-neutral">Data Gap</span>
+  <p>No visitor-origin data exists &mdash; the drive-vs-fly split (~85&ndash;90% drive) is inference, not sourced. More actionable gap: city-limits vs unincorporated listing counts, which would size the capped-supply moat directly.</p>
+</div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🏠 Competitive &amp; Revenue</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+  <span class="intel-key key-red">The Signature Is OVERSUPPLY &mdash; Confirmed by a Non-Scraped Source</span>
+  <p>ADR is flat (<strong>+0.1%</strong> &mdash; no pricing power) while occupancy sits at <strong>29&ndash;34%</strong> across four sub-areas. The clincher is municipal, not scraped: <strong>CAPC lodging-tax receipts +9.0%</strong> (first 8 months 2025, $1.38M vs $1.26M) against supply +36% &rArr; <strong>&asymp;&minus;20% revenue per listing.</strong> AirROI independently measures &minus;16.9% (Holiday Island) and &minus;16.7% (Berryville). Prediction matches measurement &mdash; this is not a geofence artifact.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Supply: AirDNA Is the Outlier for the 5th Straight Market</span>
+  <p>AirDNA headline <strong>+5.7%</strong> vs AirROI <strong>+36.2%</strong> (and +31.0% on a second window). AirDNA's <em>own</em> 3-year chart says ~630 &rarr; 1,004 listings &asymp; <strong>+59%/3yr</strong>, contradicting its own headline. Satellites: <strong>Holiday Island +47.7%, Berryville +76.5%.</strong> Working figure: <strong>+30&ndash;36%/yr</strong>. The pipeline is entirely <em>outside</em> the city, because Ordinance 2311 froze the core.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Revenue Floor FAILS at Both Price Bases</span>
+  <p>February median listing <strong>$1,154/mo</strong>. Against full monthly debt at $500K ($2,865.67) that is <strong>40.3%</strong> &mdash; far under the 70% bar. At $300K ($1,719/mo) it is <strong>67.1%</strong> &mdash; still under. There is no mid-term-rental fallback (30+ night minimums are 0.1% of supply), so this is binding, not academic.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Only One Moat Clears 2&times; ADR &mdash; and It Is Illegal to Rent</span>
+  <p>Beaver Lake shoreline + dock + large hot tub tests <strong>2.21&ndash;2.46&times;</strong> &mdash; and Corps rules forbid renting the dock. Everything else fails: downtown walkability <strong>0.74&ndash;1.03&times;</strong>, hot tub alone 1.09&times;, White River frontage 0.69&ndash;0.87&times;, valley-view-plus-hot-tub <strong>0.87&times;</strong> (the same decorative multiple a dome tested at in a prior market).</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">The $90K+ 2BR Tier Is Real but 3&ndash;6 Listings Deep</span>
+  <p>~2&ndash;4% of the 2BR slice. Confirmed arithmetically &mdash; Lake Shore Cabins' 2BR publishes <strong>$445/night</strong> &rarr; $109K at top-decile occupancy. But of the three named screen comps, <strong>"Beaver Lakefront Cabins" is a 7-cabin couples RESORT, not a buyable 2BR</strong>, and the other two could not be located by name. Calibration also marks the tier down ~12% to <strong>&asymp;$79&ndash;82K.</strong></p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-neutral">The Bedroom Ladder Barely Pays</span>
+  <p>Measured at only <strong>~1.10&ndash;1.14&times; per bedroom</strong> off two published rate cards. This is a couples market where the second bedroom adds little &mdash; which is exactly why 1BR is 46&ndash;57% of supply. 2BR bands: median <strong>$22K&ndash;$31K</strong>, top quartile <strong>$35K&ndash;$53K</strong> (2 sources, 2 methods, Confidence Medium, deliberately wide).</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Dual-Platform Is the Market Standard</span>
+  <p>Multi-channel 59.2% &middot; Airbnb-only 25.5% &middot; VRBO-only 7.8% &middot; Booking-only 7.4%. Every pro forma here assumes dual-platform listing; single-platform operators typically achieve 15&ndash;20% less gross. Hot tub penetration is only <strong>22%</strong> &mdash; a differentiator by scarcity even though it fails the 2&times; ADR test on its own.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-neutral">Small-Market Flag Does NOT Fire &middot; Data Gap</span>
+  <p>All-platform count 835 (AirROI) / 1,004 (AirDNA) &mdash; both well above the 600 threshold, so Supply confidence is not capped on that basis. <strong>Data gap:</strong> no free bedroom-level revenue table exists for this market &mdash; Chalet returned 429 four times, Rabbu 403, all three AirDNA public pages 403, Awning is login-walled, Airbtics has no Eureka page, and PriceLabs is not enabled on the account.</p>
+</div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🔧 Operations &amp; Exit</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+  <span class="intel-key key-red">Operating Costs Meet or Exceed Revenue at the Median</span>
+  <p>The single most damning operating fact in this analysis: <strong>opExpRatio = $21,822 / $23,000 = 0.949</strong> self-manage, <strong>1.027</strong> for a remote owner, and <strong>1.169</strong> with a property manager. At the market median, operating costs consume or exceed gross revenue <em>before a dollar of debt service</em>. The corresponding market-median cap rate is <strong>0.38%</strong>.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Amendment 79's Cap RESETS on Sale</span>
+  <p>Arkansas assesses at 20% of market value. No limitation may be claimed until the second assessment date after transfer, and the 10% non-homestead cap shelters only later growth, not the reset. <strong>Carroll County reappraised +34.21% since 2022 and a 2026 buyer eats it all at once</strong>, with no homestead credit for a non-resident. Effective rate <strong>1.004%</strong> of purchase price &rarr; year-2 tax <strong>$3,012 at $300K, $5,020 at $500K</strong>.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">miscSupplies = $15,220, Not $4,000</span>
+  <p>Rebuilt from named local vendors (range $8,800&ndash;$27,360), including a <strong>$1,400 steep-gravel-drive line</strong> &mdash; steep drives are a confirmed Eureka problem and already cost one board property its place &mdash; and a $600 historic-district upkeep line for in-city Victorian stock held to Historic District Commission standards.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Insurance: 1&ndash;2% Wind/Hail Deductible, and No FAIR Plan</span>
+  <p>This is tornado and hail country. The deductible norm is <strong>1&ndash;2% of Coverage A</strong> &mdash; $3,500&ndash;$7,000 out of pocket on a $350K dwelling &mdash; and <strong>Arkansas has NO FAIR Plan</strong> backstop. STR-endorsed premiums: $1,900 low / <strong>$2,900 mid</strong> / $4,800+ for historic downtown stock carrying age surcharges.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">Septic Caps the Guest Count &mdash; and Karst Can Kill a Deal</span>
+  <p>Arkansas sizes by <strong>bedroom count</strong>, not a published gallons-per-day figure (the flow table sits in ADH Appendix B, offline): 1,000-gallon tank for 1&ndash;3BR, 95 ft of trench per bedroom. <strong>Guest cap: 2BR = 4 guests, 3BR = 6.</strong> Eureka sits on springs and karst limestone &mdash; percolation failure is a genuine deal-killer and aerobic units are the norm on Ozark ridges.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-teal">Cost Segregation Is the Strongest Line in the Model</span>
+  <p>buildingPct from <strong>real assessor parcels</strong> (actDataScout, primary data &mdash; no benchmark used): downtown Victorian <strong>0.78</strong> (237 N Main .793, 217 N Main .804, 55 Vine .743); Holiday Island mid-age 0.89; larger downtown 0.94. At 100% bonus depreciation (OBBBA 2025) on the 25% reclassified share at a 37% bracket, Year 1 cost seg returns <strong>$19,841&ndash;$24,315</strong> depending on lane &mdash; more than any lane's operating cash flow. <em>Data gap: the rural-acreage segment could not be pulled.</em></p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-red">The LTR Fallback Does NOT Cover Debt</span>
+  <p>At $250K, long-term rent clears gross by $2,006 but leaves a <strong>$7,480/yr net shortfall</strong>. At $300K it fails on gross outright. Eureka is not the second market in this series to clear that bar &mdash; and the Tyson contract cancellations weaken the Berryville/Green Forest workforce demand the fallback would rely on.</p>
+</div>
+<div class="intel-entry">
+  <span class="intel-key key-neutral">Exit: Thin, and Negotiation Room Is Narrow</span>
+  <p>Sale-to-list <strong>&asymp;95.0%</strong>, <strong>53 days on market</strong>, ~24 sales/month county-wide. That 95% is decisive for the buy box: <strong>any lane needing more than a ~5&ndash;8% discount is not realistically negotiable.</strong> Median county sale $310K = <strong>13.5&times;</strong> price-to-revenue at the $23,000 median.</p>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUY BOX ─────────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">🎯</span>
+        Buy Box Recommendations
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="buybox-body">
+      <div class="lanes" id="lanes-container"></div>
+    </div>
+  </div>
+
+  <!-- PRO FORMA ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d5">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon blue">💰</span>
+        Pro Forma — <span id="active-lane-name" style="color:var(--amber);margin-left:6px">Target Lane</span>
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="pf-lane-switch" id="pf-lane-switch">
+        <span class="pf-lane-switch-label">View lane:</span>
+        <div class="pf-lane-tabs" id="pf-lane-tabs"></div>
+      </div>
+      <div id="proforma-body"></div>
+    </div>
+  </div>
+
+
+</div><!-- /page -->
+
+<script>
+// ─── DATA INJECTION ───────────────────────────────────────────────────────────
+// INSTRUCTIONS: Replace ALL {{PLACEHOLDER}} values below with real data.
+// Do not change variable names, function names, or JS structure.
+// Arrays and objects must remain valid JSON-compatible JavaScript literals.
+
+const OVERALL_SCORE = 5.21;          // e.g. 3.20 — one decimal place minimum
+const SCORE_COLOR_CLASS = "red"; // "yellow" | "green" | "red"
+
+// CAPITAL ALERT — set SHOW_CAPITAL_ALERT to true if the investor's stated cash or
+// budget does not comfortably cover any of the three buy box lanes.
+// CAPITAL_ALERT_BODY should name the specific conditions and exact numbers.
+const SHOW_CAPITAL_ALERT = true;  // true | false
+const CAPITAL_ALERT_BODY = "Negative leverage plus an unreachable cash-flow target. The market-median cap rate is <em>0.38%</em> ($23,000 revenue against $21,822 of operating cost on a $310,000 median sale), and cap rates run <em>4.05%</em> in the Conservative lane and <em>6.36%</em> in the Target lane \u2014 both below the 7.75% cost of debt. Your $22,000 target needs <em>$72,557</em> gross against a best-lane ceiling of <em>$69,200</em>, so it is not reachable in any lane. Your cash is NOT the constraint: every lane fits ($72,707\u2013$89,099 required against $141,428 available)."; // e.g. "Your $200K cash covers Conservative ($190K required) but not Target ($265K). See Pro Forma for details."
+// ROI CONTEXT NOTE — set to the market-context note when ALL three lanes fail grossRoiPass
+// (gross ROI < 15% is a market-wide 2025–26 condition in appreciation-driven markets, NOT a
+// deal-specific failure). Set to "" (empty string) to hide the tile. Quoted string — never an array.
+const ROI_CONTEXT_NOTE = "";
+
+// RED FLAGS — array of {flag, data} objects.
+// flag: short headline (what is it)
+// data: supporting detail with a leading " — " separator
+// Set to [] if no red flags.
+const RED_FLAGS = [
+    { flag: "1. STR Ban &mdash; TRIGGERED (zone-scoped)", data: " &mdash; Ordinance 2311 (Oct 2021) bans new short-term rentals in Eureka Springs R-1/R-2/R-3, enforced at $250/day, with only a closed 18-address grandfather list. Roughly <strong>20 of the 43 listings in the $230&ndash;520K band are legally unusable</strong>." },
+  { flag: "2. Active Anti-STR Legislation &mdash; TRIGGERED", data: " &mdash; City Council meets <strong>Monday Sept 28 2026, the exact 1031 identification deadline</strong>; the last Planning Commission before closing is Feb 9 2027, one day out. Arkansas SB 197 runs the other way and would preempt Ord. 2311, releasing the capped core." },
+  { flag: "4. Supply Growing Faster Than Demand, 2+ Years &mdash; TRIGGERED", data: " &mdash; Supply +31% to +36%/yr against CAPC lodging receipts of just <strong>+9.0%</strong>, with ADR flat at +0.1%. Implies <strong>&asymp;&minus;20%/yr per listing</strong>; all four measured sub-areas are negative." },
+  { flag: "5. Revenue Floor Below 70% of Debt Service &mdash; TRIGGERED at BOTH bases", data: " &mdash; February median listing <strong>$1,154/mo</strong> is <strong>40.3%</strong> of full monthly debt at $500K and <strong>67.1%</strong> at $300K. No mid-term-rental fallback exists (30+ night minimums are 0.1% of supply), so the shortfall cannot be bridged." },
+  { flag: "8. Prices Outpaced Revenue &middot; Cap Rate Under 6% &mdash; TRIGGERED", data: " &mdash; Conservative cap rate <strong>2.5&ndash;3.5%</strong>, and <strong>0.38%</strong> at the true market median. County median sale $310,000 against a $23,000 median gross is <strong>13.5&times;</strong> price-to-revenue." },
+  { flag: "9. Permit Requires Neighbor Approval &mdash; TRIGGERED (in-city only)", data: " &mdash; The conditional use permit is expressly non-transferable; a buyer must win a <strong>fresh noticed public hearing</strong> (15-day newspaper notice, 10-day certified mail to neighbors) and <strong>can be denied</strong>. Does not apply in C-zones or unincorporated county." },
+  { flag: "10. No Dual-Use Exit Path &mdash; TRIGGERED", data: " &mdash; Long-term rental does not cover debt service: a <strong>$7,480/yr net shortfall at $250K</strong>, and it fails on gross outright at $300K. Tyson&rsquo;s 39 cancelled grower contracts further weaken the workforce demand that fallback would rely on." },
+  { flag: "Negative Leverage", data: " &mdash; Cap rate (2.5&ndash;3.5% market, 4.05% Conservative lane, 6.36% Target lane) sits below the 7.75% cost of debt. Appreciation and cost segregation carry whatever return thesis remains." },
+  { flag: "CLEAR: #3 HOA Prohibition &middot; #6 Management Infrastructure &middot; #7 Single Fragile Driver", data: " &mdash; Arkansas deed-restriction law favors STR owners (<em>Vera Lee Angel Rev. Trust v. O&rsquo;Bryant</em>, 2018 Ark. 38); the PM and cleaning ecosystem is deep (6+ firms, active Turno pool); and demand is genuinely multi-anchor with no single point of failure." }
+];
+
+// SCORECARD — 9 categories, weights must sum to 1.00
+// name: category label string — KEY IS name, NOT category (cat.name is what renders)
+// weight: decimal fraction (all weights sum to 1.0)
+// score: integer 1–10 (initial displayed score; user can override interactively)
+// rationale: 2–4 sentences explaining the score
+// confidence: data quality note
+const SCORECARD_DATA = [
+    { name: "Demand Strength &amp; Durability", weight: 0.25, score: 8, confidence: "High", rationale: "Genuinely multi-anchor with no single point of failure: the entire city is NRHP-listed Victorian and physically unreproducible, the Crescent Hotel runs year-round ghost tours, the Great Passion Play drew <strong>112,000+ in 2025</strong> on its best per-show attendance in 18 years, Thorncrown Chapel hosts <strong>250+ weddings/yr</strong>, and Eureka is a listed <strong>OZ Trails MTB node</strong> with Walton-funded trails inside city limits. The feeder is real and compounding &mdash; NWA metro <strong>622,177 (+2.4%/yr, 9th-fastest-growing US metro)</strong> at 45&ndash;60 min, plus XNA at 2,524,256 passengers (+10.4%), now larger than Little Rock. Held to 8 rather than 9 because demand <em>growth</em> is capped: 140 years mature, visitation flat at ~750K/yr, no new anchor coming, and two live negatives (AGFC emergency trout limits after a hatchery crash; Tyson cancelling 39 grower contracts). Durable floor, low ceiling." },
+  { name: "Supply &amp; Competition", weight: 0.18, score: 3, confidence: "High", rationale: "<strong>Oversupply signature, confirmed by a non-scraped third source.</strong> ADR is flat at <strong>+0.1%</strong> &mdash; zero pricing power, the definitive tell &mdash; while occupancy sits at <strong>29&ndash;34% across four independently measured sub-areas</strong>. Supply is running <strong>+30% to +36%/yr</strong> (AirDNA is the outlier for the fifth straight market; its own 3-year chart says +59%/3yr, contradicting its +5.7% headline). Against that, CAPC lodging receipts grew only <strong>+9.0%</strong> &mdash; pie +9% over slices +36% implies <strong>&asymp;&minus;20%/yr per listing</strong>, independently corroborated at &minus;16.9% and &minus;16.7% in two satellites. Held at 3 rather than 2 only because Ordinance 2311 has frozen the city core since 2021 &mdash; a genuine but <em>legislative</em> moat that AR SB 197 could repeal in one session." },
+  { name: "Returns Profile", weight: 0.18, score: 2, confidence: "High", rationale: "Scored on the market&rsquo;s <strong>objective</strong> return profile, not this buyer&rsquo;s target. Price-to-revenue at the consensus ~$25,000 median: <strong>$500K = 20.0&times; &middot; $300K = 12.0&times; &middot; $231K = 9.2&times;</strong> &mdash; the worst headline multiple of the nine markets screened, against a scale where 5.0&times; is the 20% floor and 10&times;+ is do-not-bother. Conservative cap rate is <strong>2.5&ndash;3.5%</strong>, and <strong>0.38%</strong> at the true market median. Most damning: <strong>opExpRatio is 0.949 self-manage and 1.027 remote</strong> &mdash; operating costs meet or exceed revenue <em>before any debt service</em>. Both sellers who disclosed priced at 7.81&times; and 8.58&times;, and both underperform their own comp sets." },
+  { name: "Regulatory Environment", weight: 0.12, score: 5, confidence: "High", rationale: "Genuinely two-sided. <strong>NEGATIVE:</strong> the conditional use permit is expressly <strong>NON-TRANSFERABLE</strong> &mdash; a new owner must win a fresh noticed public hearing and can be denied; new STRs are <strong>banned in R-1/R-2/R-3</strong> (Ord. 2311) with only a closed 18-address grandfather list; combined city tax load <strong>&asymp;14.375%</strong> with the A&amp;P owner-remitted on most channels; and City Council meets <strong>Sept 28 2026, the exact 1031 identification deadline</strong>. <strong>POSITIVE:</strong> tourist lodging is <strong>by right in C-1/C-2/C-3</strong> (no permit to lose), and <strong>unincorporated Carroll County has no zoning and no STR ordinance at all</strong> &mdash; a genuinely clean lane for a deadline-driven exchange." },
+  { name: "Appreciation Potential", weight: 0.12, score: 7, confidence: "Medium-High", rationale: "Solid and evidenced: Carroll County values <strong>+34.21% since 2022</strong>, median sale <strong>$310,000 (+12.8% YoY)</strong>, $168/sqft (+6.7%), FHFA HPI at a record 219.65 &mdash; roughly 8&ndash;10%/yr compounded over four years. The engine is durable and external: Northwest Arkansas money 45&ndash;60 minutes away, plus XNA&rsquo;s $109.4M concourse expansion and a $127M access roadway. Held at 7 because the appreciation is driven by <strong>lifestyle and second-home buyers, not income</strong> &mdash; prices have decisively outpaced revenue (13.5&times; against flat-to-negative STR revenue), and volume is thin at ~24 county sales/month." },
+  { name: "Seasonality &amp; Revenue Floor", weight: 0.08, score: 5, confidence: "High", rationale: "Season <em>shape</em> is this market&rsquo;s real structural edge and would otherwise score 8&ndash;9: <strong>February runs 42% of the October peak</strong> (versus 25&ndash;30% in comparable mountain markets), six shoulder months carry 51% of the year, and no single week clearly exceeds 4% of annual gross. But the absolute <strong>LEVEL fails</strong>, because the whole curve sits on 33.6% occupancy. <strong>February median $1,154</strong> against full monthly debt is <strong>40.3% at $500K</strong> and <strong>67.1% at $300K</strong> &mdash; both under the 70% bar, which caps this score in the 4&ndash;5 band regardless of shape. No MTR fallback exists (30+ night minimums are 0.1% of supply)." },
+  { name: "Ease of Management/Operations", weight: 0.04, score: 7, confidence: "Medium-High", rationale: "A remote Florida owner genuinely <em>can</em> run this market. The PM field is deep &mdash; Vacasa plus RedAwning, Awning, Summer, Home Roots, HomeTeam Luxury and Ozark Mountain Vacation Rentals &mdash; and Turno has an active local cleaner pool at $19.20/hr ($95&ndash;130 per 2BR turn). Kinetic fiber reaches the city; Starlink covers rural. Held at 7 because the physical load is heavy: <strong>karst is a genuine deal-killer</strong> (a failed septic may have no legal replacement site), guest counts are hard-capped at <strong>4 for a 2BR and 6 for a 3BR</strong>, wind/hail deductibles run 1&ndash;2% of Coverage A with <strong>no Arkansas FAIR Plan</strong>, and miscSupplies is <strong>$15,220</strong>, not the $4,000 baseline." },
+  { name: "Infrastructure &amp; Access", weight: 0.02, score: 7, confidence: "High", rationale: "Better than a typical tertiary mountain town. <strong>XNA at ~55 minutes carried 2,524,256 passengers in 2025 (+10.4%)</strong> and is now larger than Little Rock, with a $109.4M western concourse under construction and a $127M interstate-style access road &mdash; a real fly-in option most markets this size do not have. Held at 7 because there is <strong>no interstate</strong>: the approach is winding two-lane US-62 into a ~2,000-person mountain town, and the other drive rings (Tulsa, Kansas City, Dallas, St. Louis) are 3&ndash;5 hours out, leaving a single close feeder." },
+  { name: "Exit Options", weight: 0.01, score: 5, confidence: "Medium", rationale: "Scored on <strong>resale liquidity only</strong> &mdash; the long-term-rental path is explicitly not credited, because LTR does not cover debt here. Functional but thin: sale-to-list <strong>&asymp;95.0%</strong> and <strong>53 days on market</strong> are normal-to-slightly-soft and values are rising, but county volume is <strong>~24 sales/month, down from 31</strong>, and the buyer pool leans hard on one type &mdash; NWA second-home buyers who buy on lifestyle rather than cap rate. Locals are priced out above roughly $200,000. Exit is to a lifestyle buyer at a lifestyle price: real, but slow and narrow." }
+];
+
+// LANES — 3 buy box lanes: conservative, target, aggressive
+// Render reads these keys: id, title, subtitle, bedrooms, priceRange, maxDistance, guestAvatar, mustHaveAmenities[], differentiatorAmenities[], valueAdd?, revenueConfidence?, moatCategories[], confirmingListings[{label,url}]
+//   id is the lane key — PROFORMA_DATA.laneId must equal it. valueAdd & revenueConfidence are optional.
+// All other fields required. mustHaveAmenities and differentiatorAmenities are arrays of strings.
+// moatCategories: subset of ["Location","Quality","Design","Amenities","Operations"]
+// confirmingListings: array of 3–5 {label, url} from Step 6A inventory validation —
+//   active FOR-SALE / purchase listings the investor could offer on today (NOT rental comps),
+//   from Zillow/Redfin/Realtor.com/Homes.com/Trulia or local MLS/IDX. label = property address,
+//   url = the for-sale listing URL. Renders as clickable links inside the lane card.
+//   Use [] only if a lane has no linkable inventory.
+const LANES_DATA = [
+    {
+    id: "conservative",
+    title: "Conservative Lane",
+    subtitle: "Unincorporated Carroll County cabin, value-add. Zero regulatory risk \u2014 no zoning, no STR ordinance, nothing that can die at closing.",
+    bedrooms: "2\u20133 BR / 1\u20132 BA",
+    priceRange: "$250K \u2013 $330K",
+    maxDistance: "\u226420 min to US-62 / downtown Eureka",
+    guestAvatar: "Ozark couples and small families driving in from NWA, Springfield and Tulsa for 2\u20133 nights",
+    mustHaveAmenities: ["Hot tub (only 22% of supply has one)", "Reliable internet (rural fiber or Starlink)", "Septic sized to the bedroom count", "Drivable grade in ice"],
+    differentiatorAmenities: ["Valley or bluff view", "Acreage privacy", "Fire pit"],
+    valueAdd: "Add a hot tub, re-photograph, and list dual-platform \u2014 the three cheapest levers in a market where 78% of supply lacks a hot tub.",
+    revenueConfidence: "Tier 2 revenue \u00b7 Medium confidence \u00b7 calibration-adjusted low end",
+    moatCategories: ["Location", "Amenities"],
+    confirmingListings: [
+      { label: "561 County Road 302 \u2014 $250,000 \u00b7 3BR/2BA, 2,220 sf", url: "https://www.redfin.com/AR/Eureka-Springs/561-County-Road-302-72632/home/118206831" },
+      { label: "2820 County Road 207 \u2014 $285,000 \u00b7 2BR/1BA, 676 sf", url: "https://www.redfin.com/AR/Eureka-Springs/2820-County-Road-207-72632/home/192239823" },
+      { label: "21457 Highway 62 W \u2014 $295,000 \u00b7 3BR/2BA, 1,463 sf", url: "https://www.redfin.com/AR/Eureka-Springs/21457-Highway-62-W-72631/home/118276835" },
+      { label: "396 County Road 241 \u2014 $299,500 \u00b7 3BR/2.5BA, 2,055 sf", url: "https://www.redfin.com/AR/Eureka-Springs/396-County-Road-241-72632/home/118320120" },
+      { label: "55 County Road 1081 \u2014 $330,000 \u00b7 1BR/1BA, 624 sf", url: "https://www.redfin.com/AR/Eureka-Springs/55-County-Road-1081-72632/home/118300098" }
+    ]
+  },
+  {
+    id: "target",
+    title: "Target Lane",
+    subtitle: "Unincorporated Carroll, 3BR with view + hot tub. The cleanest title-to-arithmetic combination in the market \u2014 but it still misses the 15% gross-ROI floor.",
+    bedrooms: "3 BR / 2\u20132.5 BA",
+    priceRange: "$300K \u2013 $400K",
+    maxDistance: "\u226420 min to downtown Eureka",
+    guestAvatar: "NWA weekenders, OZ Trails mountain bikers, wedding and Great Passion Play overflow",
+    mustHaveAmenities: ["Hot tub", "View or acreage privacy", "Conforming septic sized for 6 guests", "All-weather drive"],
+    differentiatorAmenities: ["Glass or design element", "Secure bike storage (Eureka is an OZ Trails node)", "Fire pit"],
+    valueAdd: "Anchor listing 396 County Road 241 projects $49.3K at 52% occupancy \u2014 the best unincorporated multiple found (6.07x).",
+    revenueConfidence: "Tier 1\u20132 revenue \u00b7 Medium confidence",
+    moatCategories: ["Location", "Amenities", "Design"],
+    confirmingListings: [
+      { label: "396 County Road 241 \u2014 $299,500 \u00b7 3BR/2.5BA, 2,055 sf (lane anchor)", url: "https://www.redfin.com/AR/Eureka-Springs/396-County-Road-241-72632/home/118320120" },
+      { label: "55 County Road 1081 \u2014 $330,000 \u00b7 1BR/1BA, 624 sf", url: "https://www.redfin.com/AR/Eureka-Springs/55-County-Road-1081-72632/home/118300098" },
+      { label: "601 County Road 155 \u2014 $348,000 \u00b7 1BR/1BA, 1,344 sf", url: "https://www.redfin.com/AR/Eureka-Springs/601-County-Road-155-72632/home/118324215" },
+      { label: "7746 Highway 221 S \u2014 $425,000 \u00b7 2BR/2BA, 1,800 sf", url: "https://www.redfin.com/AR/Eureka-Springs/7746-Highway-221-S-72632/home/118180577" },
+      { label: "482 County Road 332 \u2014 $469,000 \u00b7 2BR/2BA, 1,680 sf", url: "https://www.redfin.com/AR/Eureka-Springs/482-County-Road-332-72632/home/118276930" }
+    ]
+  },
+  {
+    id: "aggressive",
+    title: "Aggressive Lane \u2014 the only lane that works",
+    subtitle: "In-city C-1/C-2/C-3 COMMERCIAL parcel only. Tourist lodging is BY RIGHT there \u2014 no conditional use permit, so nothing to lose at closing. This is the single viable structure in Eureka Springs.",
+    bedrooms: "2\u20133 BR / 2\u20133 BA",
+    priceRange: "$329K \u2013 $500K",
+    maxDistance: "Walkable to Spring St / Basin Park",
+    guestAvatar: "Romantic couples, ghost-tour and wedding guests, Great Passion Play visitors",
+    mustHaveAmenities: ["Verified C-zone commercial parcel, in writing from the city", "Off-street parking (downtown parking is a top guest complaint)", "Hot tub", "CAPC good-standing letter from the seller"],
+    differentiatorAmenities: ["Design branding", "Historic Victorian character", "Multi-door configuration"],
+    valueAdd: "Anchor listing 190 N Main St projects $69.2K at HIGH comp strength on a commercial lot \u2014 4.75\u20134.99x at ask, the only property in nine markets besides Cinnamon Spice to clear the 20% floor.",
+    revenueConfidence: "Top-decile revenue \u00b7 PROJECTION not disclosure \u00b7 verify with a T-12 before believing it",
+    moatCategories: ["Location", "Operations", "Design"],
+    confirmingListings: [
+      { label: "190 N Main St \u2014 $329,000 \u00b7 3BR/3BA, 2,032 sf \u00b7 COMMERCIAL lot", url: "https://www.redfin.com/AR/Eureka-Springs/190-N-Main-St-72632/home/118270466" },
+      { label: "273 N Main St \u2014 $370,000 \u00b7 1BR/2BA, 1,200 sf", url: "https://www.redfin.com/AR/Eureka-Springs/273-N-Main-St-72632/home/192524213" },
+      { label: "426 W Van Buren St \u2014 $375,000 \u00b7 1BR/2BA, 2,210 sf", url: "https://www.redfin.com/AR/Eureka-Springs/426-W-Van-Buren-St-72632/home/177075214" },
+      { label: "1 Drennon Dr \u2014 $445,000 \u00b7 3BR/3BA, 1,836 sf \u00b7 C-2, disclosed >$57K gross", url: "https://www.redfin.com/AR/Eureka-Springs/1-Drennon-Dr-72632/home/118180258" },
+      { label: "212 Spring St \u2014 $499,000 \u00b7 2BR/2.5BA, 1,801 sf", url: "https://www.redfin.com/AR/Eureka-Springs/212-Spring-St-72632/home/118306920" }
+    ]
+  }
+];
+
+// PRO FORMA — one entry per lane, matched by laneId
+// revenueMin/Max: annual gross revenue range
+// priceMid: purchase price midpoint used for ROI calculation
+// debtService: annual debt service (12 × monthly P&I)
+// loanNote: short string describing loan assumptions
+// cashRequired: 20% down + 3% closing + 5% furnishing/setup + 6-month reserve
+// cashRequiredNote: short human-readable label for cashRequired components
+// userCashAvailable: investor's stated cash position (0 if unknown)
+// capitalBreakevenPrice: max purchase price that fits userCashAvailable; 0 if capitalFits=true
+// opExpRatio: operating expense ratio as decimal — per-lane recalculated value, NOT 0.40 default (kept as the blended reference + render fallback)
+// fixedOpEx: annual operating $ that do NOT scale with revenue (propTax + insurance + miscSupplies)
+// variableOpExRate: decimal share that scales with revenue (platform fee ~0.03). Render uses fixedOpEx + revenue×variableOpExRate when BOTH present (honest low-end net CF); falls back to revenue×opExpRatio when absent.
+// netCfLow_pm: net CF at revenueMin with 25% PM (REQUIRED — renders in PM tile)
+// buildingPct: land-to-building ratio from county assessor — NOT hardcoded 0.85
+// bonusDepRate: 1.00 for OBBBA 2025 assets (placed in service on/after Jan 19, 2025)
+// costSegAssumptions: short string describing cost seg inputs
+// netCfAfterCostSegY1: netCfLow + costSegBenefit (Year 1 effective with tax savings; one-time)
+// grossRoiLow: gross ROI at revenueMin as percent (e.g. 12.7) — used by QA Check 10
+// grossRoiPass: true if grossRoiLow >= 15 — used by QA Check 10
+// costSegBenefit: federal tax savings in dollars (Year 1 cost-seg tile) = round(priceMid × buildingPct × reclassPct × bonusDepRate × 0.37); reclassPct≈0.25 (only the 5/15-yr reclassified share gets bonus dep — NOT the full building basis)
+// appreciationY1: estimated Year 1 appreciation in dollars (≈3–4% × priceMid) — gates the Total Economic Return tile + bear-tier classification
+// totalReturnLow: netCfLow + costSegBenefit + appreciationY1 (Total Economic Return tile)
+const PROFORMA_DATA = [
+    {
+    laneId: "conservative",
+    priceMid: 275000,
+    revenueMin: 34000,
+    revenueMax: 45000,
+    debtService: 18913,
+    loanNote: "DSCR 30-yr at 7.75% ASSUMED (not quoted), 20% down \u2014 annual debt = price \u00d7 0.0687756",
+    cashRequired: 72707,
+    cashRequiredNote: "20% down + 3% closing + 6-mo reserve \u2014 NO furnishing line (turnkey 1031, furniture conveys)",
+    userCashAvailable: 141428,
+    capitalBreakevenPrice: 534900,
+    opExpRatio: 0.579,
+    fixedOpEx: 21681,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -16469,
+    buildingPct: 0.78,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$275,000 \u00b7 78% building (measured-floor proxy; rural-acreage segment is a documented DATA GAP) \u00b7 25% reclassified to 5/15-yr \u00b7 100% bonus dep (OBBBA 2025) \u00b7 37% bracket",
+    appreciationY1: 0,
+    costSegBenefit: 19841,
+    netCfAfterCostSegY1: 12062,
+    totalReturnLow: 12062,
+    grossRoiLow: 12.4,
+    grossRoiPass: false,
+    fullCostOpExpMid: 26991
+  },
+  {
+    laneId: "target",
+    priceMid: 300000,
+    revenueMin: 43400,
+    revenueMax: 49300,
+    debtService: 20633,
+    loanNote: "DSCR 30-yr at 7.75% ASSUMED (not quoted), 20% down \u2014 annual debt = price \u00d7 0.0687756",
+    cashRequired: 79317,
+    cashRequiredNote: "20% down + 3% closing + 6-mo reserve \u2014 NO furnishing line (turnkey 1031, furniture conveys)",
+    userCashAvailable: 141428,
+    capitalBreakevenPrice: 534900,
+    opExpRatio: 0.525,
+    fixedOpEx: 22932,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -11753,
+    buildingPct: 0.78,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$300,000 \u00b7 78% building (measured-floor proxy; rural-acreage segment is a documented DATA GAP) \u00b7 25% reclassified to 5/15-yr \u00b7 100% bonus dep (OBBBA 2025) \u00b7 37% bracket",
+    appreciationY1: 0,
+    costSegBenefit: 21645,
+    netCfAfterCostSegY1: 20089,
+    totalReturnLow: 20089,
+    grossRoiLow: 14.5,
+    grossRoiPass: false,
+    fullCostOpExpMid: 28823
+  },
+  {
+    laneId: "aggressive",
+    priceMid: 337000,
+    revenueMin: 60900,
+    revenueMax: 69200,
+    debtService: 23177,
+    loanNote: "DSCR 30-yr at 7.75% ASSUMED (not quoted), 20% down \u2014 annual debt = price \u00d7 0.0687756",
+    cashRequired: 89099,
+    cashRequiredNote: "20% down + 3% closing + 6-mo reserve \u2014 NO furnishing line (turnkey 1031, furniture conveys)",
+    userCashAvailable: 141428,
+    capitalBreakevenPrice: 534900,
+    opExpRatio: 0.417,
+    fixedOpEx: 25203,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -3743,
+    buildingPct: 0.78,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$337,000 \u00b7 78% building (MEASURED \u2014 237 N Main .793, 217 N Main .804, 55 Vine .743, actDataScout) \u00b7 25% reclassified to 5/15-yr \u00b7 100% bonus dep (OBBBA 2025) \u00b7 37% bracket",
+    appreciationY1: 0,
+    costSegBenefit: 24315,
+    netCfAfterCostSegY1: 34883,
+    totalReturnLow: 34883,
+    grossRoiLow: 18.1,
+    grossRoiPass: true,
+    fullCostOpExpMid: 32210
+  }
+];
+
+
+// SCORE DIFFERENTIATION — tier verdict + why this market beats/trails the median
+// strengths: array of strings. drags: array of { label, swing } objects (NOT plain strings) —
+//   label = short category headline; swing = what it means + the tier-move number.
+const DIFFERENTIATION = {
+  tier: "F",
+  distanceUp: "0.29 points below Tier D (Marginal) &mdash; the first market in this series to fall out of D",
+  distanceDown: "F is the bottom tier &mdash; no cushion to measure",
+  strengths: [ "Demand durability 8/10 &mdash; a genuine multi-anchor stack with no single point of failure: an entire NRHP-listed Victorian city that cannot be reproduced, the Crescent Hotel&rsquo;s year-round haunted economy, a Great Passion Play running 112,000+ in 2025 on its best per-show attendance in 18 years, Thorncrown Chapel&rsquo;s 250+ weddings a year, and a Walton-funded OZ Trails MTB node inside the city limits.",
+    "Appreciation 7/10 &mdash; Carroll County values +34.21% since 2022, median sale $310,000 (+12.8% YoY), $168/sqft (+6.7%), FHFA HPI at a record 219.65, pushed by a Northwest Arkansas metro of 622,177 growing 2.4%/yr &mdash; the 9th-fastest-growing in the US &mdash; 45 to 60 minutes away." ],
+  drags: [ { label: "Returns Profile &mdash; 2/10, the largest point leak on the board (1.44)", swing: "If Returns improves from 2 to 5 &mdash; because a written T-12 confirms an actually-operating producer bought at or under 5&times; revenue (the 190 N Main / 396 County Road 241 lane proven on a disclosure rather than a projection), lifting median gross ROI toward 15% &mdash; the total rises by 0.54 to 5.75, moving the market F to D." },
+    { label: "Supply &amp; Competition &mdash; 3/10, point leak 1.26", swing: "If Supply improves from 3 to 6 &mdash; because county supply growth decelerates below ~10%/yr and per-listing revenue returns to flat-or-positive in at least two of the four measured sub-areas &mdash; the total rises by 0.54 to 5.75, moving the market F to D. Both levers together reach only 6.29, still Tier D: nothing available to this buyer moves Eureka Springs into Tier C." } ]
+};
+// ─── END DATA ─────────────────────────────────────────────────────────────────
+
+let activeLaneIndex = 1;
+
+function fmt$(n) {
+  const val = Math.round(n);
+  return (val < 0 ? '−$' : '$') + Math.abs(val).toLocaleString();
+}
+function passIcon(pass) {
+  return pass
+    ? '<span class="pass">✓ PASS</span>'
+    : '<span class="fail">✗ FAIL</span>';
+}
+
+function thresholdLabel(score) {
+  // 1–10 scale, five named tiers
+  if (score >= 8.5) return { text: 'Tier A · Priority Market',  cls: 'green'  };
+  if (score >= 7.5) return { text: 'Tier B · Strong Market',    cls: 'green'  };
+  if (score >= 6.5) return { text: 'Tier C · Selective Market', cls: 'yellow' };
+  if (score >= 5.5) return { text: 'Tier D · Marginal Market',  cls: 'yellow' };
+  return                   { text: 'Tier F · Pass',             cls: 'red'    };
+}
+
+function updateBadgeColor(score) {
+  const badge = document.getElementById('score-badge');
+  const label = document.getElementById('threshold-label');
+  const t = thresholdLabel(score);
+  badge.className = 'score-hero anim-scale-in d1 ' + t.cls;
+  label.className = 'verdict-pill ' + t.cls;
+  label.textContent = t.text;
+  document.getElementById('total-score-display').className = 'total-val ' + t.cls;
+  const glowMap = {
+    yellow: 'rgba(240,192,64,0.12)',
+    green:  'rgba(46,196,168,0.12)',
+    red:    'rgba(240,96,96,0.12)'
+  };
+  document.documentElement.style.setProperty('--score-glow', glowMap[t.cls] || glowMap.yellow);
+}
+
+function renderDifferentiation() {
+  const host = document.getElementById('red-flags-section');
+  if (!DIFFERENTIATION || !DIFFERENTIATION.tier || DIFFERENTIATION.tier.indexOf('{{') === 0) return;
+  let html = '<div class="section" style="margin-bottom:24px"><div class="section-body">' +
+    '<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:10px">Why This Market — Tier ' + DIFFERENTIATION.tier + '</div>';
+  if (DIFFERENTIATION.strengths && DIFFERENTIATION.strengths.length) {
+    html += '<div style="margin-bottom:12px"><strong style="color:var(--teal)">Strengths:</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.strengths.map(s => '<li style="margin-bottom:4px">' + s + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.drags && DIFFERENTIATION.drags.length) {
+    html += '<div><strong style="color:var(--yellow)">Swing factors (what moves the tier):</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.drags.map(d => '<li style="margin-bottom:4px"><strong>' + d.label + '</strong> — ' + d.swing + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.distanceUp || DIFFERENTIATION.distanceDown) {
+    html += '<div style="margin-top:10px;font-size:0.78rem;color:var(--text-3)">' +
+      [DIFFERENTIATION.distanceUp, DIFFERENTIATION.distanceDown].filter(Boolean).join(' · ') + '</div>';
+  }
+  html += '</div></div>';
+  host.insertAdjacentHTML('afterend', html);
+}
+
+function renderRedFlags() {
+  const el = document.getElementById('red-flags-section');
+  if (!RED_FLAGS || RED_FLAGS.length === 0) {
+    el.innerHTML = '<div class="red-flags-clean">✓ No disqualifying red flags detected for this market.</div>';
+    return;
+  }
+  let html = '<div class="red-flags-wrap anim-fade-up d3"><h2>⚠ Red Flags Detected (' + RED_FLAGS.length + ' of 10 Framework Items Triggered)</h2><ul>';
+  RED_FLAGS.forEach(f => {
+    html += '<li><strong>' + f.flag + '</strong>' + (f.data || '') + '</li>';
+  });
+  html += '</ul></div>';
+  el.innerHTML = html;
+}
+
+function bandClass(v) {
+  if (v <= 4) return '1';      // red band
+  if (v <= 6) return '3';      // yellow band
+  return '5';                  // teal band
+}
+
+function renderScorecard() {
+  const body = document.getElementById('scorecard-body');
+  let html = '';
+  SCORECARD_DATA.forEach((cat, i) => {
+    cat.currentScore = cat.score;
+    const contrib = (cat.score * cat.weight).toFixed(2);
+    html += '<div class="score-row" id="row-' + i + '">' +
+      '<div class="score-row-left">' +
+        '<div class="cat-name">' + cat.name + '</div>' +
+        '<div class="cat-meta">Weight: ' + (cat.weight * 100).toFixed(0) + '% · Contrib: <span id="contrib-' + i + '">' + contrib + '</span></div>' +
+        '<span class="rationale-toggle" onclick="toggleRationale(' + i + ')">▸ Why this score</span>' +
+        '<div class="rationale-card" id="rationale-' + i + '">' +
+          cat.rationale +
+          '<div class="confidence">Data confidence: ' + cat.confidence + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="score-row-right">' +
+        '<div class="pills" id="pills-' + i + '">' +
+          [1,2,3,4,5,6,7,8,9,10].map(v => '<button class="pill' + (v === cat.score ? ' active-' + bandClass(v) : '') + '" data-cat="' + i + '" data-val="' + v + '" onclick="setScore(' + i + ',' + v + ')">' + v + '</button>').join('') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  });
+  body.innerHTML = html;
+  updateTotalDisplay();
+}
+
+function setScore(catIndex, val) {
+  SCORECARD_DATA[catIndex].currentScore = val;
+  const pillsEl = document.getElementById('pills-' + catIndex);
+  pillsEl.querySelectorAll('.pill').forEach(p => {
+    p.className = 'pill' + (parseFloat(p.dataset.val) === val ? ' active-' + bandClass(val) : '');
+  });
+  const contribEl = document.getElementById('contrib-' + catIndex);
+  if (contribEl) contribEl.textContent = (val * SCORECARD_DATA[catIndex].weight).toFixed(2);
+  updateTotalDisplay();
+}
+
+function updateTotalDisplay() {
+  let total = 0;
+  SCORECARD_DATA.forEach(cat => { total += cat.currentScore * cat.weight; });
+  const rounded = total.toFixed(2);
+  document.getElementById('overall-score-display').textContent = rounded;
+  document.getElementById('total-score-display').textContent = rounded;
+  updateBadgeColor(total);
+}
+
+function toggleRationale(i) {
+  const el = document.getElementById('rationale-' + i);
+  const toggle = el.previousElementSibling;
+  el.classList.toggle('open');
+  toggle.textContent = el.classList.contains('open') ? '▾ Hide rationale' : '▸ Why this score';
+}
+
+function renderLanes() {
+  const container = document.getElementById('lanes-container');
+  let html = '';
+  LANES_DATA.forEach((lane, i) => {
+    const isActive = i === activeLaneIndex;
+    // Look up matching pro forma for capital fit badge
+    const pf = PROFORMA_DATA.find(p => p.laneId === lane.id);
+    let capitalBadge = '';
+    if (pf && pf.cashRequired && pf.userCashAvailable) {
+      const fits = pf.cashRequired <= pf.userCashAvailable;
+      if (fits) {
+        capitalBadge = '<div class="capital-fit-badge fits">✓ Fits Your Capital</div>';
+      } else {
+        const shortfall = Math.ceil((pf.cashRequired - pf.userCashAvailable) / 1000);
+        capitalBadge = '<div class="capital-fit-badge short">⚠ +$' + shortfall + 'K Needed</div>';
+      }
+    }
+    html += '<div class="lane-card' + (isActive ? ' active' : '') + '" id="lane-' + i + '" onclick="selectLane(' + i + ')">' +
+      '<div class="lane-card-left">' +
+        '<div class="lane-header">' +
+          '<div class="lane-title">' + lane.title + '</div>' +
+        '</div>' +
+        '<div class="lane-subtitle">' + lane.subtitle + '</div>' +
+        (lane.revenueConfidence ? '<div style="display:inline-block;margin-top:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--yellow);background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:5px;padding:3px 8px">⚑ ' + lane.revenueConfidence + '</div>' : '') +
+        '<div class="lane-detail-grid">' +
+          '<div class="lane-detail-item"><span class="detail-label">Bedrooms</span>' + lane.bedrooms + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Price Range</span>' + lane.priceRange + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Max Distance</span>' + lane.maxDistance + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Guest Profile</span>' + lane.guestAvatar + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Must-Have Amenities</span>' + lane.mustHaveAmenities.join(' · ') + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Differentiators</span>' + lane.differentiatorAmenities.join(' · ') + '</div>' +
+          (lane.valueAdd ? '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Value-Add to Seek</span>' + lane.valueAdd + '</div>' : '') +
+        '</div>' +
+        '<div class="moat-tags">' + lane.moatCategories.map(m => '<span class="moat-tag">' + m + '</span>').join('') + '</div>' +
+        ((lane.confirmingListings && lane.confirmingListings.length) ? (
+          '<div class="confirming-listings">' +
+            '<div class="cl-label">Live listings that fit this buy box</div>' +
+            lane.confirmingListings.map(l => '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">' + l.label + '</a>').join('') +
+          '</div>'
+        ) : '') +
+      '</div>' +
+      '<div class="lane-card-right">' +
+        '<div class="lane-price">' + lane.priceRange.replace(' – ', '–') + '</div>' +
+        '<div style="font-size:0.68rem;color:var(--text-3);letter-spacing:0.04em;text-transform:uppercase;font-weight:600">Purchase</div>' +
+        capitalBadge +
+      '</div>' +
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function renderProFormaTabs() {
+  const tabs = document.getElementById('pf-lane-tabs');
+  if (!tabs) return;
+  tabs.innerHTML = LANES_DATA.map((lane, i) =>
+    '<button class="pf-lane-tab' + (i === activeLaneIndex ? ' active' : '') + '" data-lane="' + i + '" onclick="selectLane(' + i + ')">' + lane.title + '</button>'
+  ).join('');
+}
+
+function selectLane(i) {
+  activeLaneIndex = i;
+  document.querySelectorAll('.lane-card').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.querySelectorAll('.pf-lane-tab').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.getElementById('active-lane-name').textContent = LANES_DATA[i].title;
+  renderProForma();
+}
+
+function renderProForma() {
+  const activeLaneId = LANES_DATA[activeLaneIndex].id;
+  const pf = PROFORMA_DATA.find(p => p.laneId === activeLaneId) || PROFORMA_DATA[activeLaneIndex];
+  const body = document.getElementById('proforma-body');
+  if (!pf) {
+    body.innerHTML = '<p style="color:var(--text-3);padding:16px">No pro forma data available.</p>';
+    return;
+  }
+
+  const opExpRatio = pf.opExpRatio || 0.40;
+  const hasOpExpSplit = typeof pf.fixedOpEx === 'number' && typeof pf.variableOpExRate === 'number';
+  const roiLow  = (pf.revenueMin / (pf.priceMid || 1) * 100).toFixed(1);
+  const roiHigh = (pf.revenueMax / (pf.priceMid || 1) * 100).toFixed(1);
+  const grossRoiPass = parseFloat(roiLow) >= 15;
+  const opExpLow  = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMin * pf.variableOpExRate) : Math.round(pf.revenueMin * opExpRatio);
+  const opExpHigh = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMax * pf.variableOpExRate) : Math.round(pf.revenueMax * opExpRatio);
+  const opExpPctLow  = pf.revenueMin > 0 ? Math.round(opExpLow  / pf.revenueMin * 100) : 0;
+  const opExpPctHigh = pf.revenueMax > 0 ? Math.round(opExpHigh / pf.revenueMax * 100) : 0;
+  const netLow  = Math.round(pf.revenueMin - opExpLow - pf.debtService);
+  const netHigh = Math.round(pf.revenueMax - opExpHigh - pf.debtService);
+  const netPctLow = pf.revenueMin > 0 ? (netLow / pf.revenueMin * 100).toFixed(0) : '—';
+  const cocLow  = pf.cashRequired > 0 ? (netLow  / pf.cashRequired * 100).toFixed(1) : '—';
+  const cocHigh = pf.cashRequired > 0 ? (netHigh / pf.cashRequired * 100).toFixed(1) : '—';
+  const bearRev  = Math.round(pf.revenueMin * 0.9);
+  const bearExp  = hasOpExpSplit ? Math.round((pf.fixedOpEx + bearRev * pf.variableOpExRate) * 1.1) : Math.round(opExpLow * 1.1);
+  const bearNet  = bearRev - bearExp - pf.debtService;
+  const capitalFits = pf.cashRequired <= pf.userCashAvailable;
+  const capitalNote = pf.cashRequiredNote || '20% down + 3% closing + 5% furnishing + 6-mo reserve';
+  // Bear case 3-tier classification
+  const appreciationRate = pf.appreciationY1 ? (pf.appreciationY1 / pf.priceMid) : 0;
+  let bearTierBadge;
+  if (bearNet > 0) {
+    bearTierBadge = '<span class="pass">✓ PASS</span>';
+  } else if (bearNet > -(pf.debtService * 0.25) && appreciationRate > 0) {
+    bearTierBadge = '<span class="warn">⚠ SURVIVABLE</span>';
+  } else {
+    bearTierBadge = '<span class="fail">✗ DISTRESS</span>';
+  }
+  const opExpLabel = hasOpExpSplit
+    ? opExpPctLow + '%→' + opExpPctHigh + '% of revenue · fixed ' + fmt$(pf.fixedOpEx) + ' + ' + Math.round(pf.variableOpExRate * 100) + '% variable — ratio runs higher at low revenue'
+    : (opExpRatio * 100).toFixed(0) + '% (market-specific, per-lane)';
+
+  // Cost seg tile values
+  const hasCostSeg = pf.costSegBenefit && pf.buildingPct;
+  const buildingPctDisplay = hasCostSeg ? Math.round(pf.buildingPct * 100) + '%' : '—';
+  const landPctDisplay = hasCostSeg ? Math.round((1 - pf.buildingPct) * 100) + '%' : '—';
+  const netAfterCostSeg = pf.netCfAfterCostSegY1 || (netLow + (pf.costSegBenefit || 0));
+  const costSegAssumptions = pf.costSegAssumptions || '';
+
+  // PM impact tile
+  const hasPM = typeof pf.netCfLow_pm === 'number';
+  const pmSavings = hasPM ? (netLow - pf.netCfLow_pm) : 0;
+
+  // Capital breakeven
+  const showBreakeven = !capitalFits && pf.capitalBreakevenPrice && pf.capitalBreakevenPrice > 0;
+
+  body.innerHTML =
+    '<div class="pf-grid">' +
+      // Row 1: Revenue + Gross ROI
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross Revenue Range</div>' +
+        '<div class="pf-value">' + fmt$(pf.revenueMin) + ' – ' + fmt$(pf.revenueMax) + '</div>' +
+        '<div class="pf-note">Tier-appropriate range · self-manage assumed</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross ROI</div>' +
+        '<div class="pf-value">' + roiLow + '% – ' + roiHigh + '% ' + passIcon(grossRoiPass) + '</div>' +
+        '<div class="pf-note">Min 15% · Target 18–20%</div>' +
+      '</div>' +
+      // Row 2: OpExp + Debt Service
+      '<div class="pf-item">' +
+        '<div class="pf-label">Operating Expenses (' + opExpLabel + ')</div>' +
+        '<div class="pf-value">' + fmt$(opExpLow) + ' – ' + fmt$(opExpHigh) + '</div>' +
+        '<div class="pf-note">Narrow-lane: taxes + insurance + platform fee + supplies only · excl. debt service</div>' +
+        (pf.fullCostOpExpMid ? '<div style="margin-top:5px;font-size:0.78rem;padding:6px 10px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:6px;color:var(--amber-pale);line-height:1.5"><strong style="color:var(--yellow)">Full annual cost</strong> (adds cleaning + maintenance): <strong style="color:var(--text-1)">' + fmt$(pf.fullCostOpExpMid) + '</strong> · Self-manage net CF at midpoint revenue: ' + fmt$(Math.round((pf.revenueMin + pf.revenueMax)/2 - pf.fullCostOpExpMid - pf.debtService)) + '</div>' : '') +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Estimated Debt Service</div>' +
+        '<div class="pf-value">' + fmt$(pf.debtService) + '/yr</div>' +
+        '<div class="pf-note">' + pf.loanNote + '</div>' +
+      '</div>' +
+      // Row 3: Net CF (self-manage) + PM Impact
+      '<div class="pf-item">' +
+        '<div class="pf-label">Net Cash Flow (Self-Manage)</div>' +
+        '<div class="pf-value">' + fmt$(netLow) + ' – ' + fmt$(netHigh) + '</div>' +
+        '<div class="pf-note">~' + netPctLow + '% of gross · self-manage only</div>' +
+      '</div>' +
+      (hasPM ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label">If PM-Managed (25%)</div>' +
+          '<div class="pf-value fail">' + fmt$(pf.netCfLow_pm) + '/yr</div>' +
+          '<div class="pf-note">Self-manage saves ' + fmt$(pmSavings) + '/yr vs full PM · co-host at 10–15% is middle option</div>' +
+        '</div>'
+      ) : '') +
+      // Row 4: CoC Return + Total Return
+      '<div class="pf-item">' +
+        '<div class="pf-label">Cash-on-Cash Return</div>' +
+        '<div class="pf-value">' + cocLow + '% – ' + cocHigh + '%</div>' +
+        '<div class="pf-note">Target 10%+ · Excellent 20%+</div>' +
+      '</div>' +
+      (pf.appreciationY1 ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label" style="color:var(--teal)">Total Economic Return (Yr 1 — incl. one-time cost seg)</div>' +
+          '<div class="pf-value" style="color:var(--teal)">' + fmt$(pf.totalReturnLow) + '</div>' +
+          '<div class="pf-note">Net CF ' + fmt$(netLow) + ' + ' + fmt$(pf.appreciationY1) + ' appreciation + ' + fmt$(pf.costSegBenefit || 0) + ' cost seg. The cost-seg benefit is a ONE-TIME Year-1 item — recurring annual return is the Net CF above; it does not repeat in Year 2+.</div>' +
+        '</div>'
+      ) : '') +
+      // Cost Segregation section (full row)
+      (hasCostSeg ? (
+        '<div class="pf-item" style="grid-column:1/-1;border-color:var(--teal-dim)">' +
+          '<div class="pf-label" style="color:var(--teal)">Cost Segregation Benefit (Year 1) — One-Time</div>' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px">' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Tax Savings (37% bracket)</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--teal)">' + fmt$(pf.costSegBenefit) + '</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Depreciable Basis</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-1)">' + buildingPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * pf.buildingPct)) + ')</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Land Excluded</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-2)">' + landPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * (1 - pf.buildingPct))) + ')</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem;color:var(--teal-dim)">' +
+            'Yr 1 effective position (net CF + cost seg): <strong style="color:var(--teal)">' + fmt$(netAfterCostSeg) + '</strong> · ' +
+            (costSegAssumptions ? costSegAssumptions + ' · ' : '') +
+            'Study cost: $5K–$12K · Requires 100+ hrs material participation' +
+          '</div>' +
+        '</div>'
+      ) : '') +
+      // Cash Required + Capital Breakeven
+      '<div class="pf-item">' +
+        '<div class="pf-label">Total Cash Required</div>' +
+        '<div class="pf-value ' + (capitalFits ? 'pass' : 'fail') + '">' + fmt$(pf.cashRequired) + ' ' + (capitalFits ? '✓' : '⚠') + '</div>' +
+        '<div class="pf-note">' + capitalNote + ' · You have: ' + fmt$(pf.userCashAvailable) + '</div>' +
+        (showBreakeven ? '<div style="margin-top:6px;font-size:0.78rem;color:var(--yellow)">Capital breakeven: ~' + fmt$(pf.capitalBreakevenPrice) + ' — buy at or below this price to fit your cash</div>' : '') +
+      '</div>' +
+      // Bear Case (full row)
+      '<div class="bear-case">' +
+        '<h4>Bear Case Stress Test — Revenue −10% / Expenses +10%</h4>' +
+        '<div class="bear-row"><span>Bear case revenue</span><span>' + fmt$(bearRev) + '</span></div>' +
+        '<div class="bear-row"><span>Bear case op expenses</span><span>' + fmt$(bearExp) + '</span></div>' +
+        '<div class="bear-row"><span>Debt service</span><span>' + fmt$(pf.debtService) + '</span></div>' +
+        '<div class="bear-row bear-result">' +
+          '<span>Bear case net cash flow</span>' +
+          '<span>' + fmt$(bearNet) + ' ' + bearTierBadge + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  header.classList.toggle('open', !isOpen);
+  body.classList.toggle('collapsed', isOpen);
+}
+
+function renderCapitalAlert() {
+  const container = document.getElementById('capital-alert-container');
+  if (!SHOW_CAPITAL_ALERT) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>⚠ Capital Fit Alert</strong> ${CAPITAL_ALERT_BODY}</div>`;
+}
+
+function renderRoiContext() {
+  const container = document.getElementById('roi-context-container');
+  if (!ROI_CONTEXT_NOTE) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>ℹ Market Context</strong> ${ROI_CONTEXT_NOTE}</div>`;
+}
+
+renderCapitalAlert();
+renderRoiContext();
+renderRedFlags();
+renderDifferentiation();
+renderScorecard();
+renderLanes();
+renderProFormaTabs();
+renderProForma();
+</script>
+</body>
+</html>
