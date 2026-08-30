@@ -1,0 +1,1686 @@
+<!--bstrw:6a250cd92f1b025c-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STR Market Analysis — Houston, TX — Inner Loop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ─── DESIGN TOKENS ──────────────────────────────────────────────────────── */
+:root {
+  /* Mountain palette */
+  --bg:        #0f1a13;
+  --bg-card:   #1c2b20;
+  --bg-card-2: #213526;
+  --border:    #2d4533;
+  --border-2:  #3d5c46;
+
+  --amber:     #e8924a;
+  --amber-dim: #c4743a;
+  --amber-bg:  #2a1e12;
+  --amber-pale:#f0b07a;
+
+  --teal:      #2ec4a8;
+  --teal-dim:  #1fa08a;
+  --teal-bg:   #0e2420;
+
+  --red:       #f06060;
+  --red-dim:   #c44545;
+  --red-bg:    #2a1212;
+  --red-border:#4a2020;
+  --red-muted: #7a5050;
+
+  --yellow:    #f0c040;
+  --yellow-dim:#c89c28;
+  --yellow-bg: #241e0a;
+
+  --neutral-icon-bg:     #1a2530;
+  --neutral-icon-border: #2a3f55;
+
+  /* Updated by JS to match the score band (yellow/green/red) */
+  --score-glow: rgba(232,146,74,0.12);
+
+  --text-1:    #f2f5f2;
+  --text-2:    #baced0;
+  --text-3:    #6a8070;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─── RESET & BASE ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { text-wrap: balance; }
+article p { text-wrap: pretty; }
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.anim-fade-up  { animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-scale-in { animation: scaleIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up, .anim-scale-in { animation: none; opacity: 1; transform: none; }
+}
+
+.d0 { animation-delay: 0ms; }
+.d1 { animation-delay: 60ms; }
+.d2 { animation-delay: 120ms; }
+.d3 { animation-delay: 180ms; }
+.d4 { animation-delay: 240ms; }
+.d5 { animation-delay: 300ms; }
+.d6 { animation-delay: 360ms; }
+
+/* ─── LAYOUT ─────────────────────────────────────────────────────────────── */
+.page { max-width: 980px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+.hero {
+  padding: 64px 0 56px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+
+.hero-state {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.hero-summary {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  max-width: 580px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-date {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.score-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card-2);
+  border: 2px solid var(--border-2);
+  border-radius: 20px;
+  padding: 36px 44px;
+  min-width: 172px;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 10%, var(--score-glow) 0%, transparent 65%);
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.score-hero .score-num {
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-denom {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-3);
+  line-height: 1;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero.yellow .score-num   { color: var(--yellow); }
+.score-hero.yellow .score-label { color: var(--yellow-dim); }
+.score-hero.green  .score-num   { color: var(--teal); }
+.score-hero.green  .score-label { color: var(--teal-dim); }
+.score-hero.red    .score-num   { color: var(--red); }
+.score-hero.red    .score-label { color: var(--red-dim); }
+
+.verdict-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.verdict-pill.yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-dim); }
+.verdict-pill.green  { background: var(--teal-bg);   color: var(--teal);   border: 1px solid var(--teal-dim); }
+.verdict-pill.red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-dim); }
+
+/* ─── CAPITAL ALERT BANNER ───────────────────────────────────────────────── */
+.capital-alert {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-top: 3px solid var(--amber);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 32px;
+  font-size: 0.875rem;
+  color: var(--amber-pale);
+  line-height: 1.65;
+}
+.capital-alert strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.capital-alert em { color: var(--text-1); font-weight: 600; font-style: normal; }
+
+/* ─── RED FLAGS ──────────────────────────────────────────────────────────── */
+.red-flags-wrap {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 32px;
+}
+.red-flags-wrap h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.red-flags-wrap ul { list-style: none; }
+.red-flags-wrap li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--red-border);
+  color: var(--red-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.red-flags-wrap li:last-child { border-bottom: none; }
+.red-flags-wrap li strong { display: block; color: var(--red); font-weight: 600; margin-bottom: 3px; }
+
+.red-flags-clean {
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-dim);
+  border-radius: 12px;
+  padding: 14px 22px;
+  margin-bottom: 32px;
+  color: var(--teal);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ─── SECTION SHELL ──────────────────────────────────────────────────────── */
+.section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 20px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.15s;
+}
+.section-header:hover { background: rgba(255,255,255,0.02); }
+.section-header.open { border-bottom-color: var(--border); }
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.section-title-icon.amber { background: var(--amber-bg); border: 1px solid var(--amber-dim); }
+.section-title-icon.teal  { background: var(--teal-bg);  border: 1px solid var(--teal-dim);  }
+.section-title-icon.blue  { background: var(--neutral-icon-bg); border: 1px solid var(--neutral-icon-border); }
+.section-title-icon.red   { background: var(--red-bg);   border: 1px solid var(--red-dim);   }
+
+.section-toggle {
+  color: var(--text-3);
+  font-size: 0.7rem;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+}
+.section-header.open .section-toggle { transform: rotate(180deg); }
+
+.section-body { padding: 26px; }
+.section-body.collapsed { display: none; }
+
+/* ─── SCORECARD ──────────────────────────────────────────────────────────── */
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.score-row:last-child { border-bottom: none; }
+
+.score-row-left { min-width: 0; }
+
+.score-row-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.score-row .cat-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 2px;
+}
+.score-row .cat-meta {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+.score-row .cat-weight {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.score-row .weighted-contrib {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-2);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.pills { display: flex; gap: 4px; flex-wrap: wrap; }
+.pill {
+  width: 40px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border-2);
+  background: var(--bg-card-2);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+}
+.pill:hover { border-color: var(--amber); color: var(--amber); }
+.pill:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.pill.active-1, .pill.active-2 { border-color: var(--red-dim);    background: var(--red-bg);    color: var(--red); }
+.pill.active-3                  { border-color: var(--yellow-dim); background: var(--yellow-bg); color: var(--yellow); }
+.pill.active-4, .pill.active-5  { border-color: var(--teal-dim);  background: var(--teal-bg);   color: var(--teal); }
+
+.rationale-toggle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--amber);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  transition: background 0.1s;
+}
+.rationale-toggle:hover { background: rgba(232,146,74,0.12); }
+
+.rationale-card {
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-1);
+  display: none;
+  line-height: 1.7;
+}
+.rationale-card .confidence {
+  font-size: 0.72rem;
+  color: var(--teal-dim);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.rationale-card.open { display: block; }
+
+.scorecard-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 26px;
+  background: var(--bg-card-2);
+  border-top: 2px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+.scorecard-total .total-val {
+  font-size: 2rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+/* ─── INTELLIGENCE PANELS ────────────────────────────────────────────────── */
+.intel-section { margin-bottom: 28px; }
+.intel-section:last-child { margin-bottom: 0; }
+
+.intel-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.intel-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.intel-content {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.75;
+  font-weight: 400;
+}
+.intel-content .intel-entry {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.intel-content .intel-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.intel-content .intel-key {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-bottom: 5px;
+}
+.intel-content .intel-key.key-red {
+  color: var(--red);
+  background: var(--red-bg);
+  border-color: var(--red-dim);
+}
+.intel-content .intel-key.key-teal {
+  color: var(--teal);
+  background: var(--teal-bg);
+  border-color: var(--teal-dim);
+}
+.intel-content .intel-key.key-neutral {
+  color: var(--text-3);
+  background: var(--bg-card-2);
+  border-color: var(--border-2);
+}
+.intel-content p {
+  margin: 0;
+  line-height: 1.75;
+}
+.intel-content ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.intel-content ul li {
+  padding-left: 14px;
+  position: relative;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.intel-content ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-weight: 700;
+}
+.intel-content strong { color: var(--text-1); font-weight: 600; }
+
+/* ─── LANES ──────────────────────────────────────────────────────────────── */
+.lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.lane-card {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+}
+.lane-card:hover { border-color: var(--border-2); }
+.lane-card.active {
+  border-color: var(--amber);
+  background: var(--amber-bg);
+  box-shadow: 0 0 0 1px var(--amber-dim);
+}
+
+.lane-card-left { min-width: 0; }
+
+.lane-card-right {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.lane-card .lane-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.lane-card .lane-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-1);
+}
+.lane-card.active .lane-title { color: var(--amber-pale); }
+
+.lane-card .lane-subtitle {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-3);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.lane-card.active .lane-subtitle { color: var(--amber-dim); }
+
+.lane-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 24px;
+}
+
+.lane-detail-item {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.lane-detail-item .detail-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: block;
+  margin-bottom: 1px;
+}
+.lane-card.active .lane-detail-item { color: var(--amber-pale); opacity: 0.9; }
+.lane-card.active .detail-label { color: var(--amber-dim); }
+
+.lane-price {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+.lane-card.active .lane-price { color: var(--amber); }
+
+.moat-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 14px; }
+.moat-tag {
+  background: var(--bg);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lane-card.active .moat-tag {
+  background: rgba(232,146,74,0.08);
+  color: var(--amber);
+  border-color: var(--amber-dim);
+}
+
+/* ─── CAPITAL FIT BADGE ──────────────────────────────────────────────────── */
+.capital-fit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+.capital-fit-badge.fits {
+  background: rgba(46,196,168,0.12);
+  color: var(--teal);
+  border: 1px solid var(--teal-dim);
+}
+.capital-fit-badge.short {
+  background: rgba(240,96,96,0.12);
+  color: var(--red);
+  border: 1px solid var(--red-dim);
+}
+
+/* ─── PRO FORMA ──────────────────────────────────────────────────────────── */
+.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.pf-item {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.pf-item .pf-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+.pf-item .pf-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.pf-item .pf-note {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.pass { color: var(--teal) !important; }
+.warn { color: var(--yellow) !important; }
+.fail { color: var(--red)  !important; }
+
+.bear-case {
+  grid-column: 1 / -1;
+  background: var(--bg-card-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.bear-case h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.bear-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.855rem;
+  color: var(--text-2);
+  padding: 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+.bear-result {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-1);
+}
+
+/* ─── CHECKLIST ──────────────────────────────────────────────────────────── */
+.checklist { list-style: none; counter-reset: check-counter; display: flex; flex-direction: column; gap: 10px; }
+.checklist li {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px 18px 64px;
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  counter-increment: check-counter;
+  position: relative;
+}
+.checklist li::before {
+  content: counter(check-counter, decimal-leading-zero);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 30px;
+  height: 30px;
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+.checklist li strong {
+  display: block;
+  color: var(--text-1);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* ─── PRO FORMA LANE TOGGLE ──────────────────────────────────────────────── */
+.pf-lane-switch { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.pf-lane-switch-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.pf-lane-tabs { display: inline-flex; background: var(--bg); border: 1px solid var(--border-2); border-radius: 10px; padding: 3px; gap: 3px; }
+.pf-lane-tab { border: none; background: transparent; color: var(--text-2); font-family: var(--font); font-size: 0.8rem; font-weight: 700; padding: 7px 16px; border-radius: 7px; cursor: pointer; transition: all 0.14s; white-space: nowrap; }
+.pf-lane-tab:hover { color: var(--amber); }
+.pf-lane-tab.active { background: var(--amber); color: #1a1208; }
+.pf-lane-tab:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+/* ─── CONFIRMING LISTINGS (buy box links) ────────────────────────────────── */
+.confirming-listings { margin-top: 14px; }
+.confirming-listings .cl-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.confirming-listings a { display: inline-flex; align-items: center; gap: 5px; background: var(--teal-bg); border: 1px solid var(--teal-dim); color: var(--teal); border-radius: 6px; padding: 4px 10px; margin: 0 5px 5px 0; font-size: 0.72rem; font-weight: 600; text-decoration: none; transition: all 0.12s; }
+.confirming-listings a:hover { background: rgba(46,196,168,0.18); }
+.confirming-listings a::before { content: '↗'; font-size: 0.78rem; opacity: 0.8; }
+.lane-card.active .confirming-listings .cl-label { color: var(--amber-dim); }
+.lane-card.active .confirming-listings a { background: rgba(232,146,74,0.10); border-color: var(--amber-dim); color: var(--amber); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; }
+  .score-hero { flex-direction: row; gap: 16px; align-self: flex-start; padding: 20px 24px; min-width: 0; }
+  .score-hero .score-num { font-size: 3rem; }
+  .lane-card { grid-template-columns: 1fr; }
+  .lane-detail-grid { grid-template-columns: 1fr; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .score-row .weighted-contrib { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO ────────────────────────────────────────────────────────────────── -->
+  <div class="hero">
+    <div class="anim-fade-up d0">
+      <div class="hero-eyebrow">STR Market Analysis · August 30, 2026</div>
+      <h1>Houston</h1>
+      <div class="hero-state">TX</div>
+      <div class="hero-summary">Houston&rsquo;s Inner Loop scores <strong>5.42 / 10 &mdash; Tier F (Pass)</strong>. It is the most operationally capable, most regulatorily permissive, and most genuinely durable market screened for this exchange &mdash; and it carries the worst entry arithmetic of the eight. Inner Loop STR-grade product trades at a <strong>14.6&times; price-to-revenue multiple</strong> (Heights 18.0&times;, Montrose 15.3&times;, EaDo 10.8&times; at best), against a ~6&times; threshold above which a 20% gross floor stops being arithmetically reachable. A 3BR earning the Inner Loop median of $36,000 justifies <strong>$180,000</strong> at the 20% floor &mdash; <strong>$51,000 below the $231,000 1031 minimum</strong>. The compliant price window and the justified price window do not intersect at any transactable point.<br><br><strong>Market context:</strong> At 5.42/10, Houston&rsquo;s Inner Loop sits at the very bottom of the 5.4&ndash;6.2 band the framework reserves for a single-driver COVID-boom market that didn&rsquo;t sustain &mdash; and far below event-driven and coastal anchors like Destin, FL (6.9&ndash;7.5, the Tier C/B border) or Luray, VA (~7.0, Tier C). The unusual signature is that Houston earns that low score from the opposite direction: its demand is genuinely primary-market durable and its operations bench is the deepest on the board, but a 2.1252% uncapped property tax and a 14.6&times; entry multiple overwhelm both.<br><br><strong>What breaks it:</strong> All three buy-box lanes fail the 15% gross-ROI floor (8.87% / 8.31% / 7.71%), all three produce negative net cash flow at conservative revenue, and all three go DISTRESS in the bear case. Cap rate runs 3.3&ndash;5.6% against a 7.125% cost of debt &mdash; negative leverage.</div>
+      <div style="margin-top:18px;background:var(--red-bg);border:1px solid var(--red-dim);border-top:3px solid var(--red);border-radius:10px;padding:14px 18px;max-width:580px"><div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:5px">Budget Fit &mdash; TIGHT</div><div style="font-size:0.82rem;color:var(--text-2);line-height:1.65">At $385,000, the math requires $75,033 in gross revenue to reach $30,000 net &mdash; above this market&rsquo;s 3BR top-quartile ceiling of $52,000, and above even Houston&rsquo;s top-decile listing at $69,684. No price point inside the $600,000 search ceiling closes this gap.</div></div><div style="margin-top:18px;background:var(--red-bg);border:1px solid var(--red-dim);border-top:3px solid var(--red);border-radius:10px;padding:14px 18px;max-width:580px"><div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:5px">&#9888; Jurisdiction Warning</div><div style="font-size:0.82rem;color:var(--text-2);line-height:1.65">Bellaire and West University Place are incorporated cities entirely surrounded by Houston, and both ban residential short-term rentals &mdash; Bellaire&rsquo;s prohibition took effect March 17, 2026. Pearland banned new residential STRs on February 9, 2026, and Sugar Land prohibits them in single-family zones with $2,000/day fines. Verify the incorporating city for every candidate, not the mailing address.</div></div>
+      <div class="hero-meta">
+        <span class="hero-date">Analysis date: August 30, 2026</span>
+        <span class="verdict-pill yellow" id="threshold-label">Loading…</span>
+      </div>
+    </div>
+    <div class="score-hero yellow anim-scale-in d1" id="score-badge">
+      <div class="score-num" id="overall-score-display">—</div>
+      <div class="score-denom">/ 10</div>
+      <div class="score-label">Market Score</div>
+    </div>
+  </div>
+
+  <!-- CAPITAL ALERT ───────────────────────────────────────────────────────── -->
+  <!-- Rendered by renderCapitalAlert() below based on SHOW_CAPITAL_ALERT constant -->
+  <div id="capital-alert-container" class="anim-fade-up d2"></div>
+  <div id="roi-context-container" class="anim-fade-up d2"></div>
+
+  <!-- RED FLAGS ───────────────────────────────────────────────────────────── -->
+  <div id="red-flags-section" class="anim-fade-up d3"></div>
+  <div id="red-flags-note" class="anim-fade-up d3" style="margin:-22px 0 32px;font-size:0.78rem;color:var(--text-3);line-height:1.6">The remaining 6 framework red flags were evaluated and came back Clear &mdash; including no STR ban or moratorium, no active anti-STR legislation, a deep cleaning and management bench, and multiple independent demand drivers. Full evidence for all 10 is in the synthesis file.</div>
+
+  <!-- SCORECARD ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d3">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">📊</span>
+        Market Scorecard
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="scorecard-body"></div>
+    <div class="scorecard-total">
+      <span>Weighted Total Score</span>
+      <span class="total-val yellow" id="total-score-display">—</span>
+    </div>
+  </div>
+
+  <!-- MARKET INTELLIGENCE ─────────────────────────────────────────────────── -->
+  <!-- Collapsed by default — user expands to read -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon teal">🔍</span>
+        Market Intelligence
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body collapsed" id="intel-body">
+      <div class="intel-section">
+        <div class="intel-label">⚖ Regulatory &amp; Legal</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-teal">STR Legal Citywide</span><p>Ordinance 2025-322 (Ch. 28, Art. XXIII), adopted April 16, 2025, effective January 1, 2026. No ban, no moratorium, no cap on the number of STRs, no density or spacing limit, no owner-occupancy requirement, and no zoning. An LLC may hold the certificate. This is the most permissive big-city STR framework in Texas.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">Ministerial Issuance</span><p>Sec. 28-732(a): the director <strong>shall</strong> approve a complete, conforming application. No neighbor-objection step, no public hearing, no notice to adjacent owners, no discretionary compatibility test, no lottery. Cost is $275/yr plus a $33.10 city administrative fee, online, single sitting, no inspection.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Deed Restrictions &mdash; TRIGGERED</span><p>Houston has no zoning, so recorded private covenants govern land use &mdash; and Houston is the only Texas city whose Legal Department sues to enforce private covenants by injunction, via a dedicated Deed Restriction Enforcement Team. Sec. 28-731(b)(10) requires a <strong>sworn</strong> owner acknowledgment that STR use violates no covenant, HOA rule, or minimum-occupancy-duration term; Sec. 28-733(a)(2) makes false application information an independent revocation ground. Heights and Montrose are HIGH risk; EaDo is lowest.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Certificate Void on Sale</span><p>Sec. 28-736(b): the certificate is non-transferable and goes void on sale. A 1031 buyer re-applies from scratch &mdash; budget 2&ndash;6 weeks of registration lag at closing, and do not assume a seller&rsquo;s registered-and-operating status conveys.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">17% Combined Lodging Tax</span><p>6% State of Texas + 7% City of Houston + 2% Harris County + 2% Harris County&ndash;Houston Sports Authority &mdash; well above the 12% screening threshold. Airbnb and Vrbo auto-remit all four layers under agreements with Houston First; every other channel, including direct booking, is owner-remitted.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Jurisdiction Trap</span><p>Bellaire and West University Place are incorporated islands entirely surrounded by Houston and both prohibit STRs in residential districts. Pearland banned new residential STRs on February 9, 2026; Sugar Land prohibits them in single-family zones. A Houston address on a listing sheet is not proof of Houston jurisdiction.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Flood Regulatory Overlay</span><p>Chapter 19 (effective Sept 1, 2018) requires new construction and substantial improvements anywhere in the <strong>500-year</strong> floodplain to be elevated 2 feet above the 500-year elevation, with zero net fill. Harris County&rsquo;s MAAPnext draft maps, released February 2026, expand the 100-year floodplain ~43% (~130 sq mi) and move ~65,000 properties from Zone X into Zone AE, finalizing around 2028.</p></div>
+          <div class="intel-entry"><span class="intel-key">No State Preemption</span><p>Texas cities may ban STRs outright &mdash; SB 451 (2017), HB 2665 (2023) and HB 5225 (2025) all died. Direction of travel is city-by-city, and around Houston it is anti-STR in the suburbs and pro-STR in the core. Enforcement in 2026 has been cooperative: 83% compliance, ~4,000 registered, delisting deferred to January 1, 2027.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">2027 Property-Tax Cap Sunset</span><p>Texas gives investment property no appraisal-cap protection &mdash; the 10% homestead cap does not apply. The temporary SB 2 20% non-homestead circuit breaker sunsets December 31, 2026, and the next regular legislative session does not convene until January 2027. Model 2027+ at full market value, uncapped.</p></div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">📈 Demand &amp; Market Fundamentals</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-teal">Texas Medical Center</span><p>60+ institutions, 21 hospitals, 106,000+ employees, 10,000 beds, ~180,000 daily visitors and $25B of annual economic impact &mdash; the largest medical complex on earth, anchored by the #1 US cancer center. It is the one year-round, Inner-Loop-concentrated driver, but it is MTR-shaped rather than nightly-STR-shaped, and a 250-room hotel plus a 300-unit residential tower break ground on campus in 2026 as direct competing supply.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">Rodeo &mdash; 2.6M Attendees</span><p>The Houston Livestock Show &amp; Rodeo ran March 2&ndash;22, 2026 and drew 2.6 million attendees. It is the single largest annual compression event and the reason March is the peak month.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">Conventions &amp; GRB</span><p>A $1.4B, 700,000 sq ft George R. Brown expansion opens May 2028, and the RNC comes to Houston in 2028. Houston First hit a new convention sales record in 2024. This driver is moderate now and materially stronger after 2028.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">#1 US Population Growth</span><p>Houston metro led the entire nation with nearly 127,000 new residents in the 12 months to July 1, 2025 &mdash; 347 a day &mdash; on a 7.5M metro, with job growth ranked #3 nationally (+39,700). Demand here would survive any single driver failing.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Hotel Occupancy Collapse</span><p>Metro hotel occupancy fell <strong>8.6% in 2025 to 58.9%</strong> &mdash; the largest decline of any Top-25 US market &mdash; against a 62.3% national average. Hotel occupancy is the cleanest unbiased proxy for underlying overnight demand, and it says demand is soft and softening.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">World Cup Ceiling Test</span><p>Seven FIFA World Cup matches ran at NRG June 12 &ndash; July 4, 2026. Hotel occupancy actually <em>dipped</em> 1% to 61%, and STR occupancy reached only <strong>40%</strong>. The largest sporting event on earth raised price ($300 ADR, +45%), not volume &mdash; that is the ceiling under maximum compression.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Occupancy Is the Structural Weakness</span><p>36.1% median occupancy (AirROI), 47% (Chalet), 51&ndash;57% (Airbtics/AirDNA/MasterHost). Even the generous reads sit near 50% in a city with year-round business demand &mdash; the tell of chronic oversupply, and the opposite of the >60% markets that carry high debt service.</p></div>
+          <div class="intel-entry"><span class="intel-key key-neutral">Seasonality &mdash; Year-Round, Shallow Swing</span><p>No resort-style dead season: every month is bookable and the peak-to-trough swing is shallow (40&ndash;45%). Peak March on the Rodeo, soft January&ndash;February at ~25% occupancy, plus a heat-and-hurricane block June&ndash;September. Sources disagree on which month is the trough, and every 2026 dataset is World Cup&ndash;contaminated in June.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Climate Risk Is Severe and Repeating</span><p>Harvey (2017, $125B), the May 2024 derecho (~900,000 without power), Hurricane Beryl (July 2024, 2.2M without power, $6B+ damage, week-plus outages) and Winter Storm Uri (2021). Houston recorded three 500-year floods in three years. Two week-plus grid outage events occurred in calendar 2024 alone.</p></div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🏠 Competitive &amp; Revenue</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-red">Gate Zero &mdash; 14.6&times;</span><p>Inner Loop STR-grade median price ~$525,000 &divide; Inner Loop 3BR median revenue $36,000 = <strong>14.6&times;</strong>, a 6.9% implied gross yield. By sub-area: Heights 18.0&times; (5.6% yield), Montrose 15.3&times; (6.5%), Museum District/Midtown 12.3&times; (8.1%), EaDo 10.8&times; (9.3%, the best in the Inner Loop). Above roughly 6&times;, a 20% gross floor stops being arithmetically reachable.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">The 20% Floor Is Arithmetically Excluded</span><p>A 3BR earning $36,000 justifies $180,000 at the 20% bar &mdash; $51,000 <em>below</em> the $231,000 1031 minimum. Prices have decisively outpaced revenue: the Inner Loop revenue premium over citywide is roughly +30%, while the price premium is +140%.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Supply +21.2% vs Revenue +5.8%</span><p>At 36.1% median occupancy &mdash; and Houston has no zoning and no land constraint, so there is no structural supply ceiling at all. Any revenue premium invites immediate, unlimited substitutable competition. A post-ordinance &minus;8.8% supply contraction in Mar&ndash;May 2026 is one quarter of tightening, which is not yet a trend.</p></div>
+          <div class="intel-entry"><span class="intel-key key-neutral">Not a Small Market</span><p>9,033 active Airbnb listings (AirROI), 8,815 (Airbtics), >8,500 registered with the City. All-platform: ~19,355 total records, ~10,000&ndash;11,000 genuinely active &mdash; far above the 600-listing SMALL MARKET threshold. The flag correctly did not fire.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">The Operator Gap Is Real</span><p>Only <strong>7.8%</strong> of Houston listings are professionally managed and 66.4% run Airbnb&rsquo;s default Simplified Pricing &mdash; the widest operator gap of any market on the board, and the one genuine opportunity here.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Revenue by Bedroom</span><p>1BR $20,000 &middot; 2BR $24,907 &middot; 3BR $36,000 &middot; 4BR $40,500 &middot; 5BR $62,039. 5BR is the only band whose 20%-floor justified price ($310,195) clears the $231,000 1031 minimum &mdash; and Inner Loop 5BR inventory transacts at $700K&ndash;$1.2M, above the search ceiling outright. The sweet spot exists on paper and not on the MLS.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Top Decile $69,684</span><p>The citywide top-decile listing earns $69,684/yr, and that revenue is produced by 4&ndash;5BR homes costing $700K&ndash;$1.2M. Against a $500,000 basis, the 20% floor ($100,000) is 1.43&times; the top decile and the 30% goal ($150,000) is 2.15&times; it. Cash flow does not turn positive until roughly $67,000 gross, while the 3BR top quartile is $52,000 &mdash; the top quartile does not clear debt.</p></div>
+          <div class="intel-entry"><span class="intel-key">ADR Growth Is Event-Inflated</span><p>ADR is +22.4% YoY, but June 2026 ran a $348 ADR against a $225 market ADR on World Cup compression. Growth is coming from <strong>rate, not occupancy</strong> &mdash; rising revenue-per-listing alongside 36% occupancy and 21% supply growth is a price effect, not a demand effect. Underwrite to de-event-adjusted actuals and discount any seller-provided 2026 revenue.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">Best Transactable Lane &mdash; EaDo</span><p>A 3BR townhome in EaDo (77003) at $340K&ndash;$400K is the only Inner Loop pocket with real sub-$500K inventory, and it carries the lowest deed-restriction risk of every area screened. Even here, $43,300 average revenue &divide; $370,000 is 11.7% gross &mdash; and $43,300 is a right-skewed average against an EaDo median of $30,000&ndash;$35,000.</p></div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🔧 Operations &amp; Exit</div>
+        <div class="intel-content">
+          <div class="intel-entry"><span class="intel-key key-red">Property Tax 2.1252% &mdash; Uncapped</span><p>Summed from the eight actual 2025 HCAD jurisdiction rates (HISD 0.8783 + Harris County 0.38096 + Flood Control 0.04966 + Port 0.0059 + Hospital District 0.18761 + Education Dept 0.004798 + Houston City College 0.098802 + City of Houston 0.51919). <strong>No MUD inside the Loop</strong> &mdash; suburban Harris runs 2.7&ndash;3.3%. On a $500,000 buy that is $10,626/yr, reappraised to full market value every year.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">Texas Non-Disclosure Advantage &mdash; With a Catch</span><p>Buying at $500,000 does not automatically reset the HCAD assessment to $500,000, which is a genuine edge and the reverse of Florida. But model property tax off the parcel&rsquo;s <strong>current HCAD market value</strong>, not the purchase price: HCAD carries 1325 Dorothy at $625,835 while it is listed at $525,000 &mdash; a $2,676/yr swing.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">TWIA Does Not Reach the Inner Loop</span><p>TWIA covers 14 coastal counties plus only the sliver of Harris County east of Hwy 146, so wind and hail sit inside the standard policy with <strong>no separate named-storm deductible</strong> &mdash; a real, quantifiable advantage over any coastal buy. Insurance $5,700/yr = $4,500 hazard/DP-3 with STR endorsement + $1,200 Zone X preferred-risk NFIP.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">Deepest Service Bench Screened</span><p>Cleaning runs $80&ndash;$165/turn ($140 the working figure for a 3BR Inner Loop unit) with a named redundant vendor bench &mdash; River Oaks Cleaning, Regal Rest, Maid U Shine, Cleaning Crew Care &mdash; plus full Turno marketplace coverage. Local PM runs <strong>12.5%&ndash;18%</strong> (HostStarter 12.5% flat, no contracts) against a 20&ndash;30% resort norm. Held below a 9 by ~88 turns/yr on short urban stays versus 45&ndash;55 in a resort market.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">buildingPct Is a Selection Rule, Not a Constant</span><p>Six real HCAD 2026 certified parcels returned building shares from <strong>0.075 to 0.734</strong> at similar price points in the same two ZIP codes. The same $500,000 delivers $88,750 or $12,500 of Year-1 bonus deduction &mdash; a 7.1&times; swing &mdash; depending entirely on whether the structure or the dirt carries the value. 2101 Lawrence St carries $418,000 of dirt against $34,000 of house; 1636 Vassar St, $460,598 of land against $59,901 of structure.</p></div>
+          <div class="intel-entry"><span class="intel-key key-red">Foundation Risk &mdash; Beaumont Clay</span><p>~45% clay content with high shrink-swell. A licensed structural engineer&rsquo;s report ($500&ndash;$900) is a mandatory contingency on every candidate, plus a $6,000 one-time reserve on any pre-2000 structure. A prior repair carrying a transferable lifetime warranty is a positive.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">The LTR Floor &mdash; Houston&rsquo;s Distinguishing Feature</span><p>Median asking rent for a 3BR Inner Loop townhome (77008, n=35 active) is <strong>$3,500/mo</strong>, which exceeds the $2,695/mo P&amp;I by ~$805 and recovers ~90% of full PITI ($3,897). A failed Houston STR costs $400&ndash;$1,600/mo to hold rather than the full nut &mdash; real downside asymmetry that no prior market on the board has offered.</p></div>
+          <div class="intel-entry"><span class="intel-key key-teal">Three Independent Resale Buyer Pools</span><p>Owner-occupants (Montrose and the Heights are premier primary-residence neighborhoods, which is why 77008 is +11.6% YoY against a flat metro), builders/developers (a live teardown bid with HCAD carrying Inner Loop dirt at $90&ndash;$100/sf), and income investors (99 active rentals in 77008 alone). Offset by unambiguous buyer&rsquo;s-market conditions: 40,750 active listings &mdash; an all-time HAR record &mdash; 9.1 months of supply, DOM 52 days, and a 92.2% list-to-sale ratio.</p></div>
+          <div class="intel-entry"><span class="intel-key">The MTR Lane &mdash; The Finding That Outranks the Buy Box</span><p>A 30&ndash;90 day furnished mid-term rental prices at 1.3&ndash;1.6&times; the LTR rent = $4,500&ndash;$5,600/mo, or <strong>$54,000&ndash;$67,000/yr</strong> versus $36,000 nightly. Hotel occupancy tax does not apply at 30+ consecutive nights, so the 17% load disappears, and turnover cost is near zero against ~88 turns/yr. 33.5% of Houston listings already sit at 30+ night minimums &mdash; an established segment, not a speculative one.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUY BOX ─────────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">🎯</span>
+        Buy Box Recommendations
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="buybox-body">
+      <div class="lanes" id="lanes-container"></div>
+    </div>
+  </div>
+
+  <!-- PRO FORMA ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d5">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon blue">💰</span>
+        Pro Forma — <span id="active-lane-name" style="color:var(--amber);margin-left:6px">Target Lane</span>
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="pf-lane-switch" id="pf-lane-switch">
+        <span class="pf-lane-switch-label">View lane:</span>
+        <div class="pf-lane-tabs" id="pf-lane-tabs"></div>
+      </div>
+      <div id="proforma-body"></div>
+    </div>
+  </div>
+
+
+</div><!-- /page -->
+
+<script>
+// ─── DATA INJECTION ───────────────────────────────────────────────────────────
+// INSTRUCTIONS: Replace ALL {{PLACEHOLDER}} values below with real data.
+// Do not change variable names, function names, or JS structure.
+// Arrays and objects must remain valid JSON-compatible JavaScript literals.
+
+const OVERALL_SCORE = 5.42;          // e.g. 3.20 — one decimal place minimum
+const SCORE_COLOR_CLASS = "red"; // "yellow" | "green" | "red"
+
+// CAPITAL ALERT — set SHOW_CAPITAL_ALERT to true if the investor's stated cash or
+// budget does not comfortably cover any of the three buy box lanes.
+// CAPITAL_ALERT_BODY should name the specific conditions and exact numbers.
+const SHOW_CAPITAL_ALERT = true;  // true | false
+const CAPITAL_ALERT_BODY = "All three capital-alert conditions are triggered. The Aggressive lane needs $163,977 against $140,855.68 available — short by $23,121. Cap rate (3.3–5.6%) sits below the 7.125% cost of debt while the $30,000 net-CF target is unreachable at every lane. And the 20% down payment exceeds 40% of available cash on both the Target ($77,000) and Aggressive ($105,000) lanes."; // e.g. "Your $200K cash covers Conservative ($190K required) but not Target ($265K). See Pro Forma for details."
+// ROI CONTEXT NOTE — set to the market-context note when ALL three lanes fail grossRoiPass
+// (gross ROI < 15% is a market-wide 2025–26 condition in appreciation-driven markets, NOT a
+// deal-specific failure). Set to "" (empty string) to hide the tile. Quoted string — never an array.
+const ROI_CONTEXT_NOTE = "All three lanes fall below a 15% gross ROI and all three bear cases read Distress. Some of that is ordinary arithmetic at 7.125% financing — but Houston is not a borderline case: a 14.6x price-to-revenue multiple and an uncapped 2.1252% property tax, not the loan rate, are what put every lane underwater. The thesis rests entirely on Total Return (appreciation + Year-1 cost segregation), and Year-1 cost seg is the largest positive line in every lane.";
+
+// RED FLAGS — array of {flag, data} objects.
+// flag: short headline (what is it)
+// data: supporting detail with a leading " — " separator
+// Set to [] if no red flags.
+const RED_FLAGS = [
+  { flag: "Deed restrictions / covenant prohibition", data: " — Houston has no zoning, so recorded private covenants govern land use, and Houston is the only Texas city whose Legal Department sues to enforce them by injunction (Tex. Local Gov't Code Ch. 212 Subch. F; City Code §§10-551–10-555). Sec. 28-731(b)(10) requires a sworn covenant-compliance acknowledgment and Sec. 28-733(a)(2) makes a false one an independent revocation ground. Heights and Montrose are HIGH risk, EaDo lowest. Not discoverable from a listing sheet — it requires a Harris County Clerk pull of the subdivision and section plus a written Texas-counsel opinion inside the option period." },
+  { flag: "Supply growing faster than demand 2+ years", data: " — STR supply +21.2% YoY against revenue +5.8% at 36.1% median occupancy, with no zoning and no land constraint, so there is no structural supply ceiling at all. Independently corroborated: metro hotel occupancy fell 8.6% in 2025 to 58.9%, the largest decline of any Top-25 US market, while lodging supply expanded. The World Cup ceiling test confirms it — seven matches produced only 40% STR occupancy." },
+  { flag: "Revenue floor below 70% of debt service — triggers on the NET basis", data: " — Gross: the trough month runs $1,950–$2,154 against $2,695/mo debt service = 72–80%, which CLEARS the 70% test. Net: after the QA-corrected 0.595 operating ratio the trough nets about $1,050 = ~39% of debt service — a real ~$1,600/mo cash deficit funded from reserves every year. Evaluated and triggered on the net figure." },
+  { flag: "Prices outpaced revenue, cap rate under 6%", data: " — Conservative cap rate 3.3%–5.6%, corroborated by published Montrose/Midtown Inner Loop cap rates of 4–5%. Gate Zero price-to-revenue is 14.6× ($525,000 ÷ $36,000) for a 6.9% implied gross yield; by sub-area Heights 18.0×, Montrose 15.3×, Museum/Midtown 12.3×, EaDo 10.8×. The Inner Loop revenue premium over citywide is roughly +30%; the price premium is +140%." },
+  { flag: "Negative Leverage", data: " — Cap rate (3.3–5.6%) below cost of debt (7.125%). Appreciation and cost seg carry the return thesis." }
+];
+
+// SCORECARD — 9 categories, weights must sum to 1.00
+// name: category label string — KEY IS name, NOT category (cat.name is what renders)
+// weight: decimal fraction (all weights sum to 1.0)
+// score: integer 1–10 (initial displayed score; user can override interactively)
+// rationale: 2–4 sentences explaining the score
+// confidence: data quality note
+const SCORECARD_DATA = [
+  {
+    name: "Demand Strength & Durability",
+    weight: 0.25,
+    score: 7,
+    rationale: "Three durable independent drivers confirmed: the Texas Medical Center (60+ institutions, 106K employees, ~180K daily visitors, $25B — the largest medical complex on earth), the Houston Livestock Show & Rodeo (2.6M attendees), and conventions/GRB ($1.4B expansion opening May 2028 plus RNC 2028), on a 7.5M metro with #1 US population growth (+127K/yr) and #3 job growth. Demand would survive any single driver failing — materially more durable than the five tertiary markets screened before it. Deducted from 8 because the drivers do not convert to STR utilization: metro hotel occupancy fell 8.6% in 2025 to 58.9%, the largest decline of any Top-25 US market, and the one year-round Inner-Loop-concentrated driver (TMC) is MTR-shaped and meets a purpose-built 250-room campus hotel breaking ground in 2026.",
+    confidence: "High"
+  },
+  {
+    name: "Supply & Competition",
+    weight: 0.18,
+    score: 4,
+    rationale: "STR supply +21.2% YoY against revenue +5.8% at 36.1% median occupancy — growth only partly absorbed, and on rate rather than volume. The structural problem is permanent: Houston has no zoning and no land constraint, so there is no supply ceiling, and any revenue premium invites unlimited substitutable competition. The World Cup was the ceiling test — seven matches of the world's largest sporting event produced only 40% STR occupancy. Genuinely offsetting: only 7.8% of listings are professionally managed and 66.4% run Airbnb default pricing, the widest operator gap on the board.",
+    confidence: "Medium"
+  },
+  {
+    name: "Returns Profile",
+    weight: 0.18,
+    score: 3,
+    rationale: "Gross ROI is under 10% at every Inner Loop price point: 5.6% (Heights), 6.5% (Montrose), 8.1% (Museum/Midtown), 9.3% (EaDo, the best lane), 6.9% blended. Cap rate 3.3–5.6% against a 7.125% cost of debt is negative leverage, corroborated by published Montrose/Midtown cap rates of 4–5%. Cash flow does not turn positive until roughly $67,000 gross, while the Inner Loop 3BR median is $36,000 and the 3BR top quartile is $52,000 — the top quartile does not clear debt. Only the citywide top decile ($69,684) barely clears, and that revenue is earned by 4–5BR homes costing $700K–$1.2M.",
+    confidence: "High"
+  },
+  {
+    name: "Regulatory Environment",
+    weight: 0.12,
+    score: 6,
+    rationale: "The public framework alone would earn an 8, and the framework caps it there anyway since Texas has no state pre-emption. Ordinance 2025-322 is the most permissive big-city STR regime in Texas: legal citywide, no cap, no density limit, no owner-occupancy, no zoning, ministerial issuance under Sec. 28-732(a), no neighbor-objection step and no lottery, $275/yr plus $33.10, LLC-eligible. Pulled to 6 by three real deductions: deed restrictions are TRIGGERED (Houston is the only Texas city whose Legal Department sues to enforce private covenants by injunction, and the application requires a sworn covenant-compliance acknowledgment); the certificate is non-transferable and void on sale, so a 1031 buyer re-applies from scratch; and the 17% combined lodging tax sits far above the 12% screen.",
+    confidence: "High"
+  },
+  {
+    name: "Appreciation Potential",
+    weight: 0.12,
+    score: 6,
+    rationale: "The framework's modest/cooling HPI anchor: Houston metro ran a 2.9%/yr 5-year CAGR, posted its first annual decline in 2025, sits below its June 2022 peak four years on, and was −0.3% YoY in 2026 carrying an all-time-record 40,750 active listings and 9.1 months of supply. Against that, the sub-market genuinely diverges — 77006 +4.0% and 77008 +11.6% YoY — supported by a structural land floor, with HCAD carrying Inner Loop dirt at $90–$100/sf and a teardown-replacement bid continually re-pricing it. Real 2028 catalysts: TMC3/Helix Park $1.5B, GRB South $1.4B, RNC 2028.",
+    confidence: "Medium"
+  },
+  {
+    name: "Seasonality & Revenue Floor",
+    weight: 0.08,
+    score: 5,
+    rationale: "Season length alone would score 6–7: this is a year-round urban market with no resort-style dead season, every month bookable, and a shallow peak-to-trough swing (40–45%). Peak March on the Rodeo, soft January–February at ~25% occupancy, plus a heat-and-hurricane block June–September. The revenue-floor nudge caps the score in the 4–5 band and it is applied on the NET basis: the trough month grosses $1,950–$2,154 against $2,695/mo debt service (72–80%, which clears 70% on gross) but nets roughly $1,050, or ~39% of debt service — a real ~$1,600/mo cash deficit funded from reserves every year.",
+    confidence: "Medium"
+  },
+  {
+    name: "Ease of Management/Operations",
+    weight: 0.04,
+    score: 8,
+    rationale: "The deepest STR service bench of any market screened. Cleaning $80–$165/turn ($140 working for a 3BR) with a named redundant vendor bench — River Oaks Cleaning, Regal Rest, Maid U Shine, Cleaning Crew Care — plus a full Turno marketplace. Local PM runs 12.5%–18% (HostStarter 12.5% flat, no contracts) against a 20–30% resort norm, so Houston is one of the few markets where the PM variant does not automatically kill the deal, and all four lodging-tax layers are auto-remitted by Airbnb. Held below 9 by ~88 turns/yr on short urban stays, Beaumont-clay foundation risk, and grid fragility that produced two week-plus outage events in calendar 2024.",
+    confidence: "High"
+  },
+  {
+    name: "Infrastructure & Access",
+    weight: 0.02,
+    score: 9,
+    rationale: "Textbook top-tier: IAH and Hobby moved 62 million passengers in 2025, with IAH a United global hub posting a record 12.4M international passengers (+2.5%) and nonstops to Tokyo, Europe and deep Latin America — the single hardest-to-replicate structural feature here, since international medical tourism to MD Anderson arrives by air. Full interstate network (I-10, I-45, I-69) and a genuine dual drive/fly market with ~14M Texans inside four hours. Held at 9 rather than 10 because total system traffic slipped 63M to 62M with a sharp Hobby decline, and intra-metro congestion is real.",
+    confidence: "High"
+  },
+  {
+    name: "Exit Options",
+    weight: 0.01,
+    score: 7,
+    rationale: "Scored on resale liquidity. Houston offers the only three independent buyer pools on the board: owner-occupants (Montrose and the Heights are premier primary-residence neighborhoods, which is why 77008 is +11.6% YoY against a flat metro), builders/developers (a live teardown bid with HCAD dirt at $90–$100/sf setting an independent floor), and income investors (99 active rentals in 77008 alone). Median DOM 52 days is normal-to-slightly-soft. Held out of the 8–10 band by unambiguous buyer's-market conditions: 40,750 active listings — an all-time HAR record — 9.1 months of supply, and a 92.2% list-to-sale ratio, the lowest in years.",
+    confidence: "High"
+  }
+];
+
+// LANES — 3 buy box lanes: conservative, target, aggressive
+// Render reads these keys: id, title, subtitle, bedrooms, priceRange, maxDistance, guestAvatar, mustHaveAmenities[], differentiatorAmenities[], valueAdd?, revenueConfidence?, moatCategories[], confirmingListings[{label,url}]
+//   id is the lane key — PROFORMA_DATA.laneId must equal it. valueAdd & revenueConfidence are optional.
+// All other fields required. mustHaveAmenities and differentiatorAmenities are arrays of strings.
+// moatCategories: subset of ["Location","Quality","Design","Amenities","Operations"]
+// confirmingListings: array of 3–5 {label, url} from Step 6A inventory validation —
+//   active FOR-SALE / purchase listings the investor could offer on today (NOT rental comps),
+//   from Zillow/Redfin/Realtor.com/Homes.com/Trulia or local MLS/IDX. label = property address,
+//   url = the for-sale listing URL. Renders as clickable links inside the lane card.
+//   Use [] only if a lane has no linkable inventory.
+const LANES_DATA = [
+  {
+    id: "conservative",
+    title: "Lane 1 — Conservative",
+    subtitle: "2–3BR townhome, condo or small SFH in EaDo (77003), Near Northside (77009) or Midtown/Third Ward (77004). Deed-restriction risk Low–Moderate. Inventory CONFIRMED (11).",
+    bedrooms: "2–3 BR",
+    priceRange: "$231,000 – $310,000",
+    maxDistance: "2 mi to GRB Convention Center · 5 mi to TMC",
+    guestAvatar: "Budget event/medical visitor, 2-night weekender, TMC caregiver",
+    mustHaveAmenities: ["Fast wifi + dedicated workspace", "Secure parking", "Blackout blinds", "Full kitchen"],
+    differentiatorAmenities: ["Walkability to a named bar/restaurant cluster"],
+    valueAdd: "Cosmetic refresh; add a 3rd sleeping area",
+    moatCategories: ["Location", "Amenities"],
+    confirmingListings: [
+      { label: "612 Delano St, EaDo — $299,990 · 2BR/2.5BA townhome", url: "https://www.redfin.com/TX/Houston/612-Delano-St-77003/home/88681731" },
+      { label: "1113 Palmer St, EaDo — $290,000 · 2BR/2.5BA townhome, 2,099 sf", url: "https://www.redfin.com/TX/Houston/1113-Palmer-St-77003/home/29395932" },
+      { label: "521 N Jenkins St, EaDo — $310,000 · 2BR/2BA", url: "https://www.redfin.com/TX/Houston/521-N-Jenkins-St-77003/home/29818813" },
+      { label: "3241 Reeves St, Third Ward — $245,900 · 3BR/2BA SFH", url: "https://www.redfin.com/TX/Houston/3241-Reeves-St-77004/home/29819417" }
+    ]
+  },
+  {
+    id: "target",
+    title: "Lane 2 — Target",
+    subtitle: "New-construction 3BR townhome in EaDo (77003), Near Northside (77009) or Midtown (77004). Deed-restriction risk LOW — the only pocket where the best transactable price band and the lowest covenant risk overlap. Inventory CONFIRMED (14 — deepest lane).",
+    bedrooms: "3 BR",
+    priceRange: "$340,000 – $430,000",
+    maxDistance: "2 mi to GRB · 5 mi to TMC",
+    guestAvatar: "Rodeo/convention group, TMC family, 30–90 day medical professional",
+    mustHaveAmenities: ["Fast wifi + dedicated workspace", "Secure parking", "Blackout blinds", "Full kitchen", "In-unit W/D", "Rooftop deck", "Smart lock", "2+ true parking spots"],
+    differentiatorAmenities: ["Furnished-MTR readiness (30–90 day setup)", "EV charger"],
+    valueAdd: "Dynamic pricing + dual-platform listing — 66.4% of the market runs Airbnb default pricing",
+    moatCategories: ["Location", "Amenities", "Quality"],
+    confirmingListings: [
+      { label: "1705 Eado Point Ln, EaDo — $399,000 · 3BR/3.5BA townhome, 2,236 sf", url: "https://www.redfin.com/TX/Houston/1705-Eado-Point-Ln-77003/home/167829082" },
+      { label: "2376 Commerce St, EaDo — $425,000 · 3BR/3.5BA townhome, 2,050 sf", url: "https://www.redfin.com/TX/Houston/2376-Commerce-St-77003/home/29548905" },
+      { label: "3123 Leeland St, EaDo — $390,000 · 3BR/3.5BA townhome, 1,966 sf", url: "https://www.redfin.com/TX/Houston/3123-Leeland-St-77003/home/107593141" },
+      { label: "310 S Jensen Dr #7, EaDo — $359,900 · 3BR/2.5BA townhome, 2,147 sf", url: "https://www.redfin.com/TX/Houston/310-S-Jensen-Dr-77003/unit-7/home/29382106" },
+      { label: "2614 Capitol St, EaDo — $430,000 · 3BR/3.5BA townhome, 1,920 sf", url: "https://www.redfin.com/TX/Houston/2614-Capitol-St-77003/home/29599441" }
+    ]
+  },
+  {
+    id: "aggressive",
+    title: "Lane 3 — Aggressive",
+    subtitle: "Larger 3–4BR townhome or SFH in Montrose (77006), Heights (77008), Rice Military (77007) or Museum District (77004). Deed-restriction risk HIGH — funded civic associations and explicit no-commercial-use covenants. Inventory CONFIRMED (14).",
+    bedrooms: "3–4 BR",
+    priceRange: "$450,000 – $600,000",
+    maxDistance: "3 mi to the Montrose/Museum core",
+    guestAvatar: "Design-led leisure group, corporate relocation, event-week premium",
+    mustHaveAmenities: ["Fast wifi + dedicated workspace", "Secure parking", "Blackout blinds", "Full kitchen", "In-unit W/D", "Pool or spa", "Designed interiors", "30+ pro photos"],
+    differentiatorAmenities: ["Pool", "Statement design", "Event-week pricing setup"],
+    valueAdd: "Pool/design upgrade",
+    revenueConfidence: "Top-decile revenue basis · not comparable head-to-head with Lanes 1–2",
+    moatCategories: ["Design", "Quality", "Location"],
+    confirmingListings: [
+      { label: "705 Delano St, EaDo — $499,500 · 3BR/4.5BA 4-story townhouse, 2,811 sf, rooftop terrace", url: "https://www.zillow.com/homedetails/705-Delano-St-Houston-TX-77003/121105179_zpid/" },
+      { label: "4129 Dickson St, Rice Military — $515,000 · 3BR/3.5BA townhome, 2,396 sf", url: "https://www.redfin.com/TX/Houston/4129-Dickson-St-77007/home/29397550" },
+      { label: "4508 Jackson St, Museum District — $525,000 · 3BR/3.5BA townhome, 2,370 sf", url: "https://www.redfin.com/TX/Houston/4508-Jackson-St-77004/home/66048960" },
+      { label: "1905 Oakdale St, Museum District — $559,000 · 3BR/3.5BA gated townhome, 2,510 sf", url: "https://www.redfin.com/TX/Houston/1905-Oakdale-St-77004/home/112817925" },
+      { label: "508 Sul Ross St Unit A, Montrose — $495,000 · 3BR/2.5BA townhome, 2,116 sf", url: "https://www.redfin.com/TX/Houston/508-Sul-Ross-St-77006/unit-A/home/29710208" }
+    ]
+  }
+];
+
+// PRO FORMA — one entry per lane, matched by laneId
+// revenueMin/Max: annual gross revenue range
+// priceMid: purchase price midpoint used for ROI calculation
+// debtService: annual debt service (12 × monthly P&I)
+// loanNote: short string describing loan assumptions
+// cashRequired: 20% down + 3% closing + 5% furnishing/setup + 6-month reserve
+// cashRequiredNote: short human-readable label for cashRequired components
+// userCashAvailable: investor's stated cash position (0 if unknown)
+// capitalBreakevenPrice: max purchase price that fits userCashAvailable; 0 if capitalFits=true
+// opExpRatio: operating expense ratio as decimal — per-lane recalculated value, NOT 0.40 default (kept as the blended reference + render fallback)
+// fixedOpEx: annual operating $ that do NOT scale with revenue (propTax + insurance + miscSupplies)
+// variableOpExRate: decimal share that scales with revenue (platform fee ~0.03). Render uses fixedOpEx + revenue×variableOpExRate when BOTH present (honest low-end net CF); falls back to revenue×opExpRatio when absent.
+// netCfLow_pm: net CF at revenueMin with 25% PM (REQUIRED — renders in PM tile)
+// buildingPct: land-to-building ratio from county assessor — NOT hardcoded 0.85
+// bonusDepRate: 1.00 for OBBBA 2025 assets (placed in service on/after Jan 19, 2025)
+// costSegAssumptions: short string describing cost seg inputs
+// netCfAfterCostSegY1: netCfLow + costSegBenefit (Year 1 effective with tax savings; one-time)
+// grossRoiLow: gross ROI at revenueMin as percent (e.g. 12.7) — used by QA Check 10
+// grossRoiPass: true if grossRoiLow >= 15 — used by QA Check 10
+// costSegBenefit: federal tax savings in dollars (Year 1 cost-seg tile) = round(priceMid × buildingPct × reclassPct × bonusDepRate × 0.37); reclassPct≈0.25 (only the 5/15-yr reclassified share gets bonus dep — NOT the full building basis)
+// appreciationY1: estimated Year 1 appreciation in dollars (≈3–4% × priceMid) — gates the Total Economic Return tile + bear-tier classification
+// totalReturnLow: netCfLow + costSegBenefit + appreciationY1 (Total Economic Return tile)
+const PROFORMA_DATA = [
+  {
+    laneId: "conservative",
+    priceMid: 270500,
+    revenueMin: 24000,
+    revenueMax: 42000,
+    debtService: 17495,
+    loanNote: "DSCR 30-yr at 7.125%, 20% down",
+    cashRequired: 84487,
+    cashRequiredNote: "20% down + 3% closing + 5% furnishing/setup + 6-mo reserve",
+    userCashAvailable: 140856,
+    capitalBreakevenPrice: 420464,
+    opExpRatio: 0.471,
+    fixedOpEx: 14549,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -16293,
+    buildingPct: 0.71,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$270,500 · 71% building · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket",
+    appreciationY1: 7845,
+    costSegBenefit: 17765,
+    netCfAfterCostSegY1: 8732,
+    totalReturnLow: 16576,
+    grossRoiLow: 8.87,
+    grossRoiPass: false,
+    fullCostOpExpMid: 23496
+  },
+  {
+    laneId: "target",
+    priceMid: 385000,
+    revenueMin: 32000,
+    revenueMax: 52000,
+    debtService: 24900,
+    loanNote: "DSCR 30-yr at 7.125%, 20% down",
+    cashRequired: 120250,
+    cashRequiredNote: "20% down + 3% closing + 5% furnishing/setup + 6-mo reserve",
+    userCashAvailable: 140856,
+    capitalBreakevenPrice: 420464,
+    opExpRatio: 0.456,
+    fixedOpEx: 17882,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -21282,
+    buildingPct: 0.71,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$385,000 · 71% building · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket",
+    appreciationY1: 11165,
+    costSegBenefit: 25285,
+    netCfAfterCostSegY1: 13243,
+    totalReturnLow: 24408,
+    grossRoiLow: 8.31,
+    grossRoiPass: false,
+    fullCostOpExpMid: 29517
+  },
+  {
+    laneId: "aggressive",
+    priceMid: 525000,
+    revenueMin: 40500,
+    revenueMax: 69684,
+    debtService: 33954,
+    loanNote: "DSCR 30-yr at 7.125%, 20% down",
+    cashRequired: 163977,
+    cashRequiredNote: "20% down + 3% closing + 5% furnishing/setup + 6-mo reserve",
+    userCashAvailable: 140856,
+    capitalBreakevenPrice: 420464,
+    opExpRatio: 0.436,
+    fixedOpEx: 22357,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -29585,
+    buildingPct: 0.65,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$525,000 · 65% building · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket",
+    appreciationY1: 15225,
+    costSegBenefit: 31566,
+    netCfAfterCostSegY1: 14101,
+    totalReturnLow: 29326,
+    grossRoiLow: 7.71,
+    grossRoiPass: false,
+    fullCostOpExpMid: 34585
+  }
+];
+
+
+// SCORE DIFFERENTIATION — tier verdict + why this market beats/trails the median
+// strengths: array of strings. drags: array of { label, swing } objects (NOT plain strings) —
+//   label = short category headline; swing = what it means + the tier-move number.
+const DIFFERENTIATION = {
+  tier: "F",
+  distanceUp: "Verdict: Move on. tierDistanceUp 0.08 — Tier D (Marginal Market) begins at 5.50, so this is a borderline F, not a decisive one; a single point on Appreciation, Regulatory or Seasonality flips it to D, and the verdict is the same either way.",
+  distanceDown: "tierDistanceDown n/a — F is the floor tier.",
+  strengths: [ "<strong>Infrastructure & Access — 9.</strong> IAH and Hobby moved 62M passengers in 2025; IAH is a United global hub with a record 12.4M international passengers (+2.5%) and deep Latin America connectivity — the delivery mechanism for international medical tourism to MD Anderson, and genuinely hard to replicate.",
+    "<strong>Ease of Management/Operations — 8.</strong> The deepest cleaning and PM bench screened: $140/turn with a redundant named vendor list plus full Turno coverage, local PM at 12.5–18% against a 20–30% resort norm, and all four lodging-tax layers auto-remitted by Airbnb."  ],
+  drags: [ {
+      label: "Returns Profile — 1.26 point leak",
+      swing: "If Returns improves from 3 to 6 (gross ROI reaching the low-teens at a transactable price), the total rises by 0.54 to 5.96, moving the market F → D."
+    },
+    {
+      label: "Supply & Competition — 1.08 point leak",
+      swing: "If Supply improves from 4 to 7 (supply growth turning negative for 2+ periods as the registration ordinance culls inventory), the total rises by 0.54 to 5.96, moving the market F → D. Both drags resolving together reaches 6.50 — Tier C, Houston's absolute ceiling."
+    } ]
+};
+// ─── END DATA ─────────────────────────────────────────────────────────────────
+
+let activeLaneIndex = 1;
+
+function fmt$(n) {
+  const val = Math.round(n);
+  return (val < 0 ? '−$' : '$') + Math.abs(val).toLocaleString();
+}
+function passIcon(pass) {
+  return pass
+    ? '<span class="pass">✓ PASS</span>'
+    : '<span class="fail">✗ FAIL</span>';
+}
+
+function thresholdLabel(score) {
+  // 1–10 scale, five named tiers
+  if (score >= 8.5) return { text: 'Tier A · Priority Market',  cls: 'green'  };
+  if (score >= 7.5) return { text: 'Tier B · Strong Market',    cls: 'green'  };
+  if (score >= 6.5) return { text: 'Tier C · Selective Market', cls: 'yellow' };
+  if (score >= 5.5) return { text: 'Tier D · Marginal Market',  cls: 'yellow' };
+  return                   { text: 'Tier F · Pass',             cls: 'red'    };
+}
+
+function updateBadgeColor(score) {
+  const badge = document.getElementById('score-badge');
+  const label = document.getElementById('threshold-label');
+  const t = thresholdLabel(score);
+  badge.className = 'score-hero anim-scale-in d1 ' + t.cls;
+  label.className = 'verdict-pill ' + t.cls;
+  label.textContent = t.text;
+  document.getElementById('total-score-display').className = 'total-val ' + t.cls;
+  const glowMap = {
+    yellow: 'rgba(240,192,64,0.12)',
+    green:  'rgba(46,196,168,0.12)',
+    red:    'rgba(240,96,96,0.12)'
+  };
+  document.documentElement.style.setProperty('--score-glow', glowMap[t.cls] || glowMap.yellow);
+}
+
+function renderDifferentiation() {
+  const host = document.getElementById('red-flags-note') || document.getElementById('red-flags-section');
+  if (!DIFFERENTIATION || !DIFFERENTIATION.tier || DIFFERENTIATION.tier.indexOf('{{') === 0) return;
+  let html = '<div class="section" style="margin-bottom:24px"><div class="section-body">' +
+    '<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:10px">Why This Market — Tier ' + DIFFERENTIATION.tier + '</div>';
+  if (DIFFERENTIATION.strengths && DIFFERENTIATION.strengths.length) {
+    html += '<div style="margin-bottom:12px"><strong style="color:var(--teal)">Strengths:</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.strengths.map(s => '<li style="margin-bottom:4px">' + s + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.drags && DIFFERENTIATION.drags.length) {
+    html += '<div><strong style="color:var(--yellow)">Swing factors (what moves the tier):</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.drags.map(d => '<li style="margin-bottom:4px"><strong>' + d.label + '</strong> — ' + d.swing + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.distanceUp || DIFFERENTIATION.distanceDown) {
+    html += '<div style="margin-top:10px;font-size:0.78rem;color:var(--text-3)">' +
+      [DIFFERENTIATION.distanceUp, DIFFERENTIATION.distanceDown].filter(Boolean).join(' · ') + '</div>';
+  }
+  html += '</div></div>';
+  host.insertAdjacentHTML('afterend', html);
+}
+
+function renderRedFlags() {
+  const el = document.getElementById('red-flags-section');
+  if (!RED_FLAGS || RED_FLAGS.length === 0) {
+    el.innerHTML = '<div class="red-flags-clean">✓ No disqualifying red flags detected for this market.</div>';
+    return;
+  }
+  let html = '<div class="red-flags-wrap anim-fade-up d3"><h2>⚠ Red Flags Detected (' + RED_FLAGS.length + ' of 10 Framework Items Triggered)</h2><ul>';
+  RED_FLAGS.forEach(f => {
+    html += '<li><strong>' + f.flag + '</strong>' + (f.data || '') + '</li>';
+  });
+  html += '</ul></div>';
+  el.innerHTML = html;
+}
+
+function bandClass(v) {
+  if (v <= 4) return '1';      // red band
+  if (v <= 6) return '3';      // yellow band
+  return '5';                  // teal band
+}
+
+function renderScorecard() {
+  const body = document.getElementById('scorecard-body');
+  let html = '';
+  SCORECARD_DATA.forEach((cat, i) => {
+    cat.currentScore = cat.score;
+    const contrib = (cat.score * cat.weight).toFixed(2);
+    html += '<div class="score-row" id="row-' + i + '">' +
+      '<div class="score-row-left">' +
+        '<div class="cat-name">' + cat.name + '</div>' +
+        '<div class="cat-meta">Weight: ' + (cat.weight * 100).toFixed(0) + '% · Contrib: <span id="contrib-' + i + '">' + contrib + '</span></div>' +
+        '<span class="rationale-toggle" onclick="toggleRationale(' + i + ')">▸ Why this score</span>' +
+        '<div class="rationale-card" id="rationale-' + i + '">' +
+          cat.rationale +
+          '<div class="confidence">Data confidence: ' + cat.confidence + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="score-row-right">' +
+        '<div class="pills" id="pills-' + i + '">' +
+          [1,2,3,4,5,6,7,8,9,10].map(v => '<button class="pill' + (v === cat.score ? ' active-' + bandClass(v) : '') + '" data-cat="' + i + '" data-val="' + v + '" onclick="setScore(' + i + ',' + v + ')">' + v + '</button>').join('') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  });
+  body.innerHTML = html;
+  updateTotalDisplay();
+}
+
+function setScore(catIndex, val) {
+  SCORECARD_DATA[catIndex].currentScore = val;
+  const pillsEl = document.getElementById('pills-' + catIndex);
+  pillsEl.querySelectorAll('.pill').forEach(p => {
+    p.className = 'pill' + (parseFloat(p.dataset.val) === val ? ' active-' + bandClass(val) : '');
+  });
+  const contribEl = document.getElementById('contrib-' + catIndex);
+  if (contribEl) contribEl.textContent = (val * SCORECARD_DATA[catIndex].weight).toFixed(2);
+  updateTotalDisplay();
+}
+
+function updateTotalDisplay() {
+  let total = 0;
+  SCORECARD_DATA.forEach(cat => { total += cat.currentScore * cat.weight; });
+  const rounded = total.toFixed(2);
+  document.getElementById('overall-score-display').textContent = rounded;
+  document.getElementById('total-score-display').textContent = rounded;
+  updateBadgeColor(total);
+}
+
+function toggleRationale(i) {
+  const el = document.getElementById('rationale-' + i);
+  const toggle = el.previousElementSibling;
+  el.classList.toggle('open');
+  toggle.textContent = el.classList.contains('open') ? '▾ Hide rationale' : '▸ Why this score';
+}
+
+function renderLanes() {
+  const container = document.getElementById('lanes-container');
+  let html = '';
+  LANES_DATA.forEach((lane, i) => {
+    const isActive = i === activeLaneIndex;
+    // Look up matching pro forma for capital fit badge
+    const pf = PROFORMA_DATA.find(p => p.laneId === lane.id);
+    let capitalBadge = '';
+    if (pf && pf.cashRequired && pf.userCashAvailable) {
+      const fits = pf.cashRequired <= pf.userCashAvailable;
+      if (fits) {
+        capitalBadge = '<div class="capital-fit-badge fits">✓ Fits Your Capital</div>';
+      } else {
+        const shortfall = Math.ceil((pf.cashRequired - pf.userCashAvailable) / 1000);
+        capitalBadge = '<div class="capital-fit-badge short">⚠ +$' + shortfall + 'K Needed</div>';
+      }
+    }
+    html += '<div class="lane-card' + (isActive ? ' active' : '') + '" id="lane-' + i + '" onclick="selectLane(' + i + ')">' +
+      '<div class="lane-card-left">' +
+        '<div class="lane-header">' +
+          '<div class="lane-title">' + lane.title + '</div>' +
+        '</div>' +
+        '<div class="lane-subtitle">' + lane.subtitle + '</div>' +
+        (lane.revenueConfidence ? '<div style="display:inline-block;margin-top:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--yellow);background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:5px;padding:3px 8px">⚑ ' + lane.revenueConfidence + '</div>' : '') +
+        '<div class="lane-detail-grid">' +
+          '<div class="lane-detail-item"><span class="detail-label">Bedrooms</span>' + lane.bedrooms + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Price Range</span>' + lane.priceRange + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Max Distance</span>' + lane.maxDistance + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Guest Profile</span>' + lane.guestAvatar + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Must-Have Amenities</span>' + lane.mustHaveAmenities.join(' · ') + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Differentiators</span>' + lane.differentiatorAmenities.join(' · ') + '</div>' +
+          (lane.valueAdd ? '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Value-Add to Seek</span>' + lane.valueAdd + '</div>' : '') +
+        '</div>' +
+        '<div class="moat-tags">' + lane.moatCategories.map(m => '<span class="moat-tag">' + m + '</span>').join('') + '</div>' +
+        ((lane.confirmingListings && lane.confirmingListings.length) ? (
+          '<div class="confirming-listings">' +
+            '<div class="cl-label">Live listings that fit this buy box</div>' +
+            lane.confirmingListings.map(l => '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">' + l.label + '</a>').join('') +
+          '</div>'
+        ) : '') +
+      '</div>' +
+      '<div class="lane-card-right">' +
+        '<div class="lane-price">' + lane.priceRange.replace(' – ', '–') + '</div>' +
+        '<div style="font-size:0.68rem;color:var(--text-3);letter-spacing:0.04em;text-transform:uppercase;font-weight:600">Purchase</div>' +
+        capitalBadge +
+      '</div>' +
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function renderProFormaTabs() {
+  const tabs = document.getElementById('pf-lane-tabs');
+  if (!tabs) return;
+  tabs.innerHTML = LANES_DATA.map((lane, i) =>
+    '<button class="pf-lane-tab' + (i === activeLaneIndex ? ' active' : '') + '" data-lane="' + i + '" onclick="selectLane(' + i + ')">' + lane.title + '</button>'
+  ).join('');
+}
+
+function selectLane(i) {
+  activeLaneIndex = i;
+  document.querySelectorAll('.lane-card').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.querySelectorAll('.pf-lane-tab').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.getElementById('active-lane-name').textContent = LANES_DATA[i].title;
+  renderProForma();
+}
+
+function renderProForma() {
+  const activeLaneId = LANES_DATA[activeLaneIndex].id;
+  const pf = PROFORMA_DATA.find(p => p.laneId === activeLaneId) || PROFORMA_DATA[activeLaneIndex];
+  const body = document.getElementById('proforma-body');
+  if (!pf) {
+    body.innerHTML = '<p style="color:var(--text-3);padding:16px">No pro forma data available.</p>';
+    return;
+  }
+
+  const opExpRatio = pf.opExpRatio || 0.40;
+  const hasOpExpSplit = typeof pf.fixedOpEx === 'number' && typeof pf.variableOpExRate === 'number';
+  const roiLow  = (pf.revenueMin / (pf.priceMid || 1) * 100).toFixed(1);
+  const roiHigh = (pf.revenueMax / (pf.priceMid || 1) * 100).toFixed(1);
+  const grossRoiPass = parseFloat(roiLow) >= 15;
+  const opExpLow  = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMin * pf.variableOpExRate) : Math.round(pf.revenueMin * opExpRatio);
+  const opExpHigh = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMax * pf.variableOpExRate) : Math.round(pf.revenueMax * opExpRatio);
+  const opExpPctLow  = pf.revenueMin > 0 ? Math.round(opExpLow  / pf.revenueMin * 100) : 0;
+  const opExpPctHigh = pf.revenueMax > 0 ? Math.round(opExpHigh / pf.revenueMax * 100) : 0;
+  const netLow  = Math.round(pf.revenueMin - opExpLow - pf.debtService);
+  const netHigh = Math.round(pf.revenueMax - opExpHigh - pf.debtService);
+  const netPctLow = pf.revenueMin > 0 ? (netLow / pf.revenueMin * 100).toFixed(0) : '—';
+  const cocLow  = pf.cashRequired > 0 ? (netLow  / pf.cashRequired * 100).toFixed(1) : '—';
+  const cocHigh = pf.cashRequired > 0 ? (netHigh / pf.cashRequired * 100).toFixed(1) : '—';
+  const bearRev  = Math.round(pf.revenueMin * 0.9);
+  const bearExp  = hasOpExpSplit ? Math.round((pf.fixedOpEx + bearRev * pf.variableOpExRate) * 1.1) : Math.round(opExpLow * 1.1);
+  const bearNet  = bearRev - bearExp - pf.debtService;
+  const capitalFits = pf.cashRequired <= pf.userCashAvailable;
+  const capitalNote = pf.cashRequiredNote || '20% down + 3% closing + 5% furnishing + 6-mo reserve';
+  // Bear case 3-tier classification
+  const appreciationRate = pf.appreciationY1 ? (pf.appreciationY1 / pf.priceMid) : 0;
+  let bearTierBadge;
+  if (bearNet > 0) {
+    bearTierBadge = '<span class="pass">✓ PASS</span>';
+  } else if (bearNet > -(pf.debtService * 0.25) && appreciationRate > 0) {
+    bearTierBadge = '<span class="warn">⚠ SURVIVABLE</span>';
+  } else {
+    bearTierBadge = '<span class="fail">✗ DISTRESS</span>';
+  }
+  const opExpLabel = hasOpExpSplit
+    ? opExpPctLow + '%→' + opExpPctHigh + '% of revenue · fixed ' + fmt$(pf.fixedOpEx) + ' + ' + Math.round(pf.variableOpExRate * 100) + '% variable — ratio runs higher at low revenue'
+    : (opExpRatio * 100).toFixed(0) + '% (market-specific, per-lane)';
+
+  // Cost seg tile values
+  const hasCostSeg = pf.costSegBenefit && pf.buildingPct;
+  const buildingPctDisplay = hasCostSeg ? Math.round(pf.buildingPct * 100) + '%' : '—';
+  const landPctDisplay = hasCostSeg ? Math.round((1 - pf.buildingPct) * 100) + '%' : '—';
+  const netAfterCostSeg = pf.netCfAfterCostSegY1 || (netLow + (pf.costSegBenefit || 0));
+  const costSegAssumptions = pf.costSegAssumptions || '';
+
+  // PM impact tile
+  const hasPM = typeof pf.netCfLow_pm === 'number';
+  const pmSavings = hasPM ? (netLow - pf.netCfLow_pm) : 0;
+
+  // Capital breakeven
+  const showBreakeven = !capitalFits && pf.capitalBreakevenPrice && pf.capitalBreakevenPrice > 0;
+
+  body.innerHTML =
+    '<div class="pf-grid">' +
+      // Row 1: Revenue + Gross ROI
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross Revenue Range</div>' +
+        '<div class="pf-value">' + fmt$(pf.revenueMin) + ' – ' + fmt$(pf.revenueMax) + '</div>' +
+        '<div class="pf-note">Tier-appropriate range · self-manage assumed. Assumes dual-platform listing (Airbnb + VRBO). Single-platform operators typically achieve 15-20% less gross.</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross ROI</div>' +
+        '<div class="pf-value">' + roiLow + '% – ' + roiHigh + '% ' + passIcon(grossRoiPass) + '</div>' +
+        '<div class="pf-note">Min 15% · Target 18–20%</div>' +
+      '</div>' +
+      // Row 2: OpExp + Debt Service
+      '<div class="pf-item">' +
+        '<div class="pf-label">Operating Expenses (' + opExpLabel + ')</div>' +
+        '<div class="pf-value">' + fmt$(opExpLow) + ' – ' + fmt$(opExpHigh) + '</div>' +
+        '<div class="pf-note">Narrow-lane: taxes + insurance + platform fee + supplies only · excl. debt service</div>' +
+        (pf.fullCostOpExpMid ? '<div style="margin-top:5px;font-size:0.78rem;padding:6px 10px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:6px;color:var(--amber-pale);line-height:1.5"><strong style="color:var(--yellow)">Full annual cost</strong> (adds cleaning + maintenance): <strong style="color:var(--text-1)">' + fmt$(pf.fullCostOpExpMid) + '</strong> · Self-manage net CF at midpoint revenue: ' + fmt$(Math.round((pf.revenueMin + pf.revenueMax)/2 - pf.fullCostOpExpMid - pf.debtService)) + '</div>' : '') +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Estimated Debt Service</div>' +
+        '<div class="pf-value">' + fmt$(pf.debtService) + '/yr</div>' +
+        '<div class="pf-note">' + pf.loanNote + '</div>' +
+      '</div>' +
+      // Row 3: Net CF (self-manage) + PM Impact
+      '<div class="pf-item">' +
+        '<div class="pf-label">Net Cash Flow (Self-Manage)</div>' +
+        '<div class="pf-value">' + fmt$(netLow) + ' – ' + fmt$(netHigh) + '</div>' +
+        '<div class="pf-note">~' + netPctLow + '% of gross · self-manage only</div>' +
+      '</div>' +
+      (hasPM ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label">If PM-Managed (25%)</div>' +
+          '<div class="pf-value fail">' + fmt$(pf.netCfLow_pm) + '/yr</div>' +
+          '<div class="pf-note">Self-manage saves ' + fmt$(pmSavings) + '/yr vs full PM · co-host at 10–15% is middle option</div>' +
+        '</div>'
+      ) : '') +
+      // Row 4: CoC Return + Total Return
+      '<div class="pf-item">' +
+        '<div class="pf-label">Cash-on-Cash Return</div>' +
+        '<div class="pf-value">' + cocLow + '% – ' + cocHigh + '%</div>' +
+        '<div class="pf-note">Target 10%+ · Excellent 20%+</div>' +
+      '</div>' +
+      (pf.appreciationY1 ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label" style="color:var(--teal)">Total Economic Return (Yr 1 — incl. one-time cost seg)</div>' +
+          '<div class="pf-value" style="color:var(--teal)">' + fmt$(pf.totalReturnLow) + '</div>' +
+          '<div class="pf-note">Net CF ' + fmt$(netLow) + ' + ' + fmt$(pf.appreciationY1) + ' appreciation + ' + fmt$(pf.costSegBenefit || 0) + ' cost seg. The cost-seg benefit is a ONE-TIME Year-1 item — recurring annual return is the Net CF above; it does not repeat in Year 2+.</div>' +
+        '</div>'
+      ) : '') +
+      // Cost Segregation section (full row)
+      (hasCostSeg ? (
+        '<div class="pf-item" style="grid-column:1/-1;border-color:var(--teal-dim)">' +
+          '<div class="pf-label" style="color:var(--teal)">Cost Segregation Benefit (Year 1) — One-Time</div>' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px">' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Tax Savings (37% bracket)</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--teal)">' + fmt$(pf.costSegBenefit) + '</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Depreciable Basis</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-1)">' + buildingPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * pf.buildingPct)) + ')</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Land Excluded</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-2)">' + landPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * (1 - pf.buildingPct))) + ')</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem;color:var(--teal-dim)">' +
+            'Yr 1 effective position (net CF + cost seg): <strong style="color:var(--teal)">' + fmt$(netAfterCostSeg) + '</strong> · ' +
+            (costSegAssumptions ? costSegAssumptions + ' · ' : '') +
+            'Study cost: $5K–$12K · Requires 100+ hrs material participation' +
+          '</div>' +
+        '</div>'
+      ) : '') +
+      // Cash Required + Capital Breakeven
+      '<div class="pf-item">' +
+        '<div class="pf-label">Total Cash Required</div>' +
+        '<div class="pf-value ' + (capitalFits ? 'pass' : 'fail') + '">' + fmt$(pf.cashRequired) + ' ' + (capitalFits ? '✓' : '⚠') + '</div>' +
+        '<div class="pf-note">' + capitalNote + ' · You have: ' + fmt$(pf.userCashAvailable) + '</div>' +
+        (showBreakeven ? '<div style="margin-top:6px;font-size:0.78rem;color:var(--yellow)">Capital breakeven: ~' + fmt$(pf.capitalBreakevenPrice) + ' — buy at or below this price to fit your cash</div>' : '') +
+      '</div>' +
+      // Bear Case (full row)
+      '<div class="bear-case">' +
+        '<h4>Bear Case Stress Test — Revenue −10% / Expenses +10%</h4>' +
+        '<div class="bear-row"><span>Bear case revenue</span><span>' + fmt$(bearRev) + '</span></div>' +
+        '<div class="bear-row"><span>Bear case op expenses</span><span>' + fmt$(bearExp) + '</span></div>' +
+        '<div class="bear-row"><span>Debt service</span><span>' + fmt$(pf.debtService) + '</span></div>' +
+        '<div class="bear-row bear-result">' +
+          '<span>Bear case net cash flow</span>' +
+          '<span>' + fmt$(bearNet) + ' ' + bearTierBadge + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  header.classList.toggle('open', !isOpen);
+  body.classList.toggle('collapsed', isOpen);
+}
+
+function renderCapitalAlert() {
+  const container = document.getElementById('capital-alert-container');
+  if (!SHOW_CAPITAL_ALERT) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>⚠ Capital Fit Alert</strong> ${CAPITAL_ALERT_BODY}</div>`;
+}
+
+function renderRoiContext() {
+  const container = document.getElementById('roi-context-container');
+  if (!ROI_CONTEXT_NOTE) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>ℹ Market Context</strong> ${ROI_CONTEXT_NOTE}</div>`;
+}
+
+renderCapitalAlert();
+renderRoiContext();
+renderRedFlags();
+renderDifferentiation();
+renderScorecard();
+renderLanes();
+renderProFormaTabs();
+renderProForma();
+</script>
+</body>
+</html>
