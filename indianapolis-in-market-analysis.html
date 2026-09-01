@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STR Market Analysis — Indianapolis, Indiana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #0f1a13;
+  --bg-card:   #1c2b20;
+  --bg-card-2: #213526;
+  --border:    #2d4533;
+  --border-2:  #3d5c46;
+  --amber:     #e8924a;
+  --amber-dim: #c4743a;
+  --amber-bg:  #2a1e12;
+  --amber-pale:#f0b07a;
+  --teal:      #2ec4a8;
+  --teal-dim:  #1fa08a;
+  --teal-bg:   #0e2420;
+  --red:       #f06060;
+  --red-dim:   #c44545;
+  --red-bg:    #2a1212;
+  --red-border:#4a2020;
+  --red-muted: #7a5050;
+  --yellow:    #f0c040;
+  --yellow-dim:#c89c28;
+  --yellow-bg: #241e0a;
+  --neutral-icon-bg:     #1a2530;
+  --neutral-icon-border: #2a3f55;
+  --score-glow: rgba(232,146,74,0.12);
+  --text-1:    #f2f5f2;
+  --text-2:    #baced0;
+  --text-3:    #6a8070;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { text-wrap: balance; }
+article p { text-wrap: pretty; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.anim-fade-up  { animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-scale-in { animation: scaleIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up, .anim-scale-in { animation: none; opacity: 1; transform: none; }
+}
+.d0 { animation-delay: 0ms; }
+.d1 { animation-delay: 60ms; }
+.d2 { animation-delay: 120ms; }
+.d3 { animation-delay: 180ms; }
+.d4 { animation-delay: 240ms; }
+.d5 { animation-delay: 300ms; }
+.d6 { animation-delay: 360ms; }
+.page { max-width: 980px; margin: 0 auto; padding: 0 16px 80px; }
+.hero {
+  padding: 64px 0 56px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+.hero-state {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+.hero-summary {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  max-width: 580px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.hero-date {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.score-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card-2);
+  border: 2px solid var(--border-2);
+  border-radius: 20px;
+  padding: 36px 44px;
+  min-width: 172px;
+  position: relative;
+  overflow: hidden;
+}
+.score-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 10%, var(--score-glow) 0%, transparent 65%);
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+.score-hero .score-num {
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  z-index: 1;
+}
+.score-hero .score-denom {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-3);
+  line-height: 1;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+.score-hero .score-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+.score-hero.yellow .score-num   { color: var(--yellow); }
+.score-hero.yellow .score-label { color: var(--yellow-dim); }
+.score-hero.green  .score-num   { color: var(--teal); }
+.score-hero.green  .score-label { color: var(--teal-dim); }
+.score-hero.red    .score-num   { color: var(--red); }
+.score-hero.red    .score-label { color: var(--red-dim); }
+.verdict-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.verdict-pill.yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-dim); }
+.verdict-pill.green  { background: var(--teal-bg);   color: var(--teal);   border: 1px solid var(--teal-dim); }
+.verdict-pill.red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-dim); }
+.capital-alert {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-top: 3px solid var(--amber);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 32px;
+  font-size: 0.875rem;
+  color: var(--amber-pale);
+  line-height: 1.65;
+}
+.capital-alert strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.capital-alert em { color: var(--text-1); font-weight: 600; font-style: normal; }
+.red-flags-wrap {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 32px;
+}
+.red-flags-wrap h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.red-flags-wrap ul { list-style: none; }
+.red-flags-wrap li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--red-border);
+  color: var(--red-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.red-flags-wrap li:last-child { border-bottom: none; }
+.red-flags-wrap li strong { display: block; color: var(--red); font-weight: 600; margin-bottom: 3px; }
+.red-flags-clean {
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-dim);
+  border-radius: 12px;
+  padding: 14px 22px;
+  margin-bottom: 32px;
+  color: var(--teal);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.section-header {
+  padding: 20px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.15s;
+}
+.section-header:hover { background: rgba(255,255,255,0.02); }
+.section-header.open { border-bottom-color: var(--border); }
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.section-title-icon.amber { background: var(--amber-bg); border: 1px solid var(--amber-dim); }
+.section-title-icon.teal  { background: var(--teal-bg);  border: 1px solid var(--teal-dim);  }
+.section-title-icon.blue  { background: var(--neutral-icon-bg); border: 1px solid var(--neutral-icon-border); }
+.section-title-icon.red   { background: var(--red-bg);   border: 1px solid var(--red-dim);   }
+.section-toggle {
+  color: var(--text-3);
+  font-size: 0.7rem;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+}
+.section-header.open .section-toggle { transform: rotate(180deg); }
+.section-body { padding: 26px; }
+.section-body.collapsed { display: none; }
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.score-row:last-child { border-bottom: none; }
+.score-row-left { min-width: 0; }
+.score-row-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.score-row .cat-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 2px;
+}
+.score-row .cat-meta {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+.score-row .cat-weight {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.score-row .weighted-contrib {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-2);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.pills { display: flex; gap: 4px; flex-wrap: wrap; }
+.pill {
+  width: 40px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border-2);
+  background: var(--bg-card-2);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+}
+.pill:hover { border-color: var(--amber); color: var(--amber); }
+.pill:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.pill.active-1, .pill.active-2 { border-color: var(--red-dim);    background: var(--red-bg);    color: var(--red); }
+.pill.active-3                  { border-color: var(--yellow-dim); background: var(--yellow-bg); color: var(--yellow); }
+.pill.active-4, .pill.active-5  { border-color: var(--teal-dim);  background: var(--teal-bg);   color: var(--teal); }
+.rationale-toggle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--amber);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  transition: background 0.1s;
+}
+.rationale-toggle:hover { background: rgba(232,146,74,0.12); }
+.rationale-card {
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-1);
+  display: none;
+  line-height: 1.7;
+}
+.rationale-card .confidence {
+  font-size: 0.72rem;
+  color: var(--teal-dim);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.rationale-card.open { display: block; }
+.scorecard-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 26px;
+  background: var(--bg-card-2);
+  border-top: 2px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+.scorecard-total .total-val {
+  font-size: 2rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+.intel-section { margin-bottom: 28px; }
+.intel-section:last-child { margin-bottom: 0; }
+.intel-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.intel-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.intel-content {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.75;
+  font-weight: 400;
+}
+.intel-content .intel-entry {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.intel-content .intel-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.intel-content .intel-key {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-bottom: 5px;
+}
+.intel-content .intel-key.key-red {
+  color: var(--red);
+  background: var(--red-bg);
+  border-color: var(--red-dim);
+}
+.intel-content .intel-key.key-teal {
+  color: var(--teal);
+  background: var(--teal-bg);
+  border-color: var(--teal-dim);
+}
+.intel-content .intel-key.key-neutral {
+  color: var(--text-3);
+  background: var(--bg-card-2);
+  border-color: var(--border-2);
+}
+.intel-content p { margin: 0; line-height: 1.75; }
+.intel-content ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.intel-content ul li {
+  padding-left: 14px;
+  position: relative;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.intel-content ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-weight: 700;
+}
+.intel-content strong { color: var(--text-1); font-weight: 600; }
+.lanes { display: flex; flex-direction: column; gap: 12px; margin-bottom: 4px; }
+.lane-card {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+}
+.lane-card:hover { border-color: var(--border-2); }
+.lane-card.active {
+  border-color: var(--amber);
+  background: var(--amber-bg);
+  box-shadow: 0 0 0 1px var(--amber-dim);
+}
+.lane-card-left { min-width: 0; }
+.lane-card-right { flex-shrink: 0; text-align: right; }
+.lane-card .lane-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.lane-card .lane-title { font-weight: 800; font-size: 1rem; color: var(--text-1); }
+.lane-card.active .lane-title { color: var(--amber-pale); }
+.lane-card .lane-subtitle {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-3);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.lane-card.active .lane-subtitle { color: var(--amber-dim); }
+.lane-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+.lane-detail-item { font-size: 0.82rem; line-height: 1.5; color: var(--text-2); }
+.lane-detail-item .detail-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: block;
+  margin-bottom: 1px;
+}
+.lane-card.active .lane-detail-item { color: var(--amber-pale); opacity: 0.9; }
+.lane-card.active .detail-label { color: var(--amber-dim); }
+.lane-price {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+.lane-card.active .lane-price { color: var(--amber); }
+.moat-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 14px; }
+.moat-tag {
+  background: var(--bg);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lane-card.active .moat-tag {
+  background: rgba(232,146,74,0.08);
+  color: var(--amber);
+  border-color: var(--amber-dim);
+}
+.capital-fit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+.capital-fit-badge.fits {
+  background: rgba(46,196,168,0.12);
+  color: var(--teal);
+  border: 1px solid var(--teal-dim);
+}
+.capital-fit-badge.short {
+  background: rgba(240,96,96,0.12);
+  color: var(--red);
+  border: 1px solid var(--red-dim);
+}
+.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pf-item {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.pf-item .pf-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+.pf-item .pf-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.pf-item .pf-note {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+.pass { color: var(--teal) !important; }
+.warn { color: var(--yellow) !important; }
+.fail { color: var(--red)  !important; }
+.bear-case {
+  grid-column: 1 / -1;
+  background: var(--bg-card-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.bear-case h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.bear-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.855rem;
+  color: var(--text-2);
+  padding: 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+.bear-result {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-1);
+}
+.checklist { list-style: none; counter-reset: check-counter; display: flex; flex-direction: column; gap: 10px; }
+.checklist li {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px 18px 64px;
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  counter-increment: check-counter;
+  position: relative;
+}
+.checklist li::before {
+  content: counter(check-counter, decimal-leading-zero);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 30px;
+  height: 30px;
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+.checklist li strong {
+  display: block;
+  color: var(--text-1);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.pf-lane-switch { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.pf-lane-switch-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.pf-lane-tabs { display: inline-flex; background: var(--bg); border: 1px solid var(--border-2); border-radius: 10px; padding: 3px; gap: 3px; }
+.pf-lane-tab { border: none; background: transparent; color: var(--text-2); font-family: var(--font); font-size: 0.8rem; font-weight: 700; padding: 7px 16px; border-radius: 7px; cursor: pointer; transition: all 0.14s; white-space: nowrap; }
+.pf-lane-tab:hover { color: var(--amber); }
+.pf-lane-tab.active { background: var(--amber); color: #1a1208; }
+.pf-lane-tab:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.confirming-listings { margin-top: 14px; }
+.confirming-listings .cl-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.confirming-listings a { display: inline-flex; align-items: center; gap: 5px; background: var(--teal-bg); border: 1px solid var(--teal-dim); color: var(--teal); border-radius: 6px; padding: 4px 10px; margin: 0 5px 5px 0; font-size: 0.72rem; font-weight: 600; text-decoration: none; transition: all 0.12s; }
+.confirming-listings a:hover { background: rgba(46,196,168,0.18); }
+.confirming-listings a::before { content: '↗'; font-size: 0.78rem; opacity: 0.8; }
+.lane-card.active .confirming-listings .cl-label { color: var(--amber-dim); }
+.lane-card.active .confirming-listings a { background: rgba(232,146,74,0.10); border-color: var(--amber-dim); color: var(--amber); }
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; }
+  .score-hero { flex-direction: row; gap: 16px; align-self: flex-start; padding: 20px 24px; min-width: 0; }
+  .score-hero .score-num { font-size: 3rem; }
+  .lane-card { grid-template-columns: 1fr; }
+  .lane-detail-grid { grid-template-columns: 1fr; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .score-row .weighted-contrib { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="anim-fade-up d0">
+      <div class="hero-eyebrow">STR Market Analysis · August 31, 2026</div>
+      <h1>Indianapolis</h1>
+      <div class="hero-state">Indiana — Downtown / Mile Square</div>
+      <div class="hero-summary">Indianapolis is simultaneously the <strong>worst median and the best top tier</strong> of the ten markets screened in this 1031 search. On the market-wide median the arithmetic is fatal: $28,685 justifies only $143,425 at the 20% floor, roughly $87,575 <em>below</em> the $231,000 1031 purchase floor. But downtown 2BR comps with 55–539 reviews each actually earn $46,500–$79,700, and the model listing earns $171,000. At 7.13/10, Indianapolis ranks <strong>above Brevard NC (7.11)</strong> and sits almost exactly on the Destin FL anchor (6.9–7.5, Tier C/B border) — exceptional demand and regulation, dragged down by 1–3% condo appreciation, a 27.7% record CBD office vacancy, and a top tier already owned by operators running 18 to 103 units.</div>
+      <div style="margin-top:18px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">Budget Fit — TIGHT</div>
+        <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">At $365,000 the math requires roughly $80,000 gross to reach a $30,000 net cash flow target — above what all but the top decile of this market produces. The Target lane delivers −$1,692 to +$25,147 on full-cost underwriting. The Aggressive lane needs $149,922 cash against $140,856 available.</div>
+      </div>
+      <div style="margin-top:12px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;max-width:580px">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px">⚠ HOA Warning — Building-Specific</div>
+        <div style="font-size:0.875rem;color:var(--text-2);line-height:1.65">The City permits STR by right, but Indiana state preemption does <strong>not</strong> reach private covenants. Three of six candidate buildings show restriction signals — 450 E Ohio #202 and #114 carry an MLS <em>Rental Restrictions</em> flag; 611 N Park #105 indicates a 3-month minimum. Read the declaration before any offer.</div>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-date">Analysis date: August 31, 2026</span>
+        <span class="verdict-pill yellow" id="threshold-label">Loading…</span>
+      </div>
+    </div>
+    <div class="score-hero yellow anim-scale-in d1" id="score-badge">
+      <div class="score-num" id="overall-score-display">—</div>
+      <div class="score-denom">/ 10</div>
+      <div class="score-label">Market Score</div>
+    </div>
+  </div>
+
+  <div id="capital-alert-container" class="anim-fade-up d2"></div>
+  <div id="roi-context-container" class="anim-fade-up d2"></div>
+  <div id="red-flags-section" class="anim-fade-up d3"></div>
+
+  <div class="section anim-fade-up d3">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">📊</span>
+        Market Scorecard
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="scorecard-body"></div>
+    <div class="scorecard-total">
+      <span>Weighted Total Score</span>
+      <span class="total-val yellow" id="total-score-display">—</span>
+    </div>
+  </div>
+
+  <div class="section anim-fade-up d4">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon teal">🔍</span>
+        Market Intelligence
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body collapsed" id="intel-body">
+      <div class="intel-section">
+        <div class="intel-label">⚖ Regulatory &amp; Legal</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+            <span class="intel-key key-teal">Permit — Permissive</span>
+            <p>Revised Code <strong>Chapter 852</strong>, effective Jan 1 2025: <strong>$150/yr per-unit permit</strong> from DBNS, applied online via Accela. <strong>No owner-occupancy test, no cap, no neighbour notification, no public hearing, no variance requirement.</strong> Sec. 852-106(1): short-term rentals are not required to obtain development plan approval. Condos are explicitly named as a permittable structure type.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-teal">State Preemption</span>
+            <p>Indiana HEA 1035 (2018), codified at IC 36-1-24, limits local authority to ban STRs outright. IC 36-1-24-9 <em>allows</em> a city to require a variance for non-owner-occupied STRs — <strong>Indianapolis declined to use that power.</strong> HEA 1210 (effective July 1 2026) bans local government rental caps and restricts voting on HOA rental restrictions to owners whose unit is their primary residence.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">HOA — The Real Risk</span>
+            <p>State preemption expressly does <strong>not</strong> reach private covenants. Of six candidate buildings: <strong>450 E Ohio #202 and #114 carry an MLS "Rental Restrictions" disclosure flag</strong> (term unknown); <strong>611 N Park Ave #105 indicates a 3-month minimum lease</strong>; 355 E Saint Clair shows no flag and markets itself to investors; 488 E 10th is unknown; <strong>735 Elm St appears to have no HOA at all.</strong> MIBOR's MLS carries a discrete <em>HOA Disclosures</em> field — presence of "Rental Restrictions" is a hard kill, absence is suggestive but not proof.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Historic Overlay</span>
+            <p>IHPC holds jurisdiction over Lockerbie Square, Old Northside, Fletcher Place, Fountain Square and Chatham Arch/Mass Ave. A <strong>Certificate of Appropriateness is required before a building permit issues for exterior alterations</strong> — which directly threatens the glass-garage-door / opening-terrace-wall amenity that inspired this thesis.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Jurisdiction — Resolved</span>
+            <p>Unigov consolidated Indianapolis with Marion County in 1970 but excluded four already-incorporated municipalities: <strong>Beech Grove, Lawrence, Southport and Speedway</strong>, which keep their own ordinances inside the county. All four are peripheral; none touches 46202, 46204, 46225, Bates-Hendricks or Garfield Park. Verify per parcel by <strong>taxing district</strong> on maps.indy.gov — never by mailing address, since all four write their mail as "Indianapolis, IN."</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Tax Trap</span>
+            <p>Redfin and Zillow display roughly <strong>$353/mo</strong> property tax on these condos — that is a <strong>homestead-capped 1% owner-occupant bill</strong>. A non-owner-occupied investor falls in Indiana's <strong>2% "other residential" cap class, roughly $663/mo at $365K</strong>. Every listing page understates the true carrying cost by about $3,720/yr. Lodging tax is 17.0% combined (7% state + 10% Marion County innkeeper's), auto-remitted by Airbnb/VRBO, exempt at 30+ nights.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">📈 Demand &amp; Market Fundamentals</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+            <span class="intel-key key-teal">Five Independent Drivers</span>
+            <p>Conventions, motorsport, pro and college sport, medical, and urban leisure — the deepest demand stack of any market screened in this search. <strong>Four are contractually locked past 2028:</strong> Gen Con through <strong>2030</strong>; FDIC International, the NFL Combine, and the Big Ten Football Championship through 2028. Stress tests for "Colts leave," "Pacers leave," and "conventions soften" all come back survivable.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Scale</span>
+            <ul>
+              <li>207 convention events, 1.8M attendees; Indiana Convention Center + Lucas Oil is one of the largest connected complexes in the US</li>
+              <li>~70 walkable Colts / Pacers / Fever home dates per year</li>
+              <li>Indy 500 draws ~350,000 — the largest single-day sporting event in the world</li>
+              <li>~25 million people within a 4-hour drive; IND set a record 10.6M passengers in 2025 across 52 nonstops</li>
+            </ul>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-teal">Medical — Counter-Cyclical, and Doubling</span>
+            <p>Riley Children's (475 beds, 23,900+ admissions, 65,200+ ED visits) draws multi-night families from across the state against only <strong>46 Ronald McDonald House rooms</strong>. IU Health's new <strong>$4.3B, 44-acre, 864-bed downtown campus opens late 2027.</strong> This is the leg that fills the non-event calendar.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Hotel Supply Threat</span>
+            <p>The <strong>803-room, 38-storey Signia by Hilton has NOT opened</strong> — construction targets fall 2026 and <strong>reservations open Feb 1 2027</strong>. A Ritz-Carlton is also under construction, plus three more hotels in development. That is roughly <strong>+11% on a ~7,100-room downtown base landing in one quarter</strong>, aimed squarely at the convention-headquarters segment an STR competes for.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-neutral">Event Concentration — Real but Mild</span>
+            <p>Three of the five busiest downtown hotel nights of 2025 fell inside Gen Con; the single busiest was Indy 500 eve. Roughly <strong>10–20% of annual gross comes from 7–9 nights</strong>, with STR ADR ~$365 against ~$189 typical (1.93×). But peak/trough monthly spread is only <strong>1.67×</strong> versus 4–6× for a lake or mountain market — this is a year-round market with a spike, not a single-peak market.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🏠 Competitive &amp; Revenue</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+            <span class="intel-key key-red">The Top Tier Is Two Companies</span>
+            <p>The model listing "Penthouse of all Penthouses" ($171K, $573 ADR, 90% occupancy) belongs to <strong>Austin, who runs 103 listings</strong> with three co-hosts and 7,027 lifetime reviews. His listing text states: "We own other units in the building if you want to book multiple." <strong>He also owns the $80K and $73K listings.</strong> The $109K unit is CozySuites, a multi-city aparthotel brand occupying purpose-built corporate-housing stock at The Block — not for-sale inventory. <strong>Four of the five top listings are two operators. Zero are solo owner-operators.</strong></p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-teal">But the Formula Is Learnable</span>
+            <p>"Indy Urban Nest" ($75K) belongs to <strong>Anh, who built an 18-listing operation in two years</strong> — not ten. Her formula sits in plain sight in her own titles: <strong>"Skywalk" appears in 6 of 10 and "Arcade" in 6 of 10.</strong> Skywalk connection + arcade/game amenity + sleeps-many is the local winning play, and it is amenity-based rather than scale-based. This is the single most encouraging fact in the report for a new entrant.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">The Feature Is Not the Moat</span>
+            <p>An Airbnb search of downtown returned <strong>four other rooftop/terrace penthouses on page one alone</strong> — 5.0 (55 reviews), 4.95 (93), 4.85 (52), 4.85 (202) — plus more at 3–4BR. Live Redfin inventory surfaced two more rooftop units that were never on the board. <strong>Outdoor space downtown is common, not scarce.</strong> What is scarce is the combination plus the operating platform behind it.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-teal">Supply Is Contracting in the Target Segment</span>
+            <p>2BR/2BA listings are down <strong>9.0% downtown and 7.5% citywide</strong> year-over-year, against +4.3% revenue growth. The +21.8% figure reported by AirROI is all-bedroom — <strong>the supply boom is in 3BR+ houses in the neighbourhoods (38.4% of listings), not downtown 2BR condos.</strong> The investor's target segment is the one segment shedding supply. REVENUE_TREND: FLAT-TO-GROWING.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-neutral">Calibration &amp; the Two-Source Failure</span>
+            <p><strong>AirDNA reads roughly RIGHT here</strong> — the Houston direction. AirDNA citywide 2BR/2BA $24,345 vs AirROI all-listings $22,782 is 6.4% apart, no meaningful bias. But never blend their ADR/occupancy pairs (AirROI $228 at 36.5%; AirDNA $121.66 at 59% — different denominators). <strong>⚠ The downtown 2BR band rests on AirDNA ALONE</strong> — AirROI publishes no bedroom-level revenue for Indianapolis, Chalet 404s. Tagged <em>Confidence: Low — single source</em>, mitigated by the fact that the comp table is actual trailing revenue for nine named listings carrying 55–539 reviews each, not a modelled band.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-neutral">Sub-Area Comparison — 2BR/2BA, trailing 12 months</span>
+            <ul>
+              <li><strong>Downtown Indianapolis</strong> — score 95 · $26.7K · 58% occ · $145.90 ADR ← the focus area</li>
+              <li><strong>Carmel</strong> (northern suburb) — 82 · <strong>$28.3K</strong> · 56% · <strong>$155.10</strong> — out-earns downtown at the median</li>
+              <li>North Loop — 83 · $23.2K · 65% · $116.30</li>
+              <li>Franklin / Shelbyville — 90 · $20.9K · 59% · $117.30</li>
+              <li>Fishers — 83 · $19.8K · 58% · $110.10 · Greenwood — 82 · $19.3K · 65% · $97.40</li>
+              <li>North Indianapolis — 93 · $19.2K · 63% · $115.10 · Near Westside — 92 · $19.1K · 59% · $99.90</li>
+              <li><strong>Old Southside</strong> (Bates-Hendricks) — 95 · $16.4K · 52% · $105.60</li>
+            </ul>
+            <p style="margin-top:8px">⚠ AirDNA does not break Mass Ave, Chatham Arch, Lockerbie, Fletcher Place, Fountain Square or Old Northside into separate submarkets — all sit inside "Downtown Indianapolis." <strong>At the submarket-average level the downtown walkability thesis does not appear at all. It only appears in the top tier.</strong></p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-teal">Sweet Spot — 2BR Confirmed</span>
+            <p>2BR is the dominant configuration at <strong>25.4% of all Indianapolis listings</strong>, it is the segment shedding supply, and every one of the nine credible downtown comps is a 2BR. <strong>This is one of the few markets screened where the standing 2BR/2BA preference and the data agree rather than conflict.</strong> Maximise capacity <em>inside</em> the 2BR footprint (bunks, sleeps 8–10) rather than buying a third bedroom.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🔧 Operations &amp; Exit</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+            <span class="intel-key key-red">Appreciation — The Worst Finding</span>
+            <p>Downtown condos compound at <strong>1–3%/yr</strong> from actual recorded sales against 2026 assessed value. <strong>450 E Ohio #318 sold for $309,500 in 2018; its 2026 AV is $308,500 — $1,000 BELOW, eight years later.</strong> Three of four sampled condos fell or stalled 2025→2026 while a townhome rose +7.1% and a Bates-Hendricks house +9.2%. ZIP 46204 ZHVI +1.9% against the city's +3.9%, in a state whose median rose +52% 2019–2024. <strong>CBD office vacancy is 27.7% — a record high</strong> (Colliers Q1 2026).</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">No LTR Floor</span>
+            <p>A downtown 2BR rents for about <strong>$1,950/mo</strong> against a <strong>$3,265/mo</strong> carry (P&amp;I $1,967 + tax $663 + HOA $535 + insurance $100). <strong>Misses by $1,315/mo — $15,780/yr, an LTR DSCR of 0.60.</strong> Property tax and HOA alone consume $1,198 of the $1,950. If the STR thesis fails there is no soft landing. Resale is also soft: condo DOM 65 (up 40 YoY), sales −25.2%, <strong>50.5% of listings cutting price.</strong></p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Self-Management Is a Requirement</span>
+            <p>A PM-managed unit at the comp median falls <strong>$4,223/yr short of the mortgage alone.</strong> PM-managed opExpRatio is 0.628 at $52,100 and 0.512 at $75,000. There is no version of this deal that survives third-party management.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-neutral">Cost Seg — the Premise Refuted</span>
+            <p>Marion County Assessor, 2026, from real parcels: downtown high-rise condo <strong>0.885</strong> (n=282), townhome 0.867 (n=3), Bates-Hendricks SFH <strong>0.888</strong> (n=355). <strong>The expected condo cost-seg advantage does not exist</strong> — the spread is under 2 points and runs the wrong way against the SFH. The high building share is cheap Midwest land, not the condo form. ⚠ Verify per building: 319 E 16th sits at 0.735.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-teal">Ecosystem Depth</span>
+            <p>50 pages of property managers; the top 10 alone control <strong>909 properties</strong>; seven named STR cleaning vendors; 15.1% of listings professionally managed and 55% Superhosts. Among the deepest operating environments of any market screened — though depth does not rescue the math. Minor friction: high-rise turn logistics, and recurring elevator complaints appear in competitor reviews.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-neutral">Cost Inputs (verified)</span>
+            <ul>
+              <li>Property tax <strong>2.18%</strong> of market value (2% cap class + referendum levies, which sit outside the cap)</li>
+              <li>HOA condo: <strong>$440 / $535 / $800 per month</strong> ($5,280 / $6,420 / $9,600 a year); townhome/PUD $197–$265</li>
+              <li>HO-6 walls-in with STR use: <strong>$900 / $1,300 / $1,900</strong>; townhome full dwelling $1,600 / $2,300 / $3,200</li>
+              <li>A townhome does <strong>not</strong> beat a condo on dues — the $3,720 headline gap nets to about $30 once you add back roof/HVAC reserve, higher dwelling insurance, and unbundled utilities. Its real argument is control and resale liquidity.</li>
+              <li>Indiana quirk: a separate <strong>1–2% wind/hail deductible</strong>, which on a condo lands on the HOA master policy and converts into special-assessment risk — buy loss-assessment coverage.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section anim-fade-up d4">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">🎯</span>
+        Buy Box Recommendations
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="buybox-body">
+      <div class="lanes" id="lanes-container"></div>
+    </div>
+  </div>
+
+  <div class="section anim-fade-up d5">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon blue">💰</span>
+        Pro Forma — <span id="active-lane-name" style="color:var(--amber);margin-left:6px">Target Lane</span>
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="pf-lane-switch" id="pf-lane-switch">
+        <span class="pf-lane-switch-label">View lane:</span>
+        <div class="pf-lane-tabs" id="pf-lane-tabs"></div>
+      </div>
+      <div id="proforma-body"></div>
+    </div>
+  </div>
+
+  </div>
+
+<script>
+const OVERALL_SCORE = 7.13;
+const SCORE_COLOR_CLASS = "yellow";
+
+const SHOW_CAPITAL_ALERT = true;
+const CAPITAL_ALERT_BODY = "The Aggressive lane requires <em>$149,922</em> in cash against <em>$140,856</em> available — a $9,066 shortfall before any renovation spend. The Conservative ($99,948) and Target ($114,004) lanes both fit. Capital breakeven is approximately $420,465. Separately, note that the Aggressive lane does not fix returns: gross ROI actually FALLS as price rises, because revenue does not scale with price in this market.";
+
+const ROI_CONTEXT_NOTE = "All three lanes show sub-15% gross ROI at the low end of their revenue bands. This is a market-wide condition in appreciation-driven 2025–26 urban markets at 7.125% financing — expected arithmetic, not a deal-specific failure. Normally the thesis would then rest on Total Return. Here it only partly can: downtown condo appreciation is 1–3%/yr, so Year-1 Total Return is carried almost entirely by the one-time cost-segregation benefit ($29,880 of the Target lane's $35,488). Strip that out and Year 1 is $5,608.";
+
+const RED_FLAGS = [
+  { flag: "HOA Prohibiting or Restricting STR", data: " — The single most serious flag here. Indiana state preemption expressly does NOT reach private covenants. 450 E Ohio #202 and #114 carry an MLS Rental Restrictions flag (term unknown); 611 N Park #105 indicates a 3-month minimum lease. The permissive buildings are already concentrated in professional operators' hands. No declaration was read — none is public." },
+  { flag: "No Dual-Use Exit Path", data: " — LTR rent about $1,950/mo against a $3,265/mo carry: misses by $1,315/mo ($15,780/yr), DSCR 0.60. Tax and HOA alone eat $1,198 of $1,950. The resale exit is also soft — condo DOM 65 (up 40 YoY), sales down 25.2%, 50.5% of listings cutting price. Both exits are impaired simultaneously." },
+  { flag: "Prices Outpaced Revenue at the Median", data: " — On the market-wide median the market is dead: $28,685 justifies only $143,425 at the 20% floor, roughly $87,575 BELOW the $231,000 1031 purchase floor. It clears only at top-tier execution, and the top tier is held by operators running 18 to 103 units." }
+];
+
+const SCORECARD_DATA = [
+  { name: "Demand Strength &amp; Durability", weight: 0.25, score: 9, confidence: "High", rationale: "Five independent permanent drivers — conventions, motorsport, pro/college sport, medical, urban leisure. Four contractually locked past 2028: Gen Con to 2030; FDIC, NFL Combine and Big Ten Football Championship to 2028. 207 convention events and 1.8M attendees; about 70 walkable Colts/Pacers/Fever home dates; roughly 25M people within a 4-hour drive; IND set a record 10.6M passengers across 52 nonstops. IU Health's $4.3B, 864-bed downtown campus opens late 2027 alongside Riley Children's, which draws multi-night families statewide against only 46 Ronald McDonald House rooms. All three stress tests survivable. Not a 10 only because convention business is competitively contestable between cities and there is no irreplaceable natural anchor." },
+  { name: "Supply &amp; Competition", weight: 0.18, score: 6, confidence: "High", rationale: "Two forces pulling hard in opposite directions. Supply is genuinely contracting in the target segment: 2BR/2BA down 9.0% downtown and 7.5% citywide, against +4.3% revenue growth — a 9-to-10 signal on its own, and the +21.8% AirROI figure is all-bedroom (the boom is 3BR+ houses in the neighbourhoods). But the competitive bar is set by professionals: one operator runs 103 downtown listings and owns the $171K, $80K AND $73K top listings; another runs 18; CozySuites runs an aparthotel floor; the top 10 property managers control 909 properties. Net 6. No SMALL MARKET flag — 875 downtown and 2,656 citywide, both far above 600." },
+  { name: "Returns Profile", weight: 0.18, score: 7, confidence: "Medium", rationale: "Top-quartile works; the median is thin to breakeven. At $365K the top tier of $75,000 gross gives 20.5% gross ROI and full-cost net cash flow of +$25,147, comfortably clearing 2x debt service. The median of $52,100 gives 14.3% gross ROI and full-cost net cash flow of −$1,692 — essentially breakeven. The submarket-wide average of $28,685 is deeply negative. Squarely the top-quartile-works / median-thin band. Confidence held at Medium because the revenue band is single-sourced." },
+  { name: "Regulatory Environment", weight: 0.12, score: 8, confidence: "High", rationale: "Verified ordinance text, Revised Code Ch. 852 (effective Jan 1 2025): $150/yr per-unit permit, no owner-occupancy test, no cap, no neighbour notification, no public hearing, no variance requirement; condos explicitly permittable. Genuine state preemption exists (IC 36-1-24 / HEA 1035), and Indiana ALLOWS cities to require a variance for non-owner-occupied STRs — Indianapolis declined to use it. HEA 1210 (July 2026) bans local rental caps. Held at 8 rather than 9-10 because preemption expressly does not reach private HOA covenants — three of six candidate buildings show restriction signals — and IHPC certificate-of-appropriateness requirements in most target historic districts constrain the differentiating exterior amenity." },
+  { name: "Appreciation Potential", weight: 0.12, score: 3, confidence: "High", rationale: "The worst finding in the run, and it is measured rather than estimated. Downtown condos compound at 1-3%/yr from actual recorded sales against 2026 assessed value. 450 E Ohio #318 sold for $309,500 in 2018; its 2026 assessed value is $308,500 — one thousand dollars BELOW, eight years later. Three of four sampled downtown condos fell or stalled 2025 to 2026, while a townhome rose 7.1% and a Bates-Hendricks house 9.2%. ZIP 46204 ZHVI +1.9% against the city's +3.9%, in a state whose median rose 52% from 2019 to 2024. CBD office vacancy is 27.7%, a record high (Colliers Q1 2026). This guts the Total Return thesis that was meant to compensate for thin cash flow." },
+  { name: "Seasonality &amp; Revenue Floor", weight: 0.08, score: 8, confidence: "Medium-High", rationale: "A genuine 12-month urban market — peak-to-trough monthly spread is only 1.67x ($3,448 vs $2,065), against 4-6x for a lake or mountain market. The revenue floor passes comfortably: a top-tier 2BR's worst month runs about $4,600 against a $1,967 monthly debt service at $365K, where the 70% test threshold is $1,377. Base 10 for a year-round season, less 2 for single-extreme-event concentration: three of the five busiest downtown hotel nights of 2025 fell inside Gen Con and the busiest was Indy 500 eve, with roughly 10-20% of annual gross arriving in 7-9 nights at an STR ADR of about $365 versus $189 typical." },
+  { name: "Ease of Management/Operations", weight: 0.04, score: 9, confidence: "High", rationale: "Unambiguously deep. Fifty pages of property managers; the top 10 alone control 909 properties; seven named STR cleaning vendors; 15.1% of listings professionally managed and 55% Superhosts. A major-metro cleaning labour market. Minor friction only: high-rise turn logistics — elevators, loading docks, fob handoff — and recurring elevator complaints appear in competitor reviews." },
+  { name: "Infrastructure &amp; Access", weight: 0.02, score: 9, confidence: "High", rationale: "The Crossroads of America interstate hub. IND set a record 10.6M passengers in 2025 across 52 nonstop destinations, is an eight-time J.D. Power winner, and sits 15 minutes from the convention centre. The Blue Line BRT connecting airport to downtown is under construction through 2028. About 25 million people within a 4-hour drive." },
+  { name: "Exit Options", weight: 0.01, score: 4, confidence: "High", rationale: "Thin and softening. Downtown condo days-on-market is 65, up 40 days year-over-year; sales are down 25.2%; and 50.5% of listings cut price — a clear buyer's market. An individual listing showing 98.3% sale-to-list and 14 days on market is not the segment number. And there is no LTR floor: rent of about $1,950/mo against a $3,265/mo carry misses by $1,315/mo, an LTR DSCR of 0.60, with tax and HOA alone consuming $1,198 of the rent. If the STR thesis fails there is no soft landing." }
+];
+
+const LANES_DATA = [
+  {
+    id: "conservative",
+    title: "Conservative Lane",
+    subtitle: "Lower-dues downtown condo, walkable to the convention centre. Value-add through amenity build-out rather than location premium. The only lane that passes the bear case.",
+    bedrooms: "2 BR / 2 BA",
+    priceRange: "$300K – $330K",
+    maxDistance: "10-min walk to Georgia St / convention centre",
+    guestAvatar: "Couples and small groups in town for a convention, a game, or a weekend on Mass Ave",
+    mustHaveAmenities: ["Walkable to convention centre", "Secured parking (table stakes — in 6 of 9 credible comp titles)", "In-unit laundry", "Fast wifi", "Self check-in"],
+    differentiatorAmenities: ["Arcade / game amenity", "Skywalk connection where available"],
+    valueAdd: "Buy an already-active, not-high-design STR and add the arcade/capacity build-out — the $40K reno bucket depends on inheriting furniture, reviews and systems",
+    moatCategories: ["Location", "Amenities"],
+    confirmingListings: [
+      { label: "450 E Ohio St #114 — $325,000 · 2BR/2BA · 1,355 sq ft ⚠ rental-restriction flag", url: "https://www.redfin.com/IN/Indianapolis/450-E-Ohio-St-46204/unit-114/home/82331217" },
+      { label: "627 N Pennsylvania St #6F — $325,000 · 2BR", url: "https://www.redfin.com/IN/Indianapolis/627-N-Pennsylvania-St-46204/unit-6F/home/60165791" },
+      { label: "611 N Park Ave #105 — $340,000 · 2BR/2BA · 1,230 sq ft ⚠ 3-month minimum indicated", url: "https://www.redfin.com/IN/Indianapolis/611-N-Park-Ave-46204/unit-105/home/82311503" }
+    ]
+  },
+  {
+    id: "target",
+    title: "Target Lane",
+    subtitle: "Skywalk-connected or terrace-equipped 2BR sleeping 8 — the proven local formula. Execution, not location, decides this deal.",
+    bedrooms: "2 BR / 2 BA, sleeps 8",
+    priceRange: "$340K – $385K",
+    maxDistance: "Skywalk-connected, or 5-min walk to Monument Circle",
+    guestAvatar: "Convention and event groups (sleeps 8 at $286–325 ADR is the proven local play), plus Riley / IU Health families midweek",
+    mustHaveAmenities: ["Everything in Conservative", "Sleeps-8 configuration — bunks or queen-over-queen inside the 2BR footprint", "Secured parking", "Skywalk or terrace"],
+    differentiatorAmenities: ["Arcade / game room — 'Arcade' appears in 6 of 10 titles of the 18-unit local operator", "Private terrace or balcony", "Hot tub where the building allows"],
+    revenueConfidence: "Revenue band single-sourced (AirDNA only) · Confidence: Low",
+    moatCategories: ["Location", "Amenities", "Design"],
+    confirmingListings: [
+      { label: "624 E Walnut St #110 — $350,000 · 2BR/2BA · 1,158 sq ft · ROOFTOP ACCESS", url: "https://www.redfin.com/IN/Indianapolis/624-E-Walnut-St-46204/unit-110/home/197409822" },
+      { label: "727 N Illinois St #104 — $349,900 · 2BR", url: "https://www.redfin.com/IN/Indianapolis/727-N-Illinois-St-46204/unit-104/home/175943311" },
+      { label: "611 N Park Ave #408 — $360,000 · 2BR/2BA · 1,230 sq ft", url: "https://www.redfin.com/IN/Indianapolis/611-N-Park-Ave-46204/unit-408/home/60091247" },
+      { label: "450 E Ohio St #202 — $365,000 · 2BR/2.5BA · 1,522 sq ft ⚠ rental-restriction flag", url: "https://www.redfin.com/IN/Indianapolis/450-E-Ohio-St-46204/unit-202/home/82331213" },
+      { label: "630 N College Ave #201 — $379,900 · 2BR/2BA · 1,140 sq ft · ROOFTOP DECK", url: "https://www.redfin.com/IN/Indianapolis/630-N-College-Ave-46204/unit-201/home/60031544" }
+    ]
+  },
+  {
+    id: "aggressive",
+    title: "Aggressive Lane",
+    subtitle: "Premium 2BR in a landmark Mass Ave building. NOT FUNDABLE — needs $9,066 more cash than available, and paying up does not fix returns.",
+    bedrooms: "2 BR / 2 BA, larger footprint",
+    priceRange: "$450K – $550K",
+    maxDistance: "Mass Ave / CBD core",
+    guestAvatar: "Premium event and corporate groups seeking a landmark-building address",
+    mustHaveAmenities: ["Everything in Target", "Landmark building", "Deeded parking", "Concierge or secured entry"],
+    differentiatorAmenities: ["Rooftop lounge", "Skyline views", "Building gym"],
+    revenueConfidence: "Top-decile revenue basis · Confidence: Low — not comparable head-to-head with the other lanes",
+    moatCategories: ["Location", "Quality", "Design"],
+    confirmingListings: [
+      { label: "350 N Meridian St #804 — $450,000 · 2BR/2BA · 1,499 sq ft (Athletic Club)", url: "https://www.redfin.com/IN/Indianapolis/350-N-Meridian-St-46204/unit-804/home/59997688" },
+      { label: "355 E Ohio St #201 — $475,000 · 2BR (The Hudson)", url: "https://www.redfin.com/IN/Indianapolis/355-E-Ohio-St-46204/unit-201/home/204440781" },
+      { label: "355 E Ohio St #309 — $480,000 · 2BR (The Hudson)", url: "https://www.redfin.com/IN/Indianapolis/355-E-Ohio-St-46204/unit-309/home/60007421" },
+      { label: "118 E North St — $539,900 · 2BR", url: "https://www.redfin.com/IN/Indianapolis/118-E-North-St-46204/home/148490822" },
+      { label: "333 Massachusetts Ave #305 — $549,000 · 2BR (Mass Ave core)", url: "https://www.redfin.com/IN/Indianapolis/333-Massachusetts-Ave-46204/unit-305/home/60092892" }
+    ]
+  }
+];
+
+const PROFORMA_DATA = [
+  {
+    laneId: "conservative",
+    priceMid: 320000,
+    revenueMin: 46500,
+    revenueMax: 52100,
+    debtService: 20697,
+    loanNote: "DSCR · 20% down · 7.125% · 30-yr (Parker/Movement working rate, not locked)",
+    cashRequired: 99948,
+    cashRequiredNote: "20% down + 3% closing + 5% furnishing/setup + 6-mo reserve",
+    userCashAvailable: 140856,
+    capitalBreakevenPrice: 420465,
+    opExpRatio: 0.378,
+    fixedOpEx: 17156,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -3678,
+    buildingPct: 0.885,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$320K · 88.5% building (Marion County Assessor 2026, n=282 parcels) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket",
+    appreciationY1: 6400,
+    costSegBenefit: 26196,
+    netCfAfterCostSegY1: 33448,
+    totalReturnLow: 39848,
+    grossRoiLow: 14.5,
+    grossRoiPass: false,
+    fullCostOpExpMid: 25474
+  },
+  {
+    laneId: "target",
+    priceMid: 365000,
+    revenueMin: 52100,
+    revenueMax: 75000,
+    debtService: 23607,
+    loanNote: "DSCR · 20% down · 7.125% · 30-yr (Parker/Movement working rate, not locked)",
+    cashRequired: 114004,
+    cashRequiredNote: "20% down + 3% closing + 5% furnishing/setup + 6-mo reserve",
+    userCashAvailable: 140856,
+    capitalBreakevenPrice: 420465,
+    opExpRatio: 0.340,
+    fixedOpEx: 19677,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -7072,
+    buildingPct: 0.885,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$365K · 88.5% building (Marion County Assessor 2026, n=282 parcels) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket",
+    appreciationY1: 7300,
+    costSegBenefit: 29880,
+    netCfAfterCostSegY1: 37133,
+    totalReturnLow: 44433,
+    grossRoiLow: 14.3,
+    grossRoiPass: false,
+    fullCostOpExpMid: 30529
+  },
+  {
+    laneId: "aggressive",
+    priceMid: 480000,
+    revenueMin: 65000,
+    revenueMax: 85000,
+    debtService: 31045,
+    loanNote: "DSCR · 20% down · 7.125% · 30-yr (Parker/Movement working rate, not locked)",
+    cashRequired: 149922,
+    cashRequiredNote: "20% down + 3% closing + 5% furnishing/setup + 6-mo reserve",
+    userCashAvailable: 140856,
+    capitalBreakevenPrice: 420465,
+    opExpRatio: 0.376,
+    fixedOpEx: 25964,
+    variableOpExRate: 0.03,
+    netCfLow_pm: -10759,
+    buildingPct: 0.885,
+    bonusDepRate: 1.00,
+    costSegAssumptions: "$480K · 88.5% building (Marion County Assessor 2026, n=282 parcels) · 25% reclassified to 5/15-yr · 100% bonus dep (OBBBA 2025) · 37% bracket",
+    appreciationY1: 9600,
+    costSegBenefit: 39294,
+    netCfAfterCostSegY1: 45335,
+    totalReturnLow: 54935,
+    grossRoiLow: 13.5,
+    grossRoiPass: false,
+    fullCostOpExpMid: 37066
+  }
+];
+
+
+const DIFFERENTIATION = {
+  tier: "C — Selective Market",
+  distanceUp: "0.37 to Tier B (7.50)",
+  distanceDown: "0.63 to Tier D (6.50)",
+  strengths: [
+    "Demand Strength (9) — five independent permanent drivers, four contractually locked past 2028; the deepest demand stack of any market screened in this search",
+    "Operations (9) and Infrastructure (9) — a genuine major-metro operating environment: 909 properties under the top 10 managers, seven named STR cleaners, a record-setting airport 15 minutes from the convention centre",
+    "Supply is contracting in the exact target segment — 2BR/2BA down 9.0% downtown and 7.5% citywide, while the +21.8% boom happens in 3BR+ suburban houses"
+  ],
+  drags: [
+    { label: "Appreciation Potential (3) — leak 0.84", swing: "If Appreciation improved from 3 to 6 (requiring downtown condos to track the metro's +3.9% instead of 1–3%, which would need CBD office vacancy to retreat from its record 27.7%), the total rises 0.36 to 7.49 — still just short of Tier B. Even fixing the single worst category does not lift this market out of Tier C." },
+    { label: "Supply &amp; Competition (6) — leak 0.72", swing: "If this improved from 6 to 7 (a solo operator shown to reach the $73–80K tier without a multi-unit platform — the 18-listing operator built hers in two years), the total rises 0.18 to 7.31 — still Tier C. Both levers together reach 7.67, Tier B. Neither alone is sufficient." }
+  ]
+};
+
+let activeLaneIndex = 1;
+
+function fmt$(n) {
+  const val = Math.round(n);
+  return (val < 0 ? '−$' : '$') + Math.abs(val).toLocaleString();
+}
+function passIcon(pass) {
+  return pass
+    ? '<span class="pass">✓ PASS</span>'
+    : '<span class="fail">✗ FAIL</span>';
+}
+
+function thresholdLabel(score) {
+  if (score >= 8.5) return { text: 'Tier A · Priority Market',  cls: 'green'  };
+  if (score >= 7.5) return { text: 'Tier B · Strong Market',    cls: 'green'  };
+  if (score >= 6.5) return { text: 'Tier C · Selective Market', cls: 'yellow' };
+  if (score >= 5.5) return { text: 'Tier D · Marginal Market',  cls: 'yellow' };
+  return                   { text: 'Tier F · Pass',             cls: 'red'    };
+}
+
+function updateBadgeColor(score) {
+  const badge = document.getElementById('score-badge');
+  const label = document.getElementById('threshold-label');
+  const t = thresholdLabel(score);
+  badge.className = 'score-hero anim-scale-in d1 ' + t.cls;
+  label.className = 'verdict-pill ' + t.cls;
+  label.textContent = t.text;
+  document.getElementById('total-score-display').className = 'total-val ' + t.cls;
+  const glowMap = {
+    yellow: 'rgba(240,192,64,0.12)',
+    green:  'rgba(46,196,168,0.12)',
+    red:    'rgba(240,96,96,0.12)'
+  };
+  document.documentElement.style.setProperty('--score-glow', glowMap[t.cls] || glowMap.yellow);
+}
+
+function renderDifferentiation() {
+  const host = document.getElementById('red-flags-section');
+  if (!DIFFERENTIATION || !DIFFERENTIATION.tier || DIFFERENTIATION.tier.indexOf('{{') === 0) return;
+  let html = '<div class="section" style="margin-bottom:24px"><div class="section-body">' +
+    '<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:10px">Why This Market — Tier ' + DIFFERENTIATION.tier + '</div>';
+  if (DIFFERENTIATION.strengths && DIFFERENTIATION.strengths.length) {
+    html += '<div style="margin-bottom:12px"><strong style="color:var(--teal)">Strengths:</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.strengths.map(s => '<li style="margin-bottom:4px">' + s + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.drags && DIFFERENTIATION.drags.length) {
+    html += '<div><strong style="color:var(--yellow)">Swing factors (what moves the tier):</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.drags.map(d => '<li style="margin-bottom:4px"><strong>' + d.label + '</strong> — ' + d.swing + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.distanceUp || DIFFERENTIATION.distanceDown) {
+    html += '<div style="margin-top:10px;font-size:0.78rem;color:var(--text-3)">' +
+      [DIFFERENTIATION.distanceUp, DIFFERENTIATION.distanceDown].filter(Boolean).join(' · ') + '</div>';
+  }
+  html += '</div></div>';
+  host.insertAdjacentHTML('afterend', html);
+}
+
+function renderRedFlags() {
+  const el = document.getElementById('red-flags-section');
+  if (!RED_FLAGS || RED_FLAGS.length === 0) {
+    el.innerHTML = '<div class="red-flags-clean">✓ No disqualifying red flags detected for this market.</div>';
+    return;
+  }
+  let html = '<div class="red-flags-wrap anim-fade-up d3"><h2>⚠ Red Flags Detected (' + RED_FLAGS.length + ' of 10 Framework Items Triggered)</h2><ul>';
+  RED_FLAGS.forEach(f => {
+    html += '<li><strong>' + f.flag + '</strong>' + (f.data || '') + '</li>';
+  });
+  html += '</ul></div>';
+  el.innerHTML = html;
+}
+
+function bandClass(v) {
+  if (v <= 4) return '1';
+  if (v <= 6) return '3';
+  return '5';
+}
+
+function renderScorecard() {
+  const body = document.getElementById('scorecard-body');
+  let html = '';
+  SCORECARD_DATA.forEach((cat, i) => {
+    cat.currentScore = cat.score;
+    const contrib = (cat.score * cat.weight).toFixed(2);
+    html += '<div class="score-row" id="row-' + i + '">' +
+      '<div class="score-row-left">' +
+        '<div class="cat-name">' + cat.name + '</div>' +
+        '<div class="cat-meta">Weight: ' + (cat.weight * 100).toFixed(0) + '% · Contrib: <span id="contrib-' + i + '">' + contrib + '</span></div>' +
+        '<span class="rationale-toggle" onclick="toggleRationale(' + i + ')">▸ Why this score</span>' +
+        '<div class="rationale-card" id="rationale-' + i + '">' +
+          cat.rationale +
+          '<div class="confidence">Data confidence: ' + cat.confidence + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="score-row-right">' +
+        '<div class="pills" id="pills-' + i + '">' +
+          [1,2,3,4,5,6,7,8,9,10].map(v => '<button class="pill' + (v === cat.score ? ' active-' + bandClass(v) : '') + '" data-cat="' + i + '" data-val="' + v + '" onclick="setScore(' + i + ',' + v + ')">' + v + '</button>').join('') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  });
+  body.innerHTML = html;
+  updateTotalDisplay();
+}
+
+function setScore(catIndex, val) {
+  SCORECARD_DATA[catIndex].currentScore = val;
+  const pillsEl = document.getElementById('pills-' + catIndex);
+  pillsEl.querySelectorAll('.pill').forEach(p => {
+    p.className = 'pill' + (parseFloat(p.dataset.val) === val ? ' active-' + bandClass(val) : '');
+  });
+  const contribEl = document.getElementById('contrib-' + catIndex);
+  if (contribEl) contribEl.textContent = (val * SCORECARD_DATA[catIndex].weight).toFixed(2);
+  updateTotalDisplay();
+}
+
+function updateTotalDisplay() {
+  let total = 0;
+  SCORECARD_DATA.forEach(cat => { total += cat.currentScore * cat.weight; });
+  const rounded = total.toFixed(2);
+  document.getElementById('overall-score-display').textContent = rounded;
+  document.getElementById('total-score-display').textContent = rounded;
+  updateBadgeColor(total);
+}
+
+function toggleRationale(i) {
+  const el = document.getElementById('rationale-' + i);
+  const toggle = el.previousElementSibling;
+  el.classList.toggle('open');
+  toggle.textContent = el.classList.contains('open') ? '▾ Hide rationale' : '▸ Why this score';
+}
+
+function renderLanes() {
+  const container = document.getElementById('lanes-container');
+  let html = '';
+  LANES_DATA.forEach((lane, i) => {
+    const isActive = i === activeLaneIndex;
+    const pf = PROFORMA_DATA.find(p => p.laneId === lane.id);
+    let capitalBadge = '';
+    if (pf && pf.cashRequired && pf.userCashAvailable) {
+      const fits = pf.cashRequired <= pf.userCashAvailable;
+      if (fits) {
+        capitalBadge = '<div class="capital-fit-badge fits">✓ Fits Your Capital</div>';
+      } else {
+        const shortfall = Math.ceil((pf.cashRequired - pf.userCashAvailable) / 1000);
+        capitalBadge = '<div class="capital-fit-badge short">⚠ +$' + shortfall + 'K Needed</div>';
+      }
+    }
+    html += '<div class="lane-card' + (isActive ? ' active' : '') + '" id="lane-' + i + '" onclick="selectLane(' + i + ')">' +
+      '<div class="lane-card-left">' +
+        '<div class="lane-header">' +
+          '<div class="lane-title">' + lane.title + '</div>' +
+        '</div>' +
+        '<div class="lane-subtitle">' + lane.subtitle + '</div>' +
+        (lane.revenueConfidence ? '<div style="display:inline-block;margin-top:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--yellow);background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:5px;padding:3px 8px">⚑ ' + lane.revenueConfidence + '</div>' : '') +
+        '<div class="lane-detail-grid">' +
+          '<div class="lane-detail-item"><span class="detail-label">Bedrooms</span>' + lane.bedrooms + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Price Range</span>' + lane.priceRange + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Max Distance</span>' + lane.maxDistance + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Guest Profile</span>' + lane.guestAvatar + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Must-Have Amenities</span>' + lane.mustHaveAmenities.join(' · ') + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Differentiators</span>' + lane.differentiatorAmenities.join(' · ') + '</div>' +
+          (lane.valueAdd ? '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Value-Add to Seek</span>' + lane.valueAdd + '</div>' : '') +
+        '</div>' +
+        '<div class="moat-tags">' + lane.moatCategories.map(m => '<span class="moat-tag">' + m + '</span>').join('') + '</div>' +
+        ((lane.confirmingListings && lane.confirmingListings.length) ? (
+          '<div class="confirming-listings">' +
+            '<div class="cl-label">Live listings that fit this buy box</div>' +
+            lane.confirmingListings.map(l => '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">' + l.label + '</a>').join('') +
+          '</div>'
+        ) : '') +
+      '</div>' +
+      '<div class="lane-card-right">' +
+        '<div class="lane-price">' + lane.priceRange.replace(' – ', '–') + '</div>' +
+        '<div style="font-size:0.68rem;color:var(--text-3);letter-spacing:0.04em;text-transform:uppercase;font-weight:600">Purchase</div>' +
+        capitalBadge +
+      '</div>' +
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function renderProFormaTabs() {
+  const tabs = document.getElementById('pf-lane-tabs');
+  if (!tabs) return;
+  tabs.innerHTML = LANES_DATA.map((lane, i) =>
+    '<button class="pf-lane-tab' + (i === activeLaneIndex ? ' active' : '') + '" data-lane="' + i + '" onclick="selectLane(' + i + ')">' + lane.title + '</button>'
+  ).join('');
+}
+
+function selectLane(i) {
+  activeLaneIndex = i;
+  document.querySelectorAll('.lane-card').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.querySelectorAll('.pf-lane-tab').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.getElementById('active-lane-name').textContent = LANES_DATA[i].title;
+  renderProForma();
+}
+
+function renderProForma() {
+  const activeLaneId = LANES_DATA[activeLaneIndex].id;
+  const pf = PROFORMA_DATA.find(p => p.laneId === activeLaneId) || PROFORMA_DATA[activeLaneIndex];
+  const body = document.getElementById('proforma-body');
+  if (!pf) {
+    body.innerHTML = '<p style="color:var(--text-3);padding:16px">No pro forma data available.</p>';
+    return;
+  }
+
+  const opExpRatio = pf.opExpRatio || 0.40;
+  const hasOpExpSplit = typeof pf.fixedOpEx === 'number' && typeof pf.variableOpExRate === 'number';
+  const roiLow  = (pf.revenueMin / (pf.priceMid || 1) * 100).toFixed(1);
+  const roiHigh = (pf.revenueMax / (pf.priceMid || 1) * 100).toFixed(1);
+  const grossRoiPass = parseFloat(roiLow) >= 15;
+  const opExpLow  = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMin * pf.variableOpExRate) : Math.round(pf.revenueMin * opExpRatio);
+  const opExpHigh = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMax * pf.variableOpExRate) : Math.round(pf.revenueMax * opExpRatio);
+  const opExpPctLow  = pf.revenueMin > 0 ? Math.round(opExpLow  / pf.revenueMin * 100) : 0;
+  const opExpPctHigh = pf.revenueMax > 0 ? Math.round(opExpHigh / pf.revenueMax * 100) : 0;
+  const netLow  = Math.round(pf.revenueMin - opExpLow - pf.debtService);
+  const netHigh = Math.round(pf.revenueMax - opExpHigh - pf.debtService);
+  const netPctLow = pf.revenueMin > 0 ? (netLow / pf.revenueMin * 100).toFixed(0) : '—';
+  const cocLow  = pf.cashRequired > 0 ? (netLow  / pf.cashRequired * 100).toFixed(1) : '—';
+  const cocHigh = pf.cashRequired > 0 ? (netHigh / pf.cashRequired * 100).toFixed(1) : '—';
+  const bearRev  = Math.round(pf.revenueMin * 0.9);
+  const bearExp  = hasOpExpSplit ? Math.round((pf.fixedOpEx + bearRev * pf.variableOpExRate) * 1.1) : Math.round(opExpLow * 1.1);
+  const bearNet  = bearRev - bearExp - pf.debtService;
+  const capitalFits = pf.cashRequired <= pf.userCashAvailable;
+  const capitalNote = pf.cashRequiredNote || '20% down + 3% closing + 5% furnishing + 6-mo reserve';
+  const appreciationRate = pf.appreciationY1 ? (pf.appreciationY1 / pf.priceMid) : 0;
+  let bearTierBadge;
+  if (bearNet > 0) {
+    bearTierBadge = '<span class="pass">✓ PASS</span>';
+  } else if (bearNet > -(pf.debtService * 0.25) && appreciationRate > 0) {
+    bearTierBadge = '<span class="warn">⚠ SURVIVABLE</span>';
+  } else {
+    bearTierBadge = '<span class="fail">✗ DISTRESS</span>';
+  }
+  const opExpLabel = hasOpExpSplit
+    ? opExpPctLow + '%→' + opExpPctHigh + '% of revenue · fixed ' + fmt$(pf.fixedOpEx) + ' + ' + Math.round(pf.variableOpExRate * 100) + '% variable — ratio runs higher at low revenue'
+    : (opExpRatio * 100).toFixed(0) + '% (market-specific, per-lane)';
+
+  const hasCostSeg = pf.costSegBenefit && pf.buildingPct;
+  const buildingPctDisplay = hasCostSeg ? Math.round(pf.buildingPct * 100) + '%' : '—';
+  const landPctDisplay = hasCostSeg ? Math.round((1 - pf.buildingPct) * 100) + '%' : '—';
+  const netAfterCostSeg = pf.netCfAfterCostSegY1 || (netLow + (pf.costSegBenefit || 0));
+  const costSegAssumptions = pf.costSegAssumptions || '';
+
+  const hasPM = typeof pf.netCfLow_pm === 'number';
+  const pmSavings = hasPM ? (netLow - pf.netCfLow_pm) : 0;
+
+  const showBreakeven = !capitalFits && pf.capitalBreakevenPrice && pf.capitalBreakevenPrice > 0;
+
+  body.innerHTML =
+    '<div class="pf-grid">' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross Revenue Range</div>' +
+        '<div class="pf-value">' + fmt$(pf.revenueMin) + ' – ' + fmt$(pf.revenueMax) + '</div>' +
+        '<div class="pf-note">Tier-appropriate range · self-manage assumed · assumes dual-platform listing (Airbnb + VRBO). Single-platform operators typically achieve 15–20% less gross.</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross ROI</div>' +
+        '<div class="pf-value">' + roiLow + '% – ' + roiHigh + '% ' + passIcon(grossRoiPass) + '</div>' +
+        '<div class="pf-note">Min 15% · Target 18–20% · her own floor is 20%, goal 30%</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Operating Expenses (' + opExpLabel + ')</div>' +
+        '<div class="pf-value">' + fmt$(opExpLow) + ' – ' + fmt$(opExpHigh) + '</div>' +
+        '<div class="pf-note">Narrow-lane: taxes + insurance + HOA + platform fee + supplies · excl. debt service</div>' +
+        (pf.fullCostOpExpMid ? '<div style="margin-top:5px;font-size:0.78rem;padding:6px 10px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:6px;color:var(--amber-pale);line-height:1.5"><strong style="color:var(--yellow)">Full annual cost</strong> (adds cleaning net of recovered fee + maintenance): <strong style="color:var(--text-1)">' + fmt$(pf.fullCostOpExpMid) + '</strong> · Self-manage net CF at midpoint revenue: ' + fmt$(Math.round((pf.revenueMin + pf.revenueMax)/2 - pf.fullCostOpExpMid - pf.debtService)) + '</div>' : '') +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Estimated Debt Service</div>' +
+        '<div class="pf-value">' + fmt$(pf.debtService) + '/yr</div>' +
+        '<div class="pf-note">' + pf.loanNote + '</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Net Cash Flow (Self-Manage)</div>' +
+        '<div class="pf-value">' + fmt$(netLow) + ' – ' + fmt$(netHigh) + '</div>' +
+        '<div class="pf-note">~' + netPctLow + '% of gross · self-manage only</div>' +
+      '</div>' +
+      (hasPM ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label">If PM-Managed (25%)</div>' +
+          '<div class="pf-value fail">' + fmt$(pf.netCfLow_pm) + '/yr</div>' +
+          '<div class="pf-note">Self-manage saves ' + fmt$(pmSavings) + '/yr vs full PM. In this market a PM-managed unit at the comp median falls $4,223/yr short of the mortgage alone — self-management is a requirement, not a preference.</div>' +
+        '</div>'
+      ) : '') +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Cash-on-Cash Return</div>' +
+        '<div class="pf-value">' + cocLow + '% – ' + cocHigh + '%</div>' +
+        '<div class="pf-note">Her targets: 20% good · 30% exceptional · cash-on-cash LEADS, cash flow is the FLOOR</div>' +
+      '</div>' +
+      (pf.appreciationY1 ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label" style="color:var(--teal)">Total Economic Return (Yr 1 — incl. one-time cost seg)</div>' +
+          '<div class="pf-value" style="color:var(--teal)">' + fmt$(pf.totalReturnLow) + '</div>' +
+          '<div class="pf-note">Net CF ' + fmt$(netLow) + ' + ' + fmt$(pf.appreciationY1) + ' appreciation + ' + fmt$(pf.costSegBenefit || 0) + ' cost seg. ⚠ Appreciation here is only 2%/yr — downtown condos compound at 1–3%. The cost-seg benefit is a ONE-TIME Year-1 item and does not repeat in Year 2+.</div>' +
+        '</div>'
+      ) : '') +
+      (hasCostSeg ? (
+        '<div class="pf-item" style="grid-column:1/-1;border-color:var(--teal-dim)">' +
+          '<div class="pf-label" style="color:var(--teal)">Cost Segregation Benefit (Year 1) — One-Time</div>' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px">' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Tax Savings (37% bracket)</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--teal)">' + fmt$(pf.costSegBenefit) + '</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Depreciable Basis</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-1)">' + buildingPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * pf.buildingPct)) + ')</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Land Excluded</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-2)">' + landPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * (1 - pf.buildingPct))) + ')</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem;color:var(--teal-dim)">' +
+            'Yr 1 effective position (net CF + cost seg): <strong style="color:var(--teal)">' + fmt$(netAfterCostSeg) + '</strong> · ' +
+            (costSegAssumptions ? costSegAssumptions + ' · ' : '') +
+            'Study cost: $5K–$12K · Requires 100+ hrs material participation. ⚠ Note: the expected condo cost-seg ADVANTAGE does not exist here — a Bates-Hendricks SFH measures 0.888 against the condo 0.885. The high building share is cheap Midwest land, not the condo form.' +
+          '</div>' +
+        '</div>'
+      ) : '') +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Total Cash Required</div>' +
+        '<div class="pf-value ' + (capitalFits ? 'pass' : 'fail') + '">' + fmt$(pf.cashRequired) + ' ' + (capitalFits ? '✓' : '⚠') + '</div>' +
+        '<div class="pf-note">' + capitalNote + ' · You have: ' + fmt$(pf.userCashAvailable) + '</div>' +
+        (showBreakeven ? '<div style="margin-top:6px;font-size:0.78rem;color:var(--yellow)">Capital breakeven: ~' + fmt$(pf.capitalBreakevenPrice) + ' — buy at or below this price to fit your cash</div>' : '') +
+      '</div>' +
+      '<div class="bear-case">' +
+        '<h4>Bear Case Stress Test — Revenue −10% / Expenses +10%</h4>' +
+        '<div class="bear-row"><span>Bear case revenue</span><span>' + fmt$(bearRev) + '</span></div>' +
+        '<div class="bear-row"><span>Bear case op expenses</span><span>' + fmt$(bearExp) + '</span></div>' +
+        '<div class="bear-row"><span>Debt service</span><span>' + fmt$(pf.debtService) + '</span></div>' +
+        '<div class="bear-row bear-result">' +
+          '<span>Bear case net cash flow</span>' +
+          '<span>' + fmt$(bearNet) + ' ' + bearTierBadge + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  header.classList.toggle('open', !isOpen);
+  body.classList.toggle('collapsed', isOpen);
+}
+
+function renderCapitalAlert() {
+  const container = document.getElementById('capital-alert-container');
+  if (!SHOW_CAPITAL_ALERT) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>⚠ Capital Fit Alert</strong> ${CAPITAL_ALERT_BODY}</div>`;
+}
+
+function renderRoiContext() {
+  const container = document.getElementById('roi-context-container');
+  if (!ROI_CONTEXT_NOTE) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>ℹ Market Context</strong> ${ROI_CONTEXT_NOTE}</div>`;
+}
+
+renderCapitalAlert();
+renderRoiContext();
+renderRedFlags();
+renderDifferentiation();
+renderScorecard();
+renderLanes();
+renderProFormaTabs();
+renderProForma();
+</script>
+</body>
+</html>
