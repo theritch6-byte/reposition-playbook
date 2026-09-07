@@ -1,0 +1,1759 @@
+<!--bstrw:bb49693caf7e9a19-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STR Market Analysis — Red River Gorge, Kentucky</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ─── DESIGN TOKENS ──────────────────────────────────────────────────────── */
+:root {
+  /* Mountain palette */
+  --bg:        #0f1a13;
+  --bg-card:   #1c2b20;
+  --bg-card-2: #213526;
+  --border:    #2d4533;
+  --border-2:  #3d5c46;
+
+  --amber:     #e8924a;
+  --amber-dim: #c4743a;
+  --amber-bg:  #2a1e12;
+  --amber-pale:#f0b07a;
+
+  --teal:      #2ec4a8;
+  --teal-dim:  #1fa08a;
+  --teal-bg:   #0e2420;
+
+  --red:       #f06060;
+  --red-dim:   #c44545;
+  --red-bg:    #2a1212;
+  --red-border:#4a2020;
+  --red-muted: #7a5050;
+
+  --yellow:    #f0c040;
+  --yellow-dim:#c89c28;
+  --yellow-bg: #241e0a;
+
+  --neutral-icon-bg:     #1a2530;
+  --neutral-icon-border: #2a3f55;
+
+  /* Updated by JS to match the score band (yellow/green/red) */
+  --score-glow: rgba(232,146,74,0.12);
+
+  --text-1:    #f2f5f2;
+  --text-2:    #baced0;
+  --text-3:    #6a8070;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─── RESET & BASE ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { text-wrap: balance; }
+article p { text-wrap: pretty; }
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.anim-fade-up  { animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-scale-in { animation: scaleIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up, .anim-scale-in { animation: none; opacity: 1; transform: none; }
+}
+
+.d0 { animation-delay: 0ms; }
+.d1 { animation-delay: 60ms; }
+.d2 { animation-delay: 120ms; }
+.d3 { animation-delay: 180ms; }
+.d4 { animation-delay: 240ms; }
+.d5 { animation-delay: 300ms; }
+.d6 { animation-delay: 360ms; }
+
+/* ─── LAYOUT ─────────────────────────────────────────────────────────────── */
+.page { max-width: 980px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+.hero {
+  padding: 64px 0 56px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+
+.hero-state {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.hero-summary {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  max-width: 580px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-date {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.score-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card-2);
+  border: 2px solid var(--border-2);
+  border-radius: 20px;
+  padding: 36px 44px;
+  min-width: 172px;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 10%, var(--score-glow) 0%, transparent 65%);
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.score-hero .score-num {
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-denom {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-3);
+  line-height: 1;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero .score-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.score-hero.yellow .score-num   { color: var(--yellow); }
+.score-hero.yellow .score-label { color: var(--yellow-dim); }
+.score-hero.green  .score-num   { color: var(--teal); }
+.score-hero.green  .score-label { color: var(--teal-dim); }
+.score-hero.red    .score-num   { color: var(--red); }
+.score-hero.red    .score-label { color: var(--red-dim); }
+
+.verdict-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.verdict-pill.yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-dim); }
+.verdict-pill.green  { background: var(--teal-bg);   color: var(--teal);   border: 1px solid var(--teal-dim); }
+.verdict-pill.red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-dim); }
+
+/* ─── CAPITAL ALERT BANNER ───────────────────────────────────────────────── */
+.capital-alert {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-top: 3px solid var(--amber);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 32px;
+  font-size: 0.875rem;
+  color: var(--amber-pale);
+  line-height: 1.65;
+}
+.capital-alert strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.capital-alert em { color: var(--text-1); font-weight: 600; font-style: normal; }
+
+/* ─── RED FLAGS ──────────────────────────────────────────────────────────── */
+.red-flags-wrap {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 32px;
+}
+.red-flags-wrap h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.red-flags-wrap ul { list-style: none; }
+.red-flags-wrap li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--red-border);
+  color: var(--red-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.red-flags-wrap li:last-child { border-bottom: none; }
+.red-flags-wrap li strong { display: block; color: var(--red); font-weight: 600; margin-bottom: 3px; }
+
+.red-flags-clean {
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-dim);
+  border-radius: 12px;
+  padding: 14px 22px;
+  margin-bottom: 32px;
+  color: var(--teal);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ─── SECTION SHELL ──────────────────────────────────────────────────────── */
+.section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 20px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.15s;
+}
+.section-header:hover { background: rgba(255,255,255,0.02); }
+.section-header.open { border-bottom-color: var(--border); }
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.section-title-icon.amber { background: var(--amber-bg); border: 1px solid var(--amber-dim); }
+.section-title-icon.teal  { background: var(--teal-bg);  border: 1px solid var(--teal-dim);  }
+.section-title-icon.blue  { background: var(--neutral-icon-bg); border: 1px solid var(--neutral-icon-border); }
+.section-title-icon.red   { background: var(--red-bg);   border: 1px solid var(--red-dim);   }
+
+.section-toggle {
+  color: var(--text-3);
+  font-size: 0.7rem;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+}
+.section-header.open .section-toggle { transform: rotate(180deg); }
+
+.section-body { padding: 26px; }
+.section-body.collapsed { display: none; }
+
+/* ─── SCORECARD ──────────────────────────────────────────────────────────── */
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.score-row:last-child { border-bottom: none; }
+
+.score-row-left { min-width: 0; }
+
+.score-row-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.score-row .cat-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 2px;
+}
+.score-row .cat-meta {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+.score-row .cat-weight {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.score-row .weighted-contrib {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-2);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.pills { display: flex; gap: 4px; flex-wrap: wrap; }
+.pill {
+  width: 40px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border-2);
+  background: var(--bg-card-2);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+}
+.pill:hover { border-color: var(--amber); color: var(--amber); }
+.pill:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.pill.active-1, .pill.active-2 { border-color: var(--red-dim);    background: var(--red-bg);    color: var(--red); }
+.pill.active-3                  { border-color: var(--yellow-dim); background: var(--yellow-bg); color: var(--yellow); }
+.pill.active-4, .pill.active-5  { border-color: var(--teal-dim);  background: var(--teal-bg);   color: var(--teal); }
+
+.rationale-toggle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--amber);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  transition: background 0.1s;
+}
+.rationale-toggle:hover { background: rgba(232,146,74,0.12); }
+
+.rationale-card {
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-1);
+  display: none;
+  line-height: 1.7;
+}
+.rationale-card .confidence {
+  font-size: 0.72rem;
+  color: var(--teal-dim);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.rationale-card.open { display: block; }
+
+.scorecard-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 26px;
+  background: var(--bg-card-2);
+  border-top: 2px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+.scorecard-total .total-val {
+  font-size: 2rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+/* ─── INTELLIGENCE PANELS ────────────────────────────────────────────────── */
+.intel-section { margin-bottom: 28px; }
+.intel-section:last-child { margin-bottom: 0; }
+
+.intel-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.intel-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.intel-content {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.75;
+  font-weight: 400;
+}
+.intel-content .intel-entry {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.intel-content .intel-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.intel-content .intel-key {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-dim);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-bottom: 5px;
+}
+.intel-content .intel-key.key-red {
+  color: var(--red);
+  background: var(--red-bg);
+  border-color: var(--red-dim);
+}
+.intel-content .intel-key.key-teal {
+  color: var(--teal);
+  background: var(--teal-bg);
+  border-color: var(--teal-dim);
+}
+.intel-content .intel-key.key-neutral {
+  color: var(--text-3);
+  background: var(--bg-card-2);
+  border-color: var(--border-2);
+}
+.intel-content p {
+  margin: 0;
+  line-height: 1.75;
+}
+.intel-content ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.intel-content ul li {
+  padding-left: 14px;
+  position: relative;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.intel-content ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-weight: 700;
+}
+.intel-content strong { color: var(--text-1); font-weight: 600; }
+
+/* ─── LANES ──────────────────────────────────────────────────────────────── */
+.lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.lane-card {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+}
+.lane-card:hover { border-color: var(--border-2); }
+.lane-card.active {
+  border-color: var(--amber);
+  background: var(--amber-bg);
+  box-shadow: 0 0 0 1px var(--amber-dim);
+}
+
+.lane-card-left { min-width: 0; }
+
+.lane-card-right {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.lane-card .lane-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.lane-card .lane-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-1);
+}
+.lane-card.active .lane-title { color: var(--amber-pale); }
+
+.lane-card .lane-subtitle {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-3);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.lane-card.active .lane-subtitle { color: var(--amber-dim); }
+
+.lane-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 24px;
+}
+
+.lane-detail-item {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.lane-detail-item .detail-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: block;
+  margin-bottom: 1px;
+}
+.lane-card.active .lane-detail-item { color: var(--amber-pale); opacity: 0.9; }
+.lane-card.active .detail-label { color: var(--amber-dim); }
+
+.lane-price {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+.lane-card.active .lane-price { color: var(--amber); }
+
+.moat-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 14px; }
+.moat-tag {
+  background: var(--bg);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lane-card.active .moat-tag {
+  background: rgba(232,146,74,0.08);
+  color: var(--amber);
+  border-color: var(--amber-dim);
+}
+
+/* ─── CAPITAL FIT BADGE ──────────────────────────────────────────────────── */
+.capital-fit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+.capital-fit-badge.fits {
+  background: rgba(46,196,168,0.12);
+  color: var(--teal);
+  border: 1px solid var(--teal-dim);
+}
+.capital-fit-badge.short {
+  background: rgba(240,96,96,0.12);
+  color: var(--red);
+  border: 1px solid var(--red-dim);
+}
+
+/* ─── PRO FORMA ──────────────────────────────────────────────────────────── */
+.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.pf-item {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.pf-item .pf-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+.pf-item .pf-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.pf-item .pf-note {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.pass { color: var(--teal) !important; }
+.warn { color: var(--yellow) !important; }
+.fail { color: var(--red)  !important; }
+
+.bear-case {
+  grid-column: 1 / -1;
+  background: var(--bg-card-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.bear-case h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.bear-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.855rem;
+  color: var(--text-2);
+  padding: 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+.bear-result {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-2);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-1);
+}
+
+/* ─── CHECKLIST ──────────────────────────────────────────────────────────── */
+.checklist { list-style: none; counter-reset: check-counter; display: flex; flex-direction: column; gap: 10px; }
+.checklist li {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px 18px 64px;
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  counter-increment: check-counter;
+  position: relative;
+}
+.checklist li::before {
+  content: counter(check-counter, decimal-leading-zero);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 30px;
+  height: 30px;
+  background: var(--bg);
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+.checklist li strong {
+  display: block;
+  color: var(--text-1);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* ─── PRO FORMA LANE TOGGLE ──────────────────────────────────────────────── */
+.pf-lane-switch { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+.pf-lane-switch-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.pf-lane-tabs { display: inline-flex; background: var(--bg); border: 1px solid var(--border-2); border-radius: 10px; padding: 3px; gap: 3px; }
+.pf-lane-tab { border: none; background: transparent; color: var(--text-2); font-family: var(--font); font-size: 0.8rem; font-weight: 700; padding: 7px 16px; border-radius: 7px; cursor: pointer; transition: all 0.14s; white-space: nowrap; }
+.pf-lane-tab:hover { color: var(--amber); }
+.pf-lane-tab.active { background: var(--amber); color: #1a1208; }
+.pf-lane-tab:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+/* ─── CONFIRMING LISTINGS (buy box links) ────────────────────────────────── */
+.confirming-listings { margin-top: 14px; }
+.confirming-listings .cl-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.confirming-listings a { display: inline-flex; align-items: center; gap: 5px; background: var(--teal-bg); border: 1px solid var(--teal-dim); color: var(--teal); border-radius: 6px; padding: 4px 10px; margin: 0 5px 5px 0; font-size: 0.72rem; font-weight: 600; text-decoration: none; transition: all 0.12s; }
+.confirming-listings a:hover { background: rgba(46,196,168,0.18); }
+.confirming-listings a::before { content: '↗'; font-size: 0.78rem; opacity: 0.8; }
+.lane-card.active .confirming-listings .cl-label { color: var(--amber-dim); }
+.lane-card.active .confirming-listings a { background: rgba(232,146,74,0.10); border-color: var(--amber-dim); color: var(--amber); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; }
+  .score-hero { flex-direction: row; gap: 16px; align-self: flex-start; padding: 20px 24px; min-width: 0; }
+  .score-hero .score-num { font-size: 3rem; }
+  .lane-card { grid-template-columns: 1fr; }
+  .lane-detail-grid { grid-template-columns: 1fr; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .score-row .weighted-contrib { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO ────────────────────────────────────────────────────────────────── -->
+  <div class="hero">
+    <div class="anim-fade-up d0">
+      <div class="hero-eyebrow">STR Market Analysis · September 6, 2026</div>
+      <h1>Red River Gorge</h1>
+      <div class="hero-state">Kentucky</div>
+      <div class="hero-summary"><strong>Red River Gorge scores 5.20/10 — Tier F, Pass.</strong> At 5.20/10, Red River Gorge ranks at the bottom of the mountain/cabin STR markets screened — below Hocking Hills, OH (6.21), its closest structural analogue, and marginally below Eureka Springs, AR (5.21) — making it the second-lowest of the eleven markets screened to date, above only Williams, AZ (4.98).<br><br>
+The shape of the failure is the finding. <strong>Demand is genuinely strong (8/10) and regulation is permissive (7/10)</strong> — five independent drivers, ~500,000 annual RRG visitors on the US Forest Service&rsquo;s own count, a 1.9M–4.3M two-hour drive ring, and unincorporated Powell County with no STR ordinance and no zoning ordinance at all. Peer-reviewed EKU research refutes the fragile-single-driver worry outright: climbers are ~1.5% of visitors, and Wolfe County&rsquo;s third-best revenue month is <strong>June</strong>, not a climbing month.<br><br>
+<strong>Everything between that demand and a return fails.</strong> Wolfe County supply grew <strong>+60.9% in twelve months</strong> (~46 → 74 listings) while per-unit revenue fell <strong>−16.2%</strong>. The top revenue tier is owned by two professional platforms — The Canopy Crew (11 units) and RRG Getaways (32 units) — with <strong>zero solo owner-operators in it</strong>. Appreciation is measured negative on six independent instruments, not merely flat. And the exit is not slow but broken: the corridor&rsquo;s flagship STR cabin has been marketed for thirty-one months and a 10.5% price cut without selling, while Slade has recorded two sales, both in H1 2024, and nothing since.<br><br>
+<strong>Nothing in this report is a recommendation, and no property named in it belongs on any buy list.</strong> Every listing shown is market-structure evidence that inventory exists at a given price band — nothing more.</div>
+      
+      <div style="margin-top:20px;background:var(--red-bg);border:1px solid var(--red-dim);border-left:3px solid var(--red);border-radius:9px;padding:14px 18px">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--red);margin-bottom:6px">⚠ Budget Fit — TIGHT</div>
+        <div style="font-size:0.82rem;color:var(--text-2);line-height:1.65">The $486,933 ceiling is not reachable — cash required there is <strong style="color:var(--text-1)">$152,087.52</strong> against <strong style="color:var(--text-1)">$140,855.68</strong> available, capping the true top at <strong style="color:var(--text-1)">$450,983</strong>. Worse, the buyer&rsquo;s 4.44× return floor justifies <strong style="color:var(--text-1)">$230,436</strong> while the 1031 exchange requires a <strong style="color:var(--text-1)">$231,000</strong> minimum purchase: the return-compliant and exchange-compliant price ranges miss each other by <strong style="color:var(--red)">$564</strong> and do not overlap at all.</div>
+      </div>
+      <div style="margin-top:12px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-left:3px solid var(--yellow);border-radius:9px;padding:14px 18px">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--yellow);margin-bottom:6px">⚑ Revenue Trend Caution — Declining</div>
+        <div style="font-size:0.82rem;color:var(--text-2);line-height:1.65">Per-unit revenue is falling across <strong style="color:var(--text-1)">all seven measured geographies</strong>, on two independent data houses, over the trailing twelve months to July 2026: Wolfe County <strong style="color:var(--yellow)">−16.2%</strong> · Slade <strong style="color:var(--yellow)">−15.0%</strong> · Pine Ridge <strong style="color:var(--yellow)">−9.5%</strong> · Campton <strong style="color:var(--yellow)">−8.9%</strong> · Rogers <strong style="color:var(--yellow)">−8.8%</strong> · Stanton <strong style="color:var(--yellow)">−6.3%</strong> · Powell County <strong style="color:var(--yellow)">−4.1%</strong>. ADR rose while occupancy fell — the textbook oversupply signature, not a demand story.</div>
+      </div>
+      <div style="margin-top:12px;background:var(--amber-bg);border:1px solid var(--amber-dim);border-left:3px solid var(--amber);border-radius:9px;padding:14px 18px">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--amber);margin-bottom:6px">⚖ Jurisdiction Warning — Four Taxing Counties</div>
+        <div style="font-size:0.82rem;color:var(--text-2);line-height:1.65">The corridor spans four taxing counties and is mostly unincorporated — unincorporated Wolfe is <strong style="color:var(--text-1)">0.913%</strong> property tax with a <strong style="color:var(--text-1)">0%</strong> local insurance premium tax, while Beattyville is <strong style="color:var(--text-1)">1.603%</strong> and Stanton/Clay City carry a <strong style="color:var(--text-1)">10%</strong> insurance premium tax; a <strong style="color:var(--amber)">$3,421/yr swing on $485K</strong> that is pure jurisdiction choice. Avoid City of Stanton limits entirely: Ord. 22-002 requires an annually-reviewed, <strong style="color:var(--text-1)">NON-TRANSFERABLE</strong> conditional-use permit, so you do not inherit the seller&rsquo;s permission. Confirm governance by taxing district, never by mailing address.</div>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-date">Analysis date: September 6, 2026</span>
+        <span class="verdict-pill yellow" id="threshold-label">Loading…</span>
+      </div>
+    </div>
+    <div class="score-hero yellow anim-scale-in d1" id="score-badge">
+      <div class="score-num" id="overall-score-display">—</div>
+      <div class="score-denom">/ 10</div>
+      <div class="score-label">Market Score</div>
+    </div>
+  </div>
+
+  <!-- CAPITAL ALERT ───────────────────────────────────────────────────────── -->
+  <!-- Rendered by renderCapitalAlert() below based on SHOW_CAPITAL_ALERT constant -->
+  <div id="capital-alert-container" class="anim-fade-up d2"></div>
+  <div id="roi-context-container" class="anim-fade-up d2"></div>
+
+  <!-- RED FLAGS ───────────────────────────────────────────────────────────── -->
+  <div id="red-flags-section" class="anim-fade-up d3"></div>
+
+  <!-- SCORECARD ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d3">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">📊</span>
+        Market Scorecard
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="scorecard-body"></div>
+    <div class="scorecard-total">
+      <span>Weighted Total Score</span>
+      <span class="total-val yellow" id="total-score-display">—</span>
+    </div>
+  </div>
+
+  <!-- MARKET INTELLIGENCE ─────────────────────────────────────────────────── -->
+  <!-- Collapsed by default — user expands to read -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon teal">🔍</span>
+        Market Intelligence
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body collapsed" id="intel-body">
+      <div class="intel-section">
+        <div class="intel-label">⚖ Regulatory &amp; Risk Intelligence</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+            <span class="intel-key key-red">Hensley v. Gadd — the real Kentucky kill-switch</span>
+            <p><strong>560 S.W.3d 516 (Ky., Nov. 15, 2018).</strong> The Kentucky Supreme Court held that running a property as a short-term rental is a <strong>commercial use that violates a deed restriction limiting lots to single family residential purposes</strong> — even though the house looks residential — because nightly, weekend and weekly occupants were not residents. It binds statewide and reaches raw unincorporated land with zero zoning; it needs no HOA, no board and no enforcement budget, because any single neighbouring lot owner can enforce it. Kentucky sits on the <strong>minority side</strong> of the national split, so an out-of-state investor&rsquo;s general instinct here is wrong.</p>
+            <ul><li>A per-property Schedule B title read plus a county clerk restrictions search is <strong>mandatory</strong>, not optional.</li><li>A metes-and-bounds parcel outside a platted subdivision is worth real money over a subdivision lot at the same price.</li><li>Covenant prevalence by subdivision is a documented data gap — covenants are recorded at the county clerks and not indexed online.</li></ul>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-teal">No ordinance, no zoning, no preemption</span>
+            <p>Unincorporated Powell County&rsquo;s complete published ordinance index — current through Ordinance 2025-08 — contains <strong>no STR ordinance and no zoning ordinance</strong>, and the county has no planning, building-inspection or code-enforcement department at all. Unincorporated Wolfe is looser still. No Kentucky statewide preemption exists either: <strong>SB 110 (2025)</strong> would have barred local CUP requirements and density caps and did not pass; <strong>SB 9 (2026)</strong> died on the final day with STR preemption reported as the sticking point. Direction of travel at state level is pro-STR pressure that has now failed twice — a future win would be upside, not downside.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">City of Stanton — Ord. 22-002, the hardest jurisdiction</span>
+            <p>Inside Stanton limits an STR needs a <strong>Conditional Use Permit through the Board of Adjustment, reviewed annually</strong>; is allowed only in R-1 and R-2; needs a <strong>non-transferable</strong> STR business licence at $300 first unit / $100 each additional; must provide off-street parking with no on-street guest parking; may display no sign advertising the property as a rental; and must admit the Zoning Administrator into the interior on notice. An annually-renewed CUP is discretionary permission rather than a vested right, and a non-transferable licence means <strong>you do not buy the seller&rsquo;s permission</strong> — the same trap seen in Eureka Springs, AR and Houston, TX. Lodging tax stacks to ≈13.4% inside the city against ≈10.2% in unincorporated Powell.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">The jurisdiction cost map — $3,421/yr of pure choice</span>
+            <p>Total real-estate rates computed line-by-line from the <strong>KY DOR 2025 Property Tax Rate Book</strong>, not an aggregator. Kentucky assesses 100% of fair cash value uniformly with <strong>no investor class</strong> (homestead is 65+/disabled only), so the real trap is <em>staleness</em>: rural PVA assessments run far below market, and a cabin showing a $600 bill will carry ~$4,400 once revalued toward a $486,933 sale. <strong>Underwrite at 0.898–0.913% of purchase price, never at the displayed bill.</strong></p>
+            <ul><li><strong>Unincorporated Wolfe</strong> (Rogers, Pine Ridge) — 0.913% · $4,428 on $485K · <strong>0% insurance premium tax</strong></li><li><strong>Unincorporated Powell</strong> (Slade, Nada) — 0.898% · $4,355 · 5% insurance premium tax</li><li>City of Stanton — 1.006% · $4,879 · 10% · City of Clay City 10%</li><li>City of Campton — 1.047% · $5,078 · 8%</li><li>Unincorporated Menifee 1.280% · $6,208 · 6% · Unincorporated Lee 1.282% · $6,218 · 8%</li><li><strong>City of Beattyville — 1.603% · $7,776 · 8%</strong></li></ul>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Landslide is an uninsured peril — and it hits the top revenue tier</span>
+            <p>Standard homeowners policies <strong>exclude earth movement</strong>, NFIP covers flood only, and the Kentucky Mine Subsidence Insurance Fund <strong>expressly excludes landslide</strong>. Powell County took repeat 2025 mudslides including the Mountain Parkway Exit 33 (Slade) slide that damaged eight vehicles; Powell, Wolfe and Lee were all FEMA IA+PA designated under <strong>DR-4864-KY</strong>. The cliff-perched cabin earning $413–$611 ADR carries an <strong>uninsured total-loss tail that this market&rsquo;s own photography actively sells</strong>. Pull the Kentucky Geological Survey landslide inventory (kgs.uky.edu/kgsmap) on any sloped candidate, and pull the parcel-level FEMA zone from msc.fema.gov by address rather than accepting a listing agent&rsquo;s zone claim.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Septic, building code and the Wild &amp; Scenic corridor</span>
+            <p>Kentucky septic is <strong>110 gpd per bedroom</strong> (902 KAR 10:085, Table 1) — more permissive than the 120–150 in comparable markets, and the 2–4 guest product only needs 1–2 bedrooms, so septic is not the binding constraint. The KY Dept. of Housing, Buildings &amp; Construction lists <strong>Local Building Inspector: None</strong> for Powell, Wolfe, Menifee and Lee, and health-department environmentalists hold walk-in permitting hours <strong>one morning a week</strong>. Separately, the Red River through the Gorge is a <strong>National Wild and Scenic River</strong> — a 19.4-mile designated segment, Kentucky&rsquo;s only one — so riverfront inside that corridor is a federally-managed reach rather than ordinary riverfront. Its CRMP corridor width and private-land restrictions are unread and remain a blocking gap on any riverfront candidate.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">📈 Demand &amp; Market Fundamentals</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+            <span class="intel-key key-red">The smoking gun — supply outran demand roughly 4-to-1</span>
+            <p><strong>Wolfe County — the heart of the corridor — went from ~46 to 74 active listings in twelve months, +60.9%, while revenue fell −16.2%.</strong> Powell added +12.9% to 35 listings against −4.1% revenue. Supply-weighted corridor supply growth is ≈ +45.5% across 109 listings; supply-weighted revenue ≈ −12.3% YoY. Price is holding while volume collapses: Wolfe ADR is $254, <em>higher</em> than Powell&rsquo;s $220, yet Wolfe occupancy is 34.5%, <em>lower</em> than Powell&rsquo;s 39.6%. New cabins are being priced up and are simply not filling. <strong>The loss is occupancy, not rate — the textbook signature of oversupply rather than demand loss.</strong></p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-teal">Five independent drivers — and the fragile one is not the revenue base</span>
+            <p>(1) Natural Bridge State Resort Park, 300–400K/yr with its own lodge, skylift and trails; (2) Daniel Boone NF / RRGGA hiking and 100+ natural arches, ~500K/yr; (3) sport climbing; (4) Nada Tunnel and the scenic drive; (5) Red River kayaking and canoeing plus zipline and underground-kayak operators. <strong>Peer-reviewed EKU research (Maples, Clark, Sharp et al.) puts RRG at ~7,500 unique climbers a year — roughly 1.5% of the ~500K visitors.</strong> Climbers are also the wrong customer: 44% earn under $30K, many are full-time students, and the study&rsquo;s own six-county lodging sector supported <strong>six jobs</strong>. Climbers camp; they do not book $220/night cabins. <strong>Wolfe County&rsquo;s third-best revenue month is June, not a spring climbing month</strong> — direct evidence that family hiking, water recreation and Natural Bridge carry the core.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">The bullish narrative is a paid developer press release — and its timeline is false</span>
+            <p>The circulating one-million-visitors / supply-hasn&rsquo;t-kept-up claim was issued by <strong>Ian Teal, Developer at Highlands of Red River Gorge</strong>, distributed by BusinessWire and <strong>explicitly labelled a paid press release</strong>, citing no primary source. The real figure is ~500,000/yr per USFS Cumberland District program manager Eric Dodd. The ~1M traces to a <strong>2017</strong> WYMT interview in which a park naturalist <em>summed</em> Natural Bridge SRP (300–400K) with RRGGA (500K+) — so the claim that visits passed one million during the pandemic and have grown since is <strong>false by three years against its own source</strong>. And supply has not kept up is the exact inverse of the measured truth. <strong>The recruitment campaign is itself part of the mechanism depressing the returns it advertises.</strong></p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Drive ring, market type and the missing secondary layer</span>
+            <p>Verified 2025 MSA populations: Lexington 535,174 (~1 hr) · Louisville 1,402,509 (~2 hr) · Cincinnati 2,312,858 (~2–2.5 hr) · Columbus 2,242,028 (~3.25 hr) · Knoxville ~807,000 (~3 hr). The ~2-hour ring holds <strong>1.9M–4.3M</strong> people, the ~4-hour ring <strong>7.3M+</strong>. With no meaningful commercial airport this is a <strong>100% drive market</strong> — a durability asset (insulated from airfare shocks) and a ceiling liability (no national demand pool). AirROI classifies Powell County a <strong>micro-market</strong>; the corridor is 109 active listings, late-majority / saturating rather than an early-mover window. <strong>Secondary demand is essentially absent</strong> — no corporate, medical, university or relocation base across 67,647 people in 1,431 sq mi, so there is no weekday floor and no shoulder-season fallback.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Seasonality quantified — three dead months, not four</span>
+            <p>Peak-to-trough is <strong>3.20× (Powell) / 3.16× (Wolfe)</strong> — roughly 2× worse than a 1.67× urban comp but below the 4–6× lake/ski band. Powell peaks in October at $4,899 / 64.6% occ / $244 ADR and troughs in February at $1,530 / 28.6%; Wolfe peaks October at $5,203 / 54.0% / $283 and troughs January at $1,649 / <strong>20.7% — about six nights a month</strong>. Powell&rsquo;s peak grouping is October/March/April (the climbing windows); <strong>Wolfe&rsquo;s is October/November/June</strong>. Residual risk is October concentration: one bad October does outsized damage.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Forward signal — new access fees are a headwind</span>
+            <p>Daniel Boone NF proposed day-use fees at <strong>22 sites, 19 of them in the Gorge</strong>: $5/day, $7/3-day, $50/yr where trailheads are currently free, with backcountry camping rising $5 → $10. The stated rationale was a dramatic increase in visitation. That adds friction to the free-hiking driver that carries most of the volume. Meanwhile low regulatory barriers cut <em>against</em> the owner: they are precisely why Wolfe County supply grew +60.9%. <strong>There is no regulatory moat protecting an incumbent&rsquo;s revenue, and the loosest county is the one building fastest.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🏠 Competitive &amp; Revenue Intelligence</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+            <span class="intel-key key-red">Gate Zero — price-to-revenue ≈ 8.6× to 9.4×</span>
+            <p>Red River Gorge listings average <strong>$312,152</strong> across 112 for-sale listings against Rogers&rsquo; <strong>$36,436</strong> average revenue → <strong>8.6×</strong>. AirDNA&rsquo;s own best-mountain-towns pairing for Rogers ($459,500 median list / $49,000 potential) → <strong>9.4×</strong>. Two independent routes, the same answer. <strong>Above ~6× the 20% floor is arithmetically unreachable — this market fails the multiple test before any property is examined.</strong> Against the $51,900 1BR corridor median the buyer&rsquo;s ceiling reads 9.38×.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">Operator concentration is the headline</span>
+            <p><strong>8 of the 9 visible top comps belong to just two professional platforms.</strong> The Canopy Crew LLC (11 properties) owns #1, #2, #3, #4, #6 and #9; RRG Getaways (up to 32 Airbnb listings, 100+ cabins managed) owns #5 and #7. <strong>Zero solo owner-operators in the top tier.</strong> The two conventional cabins clearing $70K — Honeydew ($89.7K / $282 ADR / 87% occ) and Date Night ($79.1K / $282 / 77%) — are the <em>same</em> operator, sister units in the four-cabin Shawnee Run cluster alongside Sweet Rock and Sugar Maple. A guest shut out of one is funnelled to a sibling, and that <strong>portfolio-capture effect is structurally unavailable to a single-cabin owner</strong>. The decisive number: RRG Getaways&rsquo; 32 listings gross $1,025,923 — an average of <strong>$32,060 per listing</strong>, and roughly $28,600 once the two flagships are stripped out.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Measured revenue tiers — the basis for all three lanes</span>
+            <ul><li><strong>Tier 1 (top 10%) — $82,752–$115,700</strong> · $413–$611 ADR · 46–87% occ. Needs a purpose-built irreplaceable structure <em>or</em> a multi-cabin cluster. Canopy Crew + RRG Getaways only.</li><li><strong>Tier 2 (top 25%) — $56,640–$85,128</strong> · $318–$319 ADR · 53–60% occ. Hot tub + view + real design + 2-night minimum + Superhost ops. Reachable — and where a buyer must land to survive.</li><li><strong>Tier 3 (median) — $27,148–$42,000</strong> · $179–$247 ADR · 36–41% occ. Everything else, including the listings parked on 30+ night minimums.</li><li>Bottom quartile — $14,316–$23,172 · $132–$194 ADR · 21–26% occ. No hot tub, weak photos, or effectively dormant.</li></ul>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">The median is an artifact — and it does not rescue the market</span>
+            <p>Between <strong>32.8% (Rogers) and 45.5% (Pine Ridge)</strong> of active listings carry a <strong>30+ night minimum</strong> in a market whose average stay is 2.3–2.7 nights. Roughly four in ten competitors cannot accept the weekend booking that is this market&rsquo;s demand unit, yet they sit in the denominator dragging median occupancy to ~37%. So the real competitive bar is higher than the median suggests, and Honeydew&rsquo;s 87% is not an anomaly — it sits above Rogers&rsquo; 76% top-decile occupancy threshold. <strong>This corrects the read on achievable occupancy but changes nothing about the verdict</strong>, because both routes to the top are gated: the ADR lane needs a purpose-built structure, and the occupancy lane needs multi-unit overflow capture plus 125+ remote self-managed turnovers a year.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Moat test — measured multiples against the $214 market ADR</span>
+            <ul><li>Suspended / bolted cliff house — <strong>2.85×</strong> (Sandstone Drifter), 2.42× (Cliff Dweller). Real and the largest premium, but a <em>built</em> moat, not a bought one.</li><li>Pirate-ship architecture — 1.87×–1.95×. Real; same builder, same exclusion.</li><li>Mirrored treehouse — 2.32× ADR but only <strong>46% occupancy</strong>. An ADR moat that does not convert to nights.</li><li><strong>Domes — 1.23× ADR, 50% occ, $48.4K. Weak: unique ≠ premium</strong>, consistent with the 0.87× dome finding elsewhere on this board.</li><li>Clifftop view + sauna + hot tub on a conventional cabin — 1.32×. Modest; the money here is occupancy, not rate.</li><li><strong>Hot tub — +197.3% revenue uplift</strong> ($34,080 with vs $11,465 without, AirROI Powell). <strong>Table stakes.</strong> Its absence is a penalty; its presence is not a differentiator.</li><li>River frontage — no isolable premium. The Gorge&rsquo;s draw is the cliff line, not the river, and riverfront carries the flood premium. <strong>The moat and the hazard are the same parcel.</strong></li></ul>
+            <p><strong>The cliff pays the builder, not the buyer.</strong></p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Data calibration — AirDNA reads HIGH here, and the error scales with radius</span>
+            <p>Powell County: AirDNA $30,651 / 41.0% vs AirROI $28,265 / 39.6% — <strong>+8.4%, nearly identical</strong>. Slade: AirDNA ~$45,700 / 59% vs AirROI $27,486 / 37.7% — <strong>+66%</strong>. This inverts the Broken Bow calibration and matches the Luray direction, so <strong>every revenue tier used in this report is AirROI-sourced</strong>. <strong>ADR is two-source corroborated; occupancy is not</strong> — AirROI reads ~37–41% where AirDNA and Airbtics read ~57–59%, and the two were not blended. Dual-platform listing is the market standard: Honeydew is live on both Airbnb and Vrbo, and AirDNA review counts exceed live Airbnb counts, consistent with cross-platform merging.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="intel-section">
+        <div class="intel-label">🔧 Operations, Appreciation &amp; Exit</div>
+        <div class="intel-content">
+          <div class="intel-entry">
+            <span class="intel-key key-red">Appreciation is measured negative, not merely weak</span>
+            <p>Every corridor parcel pulled is cutting price and none has sold: <strong>637 Cave Hollow $419K → $375K over 31 months unsold</strong>; 507 Cave Hollow −7.1%; 67 Pine Mountain −11.5%; 198 Lacy Ln <strong>−12% in 27 days</strong>. Powell County $143/sqft, <strong>−7.4% YoY</strong>; a held parcel&rsquo;s Zestimate reads −16% in one year. Wolfe County median sale $348K, −11.5%; Powell $199K, −6.1%, with days-on-market blown out from <strong>79 to 206</strong>. <strong>appreciationRate = 0.00 is the charitable assumption, not a conservative one</strong> — the honest stress case is −5%/yr. One contrary datapoint, stated honestly: Redfin puts 40380 Stanton at $219,851, +7.2% YoY on a small sample against county- and parcel-level instruments that are all negative.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">The exit is not slow — it has stopped</span>
+            <p><strong>Slade&rsquo;s sold index shows two sales, both in H1 2024, and nothing since.</strong> Powell County sold <strong>6 homes in July 2026, −37.1% YoY</strong>. The buyer pool for a $325–400K Wolfe County cabin is <strong>STR investors and only STR investors</strong> — not local owner-occupants (Wolfe median income $16,967, county median home $110–186K), not second-home retirees at scale, not institutions — and that buyer must underwrite the same falling-revenue, rising-supply, 9.38× market, which by the parcel evidence they are currently declining to do at any price sellers will accept.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-red">The LTR floor fails by ~$2,000/month</span>
+            <p>Rent Zestimate <strong>$1,136/mo</strong> against a <strong>$3,258/mo</strong> carry at budgetMid (P&amp;I $2,625 + tax $367 + insurance $267) = <strong>DSCR 0.35</strong> — roughly twice as bad as the previous worst market on this board (0.60). It <strong>still fails at a $300,000 purchase</strong> (carry ~$2,026 vs $1,136 rent = 0.56). This is structural rather than negotiable: the price is set by STR income expectations while the rent is set by Wolfe County wages. There is no mid-term lane either — no corporate, medical, university or contractor base in a six-county area of 67,647 people. <strong>The only exits are sell, into a market where the flagship cabin sat 31 months, or feed it.</strong></p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-teal">The cost-segregation consolation prize — read it against the exit</span>
+            <p><strong>buildingPct measures 0.876</strong> for a newer build on ~1 acre — <em>above</em> the IRS newer-build benchmark band of 0.75–0.82 — because Appalachian land is genuinely cheap ($2,581–$8,867/acre in bulk). On a $486,933 purchase that is a ~$426,553 depreciable basis, roughly <strong>$37,000 of extra basis created purely by cheap dirt</strong>, and self-management is the strongest fact pattern for the material-participation test. The figure is robust to a price cut (0.839 at a realistic $280,000 clearing price) and to property type (0.749 for a mid-age build on 7.68 acres). <strong>But cost segregation is a timing benefit, not a return</strong> — it accelerates deductions the buyer would receive anyway, and <strong>it is recaptured on sale</strong>. In a corridor where the flagship cabin has sat 31 months unsold, the recapture event is indefinitely deferred <em>because you cannot get out</em>. <strong>A large depreciable basis on an asset you cannot sell is a consolation prize, not a thesis.</strong></p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Operating cost stack — derived, not benchmarked</span>
+            <p><strong>grossRevRef = $51,900</strong>, the credible 1BR corridor median from a saved AirDNA comp pull; the budget-derived fallback of $73,040 ran 41% high and was correctly rejected. <strong>opExpRatio_reference = $13,366 / $51,900 = 0.258</strong> — propTax $4,409 (0.9055% Powell/Wolfe blend) + insurance $3,400 + miscSupplies $4,000 + platform $1,557. <strong>No PM or co-host fee appears in any base case — the buyer self-manages.</strong> The PM reference (0.478) and the published 20% local co-host rate are carried as context only and were never modelled. Insurance adds <strong>$1,400–$4,000/yr NFIP flood</strong> on any riverside or hollow-bottom parcel, which alone would move opExpRatio from 0.258 to 0.335. Lodging tax is 10.0% in unincorporated Powell (under the 12% flag) but <strong>13.0% inside Stanton city</strong>, and Powell&rsquo;s 3% is a separate manual monthly county filing — budget $500–$1,500/yr of compliance.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key">Cleaning ecosystem — limited, and the constraint is bodies</span>
+            <p>Real operators exist — Natural Bridge Cabin Company (est. 2001), Red River Gorge Cabin Rentals, Scenic Cabin Rentals, Red River Stays — and labour is cheap, so this is not a cold start. But <strong>Wolfe County has 6,298 people and the highest unemployment in Kentucky (11.1%, Feb 2026)</strong> against +12.9% to +60.9% supply growth, and every operator in a violently weekend- and October-peaked market needs the same cleaners on the same Sunday. High unemployment in a 6,000-person county co-existing with a growing fleet is a structural mismatch, not absorbable slack. <strong>The per-turn rate was NOT obtained and is an open data gap</strong> — the $75–$125 band is inferred from county wage data, not observed. Market cleaning fee averages $84 (median $75), charged by 100% of listings, ≈12.7% of revenue and guest-reimbursed; the pro formas carry only the net $16/turnover.</p>
+          </div>
+          <div class="intel-entry">
+            <span class="intel-key key-neutral">Unresolved source conflict — logged, not silently resolved</span>
+            <p><strong>637 Cave Hollow Rd.</strong> operations.md reports it as a cabin marketed since Feb 2024 (31 months), cut $419,000 → $375,000, unsold. buybox.md reports the same address as a <strong>$45,000 vacant 0.95-acre LOT (MLS 24002597)</strong>, and notes that none of the three Cave Hollow addresses appears in Redfin&rsquo;s live 41301 set. A prior working file recorded 637 as a $399,000 treehouse cabin, 750 sqft. <strong>These cannot all be true</strong> — most likely multiple parcels share the road number, or the listing was relisted or re-parcelled between pulls. <strong>Resolve by Wolfe County PVA parcel ID before any offer.</strong> The appreciation and exit conclusions do <em>not</em> depend on this parcel and stand on independent evidence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUY BOX ─────────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d4">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon amber">🎯</span>
+        Buy Box Recommendations
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body" id="buybox-body">
+      <div class="lanes" id="lanes-container"></div>
+    </div>
+  </div>
+
+  <!-- PRO FORMA ───────────────────────────────────────────────────────────── -->
+  <div class="section anim-fade-up d5">
+    <div class="section-header open" onclick="toggleSection(this)">
+      <div class="section-title">
+        <span class="section-title-icon blue">💰</span>
+        Pro Forma — <span id="active-lane-name" style="color:var(--amber);margin-left:6px">Target Lane</span>
+      </div>
+      <span class="section-toggle">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="pf-lane-switch" id="pf-lane-switch">
+        <span class="pf-lane-switch-label">View lane:</span>
+        <div class="pf-lane-tabs" id="pf-lane-tabs"></div>
+      </div>
+      <div id="proforma-body"></div>
+    </div>
+  </div>
+
+
+</div><!-- /page -->
+
+<script>
+// ─── DATA INJECTION ───────────────────────────────────────────────────────────
+// Data below is injected for this market run.
+// Do not change variable names, function names, or JS structure.
+// Arrays and objects must remain valid JSON-compatible JavaScript literals.
+
+const OVERALL_SCORE = 5.20;          // e.g. 3.20 — one decimal place minimum
+const SCORE_COLOR_CLASS = "red"; // "yellow" | "green" | "red"
+
+// CAPITAL ALERT — set SHOW_CAPITAL_ALERT to true if the investor's stated cash or
+// budget does not comfortably cover any of the three buy box lanes.
+// CAPITAL_ALERT_BODY should name the specific conditions and exact numbers.
+const SHOW_CAPITAL_ALERT = true;  // true | false
+const CAPITAL_ALERT_BODY = "Two capital conditions are triggered at once. <em>Condition 1 — the stated ceiling is unreachable:</em> at $486,933 the cash required is $152,087.52 against $140,855.68 available, a shortfall of $11,231.84, which caps the true top at $450,983 and is why the Aggressive lane was cut from $486,933. <em>Condition 2 — negative leverage co-exists with target infeasibility:</em> the conservative market cap rate at budgetMid is ~6.5% against a 7.125% borrowing rate, so debt subtracts from return rather than adding to it — and at the same time the buyer&rsquo;s 4.44× return floor justifies only $230,436 while the 1031 exchange requires $231,000, so the compliant price range is an empty set. Cash is not the binding constraint on Lanes 1 and 2 (both fit); the entry multiple and the exchange floor are."; // e.g. "Your $200K cash covers Conservative ($190K required) but not Target ($265K). See Pro Forma for details."
+// ROI CONTEXT NOTE — set to the market-context note when ALL three lanes fail grossRoiPass
+// (gross ROI < 15% is a market-wide 2025–26 condition in appreciation-driven markets, NOT a
+// deal-specific failure). Set to "" (empty string) to hide the tile. Quoted string — never an array.
+const ROI_CONTEXT_NOTE = "";
+
+// RED FLAGS — array of {flag, data} objects.
+// flag: short headline (what is it)
+// data: supporting detail with a leading " — " separator
+// Set to [] if no red flags.
+const RED_FLAGS = [
+  
+  { flag: "Flag 3 — HOA / deed restriction prohibits STR (TRIGGERED, conditionally, and Kentucky-specific)",
+    data: " — <em>Hensley v. Gadd</em>, 560 S.W.3d 516 (Ky., Nov. 15, 2018): the Kentucky Supreme Court held that operating a short-term rental is a <strong>commercial use that violates a deed restriction limiting lots to single family residential purposes</strong>, because nightly and weekly occupants were not residents. It binds statewide, reaches raw unincorporated land with zero zoning, needs no HOA, no board and no enforcement budget — <strong>any single neighbouring lot owner can enforce it</strong> — and Kentucky sits on the minority side of the national split, so an out-of-state investor&rsquo;s default instinct is wrong here. A per-property Schedule B title read plus a county clerk restrictions search is mandatory." },
+  { flag: "Flag 4 — Supply growing faster than demand for 2+ consecutive years (TRIGGERED — the headline flag)",
+    data: " — <strong>Wolfe County supply +60.9% in twelve months (~46 → 74 listings) against −16.2% revenue.</strong> Powell +12.9% against −4.1%. Corridor ≈ +45.5% across ~109 listings. Airbtics&rsquo; wider-radius read shows +18.6% one-year and <strong>+79.6% three-year</strong>, establishing the multi-year condition. Total market revenue grew (~$1.65M → ~$2.22M in Wolfe) while per-unit revenue fell, because the denominator exploded — and ADR rose while occupancy fell, the definitive oversupply signature. Nothing stops it: no cap, minimal rules, and an active paid national investor-recruitment campaign adding more." },
+  { flag: "Flag 5 — Revenue floor month cannot cover 70%+ of debt service (TRIGGERED at the buyer&rsquo;s ceiling)",
+    data: " — At $486,933 with 20% down at 7.125%/30-yr, P&amp;I is <strong>$2,624.60/mo</strong> and 70% of debt service is <strong>$1,837</strong>. Median worst-month <em>gross</em> revenue: Campton $2,044 · Wolfe County $1,649 · Powell County $1,530 · Stanton $1,193. Only Campton clears on gross, and it fails on a net basis once the 12.7%-of-revenue cleaning pass-through, platform fees, utilities, insurance and taxes are applied. Wolfe County January occupancy is <strong>20.7% — about six nights a month</strong>. The floor only holds near a ~$300,000 purchase." },
+  { flag: "Flag 8 — Prices compressed returns below a 6% cap rate (TRIGGERED in substance, with an honest nuance)",
+    data: " — Strictly read the flag is not met: prices are <em>falling</em>, not appreciating, and the conservative cap rate at budgetMid is <strong>6.5%</strong>, just above the 6% line. But the compression the flag is written to catch is present and running. Asking prices sit at <strong>8.6×–9.38× revenue</strong>, and Cave Hollow cabins ask $500–$591/sqft against a $143 county median (−7.4% YoY) — 3.5–4.1×. The 6.5% cap is computed before any NFIP flood premium (which alone moves opExpRatio from 0.258 to 0.335) and before the revenue decline three sources report; either pushes it under 6%. The repricing is happening TO sellers and has further to run." },
+  { flag: "Flag 10 — No dual-use exit path if STR becomes unviable (TRIGGERED — the worst LTR read on the board)",
+    data: " — Rent Zestimate <strong>$1,136/mo</strong> against a <strong>$3,258/mo</strong> carry at budgetMid (P&amp;I $2,624 + tax $367 + insurance $267) = <strong>DSCR 0.35</strong>, a $2,122/mo hole. The previous worst market on this board read 0.60. It still fails at a $300,000 purchase (carry ~$2,026 vs $1,136 rent = 0.56). This is structural, not negotiable: the price is set by STR income expectations while the rent is set by Wolfe County wages (median income $16,967). There is no mid-term rental lane either — no corporate, medical, university or contractor base anywhere in a six-county area of 67,647 people." },
+  { flag: "Negative Leverage (additional finding, outside the 10-item framework)",
+    data: " — The conservative market cap rate at budgetMid is <strong>~6.5%</strong> against a <strong>7.125%</strong> borrowing rate, so borrowed money <em>subtracts</em> from return rather than adding to it. Normally appreciation carries a negatively-levered hold; here appreciation is <strong>measured negative</strong>, so <strong>appreciationY1 is modelled at 0</strong> and there is no equity growth to absorb a bad year. That removes the SURVIVABLE bear band from this market entirely — any lane whose bear case goes negative lands straight in DISTRESS. Lane 1 and the realistic Lane 3 substitution both land there." }
+
+];
+
+// SCORECARD — 9 categories, weights must sum to 1.00
+// name: category label string — KEY IS name, NOT category (cat.name is what renders)
+// weight: decimal fraction (all weights sum to 1.0)
+// score: integer 1–10 (initial displayed score; user can override interactively)
+// rationale: 2–4 sentences explaining the score
+// confidence: data quality note
+const SCORECARD_DATA = [
+  
+  { name: "Demand Strength &amp; Durability", weight: 0.25, score: 8,
+    rationale: "Five genuinely independent drivers — Natural Bridge State Resort Park (300–400K/yr, state-operated with its own marketing budget), Daniel Boone NF and the RRGGA with 100+ arches (~500K/yr per USFS Cumberland District program manager Eric Dodd), sport climbing, Nada Tunnel and the scenic drive, plus river and adventure recreation. The drive ring holds 1.9M–4.3M people at two hours (Lexington 535K at ~1 hr, Louisville 1.40M, Cincinnati 2.31M) and 7.3M+ at four. Durability is proven rather than assumed: peer-reviewed EKU research puts climbers at ~7,500/yr — about 1.5% of visitors, 44% of them earning under $30,000 — so the fragile-single-driver risk does not exist, and Wolfe County&rsquo;s third-best month being <strong>June</strong> shows non-climbing demand carries the core. Held off 9 by modest absolute visitation (~500K vs Shenandoah-class 4M) and a complete absence of any secondary layer — no corporate, medical, university or relocation base, no weekday floor, no MTR lane in a six-county area of 67,647 people.",
+    confidence: "<strong>High</strong> — visitation from the USFS program manager directly, drive-ring populations from verified 2025 MSA figures, and the climbing share from peer-reviewed EKU research read as a PDF rather than summarised." },
+  { name: "Supply &amp; Competition", weight: 0.18, score: 3,
+    rationale: "<strong>Wolfe County supply grew +60.9% in twelve months (~46 → 74 listings) while revenue fell −16.2%</strong>; Powell +12.9%; corridor ≈ +45.5% across ~109 listings. Airbtics reads +18.6% one-year and +79.6% three-year on its wider radius, so this is multi-year oversaturation rather than a one-year blip. ADR rose while occupancy fell — the classic oversupply signature. Compounding it, <strong>8 of the 9 visible top comps belong to just two professional platforms</strong>: The Canopy Crew LLC owns #1/#2/#3/#4/#6/#9 and RRG Getaways owns #5/#7, with <strong>zero solo owner-operators in the top tier</strong>.",
+    confidence: "<strong>Medium — small-market cap applied.</strong> The analyzed corridor is Wolfe (74) + Powell (35) = ~109 listings, not Airbtics&rsquo; wide-radius 691. At that size a handful of new cabins moves everyone&rsquo;s occupancy — which is exactly what Wolfe just demonstrated by absorbing ~28 net new listings in a single year — and AirDNA&rsquo;s +9.7% Campton read is unreconciled against AirROI&rsquo;s +60.9% county read." },
+  { name: "Returns Profile", weight: 0.18, score: 4,
+    rationale: "This grades the market&rsquo;s objective return profile, not this buyer&rsquo;s target feasibility. <strong>Gross ROI runs ~9.6%–11.6% market-wide</strong>, below the 15% minimum: 112 RRG for-sale listings average $312,152 against Rogers&rsquo; $36,436 average revenue (8.6×), and AirDNA&rsquo;s own Rogers pairing is $459,500 median list against $49,000 potential (9.38×). The conservative cap rate at budgetMid is ~6.5%. The median operator runs a deficit — a $30,035 Wolfe County median gross against a $312K-class purchase cannot carry debt plus opex. Only the top quartile ($56,640–$85,128) clears comfortably, and the top decile ($82,752–$115,700) is ADR-driven by purpose-built cliff structures.",
+    confidence: "<strong>High</strong> — two independent price-to-revenue routes (AirROI comp median and AirDNA&rsquo;s own list/potential pairing) land within 0.8× of each other, and the Step 6 pro formas confirmed rather than contradicted the band." },
+  { name: "Regulatory Environment", weight: 0.12, score: 7,
+    rationale: "Genuinely permissive, and the second real strength. <strong>Unincorporated Powell County has no STR ordinance and no zoning ordinance</strong> — verified against the county&rsquo;s own published index through Ordinance 2025-08 — and no planning, building-inspection or code-enforcement department at all. No cap, no owner-occupancy requirement. Kentucky assesses 100% of fair cash value uniformly with <strong>no investor class</strong>, and septic runs a permissive 110 gpd/bedroom (902 KAR 10:085). State-level pressure is pro-STR and has failed twice (SB 110 in 2025, SB 9 in 2026), so a future win is upside. Capped at 7 by three real frictions: <em>Hensley v. Gadd</em> as a statewide, HOA-free deed-restriction kill-switch; the City of Stanton&rsquo;s Ord. 22-002 with its annually-reviewed, non-transferable CUP; and Powell&rsquo;s 2023 noise and nuisance ordinances signalling a market that has not yet had its regulatory reckoning.",
+    confidence: "<strong>Medium-High</strong> — Powell&rsquo;s ordinance index, the Stanton ordinance, the KY DOR rate book and the septic regulation were all read as primary sources; Wolfe, Menifee and Lee county STR ordinances and transient tax rates remain an open gap." },
+  { name: "Appreciation Potential", weight: 0.12, score: 3,
+    rationale: "<strong>Measured negative on six independent instruments.</strong> Every corridor parcel pulled is cutting price and none has sold: 637 Cave Hollow $419K → $375K over 31 months unsold; 507 Cave Hollow −7.1%; 67 Pine Mountain −11.5%; 198 Lacy Ln −12% in 27 days. Powell County $143/sqft, −7.4% YoY with 6 sales in July 2026 (−37.1%); Wolfe County median sale $348K, −11.5%; Powell $199K −6.1% with days-on-market blown out from 79 to 206. Cave Hollow cabins ask $500–$591/sqft against a $143 county median — 3.5–4.1× — and the market is refusing to pay it. No local economic engine underneath: Wolfe median income $16,967, unemployment 11.1% (highest of all 120 Kentucky counties), Powell poverty 22.5%. <strong>appreciationY1 is modelled at 0 — measured, not assumed, and that is the charitable figure.</strong>",
+    confidence: "<strong>Medium-High on direction, Low on magnitude</strong> — six sales a month is not a trend, but the direction is consistent across every parcel-level and county-level instrument, and the same series read −24.4% eight months earlier. One contrary datapoint is on the record: Redfin puts 40380 Stanton at $219,851, +7.2% YoY on a small sample." },
+  { name: "Seasonality &amp; Revenue Floor", weight: 0.08, score: 5,
+    rationale: "Season length first: <strong>three dead months (Dec–Feb), not four</strong> — Powell holds 28.6–31.8% occupancy there, Wolfe a harsher 20.7–27.5%. Critically, summer is shoulder rather than a hole: Wolfe&rsquo;s peak grouping is Oct/Nov/<strong>Jun</strong>, because water recreation and family hiking fill the months climbers vacate. Peak-to-trough is 3.20× (Powell) / 3.16× (Wolfe) — meaningfully seasonal but well inside the 4–6× lake/ski band, and a ~9-bookable-month season anchors at 6. Knocked down one notch by the revenue-floor result: at the $486,933 ceiling 70% of debt service is $1,837 against median worst-month gross of Campton $2,044 · Wolfe $1,649 · Powell $1,530 · Stanton $1,193. The floor holds near a ~$300,000 purchase, so this is partly a price-point artifact. Residual risk is <strong>October concentration</strong> — one bad October does outsized damage.",
+    confidence: "<strong>High</strong> — month-by-month occupancy, ADR and revenue pulled for both counties from AirROI, with AirDNA corroborating the peak/trough shape." },
+  { name: "Ease of Management / Operations", weight: 0.04, score: 5,
+    rationale: "A real turnover ecosystem exists — Natural Bridge Cabin Company (est. 2001), Red River Gorge Cabin Rentals, Scenic Cabin Rentals, Red River Stays — so this is not a cold start, and labour is cheap. But it is <strong>limited, and the constraint is bodies, not price</strong>: Wolfe County holds 6,298 people at 11.1% unemployment against supply growing 12.9%–60.9%, and every operator in a violently weekend- and October-peaked market needs the same cleaners on the same Sunday. For a self-manager six-plus hours away with no local backstop and no second property to share a cleaner across, <strong>one cleaner quitting in October is a peak-season revenue event with no fallback</strong>. Septic permitting runs one morning a week (Powell Thu 8:00–9:30, Wolfe Fri 8:00–9:30) and there is no local building inspector in any of the four counties.",
+    confidence: "<strong>Medium</strong> — operator names, county population, unemployment and the state inspector roster are verified, but the <strong>per-turn cleaning rate was not obtained</strong>; the $75–$125 band is inferred from county wage data, not observed." },
+  { name: "Infrastructure &amp; Access", weight: 0.02, score: 6,
+    rationale: "A clean drive market on paper: Lexington ~1 hr (Blue Grass is the nearest commercial airport), Louisville ~2 hr, Cincinnati ~2–2.5 hr, Columbus ~3.25 hr, with the Mountain Parkway as the spine. Short 38–46 day lead times mean late bookings fill easily, and no air dependency means no airfare-shock exposure. Held below 7 by a demonstrated interruption record on a single-highway spine: 2025 mudslides closed the right lane of the Mountain Parkway at <strong>Exit 33 — the Slade exit — damaging eight vehicles</strong>, and the Red River flooded 20 Powell County roads in April 2025. There is no air redundancy and no alternate corridor.",
+    confidence: "<strong>High</strong> — drive times, the parkway closure and the flood event are all documented, and Powell, Wolfe and Lee were FEMA IA+PA designated under DR-4864-KY." },
+  { name: "Exit Options", weight: 0.01, score: 2,
+    rationale: "Resale liquidity only; the LTR thesis is not scored here and fails anyway at DSCR 0.35. <strong>The exit is not slow — it is not functioning.</strong> 637 Cave Hollow Road, a purpose-built cabin in the corridor&rsquo;s flagship STR development, has been listed, cut, withdrawn, relisted and cut again since February 2024 — <strong>thirty-one months</strong> — and is still unsold 10.5% below ask. Slade&rsquo;s sold index shows two sales, both H1 2024, nothing since. Powell County sold 6 homes in July 2026, −37.1% YoY, on days-on-market that blew out from 79 to 206. The buyer pool for a $325–400K Wolfe County cabin is <strong>STR investors and only STR investors</strong> — not local owner-occupants (median income $16,967), not second-home retirees at scale, not institutions — and that buyer must underwrite the same falling-revenue, rising-supply, 9.38× market.",
+    confidence: "<strong>High</strong> on the direction and the mechanism. ⚠️ One unresolved source conflict is logged rather than silently resolved: operations.md reports 637 Cave Hollow Rd as a cabin cut $419,000 → $375,000 over 31 months, while buybox.md reports the same address as a $45,000 vacant lot. <strong>The exit conclusion does not depend on that parcel</strong> — Slade&rsquo;s two-sale index, Powell&rsquo;s −37.1% July volume and the 79 → 206 days-on-market blowout carry it independently." }
+
+];
+
+// LANES — 3 buy box lanes: conservative, target, aggressive
+// Render reads these keys: id, title, subtitle, bedrooms, priceRange, maxDistance, guestAvatar, mustHaveAmenities[], differentiatorAmenities[], valueAdd?, revenueConfidence?, moatCategories[], confirmingListings[{label,url}]
+//   id is the lane key — PROFORMA_DATA.laneId must equal it. valueAdd & revenueConfidence are optional.
+// All other fields required. mustHaveAmenities and differentiatorAmenities are arrays of strings.
+// moatCategories: subset of ["Location","Quality","Design","Amenities","Operations"]
+// confirmingListings: array of 3–5 {label, url} from Step 6A inventory validation —
+//   active FOR-SALE / purchase listings the investor could offer on today (NOT rental comps),
+//   from Zillow/Redfin/Realtor.com/Homes.com/Trulia or local MLS/IDX. label = property address,
+//   url = the for-sale listing URL. Renders as clickable links inside the lane card.
+//   Use [] only if a lane has no linkable inventory.
+const LANES_DATA = [
+  
+  {
+    id: "conservative",
+    title: "Conservative",
+    subtitle: "Conventional non-cabin house or dated cabin, bought below the market&rsquo;s cabin product and repositioned. The $231,000 1031 exchange floor is the hard bottom — nothing below it is legal for this buyer. Market-structure evidence only; not a recommendation.",
+    bedrooms: "2–3 BR / 1–2 BA (note: all 15 market comps are 1BR/1BA — a 3BR here is a repositioning to a couples product, not a bigger-is-better play)",
+    priceRange: "$231,000 – $300,000",
+    maxDistance: "≤ 20 min to the Gorge entrance / Natural Bridge SRP",
+    guestAvatar: "Couples, 2–4 guests · weekend hikers and climbers · 2.3–2.7 night stay, Fri–Sun compressed",
+    mustHaveAmenities: ["Hot tub (add if absent)", "Reliable septic", "Cell or Starlink coverage", "4-season road access", "Off-street parking"],
+    differentiatorAmenities: ["Sauna", "Fire pit", "Covered deck", "Outdoor shower", "View line through canopy", "Blackout / star-gazing glazing"],
+    valueAdd: "The whole thesis: furnish + hot tub + design + professional photos + 2-night minimum. Budget $35–55K. Insurance $3,000/yr; NFIP not carried — ridge and upland parcels only, and any hollow-bottom or riverside parcel adds $1,400–$4,000/yr and must be re-underwritten.",
+    revenueConfidence: "Inventory CONFIRMED (12) — but 9 of the 12 are conventional rural houses with no view line, no hot tub and no design",
+    moatCategories: ["Design"],
+    confirmingListings: [
+      { label: "240 Robbie Ridge Rd, Stanton — $249,000 · 2BR/1BA, 900 sqft (furnished)", url: "https://www.redfin.com/KY/Stanton/240-Robbie-Ridge-Rd-40380/home/83513013" },
+      { label: "397 Sun Set Rdg, Rogers — $279,900 · 1BR/1BA, 750 sqft", url: "https://www.redfin.com/KY/Rogers/397-Bryant-Ridge-Rd-41365/home/200374364" },
+      { label: "523 King Branch Rd, Campton — $295,000 · 3BR/1.5BA, 1,500 sqft on 38 acres", url: "https://www.redfin.com/KY/Campton/523-Kings-Rd-41301/home/205381091" },
+      { label: "50 Getaways Rd, Stanton — $299,000 · 2BR/1.5BA, 977 sqft", url: "https://www.redfin.com/KY/Stanton/50-Getaways-Rd-40380/home/201652666" },
+      { label: "67 Pine Mountain Rd, Campton — $299,000 · 5BR/3BA, 2,200 sqft on 7.68 acres", url: "https://www.redfin.com/KY/Campton/67-Pine-Mountain-RD-41301/home/144372234" }
+    ]
+  },
+  {
+    id: "target",
+    title: "Target",
+    subtitle: "Purpose-built cabin, new or near-new, sold furnished and turn-key. The only lane where the <em>product</em> matches the lane definition — the 1BR/1BA couples format the market actually rewards exists here and only here. Market-structure evidence only; not a recommendation.",
+    bedrooms: "1 BR / 1 BA — the dominant top-tier format; every one of the 15 AirDNA comps is 1BR/1BA",
+    priceRange: "$300,000 – $400,000",
+    maxDistance: "≤ 15 min to the Gorge / Natural Bridge — the Rogers–Campton cliff belt",
+    guestAvatar: "Couples, sleeps 2 — the two highest-occupancy listings in the corridor sleep 2 · romantic/anniversary plus climbing weekend",
+    mustHaveAmenities: ["Hot tub", "Covered private deck", "Real design (not builder-grade)", "2-night minimum", "Dual-platform listing (Airbnb + Vrbo)", "Superhost-grade ops"],
+    differentiatorAmenities: ["Sauna", "Wet-bath soaker", "Dual shower heads", "Clifftop or canopy view line", "Fire pit", "Star deck"],
+    valueAdd: "Minimal — this lane buys the finished product; uplift comes from ops (2-night minimum, dual-platform, repricing). Insurance $3,400/yr; NFIP not carried on the ridge/clifftop product, but several Stanton-area cabin developments sit in hollow bottoms — add $1,400–$4,000/yr and re-underwrite. HOA $0 assumed — verify: Getaways Rd, Carabiner Cir, Cave Hollow and Twin Arch commonly carry private-road agreements.",
+    revenueConfidence: "Clears on paper at a revenue tier held by two professional platforms — Tier 2&rsquo;s upper half is Honeydew and Date Night, both RRG Getaways sister cabins funnelling overflow to each other",
+    moatCategories: ["Design", "Location"],
+    confirmingListings: [
+      { label: "107 Getaways Rd, Stanton — $309,000 · 2BR/2BA, 881 sqft", url: "https://www.redfin.com/KY/Stanton/107-Getaways-Rd-40380/home/201652843" },
+      { label: "94 Pine Forest Park Rd, Campton — $325,000 · 1BR/1BA, 850 sqft (new STR build, hot tub, firepit)", url: "https://www.redfin.com/KY/Campton/94-Pine-Forest-Park-Rd-41301/home/205397513" },
+      { label: "3048 Tarr Ridge Rd, Frenchburg — $340,000 · 1BR/1BA, 705 sqft (price cut)", url: "https://www.redfin.com/KY/Frenchburg/3048-Tarr-Ridge-Rd-40322/home/203210678" },
+      { label: "202 Twin Arch Rd, Stanton — $369,000 · 1BR/1BA, 390 sqft", url: "https://www.redfin.com/KY/Stanton/202-Twin-Arch-Rd-40380/home/202668878" },
+      { label: "50 Sapphire Dr, Slade — $399,000 · 3BR/2BA, 1,400 sqft (newly renovated)", url: "https://www.redfin.com/KY/Slade/50-Sapphire-Dr-40376/home/200845596" }
+    ]
+  },
+  {
+    id: "aggressive",
+    title: "Aggressive",
+    subtitle: "Price-adjusted to $400,000–$450,983: at the original $486,933 ceiling cash required is $152,087.52 against $140,855.68 available, so the stated ceiling was never reachable. ⚠️ INVENTORY IS CONFIRMED BY COUNT (11) AND FAILS BY PRODUCT — all 11 are conventional 3–4BR rural houses carrying 0–1 moat categories, not the purpose-built structure or multi-cabin cluster this lane is defined by. The corridor&rsquo;s only true Tier 1 asset — 1922 Star Gap Rd, Stanton, a three-cabin riverfront cluster — is $565,000, above both the $486,933 ceiling and the $450,983 capital top, and being riverfront would carry the NFIP flood load on top. Market-structure evidence only; not a recommendation.",
+    bedrooms: "1–3 BR / 1–2.5 BA, or a multi-cabin cluster (the only proven Tier 1 path a single owner could actually operate)",
+    priceRange: "$400,000 – $450,983",
+    maxDistance: "≤ 15 min; clifftop or canopy siting is the point",
+    guestAvatar: "Couples, 2–4 guests · premium/anniversary segment paying $400+ ADR",
+    mustHaveAmenities: ["Hot tub", "Sauna", "Architectural differentiation", "View line that cannot be replicated on a neighbouring parcel"],
+    differentiatorAmenities: ["Cliff-bolted or suspended structure", "Glass wall", "Rooftop deck", "River frontage", "Multi-unit overflow capture"],
+    valueAdd: "None modelled — at this price the moat must already exist, and the confirmed inventory does not contain one. REALISTIC SUBSTITUTION (what the confirmed inventory actually buys, re-run at Tier 2 revenue on the same $425,491.50 basis): grossRoiLow 13.31% ✗ FAILS the 15% gate · opExpRatio 0.2005 · netCfLow $14,909.92 · full-cost net CF $7,583.55 · full-cost cash-on-cash 5.71% · the $30,000 target missed by $22,416 · bear case −$234.21 → 🔴 DISTRESS with zero appreciation to absorb it. Insurance $4,200/yr; NFIP CARRIED on any river-frontage candidate, add $1,400–$4,000/yr.",
+    revenueConfidence: "The Tier 1 revenue band below is an aspiration the confirmed inventory cannot deliver — every Tier 1 asset is owned by The Canopy Crew or RRG Getaways and none is for sale inside this lane",
+    moatCategories: ["Location", "Design", "Amenities"],
+    confirmingListings: [
+      { label: "8 Courtney Ln, Stanton — $409,000 · 4BR/2.5BA, 1,800 sqft", url: "https://www.redfin.com/KY/Stanton/8-Courtney-LN-40380/home/205238669" },
+      { label: "85 Gala Ln, Stanton — $420,000 · 2BR/2BA, 700 sqft (3D tour)", url: "https://www.redfin.com/KY/Stanton/85-Gala-Ln-LN-40380/home/202531619" },
+      { label: "77 Lloyd Ln, Stanton — $425,000 · 3BR/2.5BA, 1,800 sqft (furnished STR)", url: "https://www.redfin.com/KY/Stanton/77-Lloyd-Ln-40380/home/83511368" },
+      { label: "2001 Glencarin Rd, Rogers — $425,000 · 3BR/2BA, 960 sqft", url: "https://www.redfin.com/KY/Rogers/2001-Glencarin-RD-41365/home/204718795" },
+      { label: "1560 Stamper Branch Rd, Campton — $449,900 · 3BR/2.5BA, 2,336 sqft on ~12 acres", url: "https://www.redfin.com/KY/Campton/1560-Stamper-Branch-Rd-41301/home/202300725" }
+    ]
+  }
+
+];
+
+// PRO FORMA — one entry per lane, matched by laneId
+// revenueMin/Max: annual gross revenue range
+// priceMid: purchase price midpoint used for ROI calculation
+// debtService: annual debt service (12 × monthly P&I)
+// loanNote: short string describing loan assumptions
+// cashRequired: 20% down + 3% closing + 5% furnishing/setup + 6-month reserve
+// cashRequiredNote: short human-readable label for cashRequired components
+// userCashAvailable: investor's stated cash position (0 if unknown)
+// capitalBreakevenPrice: max purchase price that fits userCashAvailable; 0 if capitalFits=true
+// opExpRatio: operating expense ratio as decimal — per-lane recalculated value, NOT 0.40 default (kept as the blended reference + render fallback)
+// fixedOpEx: annual operating $ that do NOT scale with revenue (propTax + insurance + miscSupplies)
+// variableOpExRate: decimal share that scales with revenue (platform fee ~0.03). Render uses fixedOpEx + revenue×variableOpExRate when BOTH present (honest low-end net CF); falls back to revenue×opExpRatio when absent.
+// netCfLow_pm: net CF at revenueMin with 25% PM (REQUIRED — renders in PM tile)
+// buildingPct: land-to-building ratio from county assessor — NOT hardcoded 0.85
+// bonusDepRate: 1.00 for OBBBA 2025 assets (placed in service on/after Jan 19, 2025)
+// costSegAssumptions: short string describing cost seg inputs
+// netCfAfterCostSegY1: netCfLow + costSegBenefit (Year 1 effective with tax savings; one-time)
+// grossRoiLow: gross ROI at revenueMin as percent (e.g. 12.7) — used by QA Check 10
+// grossRoiPass: true if grossRoiLow >= 15 — used by QA Check 10
+// costSegBenefit: federal tax savings in dollars (Year 1 cost-seg tile) = round(priceMid × buildingPct × reclassPct × bonusDepRate × 0.37); reclassPct≈0.25 (only the 5/15-yr reclassified share gets bonus dep — NOT the full building basis)
+// appreciationY1: estimated Year 1 appreciation in dollars (≈3–4% × priceMid) — gates the Total Economic Return tile + bear-tier classification
+// totalReturnLow: netCfLow + costSegBenefit + appreciationY1 (Total Economic Return tile)
+const PROFORMA_DATA = [
+  
+  {
+    laneId: "conservative",
+    revenueMin: 27148,
+    revenueMax: 56640,
+    priceMid: 265500,
+    debtService: 17171.28,
+    loanNote: "DSCR · 20% down ($53,100) · $212,400 loan at 7.125% / 30-yr · $1,430.94/mo P&amp;I. No PM or co-host fee in any base case — the buyer self-manages.",
+    cashRequired: 82925.64,
+    cashRequiredNote: "20% down $53,100 + 3% closing $7,965 + 5% furnishing/setup $13,275 + 6-mo reserve $8,585.64",
+    userCashAvailable: 140855.68,
+    capitalBreakevenPrice: 420465,
+    opExpRatio: 0.2550,
+    fixedOpEx: 9424.02,
+    variableOpExRate: 0.03,
+    fullCostOpExpMid: 15303.34,
+    netCfLow_pm: -9920.80,
+    buildingPct: 0.749,
+    bonusDepRate: 1.00,
+    costSegBenefit: 18394.50,
+    costSegAssumptions: "buildingPct 0.749 (mid-age build on 7.68 acres, derived by subtracting real corridor land comps from real corridor improved listings — no KY assessor publishes a land/improvement split) · reclassPct 0.25 · bonusDepRate 1.00 (OBBBA 2025) · 37% bracket. appreciationY1 = 0 because appreciation here is MEASURED NEGATIVE on six independent instruments, not assumed flat — so there is no equity growth to absorb a bad year and the SURVIVABLE bear band is unavailable market-wide.",
+    netCfAfterCostSegY1: 17690.38,
+    grossRoiLow: 10.23,
+    grossRoiPass: false,
+    appreciationY1: 0,
+    totalReturnLow: 17690.38
+  },
+  {
+    laneId: "target",
+    revenueMin: 56640,
+    revenueMax: 85128,
+    priceMid: 350000,
+    debtService: 22636.39,
+    loanNote: "DSCR · 20% down ($70,000) · $280,000 loan at 7.125% / 30-yr · $1,886.37/mo P&amp;I. No PM or co-host fee in any base case — the buyer self-manages.",
+    cashRequired: 109318.19,
+    cashRequiredNote: "20% down $70,000 + 3% closing $10,500 + 5% furnishing/setup $17,500 + 6-mo reserve $11,318.19",
+    userCashAvailable: 140855.68,
+    capitalBreakevenPrice: 420465,
+    opExpRatio: 0.1795,
+    fixedOpEx: 10595.50,
+    variableOpExRate: 0.03,
+    fullCostOpExpMid: 18916.02,
+    netCfLow_pm: 5687.11,
+    buildingPct: 0.876,
+    bonusDepRate: 1.00,
+    costSegBenefit: 28360.50,
+    costSegAssumptions: "buildingPct 0.876 (newer build on ~1 acre — ABOVE the IRS newer-build benchmark of 0.75–0.82 because Appalachian land is genuinely cheap) · reclassPct 0.25 · bonusDepRate 1.00 (OBBBA 2025) · 37% bracket. appreciationY1 = 0 because appreciation is MEASURED NEGATIVE, not assumed flat. Note the timing trap: cost seg is recaptured on sale, and in a corridor where the flagship cabin sat 31 months unsold the recapture is deferred because you cannot get out.",
+    netCfAfterCostSegY1: 49642.09,
+    grossRoiLow: 16.18,
+    grossRoiPass: true,
+    appreciationY1: 0,
+    totalReturnLow: 49642.09
+  },
+  {
+    laneId: "aggressive",
+    revenueMin: 82752,
+    revenueMax: 115700,
+    priceMid: 425491.50,
+    debtService: 27518.83,
+    loanNote: "DSCR · 20% down ($85,098.30) · $340,393.20 loan at 7.125% / 30-yr · $2,293.24/mo P&amp;I. Capital fits by only $7,958.64 (5.6%). No PM or co-host fee in any base case — the buyer self-manages.",
+    cashRequired: 132897.04,
+    cashRequiredNote: "20% down $85,098.30 + 3% closing $12,764.75 + 5% furnishing/setup $21,274.58 + 6-mo reserve $13,759.42",
+    userCashAvailable: 140855.68,
+    capitalBreakevenPrice: 420465,
+    opExpRatio: 0.1518,
+    fixedOpEx: 12084.73,
+    variableOpExRate: 0.03,
+    fullCostOpExpMid: 22547.88,
+    netCfLow_pm: 18341.94,
+    buildingPct: 0.876,
+    bonusDepRate: 1.00,
+    costSegBenefit: 34477.58,
+    costSegAssumptions: "buildingPct 0.876 (newer build) · reclassPct 0.25 · bonusDepRate 1.00 (OBBBA 2025) · 37% bracket. appreciationY1 = 0 — MEASURED NEGATIVE, not assumed. ⚠️ These figures sit on the Tier 1 revenue band ($82,752–$115,700), which the confirmed inventory cannot deliver: all 11 confirmed properties are conventional 3–4BR rural houses with 0–1 moat. Substitute the product actually buyable (Tier 2 revenue on the same $425,491.50 basis) and the lane returns 13.31% gross ROI (FAILS the 15% gate), 5.71% full-cost cash-on-cash, misses the $30,000 target by $22,416, and turns to −$234.21 in the bear case → DISTRESS.",
+    netCfAfterCostSegY1: 74649.24,
+    grossRoiLow: 19.45,
+    grossRoiPass: true,
+    appreciationY1: 0,
+    totalReturnLow: 74649.24
+  }
+
+];
+
+// NEXT STEPS — ordered array of objects: { title, body }
+// title: short imperative action headline (no HTML tags)
+// body: 1-2 supporting sentences with specifics (dates, URLs, phone numbers)
+// Minimum 5 items.
+const NEXT_STEPS = [];
+
+// SCORE DIFFERENTIATION — tier verdict + why this market beats/trails the median
+// strengths: array of strings. drags: array of { label, swing } objects (NOT plain strings) —
+//   label = short category headline; swing = what it means + the tier-move number.
+const DIFFERENTIATION = {
+  tier: "F — Pass",
+  distanceUp: "+0.30 to reach Tier D (5.50)",
+  distanceDown: "F is the lowest tier — there is nothing below it",
+  strengths: [ 
+    "<strong>Demand Strength &amp; Durability (8/10)</strong> — five independent drivers, ~500K RRG visitors a year on the USFS&rsquo;s own count, and a 1.9M–4.3M two-hour drive ring; primary EKU research refutes the fragile-single-driver risk, putting climbers at ~1.5% of visitors, and Wolfe County&rsquo;s third-best revenue month is June rather than a climbing month.",
+    "<strong>Regulatory Environment (7/10)</strong> — unincorporated Powell County has no STR ordinance and no zoning ordinance (verified on the county&rsquo;s own published index), Kentucky applies no investor tax class, septic is a permissive 110 gpd/bedroom, and unincorporated Wolfe pairs the corridor&rsquo;s lowest property tax (0.913%) with a 0% local insurance premium tax."
+   ],
+  drags: [ 
+    { label: "Supply &amp; Competition — leak 1.26 pts", swing: "If Supply &amp; Competition improves from 3 to 6 (because building genuinely stops — a permit cap or moratorium is adopted in Wolfe County, the developer recruitment campaign ends, and per-unit revenue stabilizes for two consecutive periods), the total rises by 0.54 to 5.74, moving the market F → D." },
+    { label: "Returns Profile — leak 1.08 pts", swing: "If Returns Profile improves from 4 to 6 (because asking prices complete the repricing already visible in the parcel data and the corridor clears nearer ~6× price-to-revenue — roughly $310K against the $51,900 1BR median — restoring a 13–15% gross ROI at market), the total rises by 0.36 to 5.56, moving the market F → D." },
+    { label: "Appreciation Potential — leak 0.84 pts", swing: "Third-largest leak, and the hardest to move: appreciation is measured negative on six independent instruments (Wolfe median sale −11.5%, Powell $143/sqft −7.4%, days-on-market 79 → 206). appreciationY1 is modelled at 0, which is the charitable assumption, not a conservative one." }
+   ]
+};
+// ─── END DATA ─────────────────────────────────────────────────────────────────
+
+let activeLaneIndex = 1;
+
+function fmt$(n) {
+  const val = Math.round(n);
+  return (val < 0 ? '−$' : '$') + Math.abs(val).toLocaleString();
+}
+function passIcon(pass) {
+  return pass
+    ? '<span class="pass">✓ PASS</span>'
+    : '<span class="fail">✗ FAIL</span>';
+}
+
+function thresholdLabel(score) {
+  // 1–10 scale, five named tiers
+  if (score >= 8.5) return { text: 'Tier A · Priority Market',  cls: 'green'  };
+  if (score >= 7.5) return { text: 'Tier B · Strong Market',    cls: 'green'  };
+  if (score >= 6.5) return { text: 'Tier C · Selective Market', cls: 'yellow' };
+  if (score >= 5.5) return { text: 'Tier D · Marginal Market',  cls: 'yellow' };
+  return                   { text: 'Tier F · Pass',             cls: 'red'    };
+}
+
+function updateBadgeColor(score) {
+  const badge = document.getElementById('score-badge');
+  const label = document.getElementById('threshold-label');
+  const t = thresholdLabel(score);
+  badge.className = 'score-hero anim-scale-in d1 ' + t.cls;
+  label.className = 'verdict-pill ' + t.cls;
+  label.textContent = t.text;
+  document.getElementById('total-score-display').className = 'total-val ' + t.cls;
+  const glowMap = {
+    yellow: 'rgba(240,192,64,0.12)',
+    green:  'rgba(46,196,168,0.12)',
+    red:    'rgba(240,96,96,0.12)'
+  };
+  document.documentElement.style.setProperty('--score-glow', glowMap[t.cls] || glowMap.yellow);
+}
+
+function renderDifferentiation() {
+  const host = document.getElementById('red-flags-section');
+  if (!DIFFERENTIATION || !DIFFERENTIATION.tier || DIFFERENTIATION.tier.indexOf('{{') === 0) return;
+  let html = '<div class="section" style="margin-bottom:24px"><div class="section-body">' +
+    '<div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:10px">Why This Market — Tier ' + DIFFERENTIATION.tier + '</div>';
+  if (DIFFERENTIATION.strengths && DIFFERENTIATION.strengths.length) {
+    html += '<div style="margin-bottom:12px"><strong style="color:var(--teal)">Strengths:</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.strengths.map(s => '<li style="margin-bottom:4px">' + s + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.drags && DIFFERENTIATION.drags.length) {
+    html += '<div><strong style="color:var(--yellow)">Swing factors (what moves the tier):</strong><ul style="margin:6px 0 0;padding-left:18px;color:var(--text-2)">' +
+      DIFFERENTIATION.drags.map(d => '<li style="margin-bottom:4px"><strong>' + d.label + '</strong> — ' + d.swing + '</li>').join('') + '</ul></div>';
+  }
+  if (DIFFERENTIATION.distanceUp || DIFFERENTIATION.distanceDown) {
+    html += '<div style="margin-top:10px;font-size:0.78rem;color:var(--text-3)">' +
+      [DIFFERENTIATION.distanceUp, DIFFERENTIATION.distanceDown].filter(Boolean).join(' · ') + '</div>';
+  }
+  html += '</div></div>';
+  host.insertAdjacentHTML('afterend', html);
+}
+
+function renderRedFlags() {
+  const el = document.getElementById('red-flags-section');
+  if (!RED_FLAGS || RED_FLAGS.length === 0) {
+    el.innerHTML = '<div class="red-flags-clean">✓ No disqualifying red flags detected for this market.</div>';
+    return;
+  }
+  let html = '<div class="red-flags-wrap anim-fade-up d3"><h2>⚠ Red Flags Detected (' + RED_FLAGS.length + ' of 10 Framework Items Triggered)</h2><ul>';
+  RED_FLAGS.forEach(f => {
+    html += '<li><strong>' + f.flag + '</strong>' + (f.data || '') + '</li>';
+  });
+  html += '</ul></div>';
+  el.innerHTML = html;
+}
+
+function bandClass(v) {
+  if (v <= 4) return '1';      // red band
+  if (v <= 6) return '3';      // yellow band
+  return '5';                  // teal band
+}
+
+function renderScorecard() {
+  const body = document.getElementById('scorecard-body');
+  let html = '';
+  SCORECARD_DATA.forEach((cat, i) => {
+    cat.currentScore = cat.score;
+    const contrib = (cat.score * cat.weight).toFixed(2);
+    html += '<div class="score-row" id="row-' + i + '">' +
+      '<div class="score-row-left">' +
+        '<div class="cat-name">' + cat.name + '</div>' +
+        '<div class="cat-meta">Weight: ' + (cat.weight * 100).toFixed(0) + '% · Contrib: <span id="contrib-' + i + '">' + contrib + '</span></div>' +
+        '<span class="rationale-toggle" onclick="toggleRationale(' + i + ')">▸ Why this score</span>' +
+        '<div class="rationale-card" id="rationale-' + i + '">' +
+          cat.rationale +
+          '<div class="confidence">Data confidence: ' + cat.confidence + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="score-row-right">' +
+        '<div class="pills" id="pills-' + i + '">' +
+          [1,2,3,4,5,6,7,8,9,10].map(v => '<button class="pill' + (v === cat.score ? ' active-' + bandClass(v) : '') + '" data-cat="' + i + '" data-val="' + v + '" onclick="setScore(' + i + ',' + v + ')">' + v + '</button>').join('') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  });
+  body.innerHTML = html;
+  updateTotalDisplay();
+}
+
+function setScore(catIndex, val) {
+  SCORECARD_DATA[catIndex].currentScore = val;
+  const pillsEl = document.getElementById('pills-' + catIndex);
+  pillsEl.querySelectorAll('.pill').forEach(p => {
+    p.className = 'pill' + (parseFloat(p.dataset.val) === val ? ' active-' + bandClass(val) : '');
+  });
+  const contribEl = document.getElementById('contrib-' + catIndex);
+  if (contribEl) contribEl.textContent = (val * SCORECARD_DATA[catIndex].weight).toFixed(2);
+  updateTotalDisplay();
+}
+
+function updateTotalDisplay() {
+  let total = 0;
+  SCORECARD_DATA.forEach(cat => { total += cat.currentScore * cat.weight; });
+  const rounded = total.toFixed(2);
+  document.getElementById('overall-score-display').textContent = rounded;
+  document.getElementById('total-score-display').textContent = rounded;
+  updateBadgeColor(total);
+}
+
+function toggleRationale(i) {
+  const el = document.getElementById('rationale-' + i);
+  const toggle = el.previousElementSibling;
+  el.classList.toggle('open');
+  toggle.textContent = el.classList.contains('open') ? '▾ Hide rationale' : '▸ Why this score';
+}
+
+function renderLanes() {
+  const container = document.getElementById('lanes-container');
+  let html = '';
+  LANES_DATA.forEach((lane, i) => {
+    const isActive = i === activeLaneIndex;
+    // Look up matching pro forma for capital fit badge
+    const pf = PROFORMA_DATA.find(p => p.laneId === lane.id);
+    let capitalBadge = '';
+    if (pf && pf.cashRequired && pf.userCashAvailable) {
+      const fits = pf.cashRequired <= pf.userCashAvailable;
+      if (fits) {
+        capitalBadge = '<div class="capital-fit-badge fits">✓ Fits Your Capital</div>';
+      } else {
+        const shortfall = Math.ceil((pf.cashRequired - pf.userCashAvailable) / 1000);
+        capitalBadge = '<div class="capital-fit-badge short">⚠ +$' + shortfall + 'K Needed</div>';
+      }
+    }
+    html += '<div class="lane-card' + (isActive ? ' active' : '') + '" id="lane-' + i + '" onclick="selectLane(' + i + ')">' +
+      '<div class="lane-card-left">' +
+        '<div class="lane-header">' +
+          '<div class="lane-title">' + lane.title + '</div>' +
+        '</div>' +
+        '<div class="lane-subtitle">' + lane.subtitle + '</div>' +
+        (lane.revenueConfidence ? '<div style="display:inline-block;margin-top:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--yellow);background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:5px;padding:3px 8px">⚑ ' + lane.revenueConfidence + '</div>' : '') +
+        '<div class="lane-detail-grid">' +
+          '<div class="lane-detail-item"><span class="detail-label">Bedrooms</span>' + lane.bedrooms + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Price Range</span>' + lane.priceRange + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Max Distance</span>' + lane.maxDistance + '</div>' +
+          '<div class="lane-detail-item"><span class="detail-label">Guest Profile</span>' + lane.guestAvatar + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Must-Have Amenities</span>' + lane.mustHaveAmenities.join(' · ') + '</div>' +
+          '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Differentiators</span>' + lane.differentiatorAmenities.join(' · ') + '</div>' +
+          (lane.valueAdd ? '<div class="lane-detail-item" style="grid-column:1/-1"><span class="detail-label">Value-Add to Seek</span>' + lane.valueAdd + '</div>' : '') +
+        '</div>' +
+        '<div class="moat-tags">' + lane.moatCategories.map(m => '<span class="moat-tag">' + m + '</span>').join('') + '</div>' +
+        ((lane.confirmingListings && lane.confirmingListings.length) ? (
+          '<div class="confirming-listings">' +
+            '<div class="cl-label">Live listings that fit this buy box</div>' +
+            lane.confirmingListings.map(l => '<a href="' + l.url + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">' + l.label + '</a>').join('') +
+          '</div>'
+        ) : '') +
+      '</div>' +
+      '<div class="lane-card-right">' +
+        '<div class="lane-price">' + lane.priceRange.replace(' – ', '–') + '</div>' +
+        '<div style="font-size:0.68rem;color:var(--text-3);letter-spacing:0.04em;text-transform:uppercase;font-weight:600">Purchase</div>' +
+        capitalBadge +
+      '</div>' +
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function renderProFormaTabs() {
+  const tabs = document.getElementById('pf-lane-tabs');
+  if (!tabs) return;
+  tabs.innerHTML = LANES_DATA.map((lane, i) =>
+    '<button class="pf-lane-tab' + (i === activeLaneIndex ? ' active' : '') + '" data-lane="' + i + '" onclick="selectLane(' + i + ')">' + lane.title + '</button>'
+  ).join('');
+}
+
+function selectLane(i) {
+  activeLaneIndex = i;
+  document.querySelectorAll('.lane-card').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.querySelectorAll('.pf-lane-tab').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.getElementById('active-lane-name').textContent = LANES_DATA[i].title;
+  renderProForma();
+}
+
+function renderProForma() {
+  const activeLaneId = LANES_DATA[activeLaneIndex].id;
+  const pf = PROFORMA_DATA.find(p => p.laneId === activeLaneId) || PROFORMA_DATA[activeLaneIndex];
+  const body = document.getElementById('proforma-body');
+  if (!pf) {
+    body.innerHTML = '<p style="color:var(--text-3);padding:16px">No pro forma data available.</p>';
+    return;
+  }
+
+  const opExpRatio = pf.opExpRatio || 0.40;
+  const hasOpExpSplit = typeof pf.fixedOpEx === 'number' && typeof pf.variableOpExRate === 'number';
+  const roiLow  = (pf.revenueMin / (pf.priceMid || 1) * 100).toFixed(1);
+  const roiHigh = (pf.revenueMax / (pf.priceMid || 1) * 100).toFixed(1);
+  const grossRoiPass = parseFloat(roiLow) >= 15;
+  const opExpLow  = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMin * pf.variableOpExRate) : Math.round(pf.revenueMin * opExpRatio);
+  const opExpHigh = hasOpExpSplit ? Math.round(pf.fixedOpEx + pf.revenueMax * pf.variableOpExRate) : Math.round(pf.revenueMax * opExpRatio);
+  const opExpPctLow  = pf.revenueMin > 0 ? Math.round(opExpLow  / pf.revenueMin * 100) : 0;
+  const opExpPctHigh = pf.revenueMax > 0 ? Math.round(opExpHigh / pf.revenueMax * 100) : 0;
+  const netLow  = Math.round(pf.revenueMin - opExpLow - pf.debtService);
+  const netHigh = Math.round(pf.revenueMax - opExpHigh - pf.debtService);
+  const netPctLow = pf.revenueMin > 0 ? (netLow / pf.revenueMin * 100).toFixed(0) : '—';
+  const cocLow  = pf.cashRequired > 0 ? (netLow  / pf.cashRequired * 100).toFixed(1) : '—';
+  const cocHigh = pf.cashRequired > 0 ? (netHigh / pf.cashRequired * 100).toFixed(1) : '—';
+  const bearRev  = Math.round(pf.revenueMin * 0.9);
+  const bearExp  = hasOpExpSplit ? Math.round((pf.fixedOpEx + bearRev * pf.variableOpExRate) * 1.1) : Math.round(opExpLow * 1.1);
+  const bearNet  = bearRev - bearExp - pf.debtService;
+  const capitalFits = pf.cashRequired <= pf.userCashAvailable;
+  const capitalNote = pf.cashRequiredNote || '20% down + 3% closing + 5% furnishing + 6-mo reserve';
+  // Bear case 3-tier classification
+  const appreciationRate = pf.appreciationY1 ? (pf.appreciationY1 / pf.priceMid) : 0;
+  let bearTierBadge;
+  if (bearNet > 0) {
+    bearTierBadge = '<span class="pass">✓ PASS</span>';
+  } else if (bearNet > -(pf.debtService * 0.25) && appreciationRate > 0) {
+    bearTierBadge = '<span class="warn">⚠ SURVIVABLE</span>';
+  } else {
+    bearTierBadge = '<span class="fail">✗ DISTRESS</span>';
+  }
+  const opExpLabel = hasOpExpSplit
+    ? opExpPctLow + '%→' + opExpPctHigh + '% of revenue · fixed ' + fmt$(pf.fixedOpEx) + ' + ' + Math.round(pf.variableOpExRate * 100) + '% variable — ratio runs higher at low revenue'
+    : (opExpRatio * 100).toFixed(0) + '% (market-specific, per-lane)';
+
+  // Cost seg tile values
+  const hasCostSeg = pf.costSegBenefit && pf.buildingPct;
+  const buildingPctDisplay = hasCostSeg ? Math.round(pf.buildingPct * 100) + '%' : '—';
+  const landPctDisplay = hasCostSeg ? Math.round((1 - pf.buildingPct) * 100) + '%' : '—';
+  const netAfterCostSeg = pf.netCfAfterCostSegY1 || (netLow + (pf.costSegBenefit || 0));
+  const costSegAssumptions = pf.costSegAssumptions || '';
+
+  // PM impact tile
+  const hasPM = typeof pf.netCfLow_pm === 'number';
+  const pmSavings = hasPM ? (netLow - pf.netCfLow_pm) : 0;
+
+  // Capital breakeven
+  const showBreakeven = !capitalFits && pf.capitalBreakevenPrice && pf.capitalBreakevenPrice > 0;
+
+  body.innerHTML =
+    '<div class="pf-grid">' +
+      // Row 1: Revenue + Gross ROI
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross Revenue Range</div>' +
+        '<div class="pf-value">' + fmt$(pf.revenueMin) + ' – ' + fmt$(pf.revenueMax) + '</div>' +
+        '<div class="pf-note">Tier-appropriate range · self-manage assumed</div>' +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Gross ROI</div>' +
+        '<div class="pf-value">' + roiLow + '% – ' + roiHigh + '% ' + passIcon(grossRoiPass) + '</div>' +
+        '<div class="pf-note">Min 15% · Target 18–20%</div>' +
+      '</div>' +
+      // Row 2: OpExp + Debt Service
+      '<div class="pf-item">' +
+        '<div class="pf-label">Operating Expenses (' + opExpLabel + ')</div>' +
+        '<div class="pf-value">' + fmt$(opExpLow) + ' – ' + fmt$(opExpHigh) + '</div>' +
+        '<div class="pf-note">Narrow-lane: taxes + insurance + platform fee + supplies only · excl. debt service</div>' +
+        (pf.fullCostOpExpMid ? '<div style="margin-top:5px;font-size:0.78rem;padding:6px 10px;background:var(--yellow-bg);border:1px solid var(--yellow-dim);border-radius:6px;color:var(--amber-pale);line-height:1.5"><strong style="color:var(--yellow)">Full annual cost</strong> (adds cleaning + maintenance): <strong style="color:var(--text-1)">' + fmt$(pf.fullCostOpExpMid) + '</strong> · Self-manage net CF at midpoint revenue: ' + fmt$(Math.round((pf.revenueMin + pf.revenueMax)/2 - pf.fullCostOpExpMid - pf.debtService)) + '</div>' : '') +
+      '</div>' +
+      '<div class="pf-item">' +
+        '<div class="pf-label">Estimated Debt Service</div>' +
+        '<div class="pf-value">' + fmt$(pf.debtService) + '/yr</div>' +
+        '<div class="pf-note">' + pf.loanNote + '</div>' +
+      '</div>' +
+      // Row 3: Net CF (self-manage) + PM Impact
+      '<div class="pf-item">' +
+        '<div class="pf-label">Net Cash Flow (Self-Manage)</div>' +
+        '<div class="pf-value">' + fmt$(netLow) + ' – ' + fmt$(netHigh) + '</div>' +
+        '<div class="pf-note">~' + netPctLow + '% of gross · self-manage only</div>' +
+      '</div>' +
+      (hasPM ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label">If PM-Managed (25%)</div>' +
+          '<div class="pf-value fail">' + fmt$(pf.netCfLow_pm) + '/yr</div>' +
+          '<div class="pf-note">Self-manage saves ' + fmt$(pmSavings) + '/yr vs full PM · co-host at 10–15% is middle option</div>' +
+        '</div>'
+      ) : '') +
+      // Row 4: CoC Return + Total Return
+      '<div class="pf-item">' +
+        '<div class="pf-label">Cash-on-Cash Return</div>' +
+        '<div class="pf-value">' + cocLow + '% – ' + cocHigh + '%</div>' +
+        '<div class="pf-note">Target 10%+ · Excellent 20%+</div>' +
+      '</div>' +
+      (pf.appreciationY1 ? (
+        '<div class="pf-item">' +
+          '<div class="pf-label" style="color:var(--teal)">Total Economic Return (Yr 1 — incl. one-time cost seg)</div>' +
+          '<div class="pf-value" style="color:var(--teal)">' + fmt$(pf.totalReturnLow) + '</div>' +
+          '<div class="pf-note">Net CF ' + fmt$(netLow) + ' + ' + fmt$(pf.appreciationY1) + ' appreciation + ' + fmt$(pf.costSegBenefit || 0) + ' cost seg. The cost-seg benefit is a ONE-TIME Year-1 item — recurring annual return is the Net CF above; it does not repeat in Year 2+.</div>' +
+        '</div>'
+      ) : '') +
+      // Cost Segregation section (full row)
+      (hasCostSeg ? (
+        '<div class="pf-item" style="grid-column:1/-1;border-color:var(--teal-dim)">' +
+          '<div class="pf-label" style="color:var(--teal)">Cost Segregation Benefit (Year 1) — One-Time</div>' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px">' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Tax Savings (37% bracket)</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--teal)">' + fmt$(pf.costSegBenefit) + '</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Depreciable Basis</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-1)">' + buildingPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * pf.buildingPct)) + ')</div>' +
+            '</div>' +
+            '<div>' +
+              '<div style="font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:3px">Land Excluded</div>' +
+              '<div style="font-size:1.15rem;font-weight:800;color:var(--text-2)">' + landPctDisplay + ' of purchase (' + fmt$(Math.round(pf.priceMid * (1 - pf.buildingPct))) + ')</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:0.72rem;color:var(--teal-dim)">' +
+            'Yr 1 effective position (net CF + cost seg): <strong style="color:var(--teal)">' + fmt$(netAfterCostSeg) + '</strong> · ' +
+            (costSegAssumptions ? costSegAssumptions + ' · ' : '') +
+            'Study cost: $5K–$12K · Requires 100+ hrs material participation' +
+          '</div>' +
+        '</div>'
+      ) : '') +
+      // Cash Required + Capital Breakeven
+      '<div class="pf-item">' +
+        '<div class="pf-label">Total Cash Required</div>' +
+        '<div class="pf-value ' + (capitalFits ? 'pass' : 'fail') + '">' + fmt$(pf.cashRequired) + ' ' + (capitalFits ? '✓' : '⚠') + '</div>' +
+        '<div class="pf-note">' + capitalNote + ' · You have: ' + fmt$(pf.userCashAvailable) + '</div>' +
+        (showBreakeven ? '<div style="margin-top:6px;font-size:0.78rem;color:var(--yellow)">Capital breakeven: ~' + fmt$(pf.capitalBreakevenPrice) + ' — buy at or below this price to fit your cash</div>' : '') +
+      '</div>' +
+      // Bear Case (full row)
+      '<div class="bear-case">' +
+        '<h4>Bear Case Stress Test — Revenue −10% / Expenses +10%</h4>' +
+        '<div class="bear-row"><span>Bear case revenue</span><span>' + fmt$(bearRev) + '</span></div>' +
+        '<div class="bear-row"><span>Bear case op expenses</span><span>' + fmt$(bearExp) + '</span></div>' +
+        '<div class="bear-row"><span>Debt service</span><span>' + fmt$(pf.debtService) + '</span></div>' +
+        '<div class="bear-row bear-result">' +
+          '<span>Bear case net cash flow</span>' +
+          '<span>' + fmt$(bearNet) + ' ' + bearTierBadge + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+function renderNextSteps() {
+  const container = document.getElementById('checklist-container');
+  if (!container) return;
+  container.innerHTML = (NEXT_STEPS || []).map(s => '<li><strong>' + s.title + '</strong> ' + s.body + '</li>').join('');
+}
+
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  header.classList.toggle('open', !isOpen);
+  body.classList.toggle('collapsed', isOpen);
+}
+
+function renderCapitalAlert() {
+  const container = document.getElementById('capital-alert-container');
+  if (!SHOW_CAPITAL_ALERT) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>⚠ Capital Fit Alert</strong> ${CAPITAL_ALERT_BODY}</div>`;
+}
+
+function renderRoiContext() {
+  const container = document.getElementById('roi-context-container');
+  if (!ROI_CONTEXT_NOTE) { container.style.display = 'none'; return; }
+  container.innerHTML = `<div class="capital-alert"><strong>ℹ Market Context</strong> ${ROI_CONTEXT_NOTE}</div>`;
+}
+
+renderCapitalAlert();
+renderRoiContext();
+renderRedFlags();
+renderDifferentiation();
+renderScorecard();
+renderLanes();
+renderProFormaTabs();
+renderProForma();
+renderNextSteps();
+</script>
+</body>
+</html>
